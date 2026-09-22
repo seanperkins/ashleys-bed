@@ -1,0 +1,37 @@
+﻿Code,Item,Queen_quantity,Supply_status,Buy_separately,Notes,Source
+A1,Left frame bar with pivot point,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+A2,Right frame bar with pivot point,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+B,Interior frame support,4,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+C,Short center frame support,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+D,Long center frame support,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+E,Front/back frame bar,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+F,Flat splice bar,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+G1,Piston,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+H,Mattress support,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+I,"Mounting plate, left/right",2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+J,Saddle locking plate,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+L,Door bracket,16,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+M,"Leg, left/right",2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+N,Foot bar,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+O,Wood slat,40,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+P,Slat cap,40,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+Q,Double slat cap,20,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+R,Wrench,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+S2,5 mm Allen key,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+T,Threaded insert,16,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+U,M8 x 16 mm screw,16,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+V,#10 x 55 mm screw,28,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+W,#8 x 15 mm screw,56,Listed in kit inventory,No,"Manual quantity ambiguity: p5 inventory lists 56; p17 calls for two screws on each of 16 brackets (32), and p18 mentions 56 frame screws. Confirm whether 56 is total or additional; do not automatically purchase an inferred shortage.",https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+Z,M5 x 15 mm screw,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+AA,M6 x 30 mm bolt,4,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+BB,M8 bolt; inventory lists 45 mm length,34,Listed in kit inventory,No,Manual discrepancy: p5 lists M8 x 45 mm; p13 assembly repeatedly says M8 x 50 mm. Confirm supplied/correct length with Rockler; do not substitute by guessing.,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+DD,Nylon washer,4,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+EE,M5 nut,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+FF,M8 locking nut,40,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+GG,Temporary stop,2,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+HH,Wall bracket,3,Listed in kit inventory,No,"All three required for bed installation, although hidden in the CAD previews. Use every specified bracket fastener; hiding the model component does not omit it from construction.",https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+II,1/4-20 x 30 mm Allen-head screw,3,Listed in kit inventory,No,One through-bolt per bed wall bracket.,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+JJ,#12 x 3/4-inch washer-head screw,6,Listed in kit inventory,No,Two per bed wall bracket.,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+KK,1/4 x 3-inch washer-head lag bolt,12,Listed in kit inventory,No,All 12 are required for the BED: six through upper/lower headboards and six at three top wall brackets. All into wooden studs. None allocated to bookcases.,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+NN,4 mm Allen key,1,Listed in kit inventory,No,,https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp4-5
+OO,M6 nut,4,Required by assembly; inventory omission,Confirm with Rockler,"Foot-bar installation p16 requires two nuts per leg (four total), but OO is omitted from the pp4-5 inventory table. Confirm these are supplied before ordering replacements.",https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf pp16

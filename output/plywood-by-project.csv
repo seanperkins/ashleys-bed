@@ -1,0 +1,28 @@
+Assembly,Stock_thickness_in,Part,Quantity,Finished_thickness_in,Width_in,Length_in,Source_sheet_ID,Sheet_shared_with,Layout_sheet_width_in,Layout_sheet_length_in,X_in,Y_in,Purchase_ID,Notes,Part_ID
+Main cabinet,0.75,2T Top | 3/4 x 16 x 85-1/4,1,0.75,16.0,85.25,S01,Left shelf,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M03
+Main cabinet,0.75,2B Bottom | 3/4 x 16 x 85-1/4,1,0.75,16.0,85.25,S01,Left shelf,48,96,17.25,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M04
+Main cabinet,0.75,3 Upper headboard — REQUIRED,1,0.75,16.0,85.25,S02,,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M05
+Main cabinet,0.75,4 Lower headboard — REQUIRED,1,0.75,16.0,85.25,S02,,48,96,17.25,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M06
+Main cabinet,0.75,6 Permanent stop | adjust contact location to actual kit,1,0.625,3.0,56.0,S02,,48,96,33.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length. M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.",M07
+Main cabinet,0.75,1R Right side | 3/4 x 16 x 64,1,0.75,16.0,64.0,S03,Left shelf,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M01
+Main cabinet,0.75,1L Left side | 3/4 x 16 x 64,1,0.75,16.0,64.0,S03,Left shelf,48,96,17.25,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M02
+Main cabinet,0.75,5.1 Door panel | 3/4 x 21-1/8 x 61-13/16,1,0.75,21.125,61.8125,S05,Left shelf,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M08
+Main cabinet,0.75,5.2 Door panel | 3/4 x 21-1/8 x 61-13/16,1,0.75,21.125,61.8125,S05,Left shelf,48,96,22.375,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M09
+Main cabinet,0.75,5.3 Door panel | 3/4 x 21-1/8 x 61-13/16,1,0.75,21.125,61.8125,S06,Left shelf,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M10
+Main cabinet,0.75,5.4 Door panel | 3/4 x 21-1/8 x 61-13/16,1,0.75,21.125,61.8125,S06,Left shelf,48,96,22.375,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",M11
+Left shelf,0.75,Left cabinet: Recessed plinth,1,0.75,2.5,28.5,S01,Main cabinet,48,96,44.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L05
+Left shelf,0.75,Left cabinet: Drawer face,1,0.75,10.5,28.25,S01,Main cabinet,48,96,33.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L16
+Left shelf,0.75,Left cabinet: Top,1,0.75,16.0,28.5,S03,Main cabinet,48,96,0.75,65.25,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L03
+Left shelf,0.75,Left cabinet: Bottom,1,0.75,16.0,28.5,S03,Main cabinet,48,96,17.25,65.25,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L04
+Left shelf,0.75,Left cabinet: Left side,1,0.75,16.0,64.0,S04,,48,96,0.75,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L01
+Left shelf,0.75,Left cabinet: Right side,1,0.75,16.0,64.0,S04,,48,96,17.25,0.75,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L02
+Left shelf,0.75,Left cabinet: Shelf above drawer,1,0.75,15.75,28.5,S04,,48,96,0.75,65.25,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L07
+Left shelf,0.75,Left cabinet: Shelf 1,1,0.75,15.75,28.5,S04,,48,96,17.25,65.25,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L08
+Left shelf,0.75,Left cabinet: Shelf 2,1,0.75,15.75,28.5,S05,Main cabinet,48,96,0.75,63.0625,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L09
+Left shelf,0.75,Left cabinet: Shelf 3,1,0.75,15.75,28.5,S06,Main cabinet,48,96,0.75,63.0625,P01,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L10
+Left shelf,0.5,Left cabinet: Drawer Left side,1,0.5,8.0,14.0,S07,,24,48,0.75,27.75,P02,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length. One 24 x 48 project panel for the LEFT drawer; confirm grain along 48-inch length.",L11
+Left shelf,0.5,Left cabinet: Drawer Right side,1,0.5,8.0,14.0,S07,,24,48,9.25,27.75,P02,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length. One 24 x 48 project panel for the LEFT drawer; confirm grain along 48-inch length.",L12
+Left shelf,0.5,Left cabinet: Drawer back,1,0.5,8.0,26.5,S07,,24,48,0.75,0.75,P02,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length. One 24 x 48 project panel for the LEFT drawer; confirm grain along 48-inch length.",L13
+Left shelf,0.5,Left cabinet: Drawer inner front,1,0.5,8.0,26.5,S07,,24,48,9.25,0.75,P02,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length. One 24 x 48 project panel for the LEFT drawer; confirm grain along 48-inch length.",L14
+Left shelf,0.25,Left cabinet: Plywood back,1,0.25,28.5,60.0,S08,,48,96,0.75,0.75,P03,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L06
+Left shelf,0.25,Left cabinet: Drawer bottom,1,0.25,14.0,27.5,S08,,48,96,29.75,0.75,P03,"Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length.",L15

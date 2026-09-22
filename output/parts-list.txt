@@ -1,0 +1,269 @@
+ASHLEY'S BED - BED + LEFT CABINET PURCHASING LIST
+
+Design: horizontal queen bed, 86.75 inches wide, plus LEFT 30 x 64 x 16-inch cabinet.
+Overall carcass: 116.75 W x 64 H x 16 D inches. LEFT means room-facing left.
+One drawer; four open bays above it with three adjustable shelves and one fixed shelf.
+
+PURCHASING BASIS
+27 wood pieces: main bed 11; LEFT cabinet and drawer 16. All dimensions remain as in
+cabinet-cut-list.csv. Stock lengths run parallel to every part Length_in; layout allowances
+are 3/4-inch sheet-edge margins and 1/2-inch gaps. The shared-sheet purchasing arrangement
+is not a claim of minimum-sheet optimization or machine-ready CNC fabrication.
+Actual plywood thickness, final CNC joinery/drilling, shelf fitting clearance and the exact
+slide model/mounting requirements remain unresolved physical/fabrication inputs.
+
+PLYWOOD SHORT VERSION - BUY EACH SOURCE SHEET ONCE
+3/4 inch: SIX full 48 x 96 sheets, S01-S06; 20 finished 3/4-inch parts plus one stop blank.
+1/2 inch: ONE 24 x 48 project panel, S07; four panels for one LEFT drawer box.
+1/4 inch: ONE full 48 x 96 sheet, S08; one LEFT cabinet back and one drawer bottom.
+The required 5/8 x 3 x 56-inch stop is milled from an included 3/4-inch blank.
+No spare full sheet is included. The drawer box is built from the allocated panels,
+not bought as an additional complete box.
+
+PLYWOOD BY PROJECT - CUT QUANTITIES, NOT FRACTIONAL SHEET ORDERS
+Project | Stock | Pieces | Net cut area | Source sheets
+Main cabinet | 3/4 inch | 11 including stop blank | 89.5497 sq ft | S01/S02/S03/S05/S06
+LEFT shelf + drawer | 3/4 inch | 10 | 35.5790 sq ft | S01/S03/S04/S05/S06
+LEFT shelf + drawer | 1/2 inch | 4 | 4.5000 sq ft | S07
+LEFT shelf + drawer | 1/4 inch | 2 | 14.5486 sq ft | S08
+Main has no 1/2-inch or 1/4-inch cut parts. Net areas exclude cutting gaps and waste.
+Main dedicated sheet: S02. LEFT dedicated sheets/panel: S04, S07 and S08.
+Shared sheets: S01, S03, S05 and S06. Count these once, not once per project.
+
+PHYSICAL SHEET MAP
+S01 | 3/4 x 48 x 96 | Main top/bottom; LEFT drawer face and recessed plinth.
+S02 | 3/4 x 48 x 96 | Main upper/lower headboards; M07 stop blank milled to 5/8 inch.
+S03 | 3/4 x 48 x 96 | Main two sides; LEFT top/bottom.
+S04 | 3/4 x 48 x 96 | LEFT two sides, fixed shelf above drawer and adjustable Shelf 1.
+S05 | 3/4 x 48 x 96 | Main door panels 5.1/5.2; LEFT adjustable Shelf 2.
+S06 | 3/4 x 48 x 96 | Main door panels 5.3/5.4; LEFT adjustable Shelf 3.
+S07 | 1/2 x 24 x 48 | LEFT drawer two sides, back and inner front.
+S08 | 1/4 x 48 x 96 | LEFT one-piece cabinet back and drawer bottom.
+Per-piece IDs, dimensions and placement coordinates: plywood-by-project.csv.
+
+FINISH AREA AND PACKAGE ALLOWANCES
+Existing area method retained: both faces plus all four edges of every painted part,
+using finished thickness. Per-part square feet = [2 x width x length +
+2 x thickness x (width + length)] / 144, multiplied by quantity (dimensions in inches).
+The four natural-finish drawer-box walls and its bottom are excluded from navy paint.
+Main: 179.0994 sq ft faces + 9.8533 sq ft edges = 188.9527 sq ft.
+LEFT: 94.9080 sq ft faces + 5.4714 sq ft edges = 100.3793 sq ft.
+Total: 289.3320 sq ft (22 painted parts). Rounded total: about 289.3 sq ft.
+Primer: 289.3320 / 350 x one coat = 0.8267 gallon; purchase allowance ONE gallon.
+Enamel: 289.3320 / 350 x two coats = 1.6533 gallons; purchase allowance TWO gallons.
+Actual product coverage, edge sealing, samples and extra coats may require more.
+Keep glue surfaces bare; these geometric areas are an allowance, not precise consumption.
+
+MINIMUM REQUIREMENTS VS PURCHASE PACKAGES
+One slide pair, three pulls and one separate cabinet restraint kit are required.
+Three adjustable shelves require 12 pins; allowance is one 20-pin pack, leaving 8 spares.
+Bed-only requirements stay 32 #8 x 2-inch screws, 22 dowels and at least 4 stop screws.
+Larger screw/dowel packages, glue, shims and finish supplies are purchased once; retained
+pack allowances are NOT a final cabinet fastener count and are not blindly halved.
+Four cabinet connector sets are optional alignment hardware, never wall restraints.
+No supplier price, stock confirmation or new project-cost claim is included.
+
+
+MAIN MATERIALS
+[ ] Rockler I-Semble horizontal queen steel-frame Murphy bed kit -- 1 complete kit
+    Specification: HORIZONTAL mount; QUEEN 60 x 80 mattress; steel platform with 40 wood slats
+    Used for: Center bed
+    Basis: One kit
+    Note: Exact horizontal-queen SKU not verified; do not substitute a vertical kit. Included hardware appears in the separate kit-inventory CSV. Confirm the noted manual discrepancies with Rockler.
+[ ] 3/4-inch cabinet-grade plywood -- 6 48 x 96 inch sheets
+    Specification: Veneer-core cabinet-grade plywood; no MDF/particleboard core
+    Used for: Main bed cabinet and four bed fronts; LEFT cabinet carcass, shelves and drawer face
+    Basis: Shared-sheet purchasing layout; 21 stock pieces total
+    Note: 20 finished 3/4-inch pieces plus one stop blank to mill to 5/8 inch. Main: 11 stock pieces from S01/S02/S03/S05/S06; S02 dedicated. Left: 10 stock pieces from S01/S03/S04/S05/S06; S04 dedicated. Shared: S01/S03/S05/S06. Buy S01-S06 once total. 3/4-inch sheet-edge margins and 1/2-inch gaps; grain follows Length_in. No spare full sheet or minimum-sheet claim. See plywood-by-project.csv for every piece.
+[ ] 1/2-inch drawer-box plywood -- 1 24 x 48 inch project panel
+    Specification: Cabinet-grade plywood; actual thickness must be measured
+    Used for: One LEFT drawer box; four panels
+    Basis: Shared-sheet purchasing layout; four pieces on S07
+    Note: Two 8 x 14 sides and two 8 x 26.5 front/back panels; total cut area 4.5 sq ft. Panel length 48 inches is parallel to part Length_in. Confirm project-panel availability; no full-sheet price fallback is assumed.
+[ ] 1/4-inch plywood -- 1 48 x 96 inch sheet
+    Specification: Cabinet-grade plywood; actual thickness must be measured
+    Used for: One LEFT cabinet back and one drawer bottom
+    Basis: Shared-sheet purchasing layout; two pieces on S08
+    Note: One 28.5 x 60 back and one 14 x 27.5 drawer bottom; total cut area 14.5486 sq ft. One-piece back retained; final rabbet/groove and attachment details remain pending.
+[ ] Permanent-stop material -- CHECK / ALREADY ALLOCATED
+    Specification: Finished 5/8 x 3 x 56 inches
+    Used for: Bed closed-position stop
+    Basis: Included in 3/4-inch sheet allocation on S02
+    Note: Mill the allocated 3/4-inch blank M07 on S02 to the required 5/8-inch finished thickness; do not install it at 3/4 inch.
+
+COMPATIBILITY CHECK
+[ ] Queen mattress -- COMPATIBILITY CHECK ONLY - NOT A PURCHASE
+    Specification: 60 x 80 inches; at most 10 inches thick and 132 lb; no foam or very light mattress
+    Used for: Bed
+    Basis: One compatible mattress required; compatibility check only
+    Note: Not a priced or assumed new purchase. Maximum dynamic moving load 395 lb; suggested dynamic weight 280-395 lb includes door panels, hardware, mattress and bedding. Confirm complete moving-assembly weight; 132 lb is a maximum, not a target or minimum.
+
+CABINET HARDWARE
+[ ] Drawer slides -- 1 pair
+    Specification: 14-inch full-extension side-mount ball-bearing slides; nominal 1/2-inch clearance per side; nominal 100-lb pair rating
+    Used for: One LEFT drawer
+    Basis: One modeled 14-inch drawer box
+    Note: Exact slide model not selected. Confirm its actual clearance, depth, load-rating conditions and mounting pattern before cutting or drilling.
+[ ] Shelf pins -- 20 pins
+    Specification: 5 mm steel shelf supports with flat/spoon bearing surface
+    Used for: Three adjustable LEFT shelves
+    Basis: 12 required plus 8 spares; one 20-pin pack allowance
+    Note: Four supports per adjustable shelf; fixed shelf above drawer does not use pins. Match future hole diameter, depth and edge distances to the actual pins; pin holes and shelf fitting clearances remain unmodeled. Verify actual pack contents.
+[ ] Matching pulls -- 3 pulls with fixing bolts
+    Specification: Black bar pulls; approximately 6-inch centers to match representative model
+    Used for: Two bed pulls and one LEFT drawer pull
+    Basis: Three pulls required
+    Note: Choose the actual center spacing before drilling. Obtain six matching machine screws sized for 3/4-inch panels; do not buy them twice if supplied with the pulls. Thread depends on selected pull; do not independently assume M4 or #8-32.
+[ ] Bookcase anti-tip restraints -- 1 complete restraint kit
+    Specification: Manufacturer-rated restraints compatible with wood studs and 3/4-inch plywood cabinet structure, with specified fasteners
+    Used for: One installation kit for the LEFT cabinet
+    Basis: One separate tall cabinet
+    Note: This is ADDITIONAL to all required bed anchors. Installer must select and install a suitable restraint and any required backing/blocking; do not anchor only to the 1/4-inch back. Restraint is not yet modeled.
+
+FASTENERS AND ADHESIVES
+[ ] #8 x 2-inch wood/cabinet screws -- 100 screws
+    Specification: Wood/cabinet screws, not drywall screws
+    Used for: Bed carcass and LEFT cabinet fixed-panel assembly
+    Basis: 32 bed screws exact; balance is a cabinet/spare package allowance
+    Note: Bed count: 8 at the two headboard/top-bottom joints plus 24 at side-panel joints, per pp9-10. Remaining 68 are a retained package allowance, not a required cabinet count. Cabinet quantity depends on final dado/joinery detailing.
+[ ] 3/8 x 1-1/2-inch dowels -- 50 dowels
+    Specification: Fluted hardwood joining dowels
+    Used for: Required bed-cabinet reinforced joints
+    Basis: 22 required; purchase allowance rounded to 50
+    Note: Six at headboard/top-bottom joints plus sixteen at side joints. These do not replace shelf pins.
+[ ] #8 x 1-1/4-inch wood screws -- 25 screws
+    Specification: Wood screws suitable for the permanent stop
+    Used for: Bed permanent stop
+    Basis: At least 4 required; purchase allowance rounded to 25
+    Note: Not supplied in kit. Do not omit these simply because they are absent from the p7 shopping illustration.
+[ ] #6 x 1-1/4-inch wood screws -- 50 screws
+    Specification: Pilot-drilled wood screws for 1/2-inch plywood box corner joints
+    Used for: One LEFT drawer box
+    Basis: Retained 50-screw package allowance, not minimum or final fastener count
+    Note: Final screw positions and need depend on drawer joinery; predrill to avoid splitting the thin plywood edges.
+[ ] #8 x 1-inch washer-head wood screws -- 25 screws
+    Specification: Washer-head wood screws; do not confuse with pull machine screws
+    Used for: Attach one false drawer front from inside box
+    Basis: 4 planned; purchase allowance rounded to 25
+    Note: Current inner front is 1/2 inch and false front 3/4 inch. Check actual stack and penetration before installation.
+[ ] #6 x 3/4-inch panel-attachment screws -- 100 screws
+    Specification: Pan/washer-head wood screws
+    Used for: One LEFT cabinet back and drawer bottom where final joinery provides backing
+    Basis: Retained 100-screw package allowance, not minimum or final fastener count
+    Note: Only fasten where a completed rabbet, groove or suitable backing supports the joint. Back/bottom joinery is pending; this row is not a fastening layout.
+[ ] Slide mounting screws -- CHECK / ALREADY ALLOCATED
+    Specification: Use fasteners specified by the selected slide manufacturer
+    Used for: One slide pair
+    Basis: Inventory check; about 12 screws reserved in assembly planning
+    Note: Final required count comes from the selected slide manufacturer, not this allowance. If not supplied, obtain the specified set before assembly. For 1/2-inch drawer walls, do not use screws long enough to protrude; #6 x 1/2-inch pan-head is a candidate only if approved for the selected slides.
+[ ] Wood glue -- 1 16 fl oz bottle
+    Specification: Interior woodworking PVA glue suitable for plywood and hardwood dowels
+    Used for: Bed dowels, LEFT cabinet fixed joints and one drawer box
+    Basis: One shared bottle; package allowance
+    Note: Glue bare wood, not finished surfaces. Keep adjustable shelves unglued.
+[ ] Removable threadlocker -- 1 small bottle
+    Specification: Removable thread-locking liquid suitable for M5 steel fasteners
+    Used for: M5 saddle-lock screws Z and nuts EE
+    Basis: One bottle; manufacturer recommendation
+    Note: Use according to threadlocker directions; do not substitute adhesive in the plywood threaded-insert holes.
+
+INSTALLATION
+[ ] Noncompressible shims -- 1 pack
+    Specification: Cabinet-installation shims
+    Used for: Level/plumb the bed and LEFT cabinet
+    Basis: One shared pack; site allowance
+    Note: Bed must meet Rockler flush-to-wall/bracket installation requirements. A qualified installer determines shim quantity and acceptable shimming and required fastener embedment.
+
+FINISH
+[ ] Paintable wood filler -- 1 quart
+    Specification: Sandable filler suitable for plywood edges, voids and screw holes
+    Used for: Navy-painted surfaces and exposed plywood edges
+    Basis: Shared finish package allowance
+    Note: Filler is cosmetic, not structural. This plan uses filled/sealed painted edges rather than assuming extra edge-band thickness.
+[ ] Compatible wood primer -- 1 gallon
+    Specification: Primer suitable for veneer-core plywood and selected cabinet enamel
+    Used for: Painted panels, cabinet back and exposed edges
+    Basis: 289.3320 sq ft / 350 sq ft per gallon x 1 coat = 0.8267 gallon; round to 1 gallon
+    Note: Both faces plus all edges; main 188.9527 sq ft and left 100.3793 sq ft. Natural-finish drawer-box panels/bottom excluded. Check actual product coverage; keep glue surfaces bare and allow additional edge sealing if required.
+[ ] Dark navy cabinet enamel -- 2 gallons
+    Specification: Durable cabinet/trim enamel; match approved #182B49 with a physical sample
+    Used for: Painted bed and LEFT cabinet
+    Basis: 289.3320 sq ft / 350 sq ft per gallon x 2 coats = 1.6533 gallons; round to 2 gallons
+    Note: Color code describes the design, not a guaranteed paint formula. Verify the dry sample and chosen product coverage. Allowance is shared across both remaining assemblies, not a per-cabinet purchase.
+[ ] Clear drawer-box finish -- 1 quart
+    Specification: Waterborne clear furniture finish compatible with plywood
+    Used for: One natural-finish drawer box and bottom
+    Basis: Retained optional package allowance
+    Note: Optional if unfinished drawer boxes are preferred; do not coat slide bearing surfaces.
+[ ] Sandpaper or sanding discs -- 3 packs
+    Specification: 120, 180 and 220 grit; one pack per grit, matched to sander
+    Used for: Surface and between-coat preparation
+    Basis: Shared consumable allowance
+    Note: Follow the finish manufacturer sanding schedule; avoid sanding through face veneers.
+[ ] Painting consumables -- 1 set
+    Specification: Suitable brush/rollers, tray liners, masking tape, drop cloth, lint-free cloths and label-specified cleanup supplies
+    Used for: Primer and finish application
+    Basis: Shared consumable allowance
+    Note: Use application tools and PPE appropriate for the selected coatings.
+
+OPTIONAL ALIGNMENT
+[ ] Cabinet connector fasteners -- 4 matched sets if used
+    Specification: Connector bolts/sleeve nuts sized for two measured plywood side panels, about 1-1/2 inches combined
+    Used for: Optional LEFT cabinet-to-bed alignment; one interface
+    Basis: Four optional sets; not structural restraint
+    Note: Not a substitute for wall restraints. Confirm allowed placement with Rockler/installer, clear of all mechanism hardware, before drilling additional bed-cabinet holes.
+
+CHECK TOOLS BEFORE BUYING
+[ ] Drilling and doweling equipment -- CHECK / ALREADY ALLOCATED
+    Specification: Drill; 3/8 doweling jig; bits 5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8, 27/64 inch; #8 countersink; depth stops; future 5 mm shelf-pin boring bit
+    Used for: Manual-specific pilot holes, dowels and shelf-pin work
+    Basis: Check owned/HackRVA tools
+    Note: Some sizes are specified later in the instructions rather than on p7. Confirm actual stock and bit depth before boring.
+[ ] Assembly and installation tools -- CHECK / ALREADY ALLOCATED
+    Specification: 8 mm Allen key; 3/8 nut driver/socket; Phillips driver; clamps; square; level; stud finder; tape; rubber mallet; safe step stool
+    Used for: Cabinet and kit assembly
+    Basis: Check owned/HackRVA tools
+    Note: Kit includes 4 mm and 5 mm Allen keys, not the 8 mm insert key. Do not use an impact driver.
+[ ] CNC and safety equipment -- CHECK / ALREADY ALLOCATED
+    Specification: HackRVA-approved cutters, collets and workholding; dust extraction; eye/hearing protection; coating-appropriate respiratory protection
+    Used for: Cutting, sanding and finishing
+    Basis: Check machine-operator requirements
+    Note: Final CNC tooling, feeds/speeds, toolpaths, training and machine time are not covered by this purchasing list.
+
+INCLUDED KIT HARDWARE - DO NOT BUY TWICE
+See rockler-kit-inventory.csv for the full Queen-column inventory, including frame,
+40 slats, pistons, legs, 16 threaded inserts, door brackets and listed nuts/bolts.
+The bed requires all three wall brackets HH and all twelve 1/4 x 3-inch lag bolts KK:
+six through the upper/lower headboards and six at the three top wall brackets.
+The bracket hardware includes three 1/4-20 x 30 mm through-bolts II and six
+#12 x 3/4-inch washer-head screws JJ. None is spare LEFT-cabinet restraint hardware.
+The LEFT cabinet needs its own suitable structural anti-tip kit and specified fasteners.
+
+CONFIRM WITH ROCKLER BEFORE BUYING REPLACEMENT KIT FASTENERS
+1. Exact HORIZONTAL queen SKU: do not substitute a vertical kit.
+2. BB: inventory p5 says M8 x 45 mm, assembly p13 says M8 x 50 mm.
+3. W: p5 lists 56 screws; p17 describes 32 bracket screws and p18 mentions 56 frame screws.
+   Confirm whether the 56 is total or additional; do not infer an extra purchase.
+4. OO: p16 calls for four M6 nuts, but they are omitted from the inventory table.
+Rockler technical support: 1-800-260-9663 / support@rockler.com (manual p20).
+
+INSTALLATION AND SAFETY
+Use every required bed anchor and all three top wall brackets even though the model hides them.
+The queen bed must attach to at least three 2x4-or-larger wooden studs. No drywall anchors,
+metal-stud substitution, masonry installation or impact driver. Installation requires a
+qualified person and an adult helper. The 1/4-inch LEFT cabinet back is not an anti-tip anchor.
+Do not eliminate either bed headboard. Do not use MDF/particleboard for the bed cabinet.
+Mattress must be 60 x 80, at most 10 inches thick and 132 lb, and not foam or very light.
+Check the full moving-assembly weight against manual p3; hardware motion in CAD is illustrative.
+
+BUDGET STATUS
+Old budget files were moved unchanged to previous-two-cabinet-budget/ and are NOT current.
+Their original 2026-09-12 price-research date and user-entered data are preserved there.
+No replacement supplier quotes, cost allocation or project total have been prepared.
+Mattress remains a compatibility requirement only; no mattress cost or purchase is assumed.
+
+SOURCE
+https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf
+Local copy: references/rockler-horizontal-murphy-bed-inst-25.pdf (February 2025).
+Geometry: output/cabinet-cut-list.csv. Purchasing layout: plywood-purchasing-layout.json.
+Per-piece project/source-sheet map: plywood-by-project.csv.

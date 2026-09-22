@@ -1,0 +1,16 @@
+{
+  "open": {
+    "oneLeftCabinet": true,
+    "widthInches": 116.75,
+    "timelineWarnings": [],
+    "wallBracketsHidden": true,
+    "bedRotationRadians": 0.0
+  },
+  "closed": {
+    "oneLeftCabinet": true,
+    "widthInches": 116.75,
+    "timelineWarnings": [],
+    "wallBracketsHidden": true,
+    "bedRotationRadians": 1.5707963267948966
+  }
+}

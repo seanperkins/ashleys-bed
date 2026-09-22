@@ -1,0 +1,473 @@
+<p class="lead">
+  Confirm the five release inputs below before generating toolpaths. The current
+  files show how 27 nominal wood parts fit on eight source sheets; they are not
+  programs for the router.
+</p>
+<div class="warning">
+  <strong>No runnable machine code exists in this deliverable.</strong> The
+  owner has not purchased plywood or cutters. Actual stock thickness,
+  custom-cabinet joinery, exact tools, workholding and the shop-approved
+  post/profile remain unresolved. Do not send these DXFs straight to the machine
+  or treat the rectangles as approved final cutting boundaries.
+</div>
+
+<h2 id="file-status">What each file type means</h2>
+<div class="table-wrap">
+  <table>
+    <caption>
+      Design geometry, manufacturing preparation and machine instructions are
+      different deliverables
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">File / stage</th>
+        <th scope="col">Current status</th>
+        <th scope="col">What it can establish</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Fusion / STEP model</th>
+        <td>Design-review model available</td>
+        <td>
+          Arrangement, nominal panel geometry and representative open/closed
+          positions; not a proven mechanism or machining setup.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">DXF / SVG outlines</th>
+        <td>Nominal closed rectangles available</td>
+        <td>
+          Inch-based part placement and grain-aware purchasing layout; no holes,
+          pockets, joinery, tabs or cutter compensation.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">CAM project</th>
+        <td>Not released</td>
+        <td>
+          Eventually defines operations, tools, stock, work coordinates,
+          retention strategy and simulation for the approved geometry.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Posted G-code</th>
+        <td>Not supplied</td>
+        <td>
+          Machine-specific instructions produced from reviewed CAM with the
+          shop-approved post and checked for the actual Mach4 configuration.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>
+  <a href="downloads.html"
+    >Download the nominal DXFs, sheet previews, cut-layout booklet and source
+    model</a
+  >. The booklet is reduced-scale; use written dimensions. Import DXF as inches
+  and confirm a known dimension, rather than trusting an import dialog or
+  printing scale.
+</p>
+
+<h2 id="sheet-map">Eight-sheet planning map</h2>
+<div class="table-wrap">
+  <table>
+    <caption>
+      Shared-sheet layout: no spare full sheet and no minimum-sheet optimization
+      claim
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Sheet ID</th>
+        <th scope="col">Nominal stock, inches</th>
+        <th scope="col">Parts</th>
+        <th scope="col">Allocation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">S01</th>
+        <td>¾ × 48 × 96</td>
+        <td>4</td>
+        <td>Bed top/bottom; left drawer face and plinth.</td>
+      </tr>
+      <tr>
+        <th scope="row">S02</th>
+        <td>¾ × 48 × 96</td>
+        <td>3</td>
+        <td>
+          Bed upper/lower headboards and stop blank M07. Mill the stop to ⅝ in
+          finished.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">S03</th>
+        <td>¾ × 48 × 96</td>
+        <td>4</td>
+        <td>Both bed sides; left top/bottom.</td>
+      </tr>
+      <tr>
+        <th scope="row">S04</th>
+        <td>¾ × 48 × 96</td>
+        <td>4</td>
+        <td>
+          Both left cabinet sides; fixed shelf above drawer and adjustable shelf
+          1.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">S05</th>
+        <td>¾ × 48 × 96</td>
+        <td>3</td>
+        <td>Bed door panels 5.1/5.2; adjustable shelf 2.</td>
+      </tr>
+      <tr>
+        <th scope="row">S06</th>
+        <td>¾ × 48 × 96</td>
+        <td>3</td>
+        <td>Bed door panels 5.3/5.4; adjustable shelf 3.</td>
+      </tr>
+      <tr>
+        <th scope="row">S07</th>
+        <td>½ × 24 × 48</td>
+        <td>4</td>
+        <td>Left drawer sides, inner front and back.</td>
+      </tr>
+      <tr>
+        <th scope="row">S08</th>
+        <td>¼ × 48 × 96</td>
+        <td>2</td>
+        <td>One-piece left cabinet back and drawer bottom.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>
+  <strong
+    >Six full ¾ in sheets + one ½ in project panel + one full ¼ in
+    sheet.</strong
+  >
+  S01, S03, S05 and S06 are shared between assemblies; count each sheet only
+  once. The
+  <a href="downloads/plywood-by-project.csv">per-piece sheet map</a> records all
+  27 parts.
+</p>
+
+<h3 id="layers">Import the cutting candidates, not the reference artwork</h3>
+<ul>
+  <li>
+    <strong>PART_OUTLINES:</strong> closed, uncompensated nominal part
+    boundaries. These are the only candidate part contours—not a released
+    toolpath layer.
+  </li>
+  <li>
+    <strong>STOCK_REFERENCE and MARGIN_REFERENCE:</strong> sheet boundary and ¾
+    in edge margin; do not machine.
+  </li>
+  <li>
+    <strong>GRAIN_REFERENCE and LABELS:</strong> grain arrow, IDs, dimensions
+    and warnings; do not machine.
+  </li>
+  <li>
+    <strong>Coordinates:</strong> planning origin at stock lower-left, +X across
+    sheet width and +Y along sheet length/grain. Part Length_in follows the
+    grain. Preserve orientation; verify grain on the actual 24 × 48 in panel
+    too.
+  </li>
+  <li>
+    <strong>½ in gaps:</strong> nominal outline separation, not a cutter
+    diameter or approved cutting clearance. The operator must re-check tool
+    envelopes, lead-ins, clamps and retention after final joinery and tool
+    selection.
+  </li>
+</ul>
+<p class="note">
+  The planning lower-left origin is not automatically the machine work zero.
+  Final CAM must explicitly state its units, origin, face, grain direction and
+  stock/top-or-spoilboard Z reference. Thickness-dependent joints or allowances
+  may change parts and require a revised layout before cutting.
+</p>
+
+<h2 id="machine">The known machine—and the unknown setup</h2>
+<p>
+  <a href="https://wiki.hackrva.org/index.php/Avid_PRO6096"
+    >HackRVA’s Avid PRO6096 documentation</a
+  >
+  identifies a <strong>5 × 8 ft PRO6096, Revision 19.2</strong>, with a
+  <strong>2.2 kW spindle, NEMA 34 controller and Mach4</strong>. Its spoilboard
+  has T-track, a ¼-20 insert grid and dog holes. The shop documents Fusion and
+  VCarve workflows.
+</p>
+<p>
+  <strong
+    >Machine identity is confirmed; the exact shop-approved post and active
+    Mach4 profile are not.</strong
+  >
+  A generic “Mach4” post label is not approval. The certified operator must
+  confirm the current configuration, workholding resources, usable travel and
+  the post version/settings for this job. The bed size does not guarantee access
+  to every edge of a particular fixture.
+</p>
+<p>
+  HackRVA requires certification for independent CNC use. Training videos are
+  preparation, not certification. Contact a trainer through the shop’s CNC Slack
+  channel, as directed on the
+  <a
+    href="https://wiki.hackrva.org/index.php/Avid_PRO6096#CNC_Training_Playlist"
+    >machine training page</a
+  >.
+</p>
+
+<h2 id="release-inputs">Five inputs required before CAM release</h2>
+<div class="checklist">
+  <label class="check-item"
+    ><input type="checkbox" data-check="cnc-stock-confirmed" /><span
+      ><strong>1. Measured stock — owner and fabricator.</strong> Buy suitable
+      approved plywood, identify each lot, measure thickness at multiple
+      locations, and check usable sheet dimensions, flatness and grain. This
+      controls joinery fit, drilling depth and hold-down. Record all three
+      thickness classes below.</span
+    ></label
+  >
+  <label class="check-item"
+    ><input type="checkbox" data-check="cnc-joinery-confirmed" /><span
+      ><strong
+        >2. Final joinery and hardware — owner/fabricator, with Rockler for bed
+        questions.</strong
+      >
+      Approve left-cabinet dados/rabbets, back/bottom support, shelf-pin
+      dimensions and shelf clearances; select actual slides and pulls. Preserve
+      the bed’s original reinforced construction and resolve kit inventory
+      conflicts. Without these decisions the geometry is incomplete.</span
+    ></label
+  >
+  <label class="check-item"
+    ><input type="checkbox" data-check="cnc-cutters-confirmed" /><span
+      ><strong>3. Exact cutters — certified operator.</strong> Record
+      manufacturer/model, diameter, shank, flute geometry, cutting length and
+      appropriate collet for every tool. Check available reach and suitability
+      for the stock. No cutters are owned yet, and no feeds/speeds are approved
+      by this site.</span
+    ></label
+  >
+  <label class="check-item"
+    ><input type="checkbox" data-check="cnc-fixture-confirmed" /><span
+      ><strong>4. Workholding and work zero — certified operator.</strong>
+      Approve fixture/clamp positions, stock support, XY/Z reference,
+      part-retention/release strategy and repeatable second-side or edge-boring
+      setups. These prevent part movement, wrong-face machining and tool/fixture
+      collisions.</span
+    ></label
+  >
+  <label class="check-item"
+    ><input type="checkbox" data-check="cnc-post-confirmed" /><span
+      ><strong
+        >5. Approved post/profile — shop trainer or responsible certified
+        operator.</strong
+      >
+      Name the post and version, verify the active Mach4 profile and applicable
+      machine settings, then review the generated program. Controller brand
+      alone does not establish compatible output.</span
+    ></label
+  >
+</div>
+<p class="pending">
+  Each box is a planning record, not permission to operate the machine.
+  Machining stays blocked until the real geometry, CAM and resulting posted
+  program have been reviewed for this setup.
+</p>
+
+<h2 id="setup-worksheet">Setup worksheet for the operator review</h2>
+<p>
+  Enter measured values and exact identifiers, not nominal defaults. Keep units
+  explicit. These browser notes are preparation for the reviewed setup sheet;
+  they are not CAM parameters or a formal sign-off.
+</p>
+<div class="cards">
+  <div class="card">
+    <h3 id="stock-worksheet">Stock lots</h3>
+    <p>
+      <label for="cnc-stock-three-quarter"
+        >¾ in stock: supplier/product, lot and measured thickness range with
+        units</label
+      ><br /><input
+        id="cnc-stock-three-quarter"
+        name="cnc-stock-three-quarter"
+        type="text"
+        data-field="cnc-stock-three-quarter"
+        autocomplete="off"
+      />
+    </p>
+    <p>
+      <label for="cnc-stock-half"
+        >½ in stock: supplier/product, lot and measured thickness range with
+        units</label
+      ><br /><input
+        id="cnc-stock-half"
+        name="cnc-stock-half"
+        type="text"
+        data-field="cnc-stock-half"
+        autocomplete="off"
+      />
+    </p>
+    <p>
+      <label for="cnc-stock-quarter"
+        >¼ in stock: supplier/product, lot and measured thickness range with
+        units</label
+      ><br /><input
+        id="cnc-stock-quarter"
+        name="cnc-stock-quarter"
+        type="text"
+        data-field="cnc-stock-quarter"
+        autocomplete="off"
+      />
+    </p>
+  </div>
+  <div class="card">
+    <h3 id="tools-worksheet">Tools and setup</h3>
+    <p>
+      <label for="cnc-tool-model"
+        >Every cutter: manufacturer/model, diameter, shank, flute geometry,
+        cutting length and collet</label
+      ><br /><textarea
+        id="cnc-tool-model"
+        name="cnc-tool-model"
+        rows="4"
+        data-field="cnc-tool-model"
+      ></textarea>
+    </p>
+    <p>
+      <label for="cnc-origin"
+        >Work zero: XY location, Z reference, units, face up and second-side
+        registration</label
+      ><br /><textarea
+        id="cnc-origin"
+        name="cnc-origin"
+        rows="3"
+        data-field="cnc-origin"
+      ></textarea>
+    </p>
+    <p>
+      <label for="cnc-workholding"
+        >Workholding: clamps/fixtures, stock support, keep-out areas and
+        part-release method</label
+      ><br /><textarea
+        id="cnc-workholding"
+        name="cnc-workholding"
+        rows="3"
+        data-field="cnc-workholding"
+      ></textarea>
+    </p>
+    <p>
+      <label for="cnc-post-review"
+        >Shop review: approved post/version, Mach4 profile, reviewer, date and
+        outstanding conditions</label
+      ><br /><textarea
+        id="cnc-post-review"
+        name="cnc-post-review"
+        rows="3"
+        data-field="cnc-post-review"
+      ></textarea>
+    </p>
+  </div>
+</div>
+
+<h2 id="operation-plan">The eventual operation plan</h2>
+<p>
+  The certified operator determines the actual sequence and cutting values after
+  release inputs are resolved. This sequence describes review requirements, not
+  executable machine instructions.
+</p>
+<ol class="steps">
+  <li>
+    <strong>Release the geometry and setup sheet.</strong> Reconcile measured
+    material with the required Rockler interior opening and every custom joint.
+    Identify each part’s inside/outside face, front edge, grain, reference
+    surfaces and dimensions. Keep hand/jig drilling operations on the same
+    documented plan.
+  </li>
+  <li>
+    <strong>Prepare inside features while the stock remains secured.</strong>
+    Plan approved pockets, dados/rabbets and face drilling before outer-contour
+    release where practical. Check blind-hole depth against measured stock and
+    cutter geometry; do not infer holes from reference labels.
+  </li>
+  <li>
+    <strong>Plan every reorientation.</strong> Distinguish first-face,
+    second-face and edge-boring operations. Document registration, repeated zero
+    checks and safe support. A jig follow-up for Rockler dowels or edge screw
+    holes is valid; “CNC cut” need not mean every feature is made in one
+    flat-sheet setup.
+  </li>
+  <li>
+    <strong>Contour with an approved retention strategy.</strong> Check tool and
+    collet clearances, clamp keep-outs, cutter compensation and access around
+    each part. The operator chooses tabs or another shop-approved method and
+    specifies when clamps/retention change. Do not release a part that a later
+    operation still depends on holding.
+  </li>
+  <li>
+    <strong>Finish, label and inspect the cut parts.</strong> Follow the
+    documented release/cleanup method, preserve part IDs, inspect dimensions and
+    fit with a sample joint before full assembly. Confirm M07 is finished to ⅝
+    in and retain its required 3 × 56 in size.
+  </li>
+</ol>
+
+<h2 id="verification">Proof required before cutting the project</h2>
+<ol class="steps">
+  <li>
+    <strong>Simulate the complete CAM setup.</strong> Review tools, stock
+    removal, blind depths, full travel, collision risks, tabs/retention and
+    second-side alignment. Reference layers must not become machining
+    operations.
+  </li>
+  <li>
+    <strong>Review the posted output.</strong> The operator checks that units,
+    work offsets, tool changes and safety behavior match the approved post and
+    active machine profile. Simulation is not proof that an arbitrary post is
+    compatible.
+  </li>
+  <li>
+    <strong>Perform the shop’s dry-run/air-pass procedure.</strong> A certified
+    operator verifies actual machine travel, workholding clearances and
+    zero/reference setup without cutting, using HackRVA’s operating procedures
+    rather than an improvised coordinate change.
+  </li>
+  <li>
+    <strong>Cut a representative test coupon.</strong> Use the actual stock and
+    selected tools to verify critical joint fit, blind-hole depth, pin/hardware
+    fit and edge quality. Correct the geometry or setup before committing the
+    full sheets.
+  </li>
+  <li>
+    <strong>Inspect the first production parts before continuing.</strong> Check
+    scale, face/orientation, thickness-sensitive fit and safe retention. If a
+    discrepancy appears, stop and resolve it before repeating the operation
+    across the remaining sheets.
+  </li>
+</ol>
+<p>
+  Primary operating source:
+  <a href="https://wiki.hackrva.org/index.php/Avid_PRO6096"
+    >HackRVA Avid PRO6096 page</a
+  >, including its startup/cycle-start, touchplate and air-pass guidance.
+  Bed-specific machining must retain the construction and drilling requirements
+  in
+  <a href="https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf#page=8"
+    >Rockler pp. 8–10</a
+  >; installer-specific wall holes follow
+  <a
+    href="https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf#page=11"
+    >pp. 11–12</a
+  >
+  and actual stud positions, not nominal sheet coordinates.
+</p>
+<p>
+  <strong>Next decision:</strong> arrange the certified operator’s review of
+  stock choice, proposed left-cabinet joinery and cutter requirements before
+  buying cutters or preparing CAM. Continue with the
+  <a href="assembly.html">assembly stages</a> only when the relevant fabrication
+  holds are closed.
+</p>

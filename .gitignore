@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+revisions/
+output/previous-*/
+output/startup-trigger.json
+site/_site/
+references/

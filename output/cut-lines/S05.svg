@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="76in" height="110in" viewBox="-2 -8 76 110">
+<title>S05 | 3/4 in stock | 48 x 96 in | 3 parts - NOMINAL PLANNING OUTLINES - NOT CNC-READY</title>
+<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left origin, +Y along grain. Only PART_OUTLINES contains nominal part boundaries.</desc>
+<rect x="-2" y="-8" width="100%" height="100%" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#152b42">
+<text x="0" y="-5.6" font-size="1.5" font-weight="bold">S05 | 3/4 in stock | 48 x 96 in | 3 parts</text>
+<text x="0" y="-3.5" font-size="0.95" fill="#943518">NOMINAL PLANNING OUTLINES - NOT CNC-READY</text>
+<text x="0" y="-1.6" font-size="0.8">Full scale: 1 unit = 1 inch. Sheet border and notes are reference only.</text>
+<g id="STOCK_REFERENCE"><rect x="0" y="0" width="48" height="96" fill="none" stroke="#152b42" stroke-width="0.12"/></g>
+<g id="MARGIN_REFERENCE"><rect x="0.75" y="0.75" width="46.5" height="94.5" fill="none" stroke="#888" stroke-width="0.06" stroke-dasharray="0.5 0.35"/></g>
+<g id="PART_OUTLINES" stroke="#152b42" stroke-width="0.08">
+<rect id="M08" x="0.75" y="33.4375" width="21.125" height="61.8125" fill="#e0ebf3"/>
+<rect id="M09" x="22.375" y="33.4375" width="21.125" height="61.8125" fill="#e0ebf3"/>
+<rect id="L09" x="0.75" y="4.4375" width="15.75" height="28.5" fill="#e6efdf"/>
+</g><g id="LABELS" text-anchor="middle">
+<g><text x="11.3125" y="64.04375" font-size="1.2" font-weight="bold">M08</text><text x="11.3125" y="65.44375" font-size="0.72">21 1/8 x 61 13/16 in</text></g>
+<g><text x="32.9375" y="64.04375" font-size="1.2" font-weight="bold">M09</text><text x="32.9375" y="65.44375" font-size="0.72">21 1/8 x 61 13/16 in</text></g>
+<g><text x="8.625" y="18.3875" font-size="1.2" font-weight="bold">L09</text><text x="8.625" y="19.7875" font-size="0.72">15 3/4 x 28 1/2 in</text></g>
+</g><g id="GRAIN_REFERENCE" stroke="#152b42" stroke-width="0.12" fill="none">
+<path d="M 49.5 14 V 4 M 48.9 5 L 49.5 4 L 50.1 5"/>
+</g>
+<text x="52" y="4" font-size="0.95" font-weight="bold">GRAIN +Y / STOCK LENGTH</text>
+<text x="52" y="6" font-size="0.85">3/4 in edge margin; 1/2 in part gap</text>
+<text x="52" y="8" font-size="0.8">Dimensions: width x length</text>
+<text x="52" y="10" font-size="0.8">X/Y measured from stock lower-left</text>
+<text x="52" y="14" font-size="0.95" font-weight="bold">M08  Door panel 5.1</text>
+<text x="52" y="15.6" font-size="0.85">21 1/8 x 61 13/16 in; finish 3/4 in</text>
+<text x="52" y="17" font-size="0.78">X 0.75 / Y 0.75 in</text>
+<text x="52" y="20" font-size="0.95" font-weight="bold">M09  Door panel 5.2</text>
+<text x="52" y="21.6" font-size="0.85">21 1/8 x 61 13/16 in; finish 3/4 in</text>
+<text x="52" y="23" font-size="0.78">X 22.375 / Y 0.75 in</text>
+<text x="52" y="26" font-size="0.95" font-weight="bold">L09  Adjustable shelf 2</text>
+<text x="52" y="27.6" font-size="0.85">15 3/4 x 28 1/2 in; finish 3/4 in</text>
+<text x="52" y="29" font-size="0.78">X 0.75 / Y 63.0625 in</text>
+<text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
+<text x="0" y="99.3" font-size="0.75">Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.</text>
+<text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
+</g></svg>

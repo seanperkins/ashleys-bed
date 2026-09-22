@@ -1,0 +1,384 @@
+{
+  "units": "inches",
+  "pose": "closed",
+  "wood": [
+    {
+      "name": "1R Right side | 3/4 x 16 x 64",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.75,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "1L Left side | 3/4 x 16 x 64",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        86.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        86.75,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "2T Top | 3/4 x 16 x 85-1/4",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        0.75,
+        0.0,
+        63.25
+      ],
+      "max": [
+        86.0,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "2B Bottom | 3/4 x 16 x 85-1/4",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        0.75,
+        0.0,
+        0.0
+      ],
+      "max": [
+        86.0,
+        16.0,
+        0.7500000000000001
+      ]
+    },
+    {
+      "name": "3 Upper headboard \u2014 REQUIRED",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        0.75,
+        0.0,
+        47.25
+      ],
+      "max": [
+        86.0,
+        0.75,
+        63.25
+      ]
+    },
+    {
+      "name": "4 Lower headboard \u2014 REQUIRED",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        0.75,
+        0.0,
+        0.75
+      ],
+      "max": [
+        86.0,
+        0.75,
+        16.75
+      ]
+    },
+    {
+      "name": "6 Permanent stop | adjust contact location to actual kit",
+      "owner": "01 Cabinet | Rockler-dimensioned plywood parts:1",
+      "min": [
+        15.375,
+        11.125,
+        62.625
+      ],
+      "max": [
+        71.375,
+        14.124999999999998,
+        63.25
+      ]
+    },
+    {
+      "name": "5.1 Door panel | 3/4 x 21-1/8 x 61-13/16",
+      "owner": "02 Bed platform | rotate Bed fold joint:1",
+      "min": [
+        0.9375,
+        15.249999999999995,
+        1.093750000000004
+      ],
+      "max": [
+        22.0625,
+        15.999999999999996,
+        62.90625000000001
+      ]
+    },
+    {
+      "name": "5.2 Door panel | 3/4 x 21-1/8 x 61-13/16",
+      "owner": "02 Bed platform | rotate Bed fold joint:1",
+      "min": [
+        22.1875,
+        15.249999999999995,
+        1.093750000000004
+      ],
+      "max": [
+        43.3125,
+        15.999999999999996,
+        62.90625000000001
+      ]
+    },
+    {
+      "name": "5.3 Door panel | 3/4 x 21-1/8 x 61-13/16",
+      "owner": "02 Bed platform | rotate Bed fold joint:1",
+      "min": [
+        43.4375,
+        15.249999999999995,
+        1.093750000000004
+      ],
+      "max": [
+        64.5625,
+        15.999999999999996,
+        62.90625000000001
+      ]
+    },
+    {
+      "name": "5.4 Door panel | 3/4 x 21-1/8 x 61-13/16",
+      "owner": "02 Bed platform | rotate Bed fold joint:1",
+      "min": [
+        64.6875,
+        15.249999999999995,
+        1.093750000000004
+      ],
+      "max": [
+        85.8125,
+        15.999999999999996,
+        62.90625000000001
+      ]
+    },
+    {
+      "name": "SC Drawer Left side",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        88.0,
+        1.25,
+        4.0
+      ],
+      "max": [
+        88.5,
+        15.25,
+        12.0
+      ]
+    },
+    {
+      "name": "SC Drawer Right side",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        115.00000000000001,
+        1.25,
+        4.0
+      ],
+      "max": [
+        115.5,
+        15.25,
+        12.0
+      ]
+    },
+    {
+      "name": "SC Drawer back",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        88.5,
+        1.25,
+        4.0
+      ],
+      "max": [
+        115.00000000000001,
+        1.75,
+        12.0
+      ]
+    },
+    {
+      "name": "SC Drawer inner front",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        88.5,
+        14.750000000000002,
+        4.0
+      ],
+      "max": [
+        115.00000000000001,
+        15.25,
+        12.0
+      ]
+    },
+    {
+      "name": "SC Drawer bottom",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        88.0,
+        1.25,
+        3.75
+      ],
+      "max": [
+        115.5,
+        15.25,
+        4.0
+      ]
+    },
+    {
+      "name": "SC Drawer face",
+      "owner": "06 Bottom drawer | plywood box | closed:1",
+      "min": [
+        87.625,
+        15.25,
+        3.375
+      ],
+      "max": [
+        115.875,
+        16.0,
+        13.875
+      ]
+    },
+    {
+      "name": "SC Left side",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        86.75,
+        0.0,
+        0.0
+      ],
+      "max": [
+        87.5,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "SC Right side",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        116.0,
+        0.0,
+        0.0
+      ],
+      "max": [
+        116.75,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "SC Top",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.0,
+        63.25
+      ],
+      "max": [
+        116.0,
+        16.0,
+        64.0
+      ]
+    },
+    {
+      "name": "SC Bottom",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.0,
+        2.5
+      ],
+      "max": [
+        116.0,
+        16.0,
+        3.2499999999999996
+      ]
+    },
+    {
+      "name": "SC Recessed plinth",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        14.5,
+        0.0
+      ],
+      "max": [
+        116.0,
+        15.25,
+        2.5
+      ]
+    },
+    {
+      "name": "SC Plywood back",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.0,
+        3.2500000000000004
+      ],
+      "max": [
+        116.0,
+        0.25,
+        63.25
+      ]
+    },
+    {
+      "name": "SC Shelf above drawer",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.25,
+        14.0
+      ],
+      "max": [
+        116.0,
+        16.0,
+        14.750000000000002
+      ]
+    },
+    {
+      "name": "SC Shelf 1",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.25,
+        26.312499999999996
+      ],
+      "max": [
+        116.0,
+        16.0,
+        27.062499999999996
+      ]
+    },
+    {
+      "name": "SC Shelf 2",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.25,
+        38.625
+      ],
+      "max": [
+        116.0,
+        16.0,
+        39.375
+      ]
+    },
+    {
+      "name": "SC Shelf 3",
+      "owner": "05 Left bookcase | 30 x 64 x 16 | plywood:1",
+      "min": [
+        87.5,
+        0.25,
+        50.9375
+      ],
+      "max": [
+        116.0,
+        16.0,
+        51.6875
+      ]
+    }
+  ]
+}

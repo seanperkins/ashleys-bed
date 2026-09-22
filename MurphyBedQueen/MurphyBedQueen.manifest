@@ -1,0 +1,9 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "author": "Sean",
+  "description": {"": "Rockler horizontal queen I-Semble bed: dimensioned cabinet, representative steel hardware, open and closed exports."},
+  "version": "1.0.0",
+  "supportedOS": "mac|windows",
+  "editEnabled": true
+}

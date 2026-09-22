@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 2,
+  "basis": "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part Length_in and stock length (+Y). Nominal rectangular outlines only; no cutter compensation, holes, pockets or G-code. No spare sheet is included. Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.",
+  "units": "inches",
+  "coordinateSystem": "Stock lower-left origin; +X across width; +Y along length/grain",
+  "edgeMarginInches": 0.75,
+  "partGapInches": 0.5,
+  "stopBlank": "M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.",
+  "partCount": 27,
+  "sheetCount": 8,
+  "machineReady": false,
+  "machiningStatus": "Nominal rectangles only; joinery and machine setup unresolved",
+  "dxfLayers": {
+    "PART_OUTLINES": "Closed nominal part boundaries, uncompensated",
+    "STOCK_REFERENCE": "Stock boundary; do not cut",
+    "MARGIN_REFERENCE": "3/4-inch edge clearance; do not cut",
+    "GRAIN_REFERENCE": "Grain-direction arrow; do not cut",
+    "LABELS": "Part IDs, dimensions and planning warnings; do not cut"
+  },
+  "sheets": [
+    {
+      "sheetId": "S01",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "M03",
+          "part": "2T Top | 3/4 x 16 x 85-1/4",
+          "label": "Bed top",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 85.25,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M04",
+          "part": "2B Bottom | 3/4 x 16 x 85-1/4",
+          "label": "Bed bottom",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 85.25,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L16",
+          "part": "Left cabinet: Drawer face",
+          "label": "Drawer face",
+          "assembly": "Left shelf",
+          "widthInches": 10.5,
+          "lengthInches": 28.25,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 33.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L05",
+          "part": "Left cabinet: Recessed plinth",
+          "label": "Recessed plinth",
+          "assembly": "Left shelf",
+          "widthInches": 2.5,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 44.75,
+          "yInches": 0.75
+        }
+      ],
+      "assemblies": [
+        "Left shelf",
+        "Main cabinet"
+      ],
+      "shared": true
+    },
+    {
+      "sheetId": "S02",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "M05",
+          "part": "3 Upper headboard — REQUIRED",
+          "label": "Upper headboard",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 85.25,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M06",
+          "part": "4 Lower headboard — REQUIRED",
+          "label": "Lower headboard",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 85.25,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M07",
+          "part": "6 Permanent stop | adjust contact location to actual kit",
+          "label": "Permanent stop",
+          "assembly": "Main cabinet",
+          "widthInches": 3.0,
+          "lengthInches": 56.0,
+          "finishedThicknessInches": 0.625,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 33.75,
+          "yInches": 0.75
+        }
+      ],
+      "assemblies": [
+        "Main cabinet"
+      ],
+      "shared": false
+    },
+    {
+      "sheetId": "S03",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "M01",
+          "part": "1R Right side | 3/4 x 16 x 64",
+          "label": "Bed right side",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 64.0,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M02",
+          "part": "1L Left side | 3/4 x 16 x 64",
+          "label": "Bed left side",
+          "assembly": "Main cabinet",
+          "widthInches": 16.0,
+          "lengthInches": 64.0,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L03",
+          "part": "Left cabinet: Top",
+          "label": "Left bookcase top",
+          "assembly": "Left shelf",
+          "widthInches": 16.0,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 65.25
+        },
+        {
+          "partId": "L04",
+          "part": "Left cabinet: Bottom",
+          "label": "Left bookcase bottom",
+          "assembly": "Left shelf",
+          "widthInches": 16.0,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 65.25
+        }
+      ],
+      "assemblies": [
+        "Left shelf",
+        "Main cabinet"
+      ],
+      "shared": true
+    },
+    {
+      "sheetId": "S04",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "L01",
+          "part": "Left cabinet: Left side",
+          "label": "Left bookcase left side",
+          "assembly": "Left shelf",
+          "widthInches": 16.0,
+          "lengthInches": 64.0,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L02",
+          "part": "Left cabinet: Right side",
+          "label": "Left bookcase right side",
+          "assembly": "Left shelf",
+          "widthInches": 16.0,
+          "lengthInches": 64.0,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L07",
+          "part": "Left cabinet: Shelf above drawer",
+          "label": "Shelf above drawer",
+          "assembly": "Left shelf",
+          "widthInches": 15.75,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 65.25
+        },
+        {
+          "partId": "L08",
+          "part": "Left cabinet: Shelf 1",
+          "label": "Adjustable shelf 1",
+          "assembly": "Left shelf",
+          "widthInches": 15.75,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 17.25,
+          "yInches": 65.25
+        }
+      ],
+      "assemblies": [
+        "Left shelf"
+      ],
+      "shared": false
+    },
+    {
+      "sheetId": "S05",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "M08",
+          "part": "5.1 Door panel | 3/4 x 21-1/8 x 61-13/16",
+          "label": "Door panel 5.1",
+          "assembly": "Main cabinet",
+          "widthInches": 21.125,
+          "lengthInches": 61.8125,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M09",
+          "part": "5.2 Door panel | 3/4 x 21-1/8 x 61-13/16",
+          "label": "Door panel 5.2",
+          "assembly": "Main cabinet",
+          "widthInches": 21.125,
+          "lengthInches": 61.8125,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 22.375,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L09",
+          "part": "Left cabinet: Shelf 2",
+          "label": "Adjustable shelf 2",
+          "assembly": "Left shelf",
+          "widthInches": 15.75,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 63.0625
+        }
+      ],
+      "assemblies": [
+        "Left shelf",
+        "Main cabinet"
+      ],
+      "shared": true
+    },
+    {
+      "sheetId": "S06",
+      "stockThicknessInches": 0.75,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P01",
+      "parts": [
+        {
+          "partId": "M10",
+          "part": "5.3 Door panel | 3/4 x 21-1/8 x 61-13/16",
+          "label": "Door panel 5.3",
+          "assembly": "Main cabinet",
+          "widthInches": 21.125,
+          "lengthInches": 61.8125,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "M11",
+          "part": "5.4 Door panel | 3/4 x 21-1/8 x 61-13/16",
+          "label": "Door panel 5.4",
+          "assembly": "Main cabinet",
+          "widthInches": 21.125,
+          "lengthInches": 61.8125,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 22.375,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L10",
+          "part": "Left cabinet: Shelf 3",
+          "label": "Adjustable shelf 3",
+          "assembly": "Left shelf",
+          "widthInches": 15.75,
+          "lengthInches": 28.5,
+          "finishedThicknessInches": 0.75,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 63.0625
+        }
+      ],
+      "assemblies": [
+        "Left shelf",
+        "Main cabinet"
+      ],
+      "shared": true
+    },
+    {
+      "sheetId": "S07",
+      "stockThicknessInches": 0.5,
+      "widthInches": 24,
+      "lengthInches": 48,
+      "grainAxis": "+Y",
+      "stockType": "project panel",
+      "purchaseId": "P02",
+      "parts": [
+        {
+          "partId": "L13",
+          "part": "Left cabinet: Drawer back",
+          "label": "Drawer back",
+          "assembly": "Left shelf",
+          "widthInches": 8.0,
+          "lengthInches": 26.5,
+          "finishedThicknessInches": 0.5,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L14",
+          "part": "Left cabinet: Drawer inner front",
+          "label": "Drawer inner front",
+          "assembly": "Left shelf",
+          "widthInches": 8.0,
+          "lengthInches": 26.5,
+          "finishedThicknessInches": 0.5,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 9.25,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L11",
+          "part": "Left cabinet: Drawer Left side",
+          "label": "Drawer left side",
+          "assembly": "Left shelf",
+          "widthInches": 8.0,
+          "lengthInches": 14.0,
+          "finishedThicknessInches": 0.5,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 27.75
+        },
+        {
+          "partId": "L12",
+          "part": "Left cabinet: Drawer Right side",
+          "label": "Drawer right side",
+          "assembly": "Left shelf",
+          "widthInches": 8.0,
+          "lengthInches": 14.0,
+          "finishedThicknessInches": 0.5,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 9.25,
+          "yInches": 27.75
+        }
+      ],
+      "assemblies": [
+        "Left shelf"
+      ],
+      "shared": false
+    },
+    {
+      "sheetId": "S08",
+      "stockThicknessInches": 0.25,
+      "widthInches": 48,
+      "lengthInches": 96,
+      "grainAxis": "+Y",
+      "stockType": "full sheet",
+      "purchaseId": "P03",
+      "parts": [
+        {
+          "partId": "L06",
+          "part": "Left cabinet: Plywood back",
+          "label": "Bookcase back",
+          "assembly": "Left shelf",
+          "widthInches": 28.5,
+          "lengthInches": 60.0,
+          "finishedThicknessInches": 0.25,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 0.75,
+          "yInches": 0.75
+        },
+        {
+          "partId": "L15",
+          "part": "Left cabinet: Drawer bottom",
+          "label": "Drawer bottom",
+          "assembly": "Left shelf",
+          "widthInches": 14.0,
+          "lengthInches": 27.5,
+          "finishedThicknessInches": 0.25,
+          "grainAxis": "+Y",
+          "rotationDegrees": 0,
+          "xInches": 29.75,
+          "yInches": 0.75
+        }
+      ],
+      "assemblies": [
+        "Left shelf"
+      ],
+      "shared": false
+    }
+  ]
+}

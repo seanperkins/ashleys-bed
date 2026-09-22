@@ -1,0 +1,285 @@
+{
+  "status": "exported; requires visual review of saved previews",
+  "source": "https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf",
+  "hardwareAccuracy": "Cabinet cuts and specified pilot locations are manual-sourced. Hardware envelopes and pivot placement remain representative; not exact kit CAD.",
+  "files": [
+    "cabinet-cut-list.csv",
+    "queen-horizontal-open.png",
+    "queen-horizontal-open.f3d",
+    "queen-horizontal-open.step",
+    "queen-horizontal-frame.png",
+    "queen-horizontal-closed.png",
+    "queen-horizontal-closed.f3d",
+    "queen-horizontal-closed.step"
+  ],
+  "manufacturerPilotCuts": {
+    "Right mounting plate \u2014 p8": {
+      "count": 8,
+      "diameterInches": 0.421875,
+      "depthInches": 0.5625,
+      "removedCubicInches": 0.6290279968327132
+    },
+    "Left mounting plate \u2014 p8": {
+      "count": 8,
+      "diameterInches": 0.421875,
+      "depthInches": 0.5625,
+      "removedCubicInches": 0.6290279968323802
+    },
+    "Door 1 lower bracket holes \u2014 p17": {
+      "count": 4,
+      "diameterInches": 0.078125,
+      "depthInches": 0.625,
+      "removedCubicInches": 0.011984224905295032
+    },
+    "Door 2 lower bracket holes \u2014 p17": {
+      "count": 4,
+      "diameterInches": 0.078125,
+      "depthInches": 0.625,
+      "removedCubicInches": 0.011984224905295032
+    },
+    "Door 3 lower bracket holes \u2014 p17": {
+      "count": 4,
+      "diameterInches": 0.078125,
+      "depthInches": 0.625,
+      "removedCubicInches": 0.011984224905295032
+    },
+    "Door 4 lower bracket holes \u2014 p17": {
+      "count": 4,
+      "diameterInches": 0.078125,
+      "depthInches": 0.625,
+      "removedCubicInches": 0.011984224905406033
+    }
+  },
+  "wallBrackets": "Retained as hidden reference in Fusion; excluded from visible STEP export.",
+  "cabinetPartsInches": {
+    "1R Right side | 3/4 x 16 x 64": [
+      0.75,
+      16.0,
+      64.0
+    ],
+    "1L Left side | 3/4 x 16 x 64": [
+      0.7500000000000004,
+      16.0,
+      64.0
+    ],
+    "2T Top | 3/4 x 16 x 85-1/4": [
+      85.25,
+      16.0,
+      0.7500000000000004
+    ],
+    "2B Bottom | 3/4 x 16 x 85-1/4": [
+      85.25,
+      16.0,
+      0.7500000000000001
+    ],
+    "3 Upper headboard \u2014 REQUIRED": [
+      85.25,
+      0.75,
+      16.0
+    ],
+    "4 Lower headboard \u2014 REQUIRED": [
+      85.25,
+      0.75,
+      16.0
+    ],
+    "6 Permanent stop | adjust contact location to actual kit": [
+      55.99999999999999,
+      2.999999999999999,
+      0.6250000000000022
+    ]
+  },
+  "doorPanelsInches": [
+    [
+      21.125,
+      61.8125,
+      0.7499999999999998
+    ],
+    [
+      21.125,
+      61.8125,
+      0.7499999999999998
+    ],
+    [
+      21.125000000000004,
+      61.8125,
+      0.7499999999999998
+    ],
+    [
+      21.125,
+      61.8125,
+      0.7499999999999998
+    ]
+  ],
+  "mattressInchesXYZ": [
+    80.0,
+    59.99999999999999,
+    10.0
+  ],
+  "cabinetExteriorInchesWHD": [
+    86.75,
+    64.0,
+    16.0
+  ],
+  "cabinetClearOpeningInchesWHD": [
+    85.25,
+    62.5,
+    15.25
+  ],
+  "minimumRequiredOpeningInchesWHD": [
+    85.25,
+    62.125,
+    14.5
+  ],
+  "motionScope": "Endpoint placement only; no physical gas-spring, interference or load certification",
+  "sideCabinets": {
+    "left": {
+      "carcassInchesWHD": [
+        30.0,
+        64.0,
+        16.0
+      ],
+      "positionInchesX": [
+        86.75,
+        116.75
+      ],
+      "openBays": 4,
+      "clearBayHeightInches": 11.5625,
+      "drawerBoxes": 1,
+      "material": "Plywood, Finish",
+      "constructionScope": "Plywood parts and closed drawer layout; slides, shelf supports and joinery not detailed",
+      "partsInchesXYZ": {
+        "SC Left side": [
+          0.75,
+          16.0,
+          64.0
+        ],
+        "SC Right side": [
+          0.7500000000000004,
+          16.0,
+          64.0
+        ],
+        "SC Top": [
+          28.5,
+          16.0,
+          0.7500000000000004
+        ],
+        "SC Bottom": [
+          28.5,
+          16.0,
+          0.7499999999999998
+        ],
+        "SC Recessed plinth": [
+          28.5,
+          0.7500000000000004,
+          2.5
+        ],
+        "SC Plywood back": [
+          28.5,
+          0.25,
+          60.0
+        ],
+        "SC Shelf above drawer": [
+          28.5,
+          15.75,
+          0.7500000000000004
+        ],
+        "SC Shelf 1": [
+          28.5,
+          15.75,
+          0.7500000000000004
+        ],
+        "SC Shelf 2": [
+          28.5,
+          15.75,
+          0.7500000000000004
+        ],
+        "SC Shelf 3": [
+          28.5,
+          15.75,
+          0.7500000000000004
+        ],
+        "SC Drawer Left side": [
+          0.5000000000000002,
+          14.0,
+          8.0
+        ],
+        "SC Drawer Right side": [
+          0.500000000000004,
+          14.0,
+          8.0
+        ],
+        "SC Drawer back": [
+          26.5,
+          0.5000000000000002,
+          8.0
+        ],
+        "SC Drawer inner front": [
+          26.5,
+          0.49999999999999845,
+          8.0
+        ],
+        "SC Drawer bottom": [
+          27.500000000000004,
+          14.0,
+          0.24999999999999992
+        ],
+        "SC Drawer face": [
+          28.250000000000004,
+          0.7500000000000004,
+          10.5
+        ]
+      }
+    }
+  },
+  "combinedCarcassInchesWHD": [
+    116.75,
+    64.0,
+    16.0
+  ],
+  "cabinetFinish": {
+    "color": "#182B49",
+    "material": "Plywood, Finish",
+    "nominalPlywoodThicknessInches": 0.75
+  },
+  "fusionVersion": "2705.1.15",
+  "frontView": {
+    "lookDirection": [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    "upDirection": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "verifiedPoses": {
+    "open": {
+      "mattressSizeInchesXYZ": [
+        80.0,
+        60.0,
+        10.000000000000002
+      ],
+      "mattressMinimumInchesXYZ": [
+        3.375,
+        6.499999999999999,
+        12.9375
+      ],
+      "feetMinimumZInches": -1.3987061727561026e-15
+    },
+    "closed": {
+      "mattressSizeInchesXYZ": [
+        80.0,
+        10.000000000000005,
+        59.99999999999999
+      ],
+      "mattressMinimumInchesXYZ": [
+        3.375,
+        3.999999999999993,
+        2.437500000000004
+      ]
+    }
+  },
+  "timelineWarnings": []
+}
