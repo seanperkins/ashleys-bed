@@ -1132,7 +1132,12 @@ label.model-scrub {
   height: auto;
   aspect-ratio: 16 / 10;
   min-height: 320px;
-  background: linear-gradient(#fbfbf8, #e9ebe8);
+  /* Mid-tone sage: contrasts with both the navy cabinet and the cream mattress. */
+  background: linear-gradient(#9aa69e, #86938a);
+}
+/* The dark Fusion render is only a no-JavaScript fallback; once the viewer runs, load on sage. */
+.model-frame model-viewer:defined img[slot="poster"] {
+  display: none;
 }
 .model-frame model-viewer img[slot="poster"] {
   width: 100%;
