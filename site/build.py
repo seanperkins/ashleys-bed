@@ -33,11 +33,17 @@ DOWNLOADS = [
     ('plywood-purchasing-layout.json', 'Placement data', 'JSON · dimensions and coordinates; machineReady is false'),
     ('queen-horizontal-closed.f3d', 'Closed Fusion model', 'Editable native assembly · hardware remains representative'),
     ('queen-horizontal-open.f3d', 'Open Fusion model', 'Editable native assembly · not certified mechanism clearance'),
+    ('web/queen-horizontal-closed.glb', 'Closed 3D web model', 'GLB · opens in any glTF viewer; converted from the STEP export'),
+    ('web/queen-horizontal-open.glb', 'Open 3D web model', 'GLB · opens in any glTF viewer; converted from the STEP export'),
     ('queen-horizontal-closed.step', 'Closed STEP model', 'CAD interchange · visible components only'),
     ('queen-horizontal-open.step', 'Open STEP model', 'CAD interchange · visible components only'),
     ('design-elevations.svg', 'Dimensioned elevations', 'SVG · front and side design-review drawing'),
     ('ashleys-bed-design-review.zip', 'Complete design-review package', 'ZIP · current models, drawings and nominal cut files; NO G-code'),
 ]
+
+
+def published(path):
+    return path.removeprefix('web/')
 
 
 def e(value):
@@ -68,7 +74,7 @@ def downloads_page():
     for path, title, description in DOWNLOADS:
         size = (OUT/path).stat().st_size
         size_label = f'{size/1024/1024:.1f} MB' if size > 1024*1024 else f'{size/1024:.0f} KB'
-        cards.append(f'<a class="download-card" href="downloads/{e(path)}" download><span class="download-type">{e(Path(path).suffix[1:].upper())}</span><span><strong>{e(title)}</strong><small>{e(description)}</small></span><span class="file-size">{size_label}</span></a>')
+        cards.append(f'<a class="download-card" href="downloads/{e(published(path))}" download><span class="download-type">{e(Path(path).suffix[1:].upper())}</span><span><strong>{e(title)}</strong><small>{e(description)}</small></span><span class="file-size">{size_label}</span></a>')
     sheets = []
     layout = json.loads((OUT/'plywood-purchasing-layout.json').read_text())
     for sheet in layout['sheets']:
@@ -123,6 +129,10 @@ class Links(HTMLParser):
         if tag=='a' and 'href' in attrs: self.links.append(attrs['href'])
         if tag in ('img','script') and 'src' in attrs: self.links.append(attrs['src'])
         if tag=='link' and 'href' in attrs: self.links.append(attrs['href'])
+        if tag=='model-viewer':
+            self.links += [attrs[k] for k in ('src','poster') if k in attrs]
+        if tag=='button' and 'data-model' in attrs:
+            self.links += [attrs['data-model'], attrs['data-poster']]
 
 
 def validate_site():
@@ -153,7 +163,7 @@ def main():
     for name in ('closed','open','frame','front','overview'):
         shutil.copy2(OUT/f'media/ashleys-bed-{name}.png', DEST/f'assets/ashleys-bed-{name}.png')
     for path, _, _ in DOWNLOADS:
-        shutil.copy2(OUT/path, DEST/'downloads'/path)
+        shutil.copy2(OUT/path, DEST/'downloads'/published(path))
     for sheet in range(1,9):
         for ext in ('svg','dxf'):
             name=f'cut-lines/S{sheet:02}.{ext}'

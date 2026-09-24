@@ -1084,3 +1084,65 @@ main > h3 {
     break-inside: auto;
   }
 }
+
+/* Interactive 3D model */
+.model-toggle {
+  display: inline-flex;
+  margin: 4px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.model-toggle button {
+  border: 0;
+  border-radius: 0;
+  padding: 8px 20px;
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+.model-toggle button[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--white);
+}
+.model-frame {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+.model-frame model-viewer {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  min-height: 320px;
+  background: linear-gradient(#fbfbf8, #e9ebe8);
+}
+.model-frame model-viewer img[slot="poster"] {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #2e343f;
+}
+.model-frame figcaption {
+  padding: 12px 18px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+.model-print {
+  display: none;
+}
+@media print {
+  .model-toggle,
+  .model-frame model-viewer {
+    display: none;
+  }
+  .model-print {
+    display: block;
+    width: 100%;
+  }
+}

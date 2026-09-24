@@ -42,6 +42,42 @@
     <strong>27 pieces</strong><span>Current modeled wood parts</span>
   </div>
 </div>
+<section aria-labelledby="model-viewer-heading" class="model-section">
+  <h2 id="model-viewer-heading">Explore the 3D model</h2>
+  <p>
+    Drag to orbit, scroll or pinch to zoom, and switch between the closed and
+    open positions. Converted from the current Fusion STEP exports at full
+    scale.
+  </p>
+  <div class="model-toggle" role="group" aria-label="Bed position">
+    <button type="button" data-model="downloads/queen-horizontal-closed.glb" data-poster="assets/ashleys-bed-closed.png" aria-pressed="true">Closed</button
+    ><button type="button" data-model="downloads/queen-horizontal-open.glb" data-poster="assets/ashleys-bed-open.png" aria-pressed="false">Open</button>
+  </div>
+  <figure class="model-frame">
+    <model-viewer
+      id="bed-model"
+      src="downloads/queen-horizontal-closed.glb"
+      poster="assets/ashleys-bed-closed.png"
+      alt="Interactive 3D model of the navy Murphy bed with its left bookcase and drawer."
+      camera-controls
+      touch-action="pan-y"
+      camera-orbit="-30deg 75deg auto"
+      shadow-intensity="0.8"
+      exposure="1.1"
+      environment-image="neutral"
+      interaction-prompt="auto"
+    >
+      <img slot="poster" src="assets/ashleys-bed-closed.png" alt="Native Fusion view of the closed Murphy bed." width="2400" height="1800" />
+    </model-viewer>
+    <img class="model-print" src="assets/ashleys-bed-closed.png" alt="Native Fusion view of the closed Murphy bed." width="2400" height="1800" />
+    <figcaption>
+      Hardware is representative. Open and closed are endpoint positions only,
+      not certified mechanism clearance.
+      <a href="downloads.html#project-downloads">Download the GLB, STEP or Fusion files</a>.
+    </figcaption>
+  </figure>
+  <script type="module" src="assets/vendor/model-viewer-4.3.1.min.js"></script>
+</section>
 <section aria-labelledby="guide-sections">
   <h2 id="guide-sections">Find what you need for the next step</h2>
   <div class="cards">

@@ -133,4 +133,17 @@
       );
     });
   }
+
+  const model = document.querySelector("#bed-model");
+  const modelButtons = [...document.querySelectorAll("[data-model]")];
+  modelButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      model.poster = button.dataset.poster;
+      model.querySelector("[slot=poster]").src = button.dataset.poster;
+      model.src = button.dataset.model;
+      modelButtons.forEach((other) =>
+        other.setAttribute("aria-pressed", String(other === button)),
+      );
+    });
+  });
 })();

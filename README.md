@@ -23,6 +23,7 @@ Open http://localhost:8047. The build checks local links, anchors, duplicate IDs
 
 - `site/content/`: page-specific instructions.
 - `site/assets/`: responsive/print styles and browser-local checklist/worksheet behavior.
+- `site/assets/vendor/`: pinned, self-hosted `<model-viewer>` 4.3.1 for the overview page's 3D viewer. No third-party requests.
 - `site/build.py`: page shell, live BOM table, download index and explicit public-file allowlist.
 - `output/`: current verified models and generated project documents.
 - `.github/workflows/pages.yml`: builds and deploys the guide on pushes to `main` or manual dispatch.
@@ -38,6 +39,12 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
    ```sh
    python3 MurphyBedQueen/generate_cut_layouts.py
    python3 MurphyBedQueen/generate_drawings.py
+   ```
+
+   Then convert the STEP models to the GLB files used by the site's 3D viewer (needs `pip install cascadio trimesh`):
+
+   ```sh
+   python3 MurphyBedQueen/export_web_models.py
    ```
 
    The cut-layout generator uses the standard library and rejects unexpected parts or dimensions. The drawing generator requires Pillow and the macOS Helvetica font; it consumes native Fusion body bounds, not guessed image dimensions. Site deployment does not regenerate CAD or require Pillow.
