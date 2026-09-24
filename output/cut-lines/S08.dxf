@@ -229,17 +229,17 @@ AcDbPolyline
 20
 0.75
 10
-29.25
+29.1875
 20
 0.75
 10
-29.25
+29.1875
 20
-60.75
+60.6875
 10
 0.75
 20
-60.75
+60.6875
 0
 TEXT
 100
@@ -251,7 +251,7 @@ AcDbText
 10
 1.25
 20
-30.75
+30.71875
 30
 0
 40
@@ -275,13 +275,13 @@ AcDbText
 10
 1.25
 20
-29.55
+29.51875
 30
 0
 40
 0.7
 1
-28 1/2 x 60 in
+28 7/16 x 59 15/16 in
 50
 0
 7
@@ -587,7 +587,7 @@ AcDbText
 40
 0.8
 1
-28 1/2 x 60 in; finish 1/4 in
+28 7/16 x 59 15/16 in; finish 1/4 in
 50
 0
 7
@@ -731,7 +731,7 @@ AcDbText
 40
 0.8
 1
-Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.
+Shelf/back fit included; finalize joinery, slides and measured stock before cutting.
 50
 0
 7

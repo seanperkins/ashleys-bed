@@ -34,6 +34,6 @@
 <text x="52" y="27.6" font-size="0.85">3 x 56 in; finish 5/8 in</text>
 <text x="52" y="29" font-size="0.78">X 33.75 / Y 0.75 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.</text>
+<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize joinery, slides and measured stock before cutting.</text>
 <text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
 </g></svg>

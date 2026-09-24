@@ -146,6 +146,8 @@
       "clearBayHeightInches": 11.5625,
       "drawerBoxes": 1,
       "material": "Plywood, Finish",
+      "shelfClearancePerSideInches": 0.0625,
+      "backClearancePerEdgeInches": 0.03125,
       "constructionScope": "Plywood parts and closed drawer layout; slides, shelf supports and joinery not detailed",
       "partsInchesXYZ": {
         "SC Left side": [
@@ -174,9 +176,9 @@
           2.5
         ],
         "SC Plywood back": [
-          28.5,
+          28.4375,
           0.25,
-          60.0
+          59.9375
         ],
         "SC Shelf above drawer": [
           28.5,
@@ -184,17 +186,17 @@
           0.7500000000000004
         ],
         "SC Shelf 1": [
-          28.5,
+          28.375,
           15.75,
           0.7500000000000004
         ],
         "SC Shelf 2": [
-          28.5,
+          28.375,
           15.75,
           0.7500000000000004
         ],
         "SC Shelf 3": [
-          28.5,
+          28.375,
           15.75,
           0.7500000000000004
         ],

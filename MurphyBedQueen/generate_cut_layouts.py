@@ -23,13 +23,14 @@ GAP = 0.5
 WARNING = "NOMINAL PLANNING OUTLINES - NOT CNC-READY"
 STOP_NOTE = "M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness."
 PENDING_NOTE = (
-    "Finalize joinery, shelf clearance, slides and measured stock thickness before cutting."
+    "Shelf/back fit included; finalize joinery, slides and measured stock before cutting."
 )
 BASIS = (
     "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; "
     "NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part "
     "Length_in and stock length (+Y). Nominal rectangular outlines only; no "
     "cutter compensation, holes, pockets or G-code. No spare sheet is included. "
+    "Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. "
     + PENDING_NOTE
 )
 
@@ -51,11 +52,11 @@ PART_SPECS = [
     ("L03", "Left cabinet: Top", "Left bookcase top", 16, 28.5, 0.75),
     ("L04", "Left cabinet: Bottom", "Left bookcase bottom", 16, 28.5, 0.75),
     ("L05", "Left cabinet: Recessed plinth", "Recessed plinth", 2.5, 28.5, 0.75),
-    ("L06", "Left cabinet: Plywood back", "Bookcase back", 28.5, 60, 0.25),
+    ("L06", "Left cabinet: Plywood back", "Bookcase back", 28.4375, 59.9375, 0.25),
     ("L07", "Left cabinet: Shelf above drawer", "Shelf above drawer", 15.75, 28.5, 0.75),
-    ("L08", "Left cabinet: Shelf 1", "Adjustable shelf 1", 15.75, 28.5, 0.75),
-    ("L09", "Left cabinet: Shelf 2", "Adjustable shelf 2", 15.75, 28.5, 0.75),
-    ("L10", "Left cabinet: Shelf 3", "Adjustable shelf 3", 15.75, 28.5, 0.75),
+    ("L08", "Left cabinet: Shelf 1", "Adjustable shelf 1", 15.75, 28.375, 0.75),
+    ("L09", "Left cabinet: Shelf 2", "Adjustable shelf 2", 15.75, 28.375, 0.75),
+    ("L10", "Left cabinet: Shelf 3", "Adjustable shelf 3", 15.75, 28.375, 0.75),
     ("L11", "Left cabinet: Drawer Left side", "Drawer left side", 8, 14, 0.5),
     ("L12", "Left cabinet: Drawer Right side", "Drawer right side", 8, 14, 0.5),
     ("L13", "Left cabinet: Drawer back", "Drawer back", 8, 26.5, 0.5),
@@ -504,7 +505,7 @@ def cut_guide(layout):
         "MILLING / MACHINING HOLD", STOP_NOTE, PENDING_NOTE,
         "No machining values are implied by the 1/2 in gap. It is layout clearance, not a tool size.",
         "No cutter compensation, joinery pockets, drilling, tabs or G-code are supplied.",
-        "Measure stock; finalize dados/rabbets, shelf fit and drawer hardware before CAM.",
+        "Measure stock; recheck shelf/back fit; finalize dados/rabbets and drawer hardware before CAM.",
         "Confirm machine, approved post/profile, exact cutter, workholding and work zero with shop.",
         "Do not run these drawings as machine programs or treat nominal rectangles as final blanks.", "",
         "SHEET MAP (width x length; finished thickness; lower-left X/Y)",

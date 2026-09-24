@@ -22,10 +22,10 @@ DXF declares inches ($INSUNITS=1); verify a known dimension after import.
 
 MILLING / MACHINING HOLD
 M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.
-Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.
+Shelf/back fit included; finalize joinery, slides and measured stock before cutting.
 No machining values are implied by the 1/2 in gap. It is layout clearance, not a tool size.
 No cutter compensation, joinery pockets, drilling, tabs or G-code are supplied.
-Measure stock; finalize dados/rabbets, shelf fit and drawer hardware before CAM.
+Measure stock; recheck shelf/back fit; finalize dados/rabbets and drawer hardware before CAM.
 Confirm machine, approved post/profile, exact cutter, workholding and work zero with shop.
 Do not run these drawings as machine programs or treat nominal rectangles as final blanks.
 
@@ -56,19 +56,19 @@ Assemblies: Left shelf
   L01 Left cabinet: Left side | 16 x 64 in | finish 3/4 in | X 0.75, Y 0.75
   L02 Left cabinet: Right side | 16 x 64 in | finish 3/4 in | X 17.25, Y 0.75
   L07 Left cabinet: Shelf above drawer | 15 3/4 x 28 1/2 in | finish 3/4 in | X 0.75, Y 65.25
-  L08 Left cabinet: Shelf 1 | 15 3/4 x 28 1/2 in | finish 3/4 in | X 17.25, Y 65.25
+  L08 Left cabinet: Shelf 1 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 17.25, Y 65.25
 
 S05 | 3/4 in stock | 48 x 96 in | 3 parts
 Assemblies: Left shelf; Main cabinet
   M08 5.1 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 0.75, Y 0.75
   M09 5.2 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 22.375, Y 0.75
-  L09 Left cabinet: Shelf 2 | 15 3/4 x 28 1/2 in | finish 3/4 in | X 0.75, Y 63.0625
+  L09 Left cabinet: Shelf 2 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 0.75, Y 63.0625
 
 S06 | 3/4 in stock | 48 x 96 in | 3 parts
 Assemblies: Left shelf; Main cabinet
   M10 5.3 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 0.75, Y 0.75
   M11 5.4 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 22.375, Y 0.75
-  L10 Left cabinet: Shelf 3 | 15 3/4 x 28 1/2 in | finish 3/4 in | X 0.75, Y 63.0625
+  L10 Left cabinet: Shelf 3 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 0.75, Y 63.0625
 
 S07 | 1/2 in stock | 24 x 48 in | 4 parts
 Assemblies: Left shelf
@@ -79,7 +79,7 @@ Assemblies: Left shelf
 
 S08 | 1/4 in stock | 48 x 96 in | 2 parts
 Assemblies: Left shelf
-  L06 Left cabinet: Plywood back | 28 1/2 x 60 in | finish 1/4 in | X 0.75, Y 0.75
+  L06 Left cabinet: Plywood back | 28 7/16 x 59 15/16 in | finish 1/4 in | X 0.75, Y 0.75
   L15 Left cabinet: Drawer bottom | 14 x 27 1/2 in | finish 1/4 in | X 29.75, Y 0.75
 
 REGENERATE

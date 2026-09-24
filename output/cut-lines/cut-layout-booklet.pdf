@@ -13,7 +13,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 3493 >>
+<< /Length 3491 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -87,7 +87,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -99,7 +99,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Length 3108 >>
+<< /Length 3106 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -162,7 +162,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -174,7 +174,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Length 3490 >>
+<< /Length 3488 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -248,7 +248,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -260,7 +260,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
 11 0 obj
-<< /Length 3476 >>
+<< /Length 3479 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -298,9 +298,9 @@ BT /F2 9 Tf 1 0 0 1 69.125 587.5 Tm (L07) Tj ET
 q
 [] 0 d
 0.90 0.94 0.87 rg
-122.25 516.25 78.75 142.5 re B
+122.25 516.25 78.75 141.875 re B
 Q
-BT /F2 9 Tf 1 0 0 1 151.625 587.5 Tm (L08) Tj ET
+BT /F2 9 Tf 1 0 0 1 151.625 587.1875 Tm (L08) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 173 Tm (Stock width 48 in  /  length 96 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 158 Tm (Origin \(0,0\): lower-left stock corner) Tj ET
 291 575 m 291 648 l S
@@ -323,7 +323,7 @@ BT /F1 10 Tf 1 0 0 1 315 453 Tm (15 3/4 x 28 1/2 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 439 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 426 Tm (X 0.75 / Y 65.25) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 401 Tm (L08  Adjustable shelf 1) Tj ET
-BT /F1 10 Tf 1 0 0 1 315 386 Tm (15 3/4 x 28 1/2 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 315 386 Tm (15 3/4 x 28 3/8 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 372 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 359 Tm (X 17.25 / Y 65.25) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 290 Tm (DEDICATED STOCK) Tj ET
@@ -333,7 +333,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -345,7 +345,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
 endobj
 13 0 obj
-<< /Length 3211 >>
+<< /Length 3209 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -377,9 +377,9 @@ BT /F2 9 Tf 1 0 0 1 190.6875 348.28125 Tm (M09) Tj ET
 q
 [] 0 d
 0.90 0.94 0.87 rg
-39.75 505.3125 78.75 142.5 re B
+39.75 505.3125 78.75 141.875 re B
 Q
-BT /F2 9 Tf 1 0 0 1 69.125 576.5625 Tm (L09) Tj ET
+BT /F2 9 Tf 1 0 0 1 69.125 576.25 Tm (L09) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 173 Tm (Stock width 48 in  /  length 96 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 158 Tm (Origin \(0,0\): lower-left stock corner) Tj ET
 291 575 m 291 648 l S
@@ -398,7 +398,7 @@ BT /F1 10 Tf 1 0 0 1 315 520 Tm (21 1/8 x 61 13/16 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 506 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 493 Tm (X 22.375 / Y 0.75) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 468 Tm (L09  Adjustable shelf 2) Tj ET
-BT /F1 10 Tf 1 0 0 1 315 453 Tm (15 3/4 x 28 1/2 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 315 453 Tm (15 3/4 x 28 3/8 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 439 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 426 Tm (X 0.75 / Y 63.0625) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 290 Tm (SHARED STOCK) Tj ET
@@ -409,7 +409,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -421,7 +421,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
 endobj
 15 0 obj
-<< /Length 3211 >>
+<< /Length 3209 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -453,9 +453,9 @@ BT /F2 9 Tf 1 0 0 1 190.6875 348.28125 Tm (M11) Tj ET
 q
 [] 0 d
 0.90 0.94 0.87 rg
-39.75 505.3125 78.75 142.5 re B
+39.75 505.3125 78.75 141.875 re B
 Q
-BT /F2 9 Tf 1 0 0 1 69.125 576.5625 Tm (L10) Tj ET
+BT /F2 9 Tf 1 0 0 1 69.125 576.25 Tm (L10) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 173 Tm (Stock width 48 in  /  length 96 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 158 Tm (Origin \(0,0\): lower-left stock corner) Tj ET
 291 575 m 291 648 l S
@@ -474,7 +474,7 @@ BT /F1 10 Tf 1 0 0 1 315 520 Tm (21 1/8 x 61 13/16 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 506 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 493 Tm (X 22.375 / Y 0.75) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 468 Tm (L10  Adjustable shelf 3) Tj ET
-BT /F1 10 Tf 1 0 0 1 315 453 Tm (15 3/4 x 28 1/2 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 315 453 Tm (15 3/4 x 28 3/8 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 439 Tm (Finished thickness: 3/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 426 Tm (X 0.75 / Y 63.0625) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 290 Tm (SHARED STOCK) Tj ET
@@ -485,7 +485,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -497,7 +497,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
 endobj
 17 0 obj
-<< /Length 3404 >>
+<< /Length 3402 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -570,7 +570,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -582,7 +582,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
 endobj
 19 0 obj
-<< /Length 2760 >>
+<< /Length 2782 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -602,9 +602,9 @@ Q
 q
 [] 0 d
 0.90 0.94 0.87 rg
-39.75 193.75 142.5 300 re B
+39.75 193.75 142.1875 299.6875 re B
 Q
-BT /F2 9 Tf 1 0 0 1 101 343.75 Tm (L06) Tj ET
+BT /F2 9 Tf 1 0 0 1 100.84375 343.59375 Tm (L06) Tj ET
 q
 [] 0 d
 0.90 0.94 0.87 rg
@@ -621,7 +621,7 @@ BT /F2 11 Tf 1 0 0 1 315 657 Tm (PARTS ON THIS SHEET) Tj ET
 BT /F1 9 Tf 1 0 0 1 315 642 Tm (Dimensions in inches: width x length) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 627 Tm (X / Y = lower-left nominal outline) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 602 Tm (L06  Bookcase back) Tj ET
-BT /F1 10 Tf 1 0 0 1 315 587 Tm (28 1/2 x 60 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 315 587 Tm (28 7/16 x 59 15/16 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 573 Tm (Finished thickness: 1/4 in) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 560 Tm (X 0.75 / Y 0.75) Tj ET
 BT /F2 9 Tf 1 0 0 1 315 535 Tm (L15  Drawer bottom) Tj ET
@@ -635,7 +635,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
@@ -654,23 +654,23 @@ xref
 0000000169 00000 n 
 0000000266 00000 n 
 0000000368 00000 n 
-0000003912 00000 n 
-0000004048 00000 n 
-0000007207 00000 n 
-0000007343 00000 n 
-0000010884 00000 n 
-0000011021 00000 n 
-0000014549 00000 n 
-0000014687 00000 n 
-0000017950 00000 n 
-0000018088 00000 n 
-0000021351 00000 n 
-0000021489 00000 n 
-0000024945 00000 n 
-0000025083 00000 n 
-0000027895 00000 n 
+0000003910 00000 n 
+0000004046 00000 n 
+0000007203 00000 n 
+0000007339 00000 n 
+0000010878 00000 n 
+0000011015 00000 n 
+0000014546 00000 n 
+0000014684 00000 n 
+0000017945 00000 n 
+0000018083 00000 n 
+0000021344 00000 n 
+0000021482 00000 n 
+0000024936 00000 n 
+0000025074 00000 n 
+0000027908 00000 n 
 trailer
 << /Size 21 /Root 1 0 R >>
 startxref
-28033
+28046
 %%EOF

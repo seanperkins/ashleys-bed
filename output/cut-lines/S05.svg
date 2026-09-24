@@ -12,11 +12,11 @@
 <g id="PART_OUTLINES" stroke="#152b42" stroke-width="0.08">
 <rect id="M08" x="0.75" y="33.4375" width="21.125" height="61.8125" fill="#e0ebf3"/>
 <rect id="M09" x="22.375" y="33.4375" width="21.125" height="61.8125" fill="#e0ebf3"/>
-<rect id="L09" x="0.75" y="4.4375" width="15.75" height="28.5" fill="#e6efdf"/>
+<rect id="L09" x="0.75" y="4.5625" width="15.75" height="28.375" fill="#e6efdf"/>
 </g><g id="LABELS" text-anchor="middle">
 <g><text x="11.3125" y="64.04375" font-size="1.2" font-weight="bold">M08</text><text x="11.3125" y="65.44375" font-size="0.72">21 1/8 x 61 13/16 in</text></g>
 <g><text x="32.9375" y="64.04375" font-size="1.2" font-weight="bold">M09</text><text x="32.9375" y="65.44375" font-size="0.72">21 1/8 x 61 13/16 in</text></g>
-<g><text x="8.625" y="18.3875" font-size="1.2" font-weight="bold">L09</text><text x="8.625" y="19.7875" font-size="0.72">15 3/4 x 28 1/2 in</text></g>
+<g><text x="8.625" y="18.45" font-size="1.2" font-weight="bold">L09</text><text x="8.625" y="19.85" font-size="0.72">15 3/4 x 28 3/8 in</text></g>
 </g><g id="GRAIN_REFERENCE" stroke="#152b42" stroke-width="0.12" fill="none">
 <path d="M 49.5 14 V 4 M 48.9 5 L 49.5 4 L 50.1 5"/>
 </g>
@@ -31,9 +31,9 @@
 <text x="52" y="21.6" font-size="0.85">21 1/8 x 61 13/16 in; finish 3/4 in</text>
 <text x="52" y="23" font-size="0.78">X 22.375 / Y 0.75 in</text>
 <text x="52" y="26" font-size="0.95" font-weight="bold">L09  Adjustable shelf 2</text>
-<text x="52" y="27.6" font-size="0.85">15 3/4 x 28 1/2 in; finish 3/4 in</text>
+<text x="52" y="27.6" font-size="0.85">15 3/4 x 28 3/8 in; finish 3/4 in</text>
 <text x="52" y="29" font-size="0.78">X 0.75 / Y 63.0625 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Finalize joinery, shelf clearance, slides and measured stock thickness before cutting.</text>
+<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize joinery, slides and measured stock before cutting.</text>
 <text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
 </g></svg>

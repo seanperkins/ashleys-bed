@@ -228,6 +228,10 @@ def build_side_cabinet(root, plywood, navy, natural, black, cutlist, side, origi
 
     clear_width = SIDE_W - 2*T
     back_t = 0.25
+    # Fit allowances on nominal stock: adjustable shelves must slide between the sides onto pins,
+    # and the back sits inside the carcass. Recheck both against measured plywood.
+    shelf_clearance = 1/16  # per side
+    back_clearance = 1/32  # per edge
     bottom_z = 2.5
     drawer_shelf_z = 14.0
     panel('SC Left side', (0, 0, 0), (T, D, H), (T, D, H))
@@ -236,16 +240,18 @@ def build_side_cabinet(root, plywood, navy, natural, black, cutlist, side, origi
     panel('SC Bottom', (T, 0, bottom_z), (clear_width, D, T), (T, D, clear_width))
     panel('SC Recessed plinth', (T, D-2*T, 0), (clear_width, T, bottom_z),
           (T, bottom_z, clear_width))
-    back_height = H-T-bottom_z-T
-    panel('SC Plywood back', (T, 0, bottom_z+T), (clear_width, back_t, back_height),
-          (back_t, clear_width, back_height))
+    back_width = clear_width-2*back_clearance
+    back_height = H-T-bottom_z-T-2*back_clearance
+    panel('SC Plywood back', (T+back_clearance, 0, bottom_z+T+back_clearance),
+          (back_width, back_t, back_height), (back_t, back_width, back_height))
     panel('SC Shelf above drawer', (T, back_t, drawer_shelf_z),
           (clear_width, D-back_t, T), (T, D-back_t, clear_width))
     opening_height = (H-T-(drawer_shelf_z+T)-3*T)/4
+    shelf_width = clear_width-2*shelf_clearance
     for index in range(3):
         z = drawer_shelf_z+T+opening_height+index*(opening_height+T)
-        panel(f'SC Shelf {index+1}', (T, back_t, z),
-              (clear_width, D-back_t, T), (T, D-back_t, clear_width))
+        panel(f'SC Shelf {index+1}', (T+shelf_clearance, back_t, z),
+              (shelf_width, D-back_t, T), (T, D-back_t, shelf_width))
 
     drawer_occ = component(cabinet, '06 Bottom drawer | plywood box | closed')
     drawer_occ.isGroundToParent = True
@@ -287,6 +293,8 @@ def build_side_cabinet(root, plywood, navy, natural, black, cutlist, side, origi
         'clearBayHeightInches': opening_height,
         'drawerBoxes': 1,
         'material': plywood.name,
+        'shelfClearancePerSideInches': shelf_clearance,
+        'backClearancePerEdgeInches': back_clearance,
         'constructionScope': 'Plywood parts and closed drawer layout; slides, shelf supports and joinery not detailed',
         'partsInchesXYZ': {body.name: body_dimensions(body) for body, _ in parts},
     }

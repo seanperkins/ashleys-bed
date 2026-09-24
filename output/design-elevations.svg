@@ -2,7 +2,7 @@
 <rect width="100%" height="100%" fill="white"/>
 <text x="70" y="86.4" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="48" fill="#182B49">ASHLEY&#x27;S BED | BED + LEFT BOOKCASE</text>
 <text x="70" y="135.2" text-anchor="start" font-family="Helvetica,Arial,sans-serif" font-size="29" fill="#182B49">Dimensioned design review | Right cabinet removed | Inches</text>
-<rect x="209.0" y="251.0" width="342.0" height="720.0" fill="#E7EDF4" stroke="#182B49" stroke-width="2"/>
+<rect x="209.375" y="251.375" width="341.25" height="719.25" fill="#E7EDF4" stroke="#182B49" stroke-width="2"/>
 <rect x="209.0" y="980.0" width="342.0" height="30.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
 <rect x="1336.25" y="255.1249999999999" width="253.5" height="741.7500000000001" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
 <rect x="1081.25" y="255.1249999999999" width="253.5" height="741.7500000000001" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
@@ -18,9 +18,9 @@
 <rect x="209.0" y="242.0" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
 <rect x="209.0" y="971.0" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
 <rect x="209.0" y="833.0" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
-<rect x="209.0" y="685.25" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
-<rect x="209.0" y="537.5" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
-<rect x="209.0" y="389.75" width="342.0" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
+<rect x="209.75" y="685.25" width="340.5" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
+<rect x="209.75" y="537.5" width="340.5" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
+<rect x="209.75" y="389.75" width="340.5" height="9.0" fill="#B8C8DA" stroke="#182B49" stroke-width="2"/>
 <line x1="175" y1="1010" x2="1626.0" y2="1010" stroke="#182B49" stroke-width="3"/>
 <line x1="200" y1="242.0" x2="200" y2="210" stroke="#64748B" stroke-width="2"/>
 <line x1="193" y1="203" x2="207" y2="189" stroke="#182B49" stroke-width="3"/>

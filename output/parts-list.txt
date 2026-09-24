@@ -9,7 +9,7 @@ PURCHASING BASIS
 cabinet-cut-list.csv. Stock lengths run parallel to every part Length_in; layout allowances
 are 3/4-inch sheet-edge margins and 1/2-inch gaps. The shared-sheet purchasing arrangement
 is not a claim of minimum-sheet optimization or machine-ready CNC fabrication.
-Actual plywood thickness, final CNC joinery/drilling, shelf fitting clearance and the exact
+Actual plywood thickness, final CNC joinery/drilling, the shelf/back fit check on measured stock and the exact
 slide model/mounting requirements remain unresolved physical/fabrication inputs.
 
 PLYWOOD SHORT VERSION - BUY EACH SOURCE SHEET ONCE
@@ -23,9 +23,9 @@ not bought as an additional complete box.
 PLYWOOD BY PROJECT - CUT QUANTITIES, NOT FRACTIONAL SHEET ORDERS
 Project | Stock | Pieces | Net cut area | Source sheets
 Main cabinet | 3/4 inch | 11 including stop blank | 89.5497 sq ft | S01/S02/S03/S05/S06
-LEFT shelf + drawer | 3/4 inch | 10 | 35.5790 sq ft | S01/S03/S04/S05/S06
+LEFT shelf + drawer | 3/4 inch | 10 | 35.5380 sq ft | S01/S03/S04/S05/S06
 LEFT shelf + drawer | 1/2 inch | 4 | 4.5000 sq ft | S07
-LEFT shelf + drawer | 1/4 inch | 2 | 14.5486 sq ft | S08
+LEFT shelf + drawer | 1/4 inch | 2 | 14.5102 sq ft | S08
 Main has no 1/2-inch or 1/4-inch cut parts. Net areas exclude cutting gaps and waste.
 Main dedicated sheet: S02. LEFT dedicated sheets/panel: S04, S07 and S08.
 Shared sheets: S01, S03, S05 and S06. Count these once, not once per project.
@@ -47,10 +47,10 @@ using finished thickness. Per-part square feet = [2 x width x length +
 2 x thickness x (width + length)] / 144, multiplied by quantity (dimensions in inches).
 The four natural-finish drawer-box walls and its bottom are excluded from navy paint.
 Main: 179.0994 sq ft faces + 9.8533 sq ft edges = 188.9527 sq ft.
-LEFT: 94.9080 sq ft faces + 5.4714 sq ft edges = 100.3793 sq ft.
-Total: 289.3320 sq ft (22 painted parts). Rounded total: about 289.3 sq ft.
-Primer: 289.3320 / 350 x one coat = 0.8267 gallon; purchase allowance ONE gallon.
-Enamel: 289.3320 / 350 x two coats = 1.6533 gallons; purchase allowance TWO gallons.
+LEFT: 94.7492 sq ft faces + 5.4670 sq ft edges = 100.2162 sq ft.
+Total: 289.1689 sq ft (22 painted parts). Rounded total: about 289.2 sq ft.
+Primer: 289.1689 / 350 x one coat = 0.8262 gallon; purchase allowance ONE gallon.
+Enamel: 289.1689 / 350 x two coats = 1.6524 gallons; purchase allowance TWO gallons.
 Actual product coverage, edge sealing, samples and extra coats may require more.
 Keep glue surfaces bare; these geometric areas are an allowance, not precise consumption.
 
@@ -84,7 +84,7 @@ MAIN MATERIALS
     Specification: Cabinet-grade plywood; actual thickness must be measured
     Used for: One LEFT cabinet back and one drawer bottom
     Basis: Shared-sheet purchasing layout; two pieces on S08
-    Note: One 28.5 x 60 back and one 14 x 27.5 drawer bottom; total cut area 14.5486 sq ft. One-piece back retained; final rabbet/groove and attachment details remain pending.
+    Note: One 28-7/16 x 59-15/16 back (1/32 in fit clearance per edge) and one 14 x 27.5 drawer bottom; total cut area 14.5102 sq ft. One-piece back sized to sit inside the carcass; resize it if it is rabbeted or grooved instead. Attachment details remain pending.
 [ ] Permanent-stop material -- CHECK / ALREADY ALLOCATED
     Specification: Finished 5/8 x 3 x 56 inches
     Used for: Bed closed-position stop
@@ -108,7 +108,7 @@ CABINET HARDWARE
     Specification: 5 mm steel shelf supports with flat/spoon bearing surface
     Used for: Three adjustable LEFT shelves
     Basis: 12 required plus 8 spares; one 20-pin pack allowance
-    Note: Four supports per adjustable shelf; fixed shelf above drawer does not use pins. Match future hole diameter, depth and edge distances to the actual pins; pin holes and shelf fitting clearances remain unmodeled. Verify actual pack contents.
+    Note: Four supports per adjustable shelf; fixed shelf above drawer does not use pins. Match future hole diameter, depth and edge distances to the actual pins; shelves are cut 28-3/8 in wide for 1/16 in clearance per side; pin holes remain unmodeled. Verify actual pack contents.
 [ ] Matching pulls -- 3 pulls with fixing bolts
     Specification: Black bar pulls; approximately 6-inch centers to match representative model
     Used for: Two bed pulls and one LEFT drawer pull
@@ -183,12 +183,12 @@ FINISH
 [ ] Compatible wood primer -- 1 gallon
     Specification: Primer suitable for veneer-core plywood and selected cabinet enamel
     Used for: Painted panels, cabinet back and exposed edges
-    Basis: 289.3320 sq ft / 350 sq ft per gallon x 1 coat = 0.8267 gallon; round to 1 gallon
-    Note: Both faces plus all edges; main 188.9527 sq ft and left 100.3793 sq ft. Natural-finish drawer-box panels/bottom excluded. Check actual product coverage; keep glue surfaces bare and allow additional edge sealing if required.
+    Basis: 289.1689 sq ft / 350 sq ft per gallon x 1 coat = 0.8262 gallon; round to 1 gallon
+    Note: Both faces plus all edges; main 188.9527 sq ft and left 100.2162 sq ft. Natural-finish drawer-box panels/bottom excluded. Check actual product coverage; keep glue surfaces bare and allow additional edge sealing if required.
 [ ] Dark navy cabinet enamel -- 2 gallons
     Specification: Durable cabinet/trim enamel; match approved #182B49 with a physical sample
     Used for: Painted bed and LEFT cabinet
-    Basis: 289.3320 sq ft / 350 sq ft per gallon x 2 coats = 1.6533 gallons; round to 2 gallons
+    Basis: 289.1689 sq ft / 350 sq ft per gallon x 2 coats = 1.6524 gallons; round to 2 gallons
     Note: Color code describes the design, not a guaranteed paint formula. Verify the dry sample and chosen product coverage. Allowance is shared across both remaining assemblies, not a per-cabinet purchase.
 [ ] Clear drawer-box finish -- 1 quart
     Specification: Waterborne clear furniture finish compatible with plywood
