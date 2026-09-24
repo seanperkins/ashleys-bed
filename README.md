@@ -41,7 +41,7 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
    python3 MurphyBedQueen/generate_drawings.py
    ```
 
-   Then convert the STEP models to the GLB files used by the site's 3D viewer (needs `pip install cascadio trimesh`):
+   Then build the GLB files used by the site's 3D viewer (needs `pip install cascadio trimesh`). It writes static closed/open models and an animated open/close model. It fails if any part does not match the bed and leg joints in `MurphyBedQueen.py`, if the STEP gas-spring mounts moved, or if the swing puts the leg through the mattress or below the floor:
 
    ```sh
    python3 MurphyBedQueen/export_web_models.py

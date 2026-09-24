@@ -45,20 +45,25 @@
 <section aria-labelledby="model-viewer-heading" class="model-section">
   <h2 id="model-viewer-heading">Explore the 3D model</h2>
   <p>
-    Drag to orbit, scroll or pinch to zoom, and switch between the closed and
-    open positions. Converted from the current Fusion STEP exports at full
-    scale.
+    Drag to orbit, scroll or pinch to zoom. Play the bed opening and closing,
+    or drag the slider to stop it at any point. Built at full scale from the
+    current Fusion STEP exports.
   </p>
-  <div class="model-toggle" role="group" aria-label="Bed position">
-    <button type="button" data-model="downloads/queen-horizontal-closed.glb" data-poster="assets/ashleys-bed-closed.png" aria-pressed="true">Closed</button
-    ><button type="button" data-model="downloads/queen-horizontal-open.glb" data-poster="assets/ashleys-bed-open.png" aria-pressed="false">Open</button>
+  <div class="model-controls" hidden>
+    <button type="button" id="model-play" class="button">Open the bed</button>
+    <label class="model-scrub">
+      <span>Closed</span>
+      <input type="range" id="model-position" min="0" max="1000" value="0" aria-label="Bed position, closed to open" aria-valuetext="Closed" />
+      <span>Open</span>
+    </label>
   </div>
   <figure class="model-frame">
     <model-viewer
       id="bed-model"
-      src="downloads/queen-horizontal-closed.glb"
+      src="downloads/queen-horizontal-motion.glb"
       poster="assets/ashleys-bed-closed.png"
-      alt="Interactive 3D model of the navy Murphy bed with its left bookcase and drawer."
+      alt="Interactive 3D model of the navy Murphy bed with its left bookcase and drawer, animated between closed and open."
+      animation-name="OpenClose"
       camera-controls
       touch-action="pan-y"
       camera-orbit="-30deg 75deg auto"
@@ -71,8 +76,8 @@
     </model-viewer>
     <img class="model-print" src="assets/ashleys-bed-closed.png" alt="Native Fusion view of the closed Murphy bed." width="2400" height="1800" />
     <figcaption>
-      Hardware is representative. Open and closed are endpoint positions only,
-      not certified mechanism clearance.
+      Motion is a visual guide between the two modeled endpoints. It is not a
+      gas-spring, clearance or load simulation, and hardware is representative.
       <a href="downloads.html#project-downloads">Download the GLB, STEP or Fusion files</a>.
     </figcaption>
   </figure>

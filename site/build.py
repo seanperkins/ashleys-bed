@@ -33,8 +33,9 @@ DOWNLOADS = [
     ('plywood-purchasing-layout.json', 'Placement data', 'JSON · dimensions and coordinates; machineReady is false'),
     ('queen-horizontal-closed.f3d', 'Closed Fusion model', 'Editable native assembly · hardware remains representative'),
     ('queen-horizontal-open.f3d', 'Open Fusion model', 'Editable native assembly · not certified mechanism clearance'),
-    ('web/queen-horizontal-closed.glb', 'Closed 3D web model', 'GLB · opens in any glTF viewer; converted from the STEP export'),
-    ('web/queen-horizontal-open.glb', 'Open 3D web model', 'GLB · opens in any glTF viewer; converted from the STEP export'),
+    ('web/queen-horizontal-motion.glb', 'Animated 3D web model', 'GLB · opens and closes; representative gas springs, not a simulation'),
+    ('web/queen-horizontal-closed.glb', 'Closed 3D web model', 'GLB · built from the STEP export; gas springs regenerated at fixed length'),
+    ('web/queen-horizontal-open.glb', 'Open 3D web model', 'GLB · built from the STEP export; gas springs regenerated at fixed length'),
     ('queen-horizontal-closed.step', 'Closed STEP model', 'CAD interchange · visible components only'),
     ('queen-horizontal-open.step', 'Open STEP model', 'CAD interchange · visible components only'),
     ('design-elevations.svg', 'Dimensioned elevations', 'SVG · front and side design-review drawing'),
@@ -131,8 +132,6 @@ class Links(HTMLParser):
         if tag=='link' and 'href' in attrs: self.links.append(attrs['href'])
         if tag=='model-viewer':
             self.links += [attrs[k] for k in ('src','poster') if k in attrs]
-        if tag=='button' and 'data-model' in attrs:
-            self.links += [attrs['data-model'], attrs['data-poster']]
 
 
 def validate_site():

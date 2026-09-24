@@ -28,6 +28,12 @@ DOOR_Y = 1.09375 - PZ
 FRAME_Y0, FRAME_Y1 = -9.8, 51.2
 LEG_Y, LEG_Z = 50.5, 0.8
 LEG_LENGTH = PZ + LEG_Z
+# Representative gas springs: fixed cabinet end, bed end offset from the pivot in bed coordinates.
+# The cylinder and rod keep their lengths; only the rod's exposed length changes with bed angle.
+PISTON_X_INSET = 1.2
+PISTON_FIXED_YZ = (6.5625, 29.0)
+PISTON_BED_YZ = (-7.5, 0.8)
+GAS_CYLINDER_LENGTH, GAS_ROD_LENGTH = 14.0, 13.5
 
 
 def point(x, y, z):
@@ -470,14 +476,19 @@ def run(context):
             occ = component(root, 'Pistons '+label+' | endpoint representation, not dynamic simulation')
             occ.isGroundToParent = True
             piston = Hardware(occ.component, black)
-            for side, x in [('L', 1.2), ('R', W-1.2)]:
-                a = (x, 6.5625, 29.0)
-                ly, lz = -7.5, 0.8
+            for side, x in [('L', PISTON_X_INSET), ('R', W-PISTON_X_INSET)]:
+                a = (x, *PISTON_FIXED_YZ)
+                ly, lz = PISTON_BED_YZ
                 b = (x, PY+ly*math.cos(angle)-lz*math.sin(angle),
                      PZ+ly*math.sin(angle)+lz*math.cos(angle))
-                mid = tuple(a[k]+0.60*(b[k]-a[k]) for k in range(3))
-                piston.rod(side+' gas cylinder', a, mid, 0.43)
-                piston.rod(side+' piston rod', mid, b, 0.19, silver)
+                span = math.dist(a, b)
+                if not GAS_CYLINDER_LENGTH + GAS_ROD_LENGTH > span >= max(GAS_CYLINDER_LENGTH, GAS_ROD_LENGTH):
+                    raise RuntimeError(f'Gas spring cannot span {span:.2f} in at {label}')
+                unit = tuple((b[k]-a[k])/span for k in range(3))
+                piston.rod(side+' gas cylinder', a,
+                           tuple(a[k]+GAS_CYLINDER_LENGTH*unit[k] for k in range(3)), 0.43)
+                piston.rod(side+' piston rod', b,
+                           tuple(b[k]-GAS_ROD_LENGTH*unit[k] for k in range(3)), 0.19, silver)
             piston.finish()
             piston_poses.append(occ)
         piston_poses[1].isLightBulbOn = False

@@ -135,15 +135,57 @@
   }
 
   const model = document.querySelector("#bed-model");
-  const modelButtons = [...document.querySelectorAll("[data-model]")];
-  modelButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      model.poster = button.dataset.poster;
-      model.querySelector("[slot=poster]").src = button.dataset.poster;
-      model.src = button.dataset.model;
-      modelButtons.forEach((other) =>
-        other.setAttribute("aria-pressed", String(other === button)),
+  const slider = document.querySelector("#model-position");
+  const play = document.querySelector("#model-play");
+  if (model && slider && play) {
+    const secondsPerSweep = 5;
+    let position = 0;
+    let target = 0;
+    let frame = null;
+    let last = 0;
+
+    const show = (value) => {
+      position = value;
+      slider.value = String(Math.round(value * 1000));
+      slider.setAttribute(
+        "aria-valuetext",
+        value === 0 ? "Closed" : value === 1 ? "Open" : `${Math.round(value * 100)}% open`,
       );
+      // A looping clip wraps to its first frame at exactly its duration, so stop just short of it.
+      if (model.duration) model.currentTime = value * (model.duration - 0.001);
+      play.textContent = (frame ? target : position) >= 0.5 ? "Close the bed" : "Open the bed";
+    };
+    const step = (now) => {
+      const delta = (now - last) / 1000 / secondsPerSweep;
+      last = now;
+      const next = position < target
+        ? Math.min(target, position + delta)
+        : Math.max(target, position - delta);
+      frame = next === target ? null : requestAnimationFrame(step);
+      show(next);
+    };
+
+    model.addEventListener("load", () => {
+      model.pause();
+      document.querySelector(".model-controls").hidden = false;
+      show(position);
     });
-  });
+    play.addEventListener("click", () => {
+      target = (frame ? target : position) >= 0.5 ? 0 : 1;
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        show(target);
+        return;
+      }
+      if (!frame) {
+        last = performance.now();
+        frame = requestAnimationFrame(step);
+      }
+      show(position);
+    });
+    slider.addEventListener("input", () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = null;
+      show(Number(slider.value) / 1000);
+    });
+  }
 })();

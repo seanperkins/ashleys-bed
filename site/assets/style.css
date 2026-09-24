@@ -1086,25 +1086,38 @@ main > h3 {
 }
 
 /* Interactive 3D model */
-.model-toggle {
-  display: inline-flex;
+.model-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
   margin: 4px 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  overflow: hidden;
 }
-.model-toggle button {
-  border: 0;
-  border-radius: 0;
-  padding: 8px 20px;
-  background: var(--white);
-  color: var(--ink);
-  font-weight: 600;
+.model-controls[hidden] {
+  display: none;
+}
+.model-controls .button {
+  min-width: 150px;
   cursor: pointer;
 }
-.model-toggle button[aria-pressed="true"] {
-  background: var(--navy);
-  color: var(--white);
+label.model-scrub {
+  display: flex;
+  flex: 1 1 260px;
+  margin: 0;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.model-scrub input[type="range"] {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  accent-color: var(--navy);
 }
 .model-frame {
   margin: 0;
@@ -1137,7 +1150,7 @@ main > h3 {
   display: none;
 }
 @media print {
-  .model-toggle,
+  .model-controls,
   .model-frame model-viewer {
     display: none;
   }
