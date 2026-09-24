@@ -241,7 +241,7 @@
     "material": "Plywood, Finish",
     "nominalPlywoodThicknessInches": 0.75
   },
-  "fusionVersion": "2705.1.15",
+  "fusionVersion": "2705.1.25",
   "frontView": {
     "lookDirection": [
       0.0,
