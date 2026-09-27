@@ -22,6 +22,7 @@ PAGES = [
     ('downloads', 'Drawings & files', 'The current project files', 'One revision. Clearly labeled drawings, parts and cut outlines.'),
 ]
 DOWNLOADS = [
+    ('store-shopping-list.pdf', 'Store shopping list', '1-page PDF · checkboxes by store section; print it for Home Depot or Lowe’s'),
     ('design-drawings.pdf', 'Design drawings', '4-page PDF · elevations and native Fusion views'),
     ('parts-list.txt', 'Readable parts checklist', 'Text · quantities, package allowances and required confirmations'),
     ('bill-of-materials.csv', 'Bill of materials', 'CSV · materials, hardware, fasteners and finishing supplies'),

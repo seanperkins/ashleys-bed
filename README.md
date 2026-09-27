@@ -72,7 +72,7 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
    ```
 
    The cut-layout generator uses the standard library and rejects unexpected parts or dimensions. When a part size changes on purpose, update its approved size in `PART_SPECS` (and its sheet placement in `SHEET_PLAN` if it no longer fits) in `generate_cut_layouts.py`. The drawing generator requires Pillow and the macOS Helvetica font; it consumes native Fusion body bounds, not guessed image dimensions. Site deployment does not regenerate CAD or require Pillow.
-4. Update purchasing instructions and the BOM when the design changes. Recheck all sheet quantities, hardware requirements and finish allowances. Refresh the design-review ZIP from the matching current outputs; do not include old revisions or prior budgets. To rebuild it with the same file list:
+4. Update purchasing instructions and the BOM when the design changes. Then regenerate the one-page printable store list, `output/store-shopping-list.pdf`, with `python3 MurphyBedQueen/generate_store_list.py` (requires Pillow and the macOS Helvetica font). It takes quantities from the BOM and fails if a BOM item is added or removed without updating its `ITEMS` table, or if the list no longer fits on one page. Recheck all sheet quantities, hardware requirements and finish allowances. Refresh the design-review ZIP from the matching current outputs; do not include old revisions or prior budgets. To rebuild it with the same file list:
 
    ```sh
    cd output && unzip -Z1 ashleys-bed-design-review.zip > /tmp/zip-list.txt \
