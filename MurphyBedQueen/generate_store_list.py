@@ -13,7 +13,12 @@ from PIL import ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'output'
-FONT = '/System/Library/Fonts/Helvetica.ttc'
+# Text measurement only. Helvetica on macOS; Liberation Sans (metric-compatible
+# with Helvetica) elsewhere, so the one-page check gives the same answer.
+FONTS = {
+    'R': [('/System/Library/Fonts/Helvetica.ttc', 0), ('/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', 0)],
+    'B': [('/System/Library/Fonts/Helvetica.ttc', 1), ('/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf', 0)],
+}
 PAGE_W, PAGE_H, MARGIN = 612, 792, 34
 
 # BOM item -> (store section, short line). {qty} and {unit} come from the BOM.
@@ -31,8 +36,8 @@ ITEMS = {
     '#8 x 1-1/4-inch wood screws': ('Fasteners', '{qty} #8 x 1-1/4 in wood screws', 'Permanent stop.'),
     '#8 x 1-inch washer-head wood screws': ('Fasteners', '{qty} #8 x 1 in washer-head wood screws', 'Drawer face.'),
     '#6 x 1-1/4-inch wood screws': ('Fasteners', '{qty} #6 x 1-1/4 in wood screws', 'Drawer box corners.'),
-    '#6 x 3/4-inch panel-attachment screws': ('Fasteners', '{qty} #6 x 3/4 in pan or washer-head screws', 'Bookcase back and drawer bottom.'),
-    '3/8 x 1-1/2-inch dowels': ('Fasteners', '{qty} fluted dowels, 3/8 x 1-1/2 in', 'Hardwood.'),
+    '#6 x 3/4-inch panel-attachment screws': ('Fasteners', '{qty} #6 x 3/4 in pan or washer-head screws', 'Bookcase back into its rabbet; drawer bottom.'),
+    '3/8 x 1-1/2-inch dowels': ('Fasteners', '{qty} fluted dowels, 3/8 x 1-1/2 in', 'Hardwood. 22 for the bed, 28 for the bookcase, rest spare.'),
     'Wood glue': ('Fasteners', '{qty} bottle wood glue, 16 oz', 'Interior PVA.'),
     'Removable threadlocker': ('Fasteners', '{qty} small bottle removable threadlocker', 'Blue / removable strength.'),
     'Noncompressible shims': ('Fasteners', '{qty} pack hard cabinet shims', 'Plastic or composite, not soft wood.'),
@@ -45,24 +50,25 @@ ITEMS = {
     'Painting consumables': ('Paint', 'Painting supplies', 'Brushes/rollers, tray liners, masking tape, drop cloth, rags.'),
     'Rockler I-Semble horizontal queen steel-frame Murphy bed kit': ('Elsewhere', 'Rockler I-Semble HORIZONTAL QUEEN bed kit', 'Rockler only. Not a vertical kit.'),
     'Queen mattress': ('Elsewhere', 'Queen mattress (you supply)', '60 x 80 in, 10 in thick max, 132 lb max, not foam or very light.'),
-    'CNC and safety equipment': ('Elsewhere', 'CNC cutters and machine time', 'Through HackRVA; not a store purchase.'),
+    'Sheet-cutting, routing and safety equipment': None,  # covered by TOOLS below
     'Permanent-stop material': None,  # cut from the 3/4 in sheets
     'Drilling and doweling equipment': None,  # covered by TOOLS below
     'Assembly and installation tools': None,
 }
 SECTIONS = [
-    ('Lumber', 'LUMBER  -  buy full sheets; do not have the store cut them (the CNC layout needs full sheets)'),
+    ('Lumber', 'LUMBER  -  buy full sheets; the sheet layout assumes full 4 x 8 ft sheets'),
     ('Hardware', 'HARDWARE'),
     ('Fasteners', 'FASTENERS, GLUE & SHIMS'),
     ('Paint', 'PAINT & FINISHING'),
-    ('Tools', 'TOOLS  -  only if you do not already have them'),
+    ('Tools', 'TOOLS  -  only if you do not already have them or cannot borrow them'),
     ('Elsewhere', 'NOT FROM THIS STORE'),
 ]
 TOOLS = [
     ('8 mm Allen key', 'Drives the threaded inserts. The kit does not include this size.'),
-    ('3/8 in doweling jig', 'For the cabinet dowel joints.'),
-    ('Drill bits', '5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8 and 27/64 in, plus a #8 countersink.'),
-    ('Clamps, square, level, stud finder', 'For glue-up and installation. Do not use an impact driver.'),
+    ('3/8 in doweling jig + dowel centers', 'Self-centering jig for edge holes; a set of dowel centers to mark the mating faces.'),
+    ('Drill bits', '3/8 brad-point with depth collar; 5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 27/64 in; #8 countersink.'),
+    ('Plywood blade, straightedge, rabbeting bit', '40-tooth+ circular saw blade; 8 ft straightedge or track; bearing-guided 3/8 in rabbeting bit.'),
+    ('4 bar or pipe clamps, 36 in+', 'Bookcase glue-up. Plus square, level, stud finder. Do not use an impact driver.'),
 ]
 CHECKS = [
     'Sheets lie flat, faces have no dents or splits, and edges show no large voids.',
@@ -76,7 +82,14 @@ NOTE = ('Planning quantities from the project bill of materials. Confirm the sli
 class Pdf:
     def __init__(self):
         self.ops = []
-        self.measure = {w: ImageFont.truetype(FONT, 1000, index=1 if w == 'B' else 0) for w in 'RB'}
+        self.measure = {w: self._font(w) for w in 'RB'}
+
+    @staticmethod
+    def _font(weight):
+        for path, index in FONTS[weight]:
+            if Path(path).exists():
+                return ImageFont.truetype(path, 1000, index=index)
+        raise FileNotFoundError(f'No measuring font found for weight {weight}: {FONTS[weight]}')
 
     def width(self, text, size, weight='R'):
         return self.measure[weight].getlength(text) * size / 1000

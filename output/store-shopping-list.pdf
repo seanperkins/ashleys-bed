@@ -9,13 +9,13 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /FR 5 0 R /FB 6 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 7728 >>
+<< /Length 8053 >>
 stream
 BT 0 g /FB 17 Tf 34.00 740.00 Td (Ashley's Murphy bed  -  store shopping list) Tj ET
 BT 0.3 g /FR 9.5 Tf 34.00 721.00 Td (Queen horizontal bed \(86-3/4 in\) + left bookcase \(30 in\). Check each box as it goes in the cart.) Tj ET
 BT 0.3 g /FR 8.5 Tf 34.00 708.00 Td (Planning quantities from the project bill of materials. Confirm the slide model, pull centers and shelf pins against the build guide before buying) Tj ET
 BT 0.3 g /FR 8.5 Tf 34.00 697.00 Td (hardware.) Tj ET
-BT 0 g /FB 9.5 Tf 34.00 677.00 Td (LUMBER  -  buy full sheets; do not have the store cut them \(the CNC layout needs full sheets\)) Tj ET
+BT 0 g /FB 9.5 Tf 34.00 677.00 Td (LUMBER  -  buy full sheets; the sheet layout assumes full 4 x 8 ft sheets) Tj ET
 0.6 G 0.6 w 34 673.00 m 578 673.00 l S
 0.8 w 0 G 34.00 659.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 660.00 Td (6 sheets 3/4 in plywood, 4 x 8 ft) Tj ET
@@ -49,8 +49,8 @@ BT 0 g /FB 9.5 Tf 34.00 521.00 Td (FASTENERS, GLUE & SHIMS) Tj ET
 BT 0 g /FB 9.5 Tf 49.00 504.00 Td (100 #8 x 2 in wood screws) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 504.00 Td (Wood or cabinet screws, not drywall screws.) Tj ET
 0.8 w 0 G 34.00 489.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 490.00 Td (50 fluted dowels, 3/8 x 1-1/2 in) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 490.00 Td (Hardwood.) Tj ET
+BT 0 g /FB 9.5 Tf 49.00 490.00 Td (100 fluted dowels, 3/8 x 1-1/2 in) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 490.00 Td (Hardwood. 22 for the bed, 28 for the bookcase, rest spare.) Tj ET
 0.8 w 0 G 34.00 475.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 476.00 Td (25 #8 x 1-1/4 in wood screws) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 476.00 Td (Permanent stop.) Tj ET
@@ -62,7 +62,7 @@ BT 0 g /FB 9.5 Tf 49.00 448.00 Td (25 #8 x 1 in washer-head wood screws) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 448.00 Td (Drawer face.) Tj ET
 0.8 w 0 G 34.00 433.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 434.00 Td (100 #6 x 3/4 in pan or washer-head screws) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 434.00 Td (Bookcase back and drawer bottom.) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 434.00 Td (Bookcase back into its rabbet; drawer bottom.) Tj ET
 0.8 w 0 G 34.00 419.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 420.00 Td (1 bottle wood glue, 16 oz) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 420.00 Td (Interior PVA.) Tj ET
@@ -92,39 +92,41 @@ BT 0.25 g /FR 8.5 Tf 269.00 300.00 Td (Match your sander.) Tj ET
 0.8 w 0 G 34.00 285.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 286.00 Td (Painting supplies) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 286.00 Td (Brushes/rollers, tray liners, masking tape, drop cloth, rags.) Tj ET
-BT 0 g /FB 9.5 Tf 34.00 267.00 Td (TOOLS  -  only if you do not already have them) Tj ET
+BT 0 g /FB 9.5 Tf 34.00 267.00 Td (TOOLS  -  only if you do not already have them or cannot borrow them) Tj ET
 0.6 G 0.6 w 34 263.00 m 578 263.00 l S
 0.8 w 0 G 34.00 249.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 250.00 Td (8 mm Allen key) Tj ET
 BT 0.25 g /FR 8.5 Tf 269.00 250.00 Td (Drives the threaded inserts. The kit does not include this size.) Tj ET
 0.8 w 0 G 34.00 235.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 236.00 Td (3/8 in doweling jig) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 236.00 Td (For the cabinet dowel joints.) Tj ET
+BT 0 g /FB 9.5 Tf 49.00 236.00 Td (3/8 in doweling jig + dowel centers) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 236.00 Td (Self-centering jig for edge holes; a set of dowel centers to mark the mating faces.) Tj ET
 0.8 w 0 G 34.00 221.50 8.5 8.5 re S
 BT 0 g /FB 9.5 Tf 49.00 222.00 Td (Drill bits) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 222.00 Td (5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8 and 27/64 in, plus a #8 countersink.) Tj ET
-0.8 w 0 G 34.00 207.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 208.00 Td (Clamps, square, level, stud finder) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 208.00 Td (For glue-up and installation. Do not use an impact driver.) Tj ET
-BT 0 g /FB 9.5 Tf 34.00 189.00 Td (NOT FROM THIS STORE) Tj ET
-0.6 G 0.6 w 34 185.00 m 578 185.00 l S
-0.8 w 0 G 34.00 171.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 172.00 Td (Rockler I-Semble HORIZONTAL QUEEN bed kit) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 172.00 Td (Rockler only. Not a vertical kit.) Tj ET
-0.8 w 0 G 34.00 157.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 158.00 Td (Queen mattress \(you supply\)) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 158.00 Td (60 x 80 in, 10 in thick max, 132 lb max, not foam or very light.) Tj ET
-0.8 w 0 G 34.00 143.50 8.5 8.5 re S
-BT 0 g /FB 9.5 Tf 49.00 144.00 Td (CNC cutters and machine time) Tj ET
-BT 0.25 g /FR 8.5 Tf 269.00 144.00 Td (Through HackRVA; not a store purchase.) Tj ET
-BT 0 g /FB 9.5 Tf 34.00 123.00 Td (BEFORE CHECKOUT) Tj ET
-0.6 G 0.6 w 34 119.00 m 578 119.00 l S
-0.8 w 0 G 34.00 105.50 8.5 8.5 re S
-BT 0 g /FR 9 Tf 49.00 106.00 Td (Sheets lie flat, faces have no dents or splits, and edges show no large voids.) Tj ET
-0.8 w 0 G 34.00 90.50 8.5 8.5 re S
-BT 0 g /FR 9 Tf 49.00 91.00 Td (Measure one sheet of each thickness with calipers and write it down; it sets final joinery and fit.) Tj ET
-0.8 w 0 G 34.00 75.50 8.5 8.5 re S
-BT 0 g /FR 9 Tf 49.00 76.00 Td (Pulls and slides: check the screws are in the package before leaving.) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 222.00 Td (3/8 brad-point with depth collar; 5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 27/64 in; #8) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 211.00 Td (countersink.) Tj ET
+0.8 w 0 G 34.00 197.50 8.5 8.5 re S
+BT 0 g /FB 9.5 Tf 49.00 198.00 Td (Plywood blade, straightedge, rabbeting bit) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 198.00 Td (40-tooth+ circular saw blade; 8 ft straightedge or track; bearing-guided 3/8 in) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 187.00 Td (rabbeting bit.) Tj ET
+0.8 w 0 G 34.00 173.50 8.5 8.5 re S
+BT 0 g /FB 9.5 Tf 49.00 174.00 Td (4 bar or pipe clamps, 36 in+) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 174.00 Td (Bookcase glue-up. Plus square, level, stud finder. Do not use an impact driver.) Tj ET
+BT 0 g /FB 9.5 Tf 34.00 155.00 Td (NOT FROM THIS STORE) Tj ET
+0.6 G 0.6 w 34 151.00 m 578 151.00 l S
+0.8 w 0 G 34.00 137.50 8.5 8.5 re S
+BT 0 g /FB 9.5 Tf 49.00 138.00 Td (Rockler I-Semble HORIZONTAL QUEEN bed kit) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 138.00 Td (Rockler only. Not a vertical kit.) Tj ET
+0.8 w 0 G 34.00 123.50 8.5 8.5 re S
+BT 0 g /FB 9.5 Tf 49.00 124.00 Td (Queen mattress \(you supply\)) Tj ET
+BT 0.25 g /FR 8.5 Tf 269.00 124.00 Td (60 x 80 in, 10 in thick max, 132 lb max, not foam or very light.) Tj ET
+BT 0 g /FB 9.5 Tf 34.00 103.00 Td (BEFORE CHECKOUT) Tj ET
+0.6 G 0.6 w 34 99.00 m 578 99.00 l S
+0.8 w 0 G 34.00 85.50 8.5 8.5 re S
+BT 0 g /FR 9 Tf 49.00 86.00 Td (Sheets lie flat, faces have no dents or splits, and edges show no large voids.) Tj ET
+0.8 w 0 G 34.00 70.50 8.5 8.5 re S
+BT 0 g /FR 9 Tf 49.00 71.00 Td (Measure one sheet of each thickness with calipers and write it down; it sets final joinery and fit.) Tj ET
+0.8 w 0 G 34.00 55.50 8.5 8.5 re S
+BT 0 g /FR 9 Tf 49.00 56.00 Td (Pulls and slides: check the screws are in the package before leaving.) Tj ET
 BT 0.4 g /FR 8 Tf 34.00 28.00 Td (Full details: seanperkins.github.io/ashleys-bed/purchase.html) Tj ET
 endstream
 endobj
@@ -141,10 +143,10 @@ xref
 0000000058 00000 n 
 0000000115 00000 n 
 0000000251 00000 n 
-0000008031 00000 n 
-0000008128 00000 n 
+0000008356 00000 n 
+0000008453 00000 n 
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-8230
+8555
 %%EOF
