@@ -237,3 +237,139 @@ def check_holes(holes, parts, held_joints):
                 errors.append(f"{a.joint} {a.kind} and {b.joint} {b.kind} holes in {a.part} "
                               f"are {gap:.3f} in apart, closer than 1 in")
     return errors
+
+
+# ---------------------------------------------------------------------------
+# Fasteners
+
+import csv  # noqa: E402
+
+INVENTORY = ROOT / "output" / "rockler-kit-inventory.csv"
+BOM = ROOT / "output" / "bill-of-materials.csv"
+FASTENER_GROUP = "Fasteners and adhesives"
+KIT_FASTENERS = ("T", "U", "V", "W", "Z", "AA", "BB", "DD", "EE", "FF", "II", "JJ", "KK", "OO")
+CONSUMABLES = {"glue": "Wood glue", "threadlocker": "Removable threadlocker"}
+
+# BOM Item -> (code, name, source, used per assembly)
+BOM_FASTENERS = {
+    "3/8 x 1-1/2-inch dowels": ("dowel", "3/8 x 1-1/2 in dowel", "bought", {"bed": 22, "bookcase": 12}),
+    "#8 x 2-inch wood/cabinet screws": ("screw-8x2", "#8 x 2 in screw", "bought", {"bed": 32, "bookcase": 18}),
+    "#8 x 1-1/4-inch wood screws": ("screw-8x1.25", "#8 x 1-1/4 in screw", "bought", {"bed": 4}),
+    "#8 x 1-inch washer-head wood screws": ("screw-8x1-washer", "#8 x 1 in washer-head screw", "bought",
+                                            {"bookcase": 4}),
+    "#6 x 1-1/4-inch wood screws": ("screw-6x1.25", "#6 x 1-1/4 in screw", "bought", {}),
+    "#6 x 3/4-inch panel-attachment screws": ("screw-6x0.75", "#6 x 3/4 in screw", "bought", {}),
+    "Slide mounting screws": ("screw-slide", "Slide mounting screw", "bundled", {}),
+}
+BUNDLED = {"screw-pull": "Pull screw", "restraint-fasteners": "Wall restraint fastener"}
+
+
+@dataclass(frozen=True)
+class Fastener:
+    code: str
+    name: str
+    source: str  # 'kit' | 'bought' | 'bundled'
+    used: dict  # assembly -> count
+    bought: int
+    supplied: object  # int | None (None = unknown until the hardware is chosen)
+
+
+DISCREPANCIES = {
+    "BB": {
+        "used": 34, "supplied": 34,
+        "question": "Rockler's inventory lists M8 x 45 mm BB bolts; the frame assembly page calls for 50 mm.",
+        "clear_when": ["on-hand-34", "length-confirmed"],
+        "recorded": [],
+    },
+    "W": {
+        "used": 88, "supplied": 56,
+        "question": ("The assembly uses 88 W screws (32 for the 16 door brackets + 56 through the frame "
+                     "tabs) but Rockler's inventory lists 56."),
+        "clear_when": ["on-hand-88"],
+        "recorded": [],
+    },
+    "OO": {
+        "used": 4, "supplied": 0,
+        "question": "The foot bar needs 4 OO M6 nuts, missing from Rockler's inventory table.",
+        "clear_when": ["on-hand-4"],
+        "recorded": [],
+    },
+}
+
+
+def discrepancy_holds(table=None):
+    """Code -> HOLD banner for every kit discrepancy not yet cleared."""
+    table = DISCREPANCIES if table is None else table
+    banners = {}
+    for code, entry in table.items():
+        if all(c in entry["recorded"] for c in entry["clear_when"]):
+            continue
+        short = entry["used"] - entry["supplied"]
+        confirmed = f"confirmed-supply-{entry['supplied']}" in entry["recorded"]
+        text = f"{code}: {entry['question']} Uses {entry['used']}, supplied {entry['supplied']}."
+        if short > 0 and confirmed:
+            text += f" Rockler confirmed {entry['supplied']}: buy {short} more before this step."
+        elif short > 0:
+            text += f" Possible shortage of {short} — confirm with Rockler."
+        else:
+            text += " Confirm with Rockler before this step."
+        banners[code] = text.replace("Possible shortage", "possible shortage")
+    return banners
+
+
+def load_fasteners(inventory=INVENTORY, bom=BOM):
+    fasteners = {}
+    with Path(inventory).open(newline="", encoding="utf-8-sig") as stream:
+        for row in csv.DictReader(stream):
+            code = row["Code"]
+            if code not in KIT_FASTENERS:
+                continue
+            quantity = int(row["Queen_quantity"])
+            if code in DISCREPANCIES:
+                used, supplied = DISCREPANCIES[code]["used"], DISCREPANCIES[code]["supplied"]
+            else:
+                used, supplied = quantity, quantity
+            fasteners[code] = Fastener(code, row["Item"], "kit", {"bed": used}, 0, supplied)
+    missing = set(KIT_FASTENERS) - set(fasteners)
+    if missing:
+        raise ValueError(f"Kit inventory is missing fastener codes: {sorted(missing)}")
+    with Path(bom).open(newline="", encoding="utf-8-sig") as stream:
+        for row in csv.DictReader(stream):
+            if row["Group"] != FASTENER_GROUP or row["Item"] in CONSUMABLES.values():
+                continue
+            if row["Item"] not in BOM_FASTENERS:
+                raise ValueError(f"Unmapped fastener row in the BOM: {row['Item']}")
+            code, name, source, used = BOM_FASTENERS[row["Item"]]
+            bought = int(row["Buy_quantity"])
+            supplied = None if source == "bundled" else 0
+            fasteners[code] = Fastener(code, name, source, dict(used), bought if source == "bought" else 0,
+                                       supplied)
+    absent = {v[0] for v in BOM_FASTENERS.values()} - set(fasteners)
+    if absent:
+        raise ValueError(f"BOM is missing fastener rows: {sorted(absent)}")
+    for code, name in BUNDLED.items():
+        fasteners[code] = Fastener(code, name, "bundled", {}, 0, 0)
+    return fasteners
+
+
+def check_fasteners(totals, fasteners, assemblies):
+    """totals: code -> {assembly: count} summed over every step."""
+    errors = []
+    for code in sorted(set(totals) - set(fasteners)):
+        errors.append(f"Unknown fastener code {code}")
+    for code, entry in fasteners.items():
+        if not any(a in entry.used for a in assemblies):
+            continue  # HOLD-only or inactive-assembly entries are checked when they become active
+        for assembly in sorted(assemblies):
+            want = entry.used.get(assembly, 0)
+            got = totals.get(code, {}).get(assembly, 0)
+            if got != want:
+                errors.append(f"{code}: steps use {got} in the {assembly}, expected {want}")
+        if code in DISCREPANCIES:
+            continue  # a kit shortfall is a HOLD banner (discrepancy_holds), not a build error
+        if entry.supplied is None:
+            errors.append(f"{code}: used but its supplied quantity is unknown")
+        elif sum(entry.used.values()) > entry.bought + entry.supplied:
+            errors.append(f"{code}: used {sum(entry.used.values())} exceeds bought {entry.bought} "
+                          f"+ supplied {entry.supplied}")
+    return errors
