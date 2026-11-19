@@ -155,6 +155,56 @@ def hardware_meshes(joint, parts):
     return meshes
 
 
+# Kit hardware drawn as simple cylinders: (length, shank radius, head radius, head length), inches.
+KIT_SHAPES = {
+    "T": (0.5625, 0.21, None, 0),  # threaded insert, in its 27/64 hole
+    "U": (0.63, 0.1575, 0.25, 0.2),  # M8 x 16 mm screw
+    "II": (1.18, 0.125, 0.22, 0.16),  # 1/4-20 x 30 mm bolt
+    "JJ": (0.75, 0.108, 0.2, 0.08),  # #12 x 3/4 in washer-head screw
+    "KK": (3.0, 0.125, 0.25, 0.1),  # 1/4 x 3 in washer-head lag
+}
+
+
+def _fixing_holes(fixing, holes):
+    """Holes a fixing goes into: every hole, or the named ones in hole order and then stud order."""
+    if fixing.at == "all":
+        return holes
+    return [h for name in fixing.at for h in holes if h.name == name]
+
+
+def _fixing_path(fixing, hole, parts):
+    """(start, direction): where a fastener's head sits and the way it travels."""
+    at = hole.world or hole.example
+    axis = hole.axis
+    if fixing.kind == "insert":
+        return at, axis
+    if fixing.kind == "bolt":  # up from below, through the part and the bracket
+        depth = parts[hole.part].size[_axis_index(axis)]
+        return tuple(at[k] + axis[k] * depth for k in range(3)), tuple(-a for a in axis)
+    standoff = 0.0 if fixing.kind == "lag" and hole.part != "wall" else ap.STEEL_THICKNESS
+    return tuple(at[k] - axis[k] * standoff for k in range(3)), axis
+
+
+def _axis_index(axis):
+    return max(range(3), key=lambda i: abs(axis[i]))
+
+
+def pattern_meshes(pattern, parts):
+    """{node name: mesh} for a hole pattern's fixings, named <pattern>-<code>-<n>."""
+    holes = ap.pattern_holes(pattern.id, parts)
+    meshes = {}
+    for fixing in pattern.hardware:
+        length, radius, head, head_length = KIT_SHAPES[fixing.code]
+        for n, hole in enumerate(_fixing_holes(fixing, holes), 1):
+            start, direction = _fixing_path(fixing, hole, parts)
+            mesh = cylinder_mesh(start, direction, length, radius)
+            if head:
+                back = tuple(start[k] - direction[k] * head_length for k in range(3))
+                cylinder_mesh(back, direction, head_length, head, mesh)
+            meshes[f"{pattern.id}-{fixing.code}-{n}"] = mesh
+    return meshes
+
+
 class _Writer:
     def __init__(self):
         self.gltf = {"asset": {"version": "2.0", "generator": "ashleys-bed assembly_glb.py"},
@@ -233,6 +283,9 @@ def build_glb(parts, resolved):
     for rs in resolved:
         for jid in rs.step["joints"]:
             for name, mesh in hardware_meshes(ap.JOINTS[jid], parts).items():
+                writer.add(name, mesh, "hardware")
+        for pid in rs.step.get("fix", []):
+            for name, mesh in pattern_meshes(ap.PATTERNS[pid], parts).items():
                 writer.add(name, mesh, "hardware")
     return writer.bytes()
 

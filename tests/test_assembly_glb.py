@@ -99,5 +99,61 @@ class GlbTest(unittest.TestCase):
             self.assertAlmostEqual(max(p[axis] for p in moved), max(a[axis], b[axis]), places=6)
 
 
+
+class PatternMeshTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.parts = ap.load_parts()
+
+    def meshes(self, pid):
+        return glb.pattern_meshes(ap.PATTERNS[pid], self.parts)
+
+    @staticmethod
+    def bounds(mesh):
+        positions = mesh[0]
+        return ([min(p[k] for p in positions) for k in range(3)], [max(p[k] for p in positions) for k in range(3)])
+
+    def test_insert_at_hole(self):
+        hole = ap.pattern_holes("inserts-M01", self.parts)[0]
+        lo, hi = self.bounds(self.meshes("inserts-M01")["inserts-M01-T-1"])
+        scene = glb.to_scene(hole.world)
+        # centred on the hole in the face's plane (scene y = Fusion z, scene z = Fusion y)...
+        self.assertAlmostEqual((lo[1] + hi[1]) / 2, scene[1], places=6)
+        self.assertAlmostEqual((lo[2] + hi[2]) / 2, scene[2], places=6)
+        # ...and sunk from the inside face (Fusion x = 0.75, scene x = -0.75 in) 9/16 into M01.
+        self.assertAlmostEqual(hi[0], -0.75 * IN + 0.5625 * IN, places=6)
+        self.assertAlmostEqual(lo[0], -0.75 * IN, places=6)
+        self.assertAlmostEqual(hi[1] - lo[1], 0.42 * IN, places=3)
+
+    def test_pattern_node_counts(self):
+        count = lambda pid, code: len([n for n in self.meshes(pid) if n.startswith(f"{pid}-{code}-")])
+        self.assertEqual((count("inserts-M01", "T"), count("inserts-M01", "U")), (8, 8))
+        self.assertEqual(count("lag-M05", "KK"), 3)
+        self.assertEqual((count("brackets-M03", "II"), count("brackets-M03", "JJ"), count("brackets-M03", "KK")),
+                         (3, 6, 6))
+        self.assertEqual(len(self.meshes("brackets-M03")), 15)
+        self.assertIn("inserts-M01-U-8", self.meshes("inserts-M01"))
+
+    def test_wall_lags_distinct(self):
+        meshes = self.meshes("brackets-M03")
+        centres = []
+        for n in range(1, 7):
+            lo, hi = self.bounds(meshes[f"brackets-M03-KK-{n}"])
+            self.assertLess(lo[2], 0)  # scene z = Fusion y: the lag crosses the wall plane y = 0
+            self.assertGreater(hi[2], 0)
+            centres.append(tuple(round((a + b) / 2, 6) for a, b in zip(lo, hi)))
+        self.assertEqual(len(set(centres)), 6)
+        per_stud = {}
+        for c in centres:
+            per_stud.setdefault(round(-c[0] / IN, 3), []).append(c)
+        self.assertEqual(sorted(per_stud), list(ap.EXAMPLE_STUDS))
+        self.assertTrue(all(len(v) == 2 for v in per_stud.values()))
+
+    def test_bolt_from_below(self):
+        lo, hi = self.bounds(self.meshes("brackets-M03")["brackets-M03-II-1"])
+        self.assertLess(lo[1], 63.25 * IN)  # head under the top
+        self.assertGreater(hi[1], 64.1875 * IN)  # through the top and the bracket foot
+
+
 if __name__ == "__main__":
     unittest.main()
