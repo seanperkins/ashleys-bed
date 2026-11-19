@@ -168,10 +168,10 @@ class SiteBuildTest(unittest.TestCase):
         # a saved step reopens on load, so the page needs a way straight back to step 1 (or any step)
         self.assertRegex(self.page, r'<label[^>]*for="guide-jump"[^>]*>Go to step</label>\s*<select id="guide-jump"')
         viewer = (self.dest / "assets/assembly-viewer.js").read_text()
-        self.assertIn('$("#guide-jump").addEventListener("change"', viewer)
+        self.assertIn('$("#guide-jump")?.addEventListener("change"', viewer)  # optional: older cached pages lack it
         # hidden until the viewer fills it: an older cached viewer must not show an empty list
         self.assertIn('<div class="guide-jump" id="guide-jump-wrap" hidden>', self.page)
-        self.assertIn('$("#guide-jump-wrap").hidden = false;', viewer)
+        self.assertIn("if (wrap) wrap.hidden = false;", viewer)
 
     def test_viewer_poses_hardware(self):
         viewer = (self.dest / "assets/assembly-viewer.js").read_text()

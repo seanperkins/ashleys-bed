@@ -105,7 +105,8 @@ function renderPanel(index) {
   else $("#guide-holes-svg").removeAttribute("src");
   $("#guide-back").disabled = index === 0;
   $("#guide-next").disabled = index === steps.length - 1;
-  $("#guide-jump").value = String(index);
+  const jump = $("#guide-jump");
+  if (jump) jump.value = String(index);
 }
 
 // "Go to step": every step, grouped by stage, so a saved step never traps you away from step 1.
@@ -113,6 +114,7 @@ const STAGE_NAMES = { "bed-cabinet": "Bed cabinet", "bed-mechanism": "Bed mechan
 
 function buildJump() {
   const select = $("#guide-jump");
+  if (!select) return; // an older cached page without the list: Back and Next still work
   select.replaceChildren();
   let group = null;
   steps.forEach((step, i) => {
@@ -127,7 +129,8 @@ function buildJump() {
     option.textContent = `${i + 1}. ${step.title}${step.hold.length ? " (HOLD)" : ""}`;
     group.append(option);
   });
-  $("#guide-jump-wrap").hidden = false;
+  const wrap = $("#guide-jump-wrap");
+  if (wrap) wrap.hidden = false;
 }
 
 function sameMatrix(a, b) {
@@ -162,7 +165,7 @@ function wireControls() {
   $("#guide-back").addEventListener("click", () => goTo(current - 1, { animate: false }));
   $("#guide-next").addEventListener("click", () => goTo(current + 1));
   $("#guide-replay").addEventListener("click", () => goTo(current));
-  $("#guide-jump").addEventListener("change", (event) => goTo(Number(event.target.value)));
+  $("#guide-jump")?.addEventListener("change", (event) => goTo(Number(event.target.value)));
   $("#guide-reset").addEventListener("click", () => viewer?.resetCamera());
   $("#guide-finished").addEventListener("change", (event) => {
     showFinished = event.target.checked;
