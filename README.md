@@ -37,7 +37,9 @@ python3 MurphyBedQueen/generate_assembly_guide.py
 python3 -m unittest discover tests -v
 ```
 
-Step content lives in `MurphyBedQueen/assembly_steps.py`; parts, joints, hole rules, fasteners and the open decisions live in `MurphyBedQueen/assembly_parts.py`. A step whose decision is still open shows as **HOLD**; resolve it by editing that data and removing the entry from `OPEN_DECISIONS`.
+The guide covers the bed cabinet and the left bookcase. Step content lives in `MurphyBedQueen/assembly_steps.py`; parts, joints, hole rules, fasteners and the open decisions live in `MurphyBedQueen/assembly_parts.py`. A step whose decision is still open shows as **HOLD**; resolve it by editing that data and removing the entry from `OPEN_DECISIONS`.
+
+Parts, fasteners and steps each belong to a stage: `bed-cabinet` (M01–M06, the mounting plates I and wall brackets HH, and the kit's T, U, II, JJ and KK), `bed-mechanism` (M07–M11 and the rest of the kit; left out of the 3D model and drawings until its steps exist) and `bookcase` (L01–L16). To add a stage's steps, move its parts' stage into `ACTIVE_STAGES` in `assembly_steps.py` (and out of `PENDING_STAGES`); the generator then requires every part and fastener of that stage to be used.
 
 Open http://localhost:8047. The build checks local links, anchors, duplicate IDs, required downloads and the current model revision. Page links are relative, so the guide works under the GitHub Pages project path.
 
@@ -95,6 +97,6 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
 
 ## Publication boundary
 
-The Pages artifact contains six guide pages, static assets and explicitly selected current downloads. Old two-cabinet budgets, media and local revision archives are excluded. The manufacturer PDF is linked at its official source rather than republished. Local `references/`, `revisions/` and `output/previous-*` directories are ignored.
+The Pages artifact contains seven guide pages, static assets and explicitly selected current downloads. Old two-cabinet budgets, media and local revision archives are excluded. The manufacturer PDF is linked at its official source rather than republished. Local `references/`, `revisions/` and `output/previous-*` directories are ignored.
 
 Historical Richmond supplier leads are dated and are not current prices or stock confirmations. No current project total or mattress purchase price is represented.
