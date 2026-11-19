@@ -17,7 +17,7 @@ class StageTest(unittest.TestCase):
         for pid, part in self.parts.items():
             if pid.startswith("L"):
                 want = "bookcase"
-            elif pid in {"M01", "M02", "M03", "M04", "M05", "M06"}:
+            elif pid in {"M01", "M02", "M03", "M04", "M05", "M06"} or part.finish == "steel":
                 want = "bed-cabinet"
             else:
                 want = "bed-mechanism"

@@ -7,6 +7,7 @@ entry from OPEN_DECISIONS: the HOLD disappears.
 """
 
 ACTIVE_STAGES = {"bookcase"}
+PENDING_STAGES = {"bed-mechanism"}  # left out of the GLB and drawings until their steps exist
 
 BOOKCASE_OUTER_X = 116.75  # the outer face of L02
 BENCH_OFFSETS = {"bench-1": 30.0, "bench-2": 50.0}

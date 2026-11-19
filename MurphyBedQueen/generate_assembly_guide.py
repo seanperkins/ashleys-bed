@@ -94,7 +94,7 @@ def check_outputs(directory, steps, parts, resolved):
                 ET.parse(directory / record[key])
     gltf = glb.read_glb((directory / "assembly.glb").read_bytes())["json"]
     nodes = {n["name"] for n in gltf["nodes"]}
-    expected = set(parts) | {n for rs in resolved for h in rs.hardware for n in h["nodes"]}
+    expected = set(glb.emitted_parts(parts)) | {n for rs in resolved for h in rs.hardware for n in h["nodes"]}
     missing = expected - nodes
     if missing:
         raise ValueError(f"assembly.glb is missing nodes: {sorted(missing)}")

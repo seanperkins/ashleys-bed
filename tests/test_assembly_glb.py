@@ -42,13 +42,22 @@ class GlbTest(unittest.TestCase):
 
     def test_node_names(self):
         names = set(self.nodes)
-        self.assertTrue(set(self.parts) <= names)
+        self.assertTrue({p for p, part in self.parts.items() if part.stage not in st.PENDING_STAGES} <= names)
         dowels = [n for n in names if "-dowel-" in n]
         screws = [n for n in names if "-screw-" in n]
         self.assertEqual((len(dowels), len(screws)), (12, 18))
         self.assertIn("L04-L01-dowel-1", names)
-        self.assertEqual(len(names), 27 + 30)
+        self.assertEqual(len(names), 22 + 5 + 30)  # wood less the five pending parts, steel, hardware
         self.assertEqual(sorted(self.gltf["scenes"][0]["nodes"]), list(range(57)))
+
+    def test_pending_parts_omitted(self):
+        for pid in ("M07", "M08", "M09", "M10", "M11"):
+            self.assertNotIn(pid, self.nodes)
+        for sid in ("I-R", "I-L", "HH-1", "HH-2", "HH-3"):
+            self.assertIn(sid, self.nodes)
+            self.assertEqual(self.material(sid), "context")  # bed-cabinet is not active yet
+        lo, hi = self.mesh_bounds("HH-1")
+        self.assertAlmostEqual(lo[1], 64 * IN, places=6)
 
     def test_axis_map(self):
         lo, hi = self.mesh_bounds("L04")

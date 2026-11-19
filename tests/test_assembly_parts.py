@@ -9,9 +9,12 @@ class PartCatalogueTest(unittest.TestCase):
     def setUpClass(cls):
         cls.parts = ap.load_parts()
 
-    def test_all_27_parts_loaded(self):
-        self.assertEqual(len(self.parts), 27)
-        self.assertEqual(set(self.parts), {f"M{i:02d}" for i in range(1, 12)} | {f"L{i:02d}" for i in range(1, 17)})
+    def test_part_count(self):
+        wood = {pid for pid, p in self.parts.items() if p.finish != "steel"}
+        steel = {pid for pid, p in self.parts.items() if p.finish == "steel"}
+        self.assertEqual(wood, {f"M{i:02d}" for i in range(1, 12)} | {f"L{i:02d}" for i in range(1, 17)})
+        self.assertEqual(steel, {"I-R", "I-L", "HH-1", "HH-2", "HH-3"})
+        self.assertEqual(len(self.parts), 27 + 5)
 
     def test_name_mapping(self):
         self.assertEqual(ap.part_id_for("SC Left side"), "L01")
@@ -45,6 +48,9 @@ class PartCatalogueTest(unittest.TestCase):
 
     def test_assembly(self):
         for pid, part in self.parts.items():
+            if part.finish == "steel":
+                self.assertEqual((part.assembly, part.stage), ("bed", "bed-cabinet"), pid)
+                continue
             self.assertEqual(part.assembly, "bed" if pid.startswith("M") else "bookcase")
             self.assertEqual(part.stage, ap.part_stage(pid))
 

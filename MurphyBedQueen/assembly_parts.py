@@ -5,7 +5,7 @@ Standard library only. Units are inches in Fusion axes: x across (bed 0-86.75, b
 """
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 import generate_cut_layouts
@@ -36,6 +36,9 @@ class Part:
     stock: float
     finish: str  # 'navy' | 'natural'
     stage: str  # 'bookcase' | 'bed-cabinet' | 'bed-mechanism'
+    boxes: tuple = ()  # ((lo, hi), ...): one box for wood, one or more for a steel shape
+    host: object = None  # steel and hardware travel with this part's pose
+    representative: bool = False  # steel shape not dimensioned by the manual
 
     @property
     def centre(self):
@@ -85,8 +88,10 @@ def load_parts(geometry=GEOMETRY):
             finish="natural" if pid in NATURAL_PARTS else "navy",
             stage=part_stage(pid),
         )
+        parts[pid] = replace(parts[pid], boxes=((parts[pid].min, parts[pid].max),))
     if set(parts) != {spec[0] for spec in PART_SPECS}:
         raise ValueError("drawing-geometry.json does not hold all 27 parts")
+    parts.update(STEEL)
     return dict(sorted(parts.items()))
 
 
@@ -131,6 +136,7 @@ class Hole:
     located: str = "rule"  # 'rule' | 'rockler' | 'stud' | 'transfer'
     aligned: bool = False  # position taken from alignment on Rockler's drawing, not a printed dimension
     example: object = None  # (x, y, z) used only to draw a stud/transfer hole at an example position
+    name: object = None  # Rockler's hole name, e.g. 'A1' on a wall bracket
 
 
 @dataclass(frozen=True)
@@ -271,29 +277,39 @@ def edge_wall(hole, part):
     return (drilling_thickness(part) - hole.diameter) / 2
 
 
-def _hole_errors(hole, part):
-    errors = []
-    name = f"{hole.joint} {hole.kind} hole in {hole.part}"
-    i = _axis_index(hole.axis)
-    entry = part.min[i] if hole.axis[i] > 0 else part.max[i]
-    inside = all(part.min[k] - EPS <= hole.world[k] <= part.max[k] + EPS for k in range(3) if k != i)
-    if abs(hole.world[i] - entry) > EPS or not inside:
-        errors.append(f"{name} at {hole.world} is not on its {hole.surface}")
-        return errors
+def _wall_errors(hole, part, name):
     if hole.through:
-        return errors
+        return []
+    i = _axis_index(hole.axis)
     if hole.surface == "face":
         left = drilling_thickness(part) - hole.depth
     else:
         left = min(edge_wall(hole, part), part.size[i] - hole.depth)
     if left < MIN_WALL - EPS:
-        errors.append(f"{name} leaves {left:.3f} in, less than 1/8 in")
-    return errors
+        return [f"{name} leaves {left:.3f} in, less than 1/8 in"]
+    return []
+
+
+def _hole_errors(hole, part):
+    name = f"{hole.joint} {hole.kind} hole in {hole.part}"
+    i = _axis_index(hole.axis)
+    entry = part.min[i] if hole.axis[i] > 0 else part.max[i]
+    r = hole.diameter / 2
+    inside = all(part.min[k] - EPS <= hole.world[k] - r and hole.world[k] + r <= part.max[k] + EPS
+                 for k in range(3) if k != i)
+    if abs(hole.world[i] - entry) > EPS or not inside:
+        return [f"{name} at {hole.world} is not on its {hole.surface}"]
+    return _wall_errors(hole, part, name)
 
 
 def check_holes(holes, parts, held_joints):
+    """Position, wall and spacing rules. Stud-located holes (no cabinet position) get only the wall
+    rule; holes in the wall itself get none."""
     errors = []
-    located = [h for h in holes if h.world is not None]
+    located = [h for h in holes if h.world is not None and h.part != "wall"]
+    for hole in holes:
+        if hole.world is None and hole.part != "wall":
+            errors += _wall_errors(hole, parts[hole.part], f"{hole.joint} {hole.kind} hole in {hole.part}")
     for hole in located:
         errors += _hole_errors(hole, parts[hole.part])
         joint = JOINTS.get(hole.joint)
@@ -314,6 +330,155 @@ def check_holes(holes, parts, held_joints):
                 errors.append(f"{a.joint} {a.kind} and {b.joint} {b.kind} holes in {a.part} "
                               f"are {gap:.3f} in apart, closer than 1 in")
     return errors
+
+
+# ---------------------------------------------------------------------------
+# Hole patterns: holes that belong to no joint (Rockler's insert layout, stud-located anchoring)
+
+# Stud-located holes follow the actual studs. These x positions place them in the 3D view only;
+# they are never checked or dimensioned.
+EXAMPLE_STUDS = (11.375, 43.375, 75.375)
+STEEL_THICKNESS = 0.1875
+
+
+@dataclass(frozen=True)
+class Fixing:
+    code: str  # fastener catalogue code
+    kind: str  # glyph: 'insert' | 'screw' | 'lag' | 'bolt'
+    at: object  # 'all' (one per hole) or a tuple of hole names (one per named hole, per stud)
+
+
+@dataclass(frozen=True)
+class Pattern:
+    id: str
+    part: str
+    holes: list  # Hole templates in the part frame (u, v); pattern_holes places them
+    hardware: list  # Fixing
+    hold: object = None
+    source: str = ""
+    frame: str = "inside-face"  # 'inside-face' | 'front-face' | 'top-face'
+
+
+def _template(kind, diameter, depth, through, ref_edge, ref_end, u, v, verified, located="rockler",
+              aligned=False, name=None, part=None):
+    return Hole(joint="", part=part or "", surface="face", kind=kind, through=through, diameter=diameter,
+                depth=depth, countersink=False, ref_edge=ref_edge, ref_end=ref_end, u=u, v=v, world=None,
+                axis=(0, 0, 0), verified=verified, located=located, aligned=aligned, name=name)
+
+
+def _insert_holes():
+    # (u from the front edge, v up from the bottom end, aligned): Rockler p. 8 drilling guide.
+    at = [(9 + 7 / 16, 11 + 7 / 16, False), (9 + 7 / 16, 17 + 11 / 16, True), (9 + 7 / 16, 25.25, True),
+          (9 + 7 / 16, 27.75, True), (9 + 7 / 16, 30.25, True), (3.125, 11 + 7 / 16, True),
+          (3.125, 13 + 7 / 8, False), (6 + 15 / 16, 17 + 11 / 16, False)]
+    return [_template("insert", 27 / 64, 9 / 16, False, "front edge", "bottom end", u, v, "Rockler p. 8",
+                      aligned=aligned) for u, v, aligned in at]
+
+
+def _lag_holes(ref_end):
+    return [_template("lag", 0.1875, 0.75, True, "stud line", ref_end, None, 3.0, "Rockler p. 11",
+                      located="stud")]
+
+
+def _bracket_holes():
+    # v from the wall along the stud line on the top's upper face: Rockler p. 12, Fig. 6.
+    cabinet = [("A1", "steel-dowel", 13 / 64, False, 4.625), ("A2", "bolt", 0.3125, True, 4.0),
+               ("A3", "pilot", 0.125, False, 2.75), ("A4", "pilot", 0.125, False, 1.5)]
+    holes = [_template(kind, d, 0.5 if not through else 0.75, through, "stud line", "wall", None, v,
+                       "Rockler p. 12", located="stud", name=name)
+             for name, kind, d, through, v in cabinet]
+    # A5/A6: lag pilots in the wall, marked through the fitted bracket's leg (no Rockler dimension).
+    holes += [_template("pilot", 0.1875, None, False, "stud line", "bracket leg", None, None, "Rockler p. 12",
+                        located="transfer", name=name, part="wall") for name in ("A5", "A6")]
+    return holes
+
+
+WALL_HOLE_HEIGHTS = {"A5": 65.0, "A6": 66.5}  # example positions on the bracket leg, 3D only
+
+PATTERNS = {p.id: p for p in (
+    Pattern("inserts-M01", "M01", _insert_holes(),
+            [Fixing("T", "insert", "all"), Fixing("U", "screw", "all")], source="Rockler p. 8"),
+    Pattern("inserts-M02", "M02", _insert_holes(),
+            [Fixing("T", "insert", "all"), Fixing("U", "screw", "all")], source="Rockler p. 8"),
+    Pattern("lag-M05", "M05", _lag_holes("top edge"), [Fixing("KK", "lag", "all")], source="Rockler p. 11",
+            frame="front-face"),
+    Pattern("lag-M06", "M06", _lag_holes("bottom edge"), [Fixing("KK", "lag", "all")], source="Rockler p. 11",
+            frame="front-face"),
+    Pattern("brackets-M03", "M03", _bracket_holes(),
+            [Fixing("II", "bolt", ("A2",)), Fixing("JJ", "screw", ("A3", "A4")), Fixing("KK", "lag", ("A5", "A6"))],
+            hold="pilot-depth", source="Rockler p. 12", frame="top-face"),
+)}
+
+
+def _inside_face(part):
+    """x of a bed side's inside face and the axis pointing into the side from it."""
+    if part.centre[0] < 43.375:
+        return part.max[0], (-1, 0, 0)
+    return part.min[0], (1, 0, 0)
+
+
+def pattern_holes(pattern_id, parts):
+    """The pattern's holes placed on its part: located holes get `world`; stud and wall holes get an
+    `example` at each example stud and no `world`."""
+    pattern = PATTERNS[pattern_id]
+    part = parts[pattern.part]
+    holes = []
+    for t in pattern.holes:
+        if pattern.frame == "inside-face":
+            x, axis = _inside_face(part)
+            holes.append(replace(t, joint=pattern.id, part=part.id, axis=axis,
+                                 world=(x, part.max[1] - t.u, part.min[2] + t.v)))
+            continue
+        for stud in EXAMPLE_STUDS:
+            if t.part == "wall":
+                example, axis = (stud, 0.0, WALL_HOLE_HEIGHTS[t.name]), (0, -1, 0)
+                holes.append(replace(t, joint=pattern.id, axis=axis, example=example))
+                continue
+            if pattern.frame == "front-face":
+                z = part.max[2] - t.v if t.ref_end == "top edge" else part.min[2] + t.v
+                example, axis = (stud, part.max[1], z), (0, -1, 0)
+            else:  # top-face, v from the wall
+                example, axis = (stud, part.min[1] + t.v, part.max[2]), (0, 0, -1)
+            holes.append(replace(t, joint=pattern.id, part=part.id, axis=axis, example=example))
+    if pattern.frame != "inside-face":
+        names = [t.name for t in pattern.holes]
+        if any(names):  # group per stud, in template order: A1..A6 at stud 1, then stud 2, ...
+            holes.sort(key=lambda h: (EXAMPLE_STUDS.index(h.example[0]), names.index(h.name)))
+    return holes
+
+
+# ---------------------------------------------------------------------------
+# Steel: one simplified shape per Rockler part, carried with its host part
+
+def _steel(sid, host, boxes):
+    lo = tuple(min(b[0][k] for b in boxes) for k in range(3))
+    hi = tuple(max(b[1][k] for b in boxes) for k in range(3))
+    return Part(id=sid, label=f"Rockler {sid.split('-')[0]}", assembly="bed", min=lo, max=hi,
+                stock=STEEL_THICKNESS, finish="steel", stage="bed-cabinet", boxes=tuple(boxes), host=host,
+                representative=True)
+
+
+def _plate(sid, host, face, outward):
+    """Mounting plate I on a side's inside face: a column and a foot, (u, v) from the front and bottom."""
+    x0, x1 = sorted((face, face + outward * STEEL_THICKNESS))
+    boxes = []
+    for (u0, u1), (v0, v1) in (((8.75, 10.125), (10.875, 31.0)), ((2.5, 10.125), (10.875, 12.25))):
+        boxes.append(((x0, 16.0 - u1, v0), (x1, 16.0 - u0, v1)))
+    return _steel(sid, host, boxes)
+
+
+def _wall_bracket(n, stud):
+    x0, x1 = stud - 0.625, stud + 0.625
+    foot = ((x0, 0.0, 64.0), (x1, 5.25, 64.0 + STEEL_THICKNESS))
+    leg = ((x0, 0.0, 64.0 + STEEL_THICKNESS), (x1, STEEL_THICKNESS, 67.0))
+    return _steel(f"HH-{n}", "M03", [foot, leg])
+
+
+STEEL = {s.id: s for s in (
+    _plate("I-R", "M01", 0.75, 1),
+    _plate("I-L", "M02", 86.0, -1),
+    *(_wall_bracket(n, stud) for n, stud in enumerate(EXAMPLE_STUDS, 1)),
+)}
 
 
 # ---------------------------------------------------------------------------

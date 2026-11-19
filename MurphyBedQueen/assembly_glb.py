@@ -17,8 +17,10 @@ MATERIALS = {
     "navy": [0x18 / 255, 0x2B / 255, 0x49 / 255, 1.0],
     "natural": [217 / 255, 191 / 255, 151 / 255, 1.0],
     "hardware": [0.72, 0.74, 0.76, 1.0],
+    "steel": [0.55, 0.57, 0.6, 1.0],
     "context": [0.80, 0.82, 0.85, 0.35],
 }
+METAL = {"hardware", "steel"}
 DOWEL_LENGTH = 1.5
 SCREW_LENGTH = 2.0
 SCREW_SHANK = 0.164  # #8 major diameter
@@ -161,8 +163,8 @@ class _Writer:
         self.blob = bytearray()
         for name, colour in MATERIALS.items():
             material = {"name": name, "pbrMetallicRoughness": {
-                "baseColorFactor": colour, "metallicFactor": 0.4 if name == "hardware" else 0.0,
-                "roughnessFactor": 0.5 if name == "hardware" else 0.8}}
+                "baseColorFactor": colour, "metallicFactor": 0.4 if name in METAL else 0.0,
+                "roughnessFactor": 0.5 if name in METAL else 0.8}}
             if colour[3] < 1:
                 material["alphaMode"] = "BLEND"
             self.gltf["materials"].append(material)
@@ -207,11 +209,27 @@ class _Writer:
         return struct.pack("<III", 0x46546C67, 2, 12 + len(body)) + body
 
 
+def boxes_mesh(boxes):
+    """One mesh holding every box of a part (a steel shape may be several)."""
+    positions, normals, indices = [], [], []
+    for lo, hi in boxes:
+        p, n, i = box_mesh(lo, hi)
+        indices += [k + len(positions) for k in i]
+        positions += p
+        normals += n
+    return positions, normals, indices
+
+
+def emitted_parts(parts):
+    """Parts the GLB holds: everything but the stages whose steps do not exist yet."""
+    return {pid: part for pid, part in parts.items() if part.stage not in st.PENDING_STAGES}
+
+
 def build_glb(parts, resolved):
     writer = _Writer()
-    for pid, part in parts.items():
+    for pid, part in emitted_parts(parts).items():
         material = part.finish if part.stage in st.ACTIVE_STAGES else "context"
-        writer.add(pid, box_mesh(part.min, part.max), material)
+        writer.add(pid, boxes_mesh(part.boxes), material)
     for rs in resolved:
         for jid in rs.step["joints"]:
             for name, mesh in hardware_meshes(ap.JOINTS[jid], parts).items():
