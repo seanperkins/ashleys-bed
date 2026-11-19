@@ -3,7 +3,7 @@
 
 Run with Python 3; only the standard library is required. The plan reuses the
 sheet map (S01-S08) and part sizes from generate_cut_layouts.py, so cut sizes
-never drift from the cut list. The joints are doweled, so parts are sawn to FINISHED
+never drift from the cut list. The joints use dowels and screws, so parts are sawn to FINISHED
 length (no dado tongues, no routing). Rips are on the table saw; crosscuts too long for a
 sled use a circular saw and straightedge. It describes
 rip/crosscut sequences, fence settings and the tape label for each part. Shop
@@ -293,9 +293,9 @@ def overview_page(total, widest):
             "Test-cut an offcut and measure it before the first real cut; re-check the fence after each move.",
         ]),
         ("AFTER SAWING", [
-            "Bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 in dowels (same as the bed): "
-            "no dados or routing. Dowel positions "
-            "are not part of this plan. How the 1/4 in back attaches is still open.",
+            "Bookcase top, bottom and fixed shelf join the sides like the bed: 2 dowels + 3 #8 x 2 in screws per "
+            "joint, no dados or routing. Dowel holes 1/2 in into the side face, 1 1/16 in into the panel edge. "
+            "How the 1/4 in back attaches is still open.",
             "Shelf-pin holes (5 mm), dowel holes and the Rockler bed holes (27/64 in inserts, screws) are drilled by hand.",
             "M07 stop: thin from about 0.71 to 5/8 in with a planer or sander, or use 5/8 in stock.",
         ]),

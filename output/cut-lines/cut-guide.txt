@@ -25,10 +25,15 @@ STOCK_REFERENCE, MARGIN_REFERENCE, GRAIN_REFERENCE and LABELS: never cut.
 DXF declares inches ($INSUNITS=1); verify a known dimension after import.
 
 LEFT-BOOKCASE JOINERY: DOWELS
-Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02 with 3/8 x 1-1/2 in dowels
-(same as the bed): no dados, rabbets or pockets.
-Every part is cut to finished size (L03/L04/L07 = 28 1/2 in). Dowel positions are not defined in these files.
-Confirm the drawer slide before drilling the L07 dowel holes (fixed shelf sits 14 in above the floor).
+Top L03, bottom L04 and shelf above drawer L07 join sides L01/L02 like the bed's side joints: per joint,
+2 glued 3/8 x 1-1/2 in dowels + 3 #8 x 2 in screws through the side. No dados, rabbets or pockets.
+Dowel holes: 1/2 in deep in the side face (stock 0.703-0.714 in), 1 1/16 in deep in the panel edge.
+Suggested spots from the front edge: dowels 4 and 12 in, screws 2, 8 and 14 in. Drilled by hand.
+Joint holes sit only in three separate 3/4 in bands per side, measured up from the side's bottom end:
+L04 bottom 2 1/2-3 1/4 in, L07 shelf 14-14 3/4 in, L03 top 63 1/4-64 in. Keep shelf-pin rows and
+drawer-slide screws out of those bands.
+Every part is cut to finished size (L03/L04/L07 = 28 1/2 in).
+Confirm the drawer slide before drilling the L07 holes (fixed shelf sits 14 in above the floor).
 TABS: parts sit 1/2 in apart (< two bit diameters), so neighbouring profile passes cut away any tab on a
 facing edge. Use tabs only on each part's tab-safe edges (listed in the layout JSON and machining sheets).
 

@@ -29,6 +29,6 @@
 <text x="52" y="21.6" font-size="0.85">14 x 27 1/2 in; finish 1/4 in</text>
 <text x="52" y="23" font-size="0.78">X 29.75 / Y 0.75 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.</text>
+<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize slides and 1/2 and 1/4 in stock before cutting.</text>
 <text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
 </g></svg>

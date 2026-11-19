@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "basis": "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part Length_in and stock length (+Y). Rectangular part outlines only (S01-S06 on measured 3/4 in stock, S07/S08 nominal); no cutter compensation, holes, pockets or G-code. No spare sheet is included. Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.",
+  "basis": "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part Length_in and stock length (+Y). Rectangular part outlines only (S01-S06 on measured 3/4 in stock, S07/S08 nominal); no cutter compensation, holes, pockets or G-code. No spare sheet is included. Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. Shelf/back fit included; finalize slides and 1/2 and 1/4 in stock before cutting.",
   "units": "inches",
   "coordinateSystem": "Stock lower-left origin; +X across width; +Y along length/grain",
   "edgeMarginInches": 0.75,
@@ -9,15 +9,34 @@
   "partCount": 27,
   "sheetCount": 8,
   "machineReady": false,
-  "machiningStatus": "3/4 in sheets S01-S06: CAM-ready part outlines on measured stock; no toolpaths or G-code. Left bookcase is doweled (no pockets). S07/S08 remain nominal planning outlines.",
+  "machiningStatus": "3/4 in sheets S01-S06: CAM-ready part outlines on measured stock; no toolpaths or G-code. Left bookcase uses dowels and screws (no pockets). S07/S08 remain nominal planning outlines.",
   "measuredStock34Inches": {
     "min": 0.703,
     "max": 0.714,
     "source": "owner calipers, 2026-09-30; remeasure each sheet"
   },
   "joinery": {
-    "type": "dowels",
-    "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 x 1-1/2 in dowels (same as the bed); every part is cut to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions are not defined here. Confirm the drawer slide before drilling the L07 dowel holes."
+    "type": "dowels and screws, like the bed's side joints",
+    "perJoint": {
+      "dowels": "2 x 3/8 x 1-1/2 in",
+      "screws": "3 x #8 x 2 in through the side"
+    },
+    "holeDepthsInches": {
+      "sideFace": 0.5,
+      "panelEdge": 1.0625
+    },
+    "suggestedFromFrontEdgeInches": {
+      "dowels": [
+        4,
+        12
+      ],
+      "screws": [
+        2,
+        8,
+        14
+      ]
+    },
+    "note": "Six joints: L03, L04 and L07 to each of L01/L02. Every part is cut to finished size. Dowel, screw and 5 mm shelf-pin holes are drilled by hand. Side-face dowel holes are 1/2 in, not Rockler's 5/8 in, because the stock is 0.703-0.714 in. Confirm the drawer slide before drilling the L07 holes."
   },
   "profileBit": "Amana 45302, 3/8 in single-flute straight, 1/2 in shank",
   "dxfLayers": {

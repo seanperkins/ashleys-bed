@@ -13,7 +13,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 6580 >>
+<< /Length 6612 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -51,9 +51,9 @@ BT /F1 10 Tf 1 0 0 1 44 488.5 Tm (-) Tj ET
 BT /F1 10 Tf 1 0 0 1 53 488.5 Tm (Test-cut an offcut and measure it before the first real cut; re-check the fence after each move.) Tj ET
 BT /F2 11 Tf 1 0 0 1 36 468 Tm (AFTER SAWING) Tj ET
 BT /F1 10 Tf 1 0 0 1 44 454 Tm (-) Tj ET
-BT /F1 10 Tf 1 0 0 1 53 454 Tm (Bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 in dowels \(same as the) Tj ET
-BT /F1 10 Tf 1 0 0 1 53 441.5 Tm (bed\): no dados or routing. Dowel positions are not part of this plan. How the 1/4 in back) Tj ET
-BT /F1 10 Tf 1 0 0 1 53 429 Tm (attaches is still open.) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 454 Tm (Bookcase top, bottom and fixed shelf join the sides like the bed: 2 dowels + 3 #8 x 2 in screws) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 441.5 Tm (per joint, no dados or routing. Dowel holes 1/2 in into the side face, 1 1/16 in into the panel) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 429 Tm (edge. How the 1/4 in back attaches is still open.) Tj ET
 BT /F1 10 Tf 1 0 0 1 44 416.5 Tm (-) Tj ET
 BT /F1 10 Tf 1 0 0 1 53 416.5 Tm (Shelf-pin holes \(5 mm\), dowel holes and the Rockler bed holes \(27/64 in inserts, screws\) are) Tj ET
 BT /F1 10 Tf 1 0 0 1 53 404 Tm (drilled by hand.) Tj ET
@@ -1517,25 +1517,25 @@ xref
 0000000176 00000 n 
 0000000273 00000 n 
 0000000375 00000 n 
-0000007006 00000 n 
-0000007142 00000 n 
-0000012882 00000 n 
-0000013018 00000 n 
-0000018076 00000 n 
-0000018213 00000 n 
-0000023272 00000 n 
-0000023410 00000 n 
-0000029708 00000 n 
-0000029846 00000 n 
-0000035090 00000 n 
-0000035228 00000 n 
-0000040834 00000 n 
-0000040972 00000 n 
-0000046591 00000 n 
-0000046729 00000 n 
-0000051912 00000 n 
+0000007038 00000 n 
+0000007174 00000 n 
+0000012914 00000 n 
+0000013050 00000 n 
+0000018108 00000 n 
+0000018245 00000 n 
+0000023304 00000 n 
+0000023442 00000 n 
+0000029740 00000 n 
+0000029878 00000 n 
+0000035122 00000 n 
+0000035260 00000 n 
+0000040866 00000 n 
+0000041004 00000 n 
+0000046623 00000 n 
+0000046761 00000 n 
+0000051944 00000 n 
 trailer
 << /Size 23 /Root 1 0 R >>
 startxref
-52050
+52082
 %%EOF

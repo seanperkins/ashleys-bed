@@ -3,7 +3,7 @@
 
 Run with Python 3; only the standard library is required. The 3/4 in sheets
 (S01-S06) carry CAM-ready part outlines on measured stock. The left bookcase is
-doweled, so there are no joinery pockets and every part is cut to finished size.
+joined with dowels and screws, so there are no joinery pockets and every part is cut to finished size.
 The 1/2 in and 1/4 in sheets remain nominal planning outlines. Nothing here is a CNC toolpath or G-code. Finished dimensions
 come from cabinet-cut-list.csv; the fixed placement contract deliberately fails
 if that geometry changes.
@@ -32,11 +32,11 @@ MEASURED_34 = (0.703, 0.714)
 BIT_DIAMETER = 0.375  # profile bit; sets which tab edges survive neighbouring passes
 STOP_NOTE = "M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness."
 PENDING_NOTE = (
-    "Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting."
+    "Shelf/back fit included; finalize slides and 1/2 and 1/4 in stock before cutting."
 )
 JOINERY_NOTE = (
-    "Left bookcase is doweled: no pockets; every part is cut to finished size. "
-    "Dowel and shelf-pin holes are drilled by hand."
+    "Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut "
+    "to finished size. Dowel, screw and shelf-pin holes are drilled by hand."
 )
 BASIS = (
     "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; "
@@ -261,16 +261,19 @@ def build_layout(parts):
         "stopBlank": STOP_NOTE, "partCount": len(seen), "sheetCount": len(sheets),
         "machineReady": False,
         "machiningStatus": ("3/4 in sheets S01-S06: CAM-ready part outlines on measured stock; no toolpaths "
-                            "or G-code. Left bookcase is doweled (no pockets). S07/S08 remain nominal "
+                            "or G-code. Left bookcase uses dowels and screws (no pockets). S07/S08 remain nominal "
                             "planning outlines."),
         "measuredStock34Inches": {"min": MEASURED_34[0], "max": MEASURED_34[1],
                                   "source": "owner calipers, 2026-09-30; remeasure each sheet"},
         "joinery": {
-            "type": "dowels",
-            "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 x 1-1/2 in "
-                    "dowels (same as the bed); every part is cut "
-                    "to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions "
-                    "are not defined here. Confirm the drawer slide before drilling the L07 dowel holes.",
+            "type": "dowels and screws, like the bed's side joints",
+            "perJoint": {"dowels": "2 x 3/8 x 1-1/2 in", "screws": "3 x #8 x 2 in through the side"},
+            "holeDepthsInches": {"sideFace": 0.5, "panelEdge": 1.0625},
+            "suggestedFromFrontEdgeInches": {"dowels": [4, 12], "screws": [2, 8, 14]},
+            "note": "Six joints: L03, L04 and L07 to each of L01/L02. Every part is cut to finished size. "
+                    "Dowel, screw and 5 mm shelf-pin holes are drilled by hand. Side-face dowel holes are "
+                    "1/2 in, not Rockler's 5/8 in, because the stock is 0.703-0.714 in. Confirm the drawer "
+                    "slide before drilling the L07 holes.",
         },
         "profileBit": "Amana 45302, 3/8 in single-flute straight, 1/2 in shank",
         "dxfLayers": {
@@ -606,10 +609,10 @@ def machining_page(sheet, page_number, total):
         "S01": "L05 plinth is only 2.5 in wide: keep its tabs on the listed safe edges only. M03/M04 are Rockler parts; no drilling here.",
         "S02": "M07 stop: cut the blank only; thin it from about 0.71 to 5/8 in off the CNC. "
                "Headboard dowel/screw holes are drilled by hand per Rockler.",
-        "S03": "L03/L04 are cut to finished size (28 1/2 in); their dowel holes are drilled by hand. "
+        "S03": "L03/L04 are cut to finished size (28 1/2 in); their dowel and screw holes are drilled by hand. "
                "M01/M02: Rockler insert holes (27/64 in) are drilled by hand.",
-        "S04": "L07 is cut to finished size (28 1/2 in). Dowel and 5 mm shelf-pin holes are drilled by "
-               "hand, not here. Confirm the drawer slide before drilling the L07 dowel holes (shelf 14 in up).",
+        "S04": "L07 is cut to finished size (28 1/2 in). Dowel, screw and 5 mm shelf-pin holes are drilled "
+               "by hand, not here. Confirm the drawer slide before drilling the L07 holes (shelf 14 in up).",
         "S05": "Door panels are visible painted faces; choose the good face for the outside.",
         "S06": "Door panels are visible painted faces; choose the good face for the outside.",
     }
@@ -701,10 +704,15 @@ def cut_guide(layout):
         "STOCK_REFERENCE, MARGIN_REFERENCE, GRAIN_REFERENCE and LABELS: never cut.",
         "DXF declares inches ($INSUNITS=1); verify a known dimension after import.", "",
         "LEFT-BOOKCASE JOINERY: DOWELS",
-        "Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02 with 3/8 x 1-1/2 in dowels",
-        "(same as the bed): no dados, rabbets or pockets.",
-        "Every part is cut to finished size (L03/L04/L07 = 28 1/2 in). Dowel positions are not defined in these files.",
-        "Confirm the drawer slide before drilling the L07 dowel holes (fixed shelf sits 14 in above the floor).",
+        "Top L03, bottom L04 and shelf above drawer L07 join sides L01/L02 like the bed's side joints: per joint,",
+        "2 glued 3/8 x 1-1/2 in dowels + 3 #8 x 2 in screws through the side. No dados, rabbets or pockets.",
+        "Dowel holes: 1/2 in deep in the side face (stock 0.703-0.714 in), 1 1/16 in deep in the panel edge.",
+        "Suggested spots from the front edge: dowels 4 and 12 in, screws 2, 8 and 14 in. Drilled by hand.",
+        "Joint holes sit only in three separate 3/4 in bands per side, measured up from the side's bottom end:",
+        "L04 bottom 2 1/2-3 1/4 in, L07 shelf 14-14 3/4 in, L03 top 63 1/4-64 in. Keep shelf-pin rows and",
+        "drawer-slide screws out of those bands.",
+        "Every part is cut to finished size (L03/L04/L07 = 28 1/2 in).",
+        "Confirm the drawer slide before drilling the L07 holes (fixed shelf sits 14 in above the floor).",
         "TABS: parts sit 1/2 in apart (< two bit diameters), so neighbouring profile passes cut away any tab on a",
         "facing edge. Use tabs only on each part's tab-safe edges (listed in the layout JSON and machining sheets).", "",
         "STILL NOT SUPPLIED",

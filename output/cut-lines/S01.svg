@@ -39,6 +39,6 @@
 <text x="52" y="33.6" font-size="0.85">2 1/2 x 28 1/2 in; finish 3/4 in</text>
 <text x="52" y="35" font-size="0.78">X 44.75 / Y 0.75 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are drilled by hand.</text>
+<text x="0" y="99.3" font-size="0.75">Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished size. Dowel, screw and shelf-pin holes are drilled by hand.</text>
 <text x="0" y="100.9" font-size="0.75">Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and confirms cutter, workholding and post.</text>
 </g></svg>

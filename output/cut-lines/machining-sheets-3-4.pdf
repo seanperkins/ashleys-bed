@@ -173,7 +173,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Length 4180 >>
+<< /Length 4190 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -239,8 +239,8 @@ BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M02: RIGHT, BOTTOM) Tj ET
 BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L03: LEFT, TOP) Tj ET
 BT /F1 7.5 Tf 1 0 0 1 290 447 Tm (L04: RIGHT, TOP) Tj ET
 BT /F2 10 Tf 1 0 0 1 290 431.5 Tm (SHEET NOTES) Tj ET
-BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L03/L04 are cut to finished size \(28 1/2 in\); their dowel) Tj ET
-BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (holes are drilled by hand. M01/M02: Rockler insert holes) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L03/L04 are cut to finished size \(28 1/2 in\); their dowel and) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (screw holes are drilled by hand. M01/M02: Rockler insert holes) Tj ET
 BT /F1 8 Tf 1 0 0 1 290 398.5 Tm (\(27/64 in\) are drilled by hand.) Tj ET
 36 160 m 576 160 l S
 BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
@@ -323,9 +323,9 @@ BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (L02: RIGHT, BOTTOM) Tj ET
 BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L07: LEFT, RIGHT, TOP) Tj ET
 BT /F1 7.5 Tf 1 0 0 1 290 447 Tm (L08: LEFT, RIGHT, TOP) Tj ET
 BT /F2 10 Tf 1 0 0 1 290 431.5 Tm (SHEET NOTES) Tj ET
-BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L07 is cut to finished size \(28 1/2 in\). Dowel and 5 mm shelf-) Tj ET
-BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (pin holes are drilled by hand, not here. Confirm the drawer) Tj ET
-BT /F1 8 Tf 1 0 0 1 290 398.5 Tm (slide before drilling the L07 dowel holes \(shelf 14 in up\).) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L07 is cut to finished size \(28 1/2 in\). Dowel, screw and 5 mm) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (shelf-pin holes are drilled by hand, not here. Confirm the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 398.5 Tm (drawer slide before drilling the L07 holes \(shelf 14 in up\).) Tj ET
 36 160 m 576 160 l S
 BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
 BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
@@ -504,15 +504,15 @@ xref
 0000004670 00000 n 
 0000008736 00000 n 
 0000008872 00000 n 
-0000013103 00000 n 
-0000013240 00000 n 
-0000017530 00000 n 
-0000017668 00000 n 
-0000021655 00000 n 
-0000021793 00000 n 
-0000025780 00000 n 
+0000013113 00000 n 
+0000013250 00000 n 
+0000017540 00000 n 
+0000017678 00000 n 
+0000021665 00000 n 
+0000021803 00000 n 
+0000025790 00000 n 
 trailer
 << /Size 17 /Root 1 0 R >>
 startxref
-25918
+25928
 %%EOF

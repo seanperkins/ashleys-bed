@@ -13,7 +13,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 3694 >>
+<< /Length 3737 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -87,8 +87,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -101,7 +101,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Length 3309 >>
+<< /Length 3352 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -164,8 +164,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -178,7 +178,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Length 3691 >>
+<< /Length 3734 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -252,8 +252,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -266,7 +266,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
 11 0 obj
-<< /Length 3682 >>
+<< /Length 3725 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -339,8 +339,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -353,7 +353,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
 endobj
 13 0 obj
-<< /Length 3412 >>
+<< /Length 3455 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -417,8 +417,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -431,7 +431,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
 endobj
 15 0 obj
-<< /Length 3412 >>
+<< /Length 3455 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -495,8 +495,8 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase: 2 dowels + 3 #8 x 2 in screws per fixed joint, no pockets; every part is cut to finished) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (size. Dowel, screw and shelf-pin holes are drilled by hand.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
@@ -509,7 +509,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
 endobj
 17 0 obj
-<< /Length 3422 >>
+<< /Length 3405 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -582,7 +582,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize slides and 1/2 and 1/4 in stock before cutting.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 105 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 93 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 82 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
@@ -594,7 +594,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
 endobj
 19 0 obj
-<< /Length 2802 >>
+<< /Length 2785 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -647,7 +647,7 @@ BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
 BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize slides and 1/2 and 1/4 in stock before cutting.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 105 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 93 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 82 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
@@ -666,23 +666,23 @@ xref
 0000000169 00000 n 
 0000000266 00000 n 
 0000000368 00000 n 
-0000004113 00000 n 
-0000004249 00000 n 
-0000007609 00000 n 
-0000007745 00000 n 
-0000011487 00000 n 
-0000011624 00000 n 
-0000015358 00000 n 
-0000015496 00000 n 
-0000018960 00000 n 
-0000019098 00000 n 
-0000022562 00000 n 
-0000022700 00000 n 
-0000026174 00000 n 
-0000026312 00000 n 
-0000029166 00000 n 
+0000004156 00000 n 
+0000004292 00000 n 
+0000007695 00000 n 
+0000007831 00000 n 
+0000011616 00000 n 
+0000011753 00000 n 
+0000015530 00000 n 
+0000015668 00000 n 
+0000019175 00000 n 
+0000019313 00000 n 
+0000022820 00000 n 
+0000022958 00000 n 
+0000026415 00000 n 
+0000026553 00000 n 
+0000029390 00000 n 
 trailer
 << /Size 21 /Root 1 0 R >>
 startxref
-29304
+29528
 %%EOF
