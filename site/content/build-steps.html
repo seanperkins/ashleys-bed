@@ -1,0 +1,39 @@
+<section class="guide" id="guide" aria-label="Assembly steps" data-guide="assembly-guide/">
+  <div class="guide-stage" id="guide-stage">
+    <canvas id="guide-canvas" aria-label="3D view of this step. Drag to turn, pinch to zoom, double-tap to reset."></canvas>
+    <p class="guide-status" id="guide-status" role="status">Loading the 3D model…</p>
+    <div class="guide-tools">
+      <label><input type="checkbox" id="guide-finished"> Show finished</label>
+      <button type="button" id="guide-reset">Reset view</button>
+    </div>
+  </div>
+  <div class="guide-panel" id="guide-panel">
+    <p class="guide-count" id="guide-count"></p>
+    <h2 class="guide-title" tabindex="-1"></h2>
+    <div class="guide-hold" id="guide-hold" hidden></div>
+    <h3 class="guide-label">Parts</h3>
+    <ul class="guide-chips" id="guide-parts"></ul>
+    <div id="guide-needs-wrap">
+      <h3 class="guide-label">You need</h3>
+      <ul class="guide-needs" id="guide-needs"></ul>
+    </div>
+    <ol class="guide-text" id="guide-text"></ol>
+    <div id="guide-warnings"></div>
+    <p class="guide-source" id="guide-source" hidden></p>
+    <div class="guide-drawings">
+      <button type="button" class="guide-drawing" id="guide-drawing-step"><img id="guide-svg" alt="Exploded drawing of this step"></button>
+      <button type="button" class="guide-drawing" id="guide-drawing-holes" hidden><img id="guide-holes-svg" alt="Dimensioned hole positions for this step"></button>
+    </div>
+  </div>
+  <nav class="guide-bar" aria-label="Step controls">
+    <button type="button" id="guide-back">← Back</button>
+    <button type="button" id="guide-replay">Replay</button>
+    <button type="button" id="guide-next" class="primary">Next →</button>
+  </nav>
+  <dialog class="guide-zoom" id="guide-zoom" aria-label="Drawing">
+    <form method="dialog"><button type="submit" class="guide-zoom-close">Close</button></form>
+    <img id="guide-zoom-img" alt="">
+  </dialog>
+</section>
+<script type="importmap">{"imports": {"three": "./assets/vendor/three/build/three.module.min.js", "three/addons/": "./assets/vendor/three/examples/jsm/"}}</script>
+<script type="module" src="assets/assembly-viewer.js"></script>

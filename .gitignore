@@ -6,3 +6,7 @@ output/previous-*/
 output/startup-trigger.json
 site/_site/
 references/
+site/_site.tmp-*/
+site/_site.backup-*/
+output/assembly-guide.staging-*/
+output/assembly-guide.backup-*/

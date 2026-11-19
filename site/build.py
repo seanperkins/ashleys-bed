@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Build the public guide from current project outputs; publish an explicit allowlist."""
 import csv
+import hashlib
 import html
 import json
 import re
 import shutil
+import sys
+import tempfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -13,12 +16,23 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 DEST = SITE / '_site'
 OUT = ROOT / 'output'
+sys.path.insert(0, str(ROOT / 'MurphyBedQueen'))
+from generate_assembly_guide import generate  # noqa: E402
+
+GUIDE = 'assembly-guide'
+THREE_MODULES = [
+    'assets/vendor/three/build/three.module.min.js',
+    'assets/vendor/three/examples/jsm/controls/OrbitControls.js',
+    'assets/vendor/three/examples/jsm/loaders/GLTFLoader.js',
+    'assets/vendor/three/examples/jsm/utils/BufferGeometryUtils.js',
+]
 PAGES = [
     ('index', 'Overview', 'Ashley’s Murphy bed', 'A project guide for the horizontal queen bed and left bookcase.'),
     ('planning', 'Plan the build', 'Plan before you purchase', 'Dimensions, room checks and decisions that control the build.'),
     ('purchase', 'Purchase', 'The purchasing guide', 'What to buy, what is included, and what to confirm first.'),
     ('cnc', 'CNC preparation', 'From plywood to cut parts', 'The machining plan, setup worksheet and release requirements.'),
     ('assembly', 'Build & finish', 'Assembly, finishing & installation', 'A staged project guide, alongside Rockler’s required instructions.'),
+    ('build-steps', 'Step-by-step', 'Step-by-step assembly', 'Interactive 3D steps for the bed and bookcase.'),
     ('downloads', 'Drawings & files', 'The current project files', 'One revision. Clearly labeled drawings, parts and cut outlines.'),
 ]
 DOWNLOADS = [
@@ -91,7 +105,21 @@ def downloads_page():
 <section><h2 id="verification">What has actually been checked</h2><ul><li>Both saved Fusion archives reopened with one left cabinet, correct bed endpoints, hidden wall-bracket references and no timeline warnings.</li><li>All 27 remaining wood pieces match their previous model dimensions; the right cabinet’s 16 parts were removed.</li><li>All eight DXFs match the placement data, with ¾″ edge margins, ½″ gaps, correct stock groups and no missing or duplicate pieces.</li></ul><p>These checks verify the design files, not final joinery, structural adequacy, cutter clearance or machine setup. Earlier two-cabinet media and budgets are archived locally and excluded here.</p></section>'''
 
 
-def render(slug, title, description, body):
+DEFAULT_NOSCRIPT = '<p class="note">All instructions and downloads work without JavaScript. Saved checklists, note export, filtering and the print button require JavaScript; use your browser’s Print command instead.</p>'
+DEFAULT_FOOTER = '<p>Use this guide alongside the <a href="https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf">Rockler horizontal-bed instructions</a> and <a href="https://wiki.hackrva.org/index.php/Avid_PRO6096">HackRVA’s CNC requirements</a>. Manufacturer instructions and the qualified installer/operator control the work.</p>'
+RELEASE_BAR = '<div class="release-bar"><span class="badge pending">Toolpaths pending</span><p>¾ in plywood bought and measured; ½ in and ¼ in not bought. CAM toolpaths and CNC release remain pending.</p></div>'
+GUIDE_FOOTER = '<p>These steps are drawn from the Rockler manual and this project’s design. Bed steps name the manual page they come from. Steps marked HOLD wait on a decision and are not ready to build.</p>'
+
+
+def guide_noscript(steps):
+    links = ''.join(f'<li><a href="{GUIDE}/{e(s["svg"])}">Step {i}: {e(s["title"])}</a></li>'
+                    for i, s in enumerate(steps, 1))
+    return ('<div class="note"><p>The interactive 3D steps need JavaScript. Without it, open each step’s '
+            f'drawing:</p><ol>{links}</ol></div>')
+
+
+def render(slug, title, description, body, noscript=DEFAULT_NOSCRIPT, footer=DEFAULT_FOOTER,
+           release=True):
     navigation = ''.join(f'<a href="{name}.html"'+(' aria-current="page"' if name==slug else '')+f'><span>{index:02}</span>{e(label)}</a>' for index,(name,label,_,_) in enumerate(PAGES,1))
     next_index = next(i for i,p in enumerate(PAGES) if p[0]==slug)+1
     next_page = PAGES[next_index] if next_index<len(PAGES) else PAGES[0]
@@ -111,13 +139,13 @@ def render(slug, title, description, body):
 <nav aria-label="Build guide">{navigation}</nav><div class="sidebar-note"><span class="status-dot"></span>Design-review revision<small>Bed + left bookcase<br>Updated November 18, 2026</small></div></aside>
 <div class="page"><header class="utility"><span>HORIZONTAL QUEEN / ROCKLER I-SEMBLE</span><div><button type="button" id="print-page">Print this page</button><button type="button" id="export-notes">Export my notes</button></div></header>
 <main id="main"><div class="page-heading"><p class="eyebrow">{e(next(p[1] for p in PAGES if p[0]==slug))}</p><h1>{e(title)}</h1><p class="lead">{e(description)}</p></div>
-<div class="release-bar"><span class="badge pending">Toolpaths pending</span><p>¾ in plywood bought and measured; ½ in and ¼ in not bought. CAM toolpaths and CNC release remain pending.</p></div>
+{RELEASE_BAR if release else ''}
 <div class="personal-progress" id="personal-progress" hidden><span id="progress-label"></span><progress id="check-progress" value="0" max="1"></progress><small id="save-status">Your checks and notes save only in this browser. Checking a box does not approve machining.</small></div>
-<noscript><p class="note">All instructions and downloads work without JavaScript. Saved checklists, note export, filtering and the print button require JavaScript; use your browser’s Print command instead.</p></noscript>
+<noscript>{noscript}</noscript>
 {contents}
 {body}
 <div class="next-page"><span>Continue the guide</span><a href="{next_page[0]}.html">{e(next_page[1])} <span aria-hidden="true">→</span></a></div></main>
-<footer><p>Use this guide alongside the <a href="https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf">Rockler horizontal-bed instructions</a> and <a href="https://wiki.hackrva.org/index.php/Avid_PRO6096">HackRVA’s CNC requirements</a>. Manufacturer instructions and the qualified installer/operator control the work.</p><p>No analytics, account or cloud-saved checklist. <a href="https://github.com/seanperkins/ashleys-bed">Project source</a></p></footer></div></div></body></html>'''
+<footer>{footer}<p>No analytics, account or cloud-saved checklist. <a href="https://github.com/seanperkins/ashleys-bed">Project source</a></p></footer></div></div></body></html>'''
 
 
 class Links(HTMLParser):
@@ -137,47 +165,114 @@ class Links(HTMLParser):
             self.links += [attrs[k] for k in ('src','poster') if k in attrs]
 
 
-def validate_site():
-    documents={}
-    for page in DEST.glob('*.html'):
-        parser=Links()
+def validate_site(dest, fragments=None):
+    """Check every local link, asset and anchor in `dest`. `fragments` adds anchors handled by
+    script, e.g. {'build-steps.html': {step ids}}."""
+    dest = Path(dest).resolve()
+    fragments = fragments or {}
+    documents = {}
+    for page in dest.glob('*.html'):
+        parser = Links()
         parser.feed(page.read_text())
-        documents[page]=parser
+        documents[page] = parser
     for page, parser in documents.items():
         for link in parser.links:
-            url=urlsplit(link)
-            if url.scheme or url.netloc: continue
-            target=(page.parent/unquote(url.path)).resolve() if url.path else page
-            if not target.is_relative_to(DEST.resolve()) or not target.exists():
+            url = urlsplit(link)
+            if url.scheme or url.netloc:
+                continue
+            target = (page.parent/unquote(url.path)).resolve() if url.path else page
+            if not target.is_relative_to(dest.resolve()) or not target.exists():
                 raise ValueError(f'{page.name}: missing or unsafe local link {link}')
-            if url.fragment and target in documents and unquote(url.fragment) not in documents[target].ids:
+            fragment = unquote(url.fragment)
+            if fragment and target in documents and fragment not in documents[target].ids \
+                    and fragment not in fragments.get(target.name, set()):
                 raise ValueError(f'{page.name}: missing anchor {link}')
     print(f'Validated {len(documents)} pages: local navigation, anchors and download links resolve.')
 
 
-def main():
-    report=json.loads((OUT/'build-result.json').read_text())
-    if set(report['sideCabinets'])!={'left'} or report['combinedCarcassInchesWHD'] != [116.75,64,16]:
-        raise ValueError('Public guide requires the bed-plus-left-cabinet revision')
-    if DEST.exists(): shutil.rmtree(DEST)
-    (DEST/'downloads/cut-lines').mkdir(parents=True)
-    shutil.copytree(SITE/'assets', DEST/'assets', dirs_exist_ok=True)
+def precache_list(dest):
+    guide = sorted(p.relative_to(dest).as_posix() for p in (dest/GUIDE).glob('*.svg'))
+    return (['build-steps.html', 'assets/style.css', 'assets/guide.js', 'assets/favicon.svg',
+             'assets/assembly-viewer.js'] + THREE_MODULES
+            + [f'{GUIDE}/assembly.glb', f'{GUIDE}/assembly-steps.json'] + guide)
+
+
+def render_sw(dest):
+    """sw.js for `dest`: precache list plus a cache name hashed over every precached file."""
+    files = precache_list(dest)
+    digest = hashlib.sha256()
+    for path in files:
+        digest.update((dest/path).read_bytes())
+    template = (SITE/'sw.js').read_text()
+    text = (template.replace('{{CACHE_NAME}}', f'guide-{digest.hexdigest()[:16]}')
+            .replace('{{PRECACHE}}', json.dumps(files, indent=2)))
+    if re.search(r'\{\{[A-Z_]+\}\}', text):
+        raise ValueError('Unresolved token in sw.js')
+    (dest/'sw.js').write_text(text)
+    return text
+
+
+def page_body(slug):
+    body = downloads_page() if slug == 'downloads' else (SITE/f'content/{slug}.html').read_text()
+    return body.replace('{{BOM_TABLE}}', bom_table()) if slug == 'purchase' else body
+
+
+def build_into(tmp):
+    (tmp/'downloads/cut-lines').mkdir(parents=True)
+    shutil.copytree(SITE/'assets', tmp/'assets', dirs_exist_ok=True)
     for name in ('closed','open','frame','front','overview'):
-        shutil.copy2(OUT/f'media/ashleys-bed-{name}.png', DEST/f'assets/ashleys-bed-{name}.png')
+        shutil.copy2(OUT/f'media/ashleys-bed-{name}.png', tmp/f'assets/ashleys-bed-{name}.png')
     for path, _, _ in DOWNLOADS:
-        shutil.copy2(OUT/path, DEST/'downloads'/published(path))
+        shutil.copy2(OUT/path, tmp/'downloads'/published(path))
     for sheet in range(1,9):
         for ext in ('svg','dxf'):
             name=f'cut-lines/S{sheet:02}.{ext}'
-            shutil.copy2(OUT/name, DEST/'downloads'/name)
+            shutil.copy2(OUT/name, tmp/'downloads'/name)
+    generate(tmp/GUIDE)
+    steps = json.loads((tmp/GUIDE/'assembly-steps.json').read_text(encoding='utf-8'))
     for slug, _, title, description in PAGES:
-        body=downloads_page() if slug=='downloads' else (SITE/f'content/{slug}.html').read_text()
-        body=body.replace('{{BOM_TABLE}}',bom_table()) if slug=='purchase' else body
-        if re.search(r'\{\{[A-Z_]+\}\}',body): raise ValueError('Unresolved content token in '+slug)
-        (DEST/f'{slug}.html').write_text(render(slug,title,description,body))
-    (DEST/'.nojekyll').touch()
-    validate_site()
-    print('Built GitHub Pages site in site/_site. Archived budgets/revisions are not published.')
+        body = page_body(slug)
+        if re.search(r'\{\{[A-Z_]+\}\}', body):
+            raise ValueError('Unresolved content token in '+slug)
+        extra = {}
+        if slug == 'build-steps':
+            extra = {'noscript': guide_noscript(steps), 'footer': GUIDE_FOOTER, 'release': False}
+        (tmp/f'{slug}.html').write_text(render(slug, title, description, body, **extra))
+    render_sw(tmp)
+    (tmp/'.nojekyll').touch()
+    validate_site(tmp, {'build-steps.html': {s['id'] for s in steps}})
+
+
+def main(dest=DEST):
+    dest = Path(dest)
+    report=json.loads((OUT/'build-result.json').read_text())
+    if set(report['sideCabinets'])!={'left'} or report['combinedCarcassInchesWHD'] != [116.75,64,16]:
+        raise ValueError('Public guide requires the bed-plus-left-cabinet revision')
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    backups = sorted(dest.parent.glob(f'{dest.name}.backup-*'), key=lambda p: p.stat().st_mtime)
+    if not dest.exists() and backups:
+        backups.pop().rename(dest)
+    for leftover in list(dest.parent.glob(f'{dest.name}.tmp-*')) + backups:
+        shutil.rmtree(leftover, ignore_errors=True)
+    tmp = Path(tempfile.mkdtemp(dir=dest.parent, prefix=f'{dest.name}.tmp-'))
+    try:
+        build_into(tmp)
+        backup = None
+        if dest.exists():
+            backup = Path(tempfile.mkdtemp(dir=dest.parent, prefix=f'{dest.name}.backup-'))
+            backup.rmdir()
+            dest.rename(backup)
+        try:
+            tmp.rename(dest)
+        except OSError:
+            if backup is not None:
+                backup.rename(dest)
+            raise
+        if backup is not None:
+            shutil.rmtree(backup)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    print(f'Built GitHub Pages site in {dest}. Archived budgets/revisions are not published.')
 
 
 if __name__=='__main__':

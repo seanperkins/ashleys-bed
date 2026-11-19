@@ -59,6 +59,10 @@ class GenerateTest(unittest.TestCase):
         self.assertEqual({h["code"]: (h["count"], h["phase"]) for h in bottom["hardware"]},
                          {"dowel": (2, "dowel"), "screw-8x2": (3, "screw")})
         self.assertEqual(bottom["hardware"][0]["name"], "3/8 x 1-1/2 in dowel")
+        axes = {h["code"]: h["axis"] for h in bottom["hardware"]}
+        self.assertEqual(axes, {"dowel": [1, 0, 0], "screw-8x2": [-1, 0, 0]})  # dowels into L01, screws into L04
+        right = {h["code"]: h["axis"] for h in steps["bookcase-right-side"]["hardware"]}
+        self.assertEqual(right["screw-8x2"], [1, 0, 0])
         self.assertEqual(bottom["move"], [1, 0, 0])  # Fusion -x -> scene +x
         self.assertEqual(len(steps["bookcase-drill"]["poses"]["L01"]), 16)
         self.assertNotEqual(steps["bookcase-drill"]["poses"]["L02"], steps["bookcase-right-side"]["poses"]["L02"])
@@ -67,6 +71,8 @@ class GenerateTest(unittest.TestCase):
         self.assertIn("Back L06 attachment", steps["bookcase-back"]["hold"][0])
         self.assertEqual(steps["bookcase-back"]["held_by"], ["back", "slide"])
         self.assertIsNone(steps["bookcase-shelves"]["holes_svg"])
+        self.assertEqual(steps["bookcase-drill-shelf"]["drills"], ["L01", "L02"])
+        self.assertEqual(steps["bookcase-bottom"]["drills"], ["L04"])
 
     def test_clean_checkout(self):
         self.assertFalse(self.out.exists())

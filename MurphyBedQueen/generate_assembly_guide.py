@@ -31,6 +31,18 @@ def _round(values):
     return [round(v, 6) + 0.0 for v in values]
 
 
+def hardware_axis(item, parts):
+    """Scene direction a step's dowels or screws travel in: dowels into the side, screws into the panel."""
+    joints = {node.rsplit("-", 2)[0] for node in item["nodes"]}
+    if not joints:
+        return None
+    directions = {ap.joint_contact(ap.JOINTS[jid], parts)[1] for jid in joints}
+    if len(directions) != 1:
+        raise ValueError(f"{item['code']} nodes travel in different directions: {sorted(joints)}")
+    d = directions.pop() * (-1 if item["phase"] == "dowel" else 1)
+    return [-d, 0, 0]
+
+
 def step_records(resolved, parts):
     names = {code: name for code, name in dr.FASTENER_NAMES.items()}
     records = []
@@ -40,8 +52,10 @@ def step_records(resolved, parts):
             "id": step["id"],
             "title": step["title"],
             "adds": step["adds"],
+            "drills": sorted({h.part for h in rs.drilled + rs.joined}),
             "hardware": [{"code": h["code"], "name": names.get(h["code"], h["code"]), "count": h["count"],
-                          "nodes": h["nodes"], "phase": h["phase"]} for h in rs.hardware],
+                          "nodes": h["nodes"], "phase": h["phase"], "axis": hardware_axis(h, parts)}
+                         for h in rs.hardware],
             "poses": {pid: _round(glb.scene_matrix(st.pose_matrix(parts[pid], pose)))
                       for pid, pose in rs.poses.items()},
             "move": [-step["move"][0], step["move"][2], step["move"][1]],
