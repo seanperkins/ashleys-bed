@@ -154,7 +154,7 @@ STEPS = [
         "title": "Fit the outer end L02 over the bottom, shelf and top",
         "adds": [], "joints": ["L04-L02", "L07-L02", "L03-L02"], "fasteners": {}, "consumables": ["glue"],
         "drill": [], "pose": {"L02": "installed"},
-        "move": [1, 0, 0],
+        "move": [-1, 0, 0],
         "camera": {"azimuth": 50, "elevation": 30, "distance": 2.6, "target": "L02"},
         "text": [
             "Drill the free ends of L04, L07 and L03 as before.",
