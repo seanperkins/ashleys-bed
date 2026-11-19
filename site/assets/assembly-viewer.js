@@ -127,6 +127,7 @@ function buildJump() {
     option.textContent = `${i + 1}. ${step.title}${step.hold.length ? " (HOLD)" : ""}`;
     group.append(option);
   });
+  $("#guide-jump-wrap").hidden = false;
 }
 
 function sameMatrix(a, b) {
