@@ -105,6 +105,28 @@ function renderPanel(index) {
   else $("#guide-holes-svg").removeAttribute("src");
   $("#guide-back").disabled = index === 0;
   $("#guide-next").disabled = index === steps.length - 1;
+  $("#guide-jump").value = String(index);
+}
+
+// "Go to step": every step, grouped by stage, so a saved step never traps you away from step 1.
+const STAGE_NAMES = { "bed-cabinet": "Bed cabinet", "bed-mechanism": "Bed mechanism", bookcase: "Bookcase" };
+
+function buildJump() {
+  const select = $("#guide-jump");
+  select.replaceChildren();
+  let group = null;
+  steps.forEach((step, i) => {
+    if (!group || group.dataset.stage !== step.stage) {
+      group = document.createElement("optgroup");
+      group.label = STAGE_NAMES[step.stage] || step.stage;
+      group.dataset.stage = step.stage;
+      select.append(group);
+    }
+    const option = document.createElement("option");
+    option.value = String(i);
+    option.textContent = `${i + 1}. ${step.title}${step.hold.length ? " (HOLD)" : ""}`;
+    group.append(option);
+  });
 }
 
 function sameMatrix(a, b) {
@@ -139,6 +161,7 @@ function wireControls() {
   $("#guide-back").addEventListener("click", () => goTo(current - 1, { animate: false }));
   $("#guide-next").addEventListener("click", () => goTo(current + 1));
   $("#guide-replay").addEventListener("click", () => goTo(current));
+  $("#guide-jump").addEventListener("change", (event) => goTo(Number(event.target.value)));
   $("#guide-reset").addEventListener("click", () => viewer?.resetCamera());
   $("#guide-finished").addEventListener("change", (event) => {
     showFinished = event.target.checked;
@@ -444,6 +467,7 @@ async function start() {
     if (!response.ok) throw new Error(`steps: HTTP ${response.status}`);
     steps = await response.json();
     PARTS = new Set(steps.flatMap((step) => step.adds));
+    buildJump();
   } catch (error) {
     status.textContent = "The steps could not be loaded. Check your connection and reload.";
     console.warn(error);

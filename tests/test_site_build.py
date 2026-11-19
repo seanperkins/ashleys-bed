@@ -164,6 +164,12 @@ class SiteBuildTest(unittest.TestCase):
         self.assertIn('href="build-steps.html"', (self.dest / "assembly.html").read_text())
 
 
+    def test_step_picker(self):
+        # a saved step reopens on load, so the page needs a way straight back to step 1 (or any step)
+        self.assertRegex(self.page, r'<label[^>]*for="guide-jump"[^>]*>Go to step</label>\s*<select id="guide-jump"')
+        viewer = (self.dest / "assets/assembly-viewer.js").read_text()
+        self.assertIn('$("#guide-jump").addEventListener("change"', viewer)
+
     def test_viewer_poses_hardware(self):
         viewer = (self.dest / "assets/assembly-viewer.js").read_text()
         self.assertIn("item.axes", viewer)  # per-node axes when one item's nodes face different ways
