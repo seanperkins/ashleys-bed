@@ -113,6 +113,12 @@ class GenerateTest(unittest.TestCase):
         gen.generate(self.out)
         self.assertFalse((self.out / "marker.txt").exists())
 
+    def test_output_dir_readable(self):
+        import stat
+        gen.generate(self.out)
+        mode = self.out.stat().st_mode
+        self.assertTrue(mode & stat.S_IROTH and mode & stat.S_IXOTH, oct(mode))
+
     def test_hold_count(self):
         summary = gen.generate(self.out)
         self.assertEqual(summary["holds"], 10)

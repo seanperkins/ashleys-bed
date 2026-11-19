@@ -28,6 +28,12 @@ class PartCatalogueTest(unittest.TestCase):
         self.assertAlmostEqual(ap.drilling_thickness(self.parts["L11"]), 0.46875)
         self.assertAlmostEqual(ap.drilling_thickness(self.parts["L06"]), 0.21875)
 
+    def test_drilling_thickness_follows_measured_stock(self):
+        import unittest.mock as mock
+        import generate_cut_layouts as gcl
+        with mock.patch.object(gcl, "MEASURED_34", (0.69, 0.70)):
+            self.assertAlmostEqual(ap.drilling_thickness(self.parts["L04"]), 0.69)
+
     def test_l01_is_next_to_bed(self):
         self.assertAlmostEqual(self.parts["L01"].min[0], self.parts["M02"].max[0])
 

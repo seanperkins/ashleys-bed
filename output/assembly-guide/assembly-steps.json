@@ -1633,13 +1633,16 @@
   "warnings": [],
   "consumables": [],
   "hold": [
-   "Drawer-slide model not chosen. It sets the slide screw pattern, the drawer-box clearance and the space under the fixed shelf L07."
+   "Drawer-slide model not chosen. It sets the slide screw pattern, the drawer-box clearance and the space under the fixed shelf L07.",
+   "Drawer box joints (L11-L14) and the drawer-bottom L15 support not decided."
   ],
   "held_by": [
-   "slide"
+   "slide",
+   "drawer-box"
   ],
   "requires": [
-   "bookcase-right-side"
+   "bookcase-right-side",
+   "bookcase-drawer-box"
   ],
   "source": null,
   "svg": "step-10.svg",
@@ -1904,14 +1907,17 @@
   "consumables": [],
   "hold": [
    "Pulls not chosen: model, fixing screws, height and edge offset, hole centres and clearance.",
-   "Drawer-slide model not chosen. It sets the slide screw pattern, the drawer-box clearance and the space under the fixed shelf L07."
+   "Drawer-slide model not chosen. It sets the slide screw pattern, the drawer-box clearance and the space under the fixed shelf L07.",
+   "Drawer box joints (L11-L14) and the drawer-bottom L15 support not decided."
   ],
   "held_by": [
    "pulls",
-   "slide"
+   "slide",
+   "drawer-box"
   ],
   "requires": [
-   "bookcase-right-side"
+   "bookcase-right-side",
+   "bookcase-slides"
   ],
   "source": null,
   "svg": "step-11.svg",

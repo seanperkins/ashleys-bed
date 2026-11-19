@@ -118,6 +118,7 @@ def generate(out_dir=DEFAULT_OUT, steps=None):
     out_dir.parent.mkdir(parents=True, exist_ok=True)
     _recover(out_dir)
     staging = Path(tempfile.mkdtemp(dir=out_dir.parent, prefix=f"{out_dir.name}.staging-"))
+    staging.chmod(0o755)  # mkdtemp makes 0700; the folder is published as-is
     try:
         parts = ap.load_parts()
         fasteners = ap.load_fasteners()

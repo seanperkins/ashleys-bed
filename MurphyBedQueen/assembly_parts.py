@@ -8,12 +8,12 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
+import generate_cut_layouts
 from generate_cut_layouts import PART_SPECS
 
 ROOT = Path(__file__).resolve().parents[1]
 GEOMETRY = ROOT / "output" / "drawing-geometry.json"
 
-MEASURED_MIN_34 = 0.703  # measured minimum of the 3/4 in plywood
 NATURAL_PARTS = {"L11", "L12", "L13", "L14", "L15"}
 FINISH_COLOURS = {"navy": "#182B49", "natural": "rgb(217,191,151)"}
 
@@ -83,7 +83,7 @@ def load_parts(geometry=GEOMETRY):
 def drilling_thickness(part):
     """Thickness used for wall checks: measured minimum for 3/4 stock, nominal - 1/32 otherwise."""
     if part.stock == 0.75:
-        return MEASURED_MIN_34
+        return generate_cut_layouts.MEASURED_34[0]  # measured minimum; one source for every generator
     return part.stock - 1 / 32
 
 
@@ -394,6 +394,10 @@ OPEN_DECISIONS = {
                    "checked against the bracket thickness. Owner to confirm."),
     "kit": "Kit fastener discrepancies to confirm with Rockler (BB length, W count, OO nuts).",
 }
+
+# Every decision id the data may name. Resolving a decision removes it from OPEN_DECISIONS (holds
+# naming it then clear); a hold naming an id outside this set is a typo and fails validation.
+DECISION_IDS = frozenset(OPEN_DECISIONS)
 
 # Parts whose own fixing is undecided: any step that adds them is held.
 PART_HOLDS = {

@@ -35,8 +35,17 @@ function recalled() {
   }
 }
 
+// The step id in the URL fragment; a malformed fragment (e.g. "#%") counts as unknown.
+function hashId() {
+  try {
+    return decodeURIComponent(location.hash.slice(1));
+  } catch {
+    return location.hash.slice(1);
+  }
+}
+
 function startIndex() {
-  const hash = decodeURIComponent(location.hash.slice(1));
+  const hash = hashId();
   const find = (id) => steps.findIndex((step) => step.id === id);
   if (hash) return Math.max(find(hash), 0); // unknown deep link -> step 1
   const stored = recalled();
@@ -116,7 +125,7 @@ function goTo(index, { animate = true, user = true } = {}) {
   viewer?.finish(); // a tween in progress completes before the next step starts
   current = index;
   const id = steps[index].id;
-  if (decodeURIComponent(location.hash.slice(1)) !== id) history.replaceState(null, "", `#${id}`);
+  if (hashId() !== id) history.replaceState(null, "", `#${id}`);
   remember(id);
   renderPanel(index);
   viewer?.play(index, animate && !reducedMotion.matches);
@@ -135,7 +144,7 @@ function wireControls() {
     viewer?.resetCamera();
   });
   window.addEventListener("hashchange", () => {
-    const index = steps.findIndex((step) => step.id === decodeURIComponent(location.hash.slice(1)));
+    const index = steps.findIndex((step) => step.id === hashId());
     if (index !== current) goTo(Math.max(index, 0));
   });
   document.addEventListener("keydown", (event) => {

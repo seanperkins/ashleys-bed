@@ -38,10 +38,9 @@ self.addEventListener("fetch", (event) => {
     // The page: network first so a new deploy shows at once; the cached copy when offline or
     // when a weak signal takes longer than 3 s (the network copy still refreshes the cache).
     const network = fetch(request).then((response) => {
-      if (response.ok) {
-        const copy = response.clone();
-        caches.open(CACHE).then((cache) => cache.put(path, copy));
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`); // an error page never beats the cache
+      const copy = response.clone();
+      caches.open(CACHE).then((cache) => cache.put(path, copy));
       return response;
     });
     const cached = () => caches.open(CACHE).then((cache) => cache.match(path));

@@ -47,8 +47,9 @@ class SiteBuildTest(unittest.TestCase):
         self.assertTrue((self.dest / "assets/assembly-viewer.js").exists())
         slugs = [p[0] for p in build.PAGES]
         self.assertEqual(slugs[slugs.index("assembly") + 1], "build-steps")
-        self.assertIn(("build-steps", "Step-by-step", "Step-by-step assembly",
-                       "Interactive 3D steps for the bed and bookcase."), build.PAGES)
+        description = next(p[3] for p in build.PAGES if p[0] == "build-steps")
+        self.assertIn("bookcase", description)
+        self.assertNotIn("bed and bookcase", description)  # bed steps come in phase 2
 
     def test_build_does_not_touch_output(self):
         self.assertEqual(snapshot(build.OUT / "assembly-guide"), self.output_before)
@@ -124,18 +125,28 @@ class SiteBuildTest(unittest.TestCase):
         self.assertIn("need JavaScript", noscript)
         for i in range(1, 14):
             self.assertIn(f'href="assembly-guide/step-{i:02d}.svg"', noscript)
+        for path in (self.dest / "assembly-guide").glob("*-holes.svg"):
+            self.assertIn(f'href="assembly-guide/{path.name}"', noscript)
+        self.assertEqual(len(list((self.dest / "assembly-guide").glob("*-holes.svg"))), 6)
         other = (self.dest / "assembly.html").read_text()
         self.assertIn("All instructions and downloads work without JavaScript", other)
 
     def test_guide_footer(self):
         footer = re.search(r"<footer>(.*?)</footer>", self.page, re.S).group(1)
         self.assertIn("drawn from the Rockler manual and this project’s design", footer)
+        self.assertNotIn("Bed steps name", footer)
         self.assertNotIn("Use this guide alongside", footer)
         self.assertIn("Use this guide alongside", (self.dest / "index.html").read_text())
 
     def test_guide_has_no_cnc_release_bar(self):
         self.assertNotIn("release-bar", self.page)
         self.assertIn("release-bar", (self.dest / "cnc.html").read_text())
+
+    def test_published_dirs_readable(self):
+        import stat
+        for path in (self.dest, self.dest / "assembly-guide"):
+            mode = path.stat().st_mode
+            self.assertTrue(mode & stat.S_IROTH and mode & stat.S_IXOTH, oct(mode))
 
     def test_guide_page_links_resolve(self):
         self.assertIn('href="build-steps.html"', (self.dest / "assembly.html").read_text())

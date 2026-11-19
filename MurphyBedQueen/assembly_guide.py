@@ -130,8 +130,8 @@ def validate(resolved, parts, fasteners, decisions=None):
         ids.add(sid)
         if step.get("assembly") not in {"bed", "bookcase"}:
             errors.append(f"{sid}: unknown assembly {step.get('assembly')}")
-        if step.get("hold") and step["hold"] not in decisions:
-            errors.append(f"{sid}: hold {step['hold']} is not an open decision")
+        if step.get("hold") and step["hold"] not in ap.DECISION_IDS:
+            errors.append(f"{sid}: hold names unknown decision {step['hold']}")
         for c in step.get("consumables", []):
             if c not in ap.CONSUMABLES:
                 errors.append(f"{sid}: unknown consumable {c}")
@@ -142,6 +142,12 @@ def validate(resolved, parts, fasteners, decisions=None):
     for pid, part in parts.items():
         if part.assembly in st.ACTIVE_ASSEMBLIES and pid not in added:
             errors.append(f"{pid} is never added")
+    for joint in ap.JOINTS.values():
+        if joint.hold and joint.hold not in ap.DECISION_IDS:
+            errors.append(f"joint {joint.id}: hold names unknown decision {joint.hold}")
+    for pid, decision in ap.PART_HOLDS.items():
+        if decision not in ap.DECISION_IDS:
+            errors.append(f"part {pid}: hold names unknown decision {decision}")
     held_joints = {j.id for j in ap.JOINTS.values() if j.hold in decisions}
     holes = [h for rs in resolved for h in rs.drilled + rs.joined]
     errors += ap.check_holes(holes, parts, held_joints)

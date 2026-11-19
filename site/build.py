@@ -32,7 +32,7 @@ PAGES = [
     ('purchase', 'Purchase', 'The purchasing guide', 'What to buy, what is included, and what to confirm first.'),
     ('cnc', 'CNC preparation', 'From plywood to cut parts', 'The machining plan, setup worksheet and release requirements.'),
     ('assembly', 'Build & finish', 'Assembly, finishing & installation', 'A staged project guide, alongside Rockler’s required instructions.'),
-    ('build-steps', 'Step-by-step', 'Step-by-step assembly', 'Interactive 3D steps for the bed and bookcase.'),
+    ('build-steps', 'Step-by-step', 'Step-by-step assembly', 'Interactive 3D steps for the bookcase; the bed steps follow.'),
     ('downloads', 'Drawings & files', 'The current project files', 'One revision. Clearly labeled drawings, parts and cut outlines.'),
 ]
 DOWNLOADS = [
@@ -108,12 +108,14 @@ def downloads_page():
 DEFAULT_NOSCRIPT = '<p class="note">All instructions and downloads work without JavaScript. Saved checklists, note export, filtering and the print button require JavaScript; use your browser’s Print command instead.</p>'
 DEFAULT_FOOTER = '<p>Use this guide alongside the <a href="https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf">Rockler horizontal-bed instructions</a> and <a href="https://wiki.hackrva.org/index.php/Avid_PRO6096">HackRVA’s CNC requirements</a>. Manufacturer instructions and the qualified installer/operator control the work.</p>'
 RELEASE_BAR = '<div class="release-bar"><span class="badge pending">Toolpaths pending</span><p>¾ in plywood bought and measured; ½ in and ¼ in not bought. CAM toolpaths and CNC release remain pending.</p></div>'
-GUIDE_FOOTER = '<p>These steps are drawn from the Rockler manual and this project’s design. Bed steps name the manual page they come from. Steps marked HOLD wait on a decision and are not ready to build.</p>'
+GUIDE_FOOTER = '<p>These steps are drawn from the Rockler manual and this project’s design. Steps marked HOLD wait on a decision and are not ready to build.</p>'
 
 
 def guide_noscript(steps):
-    links = ''.join(f'<li><a href="{GUIDE}/{e(s["svg"])}">Step {i}: {e(s["title"])}</a></li>'
-                    for i, s in enumerate(steps, 1))
+    def item(i, s):
+        holes = (f' · <a href="{GUIDE}/{e(s["holes_svg"])}">hole positions</a>' if s['holes_svg'] else '')
+        return f'<li><a href="{GUIDE}/{e(s["svg"])}">Step {i}: {e(s["title"])}</a>{holes}</li>'
+    links = ''.join(item(i, s) for i, s in enumerate(steps, 1))
     return ('<div class="note"><p>The interactive 3D steps need JavaScript. Without it, open each step’s '
             f'drawing:</p><ol>{links}</ol></div>')
 
@@ -255,6 +257,7 @@ def main(dest=DEST):
     for leftover in list(dest.parent.glob(f'{dest.name}.tmp-*')) + backups:
         shutil.rmtree(leftover, ignore_errors=True)
     tmp = Path(tempfile.mkdtemp(dir=dest.parent, prefix=f'{dest.name}.tmp-'))
+    tmp.chmod(0o755)  # mkdtemp makes 0700; this folder becomes the published site root
     try:
         build_into(tmp)
         backup = None

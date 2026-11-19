@@ -97,11 +97,38 @@ class StepTest(unittest.TestCase):
         resolved = {rs.step["id"]: rs for rs in
                     ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions)}
         for sid in AFTER_RIGHT_SIDE:
-            self.assertEqual(self.by_id[sid].step["requires"], ["bookcase-right-side"], sid)
+            self.assertIn("bookcase-right-side", self.by_id[sid].step["requires"], sid)
             self.assertEqual(resolved[sid].held_by, ["slide"], sid)
         del decisions["slide"]
         resolved = ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions)
         self.assertEqual([rs.step["id"] for rs in resolved if rs.held_by], ["bookcase-plinth"])
+
+    def test_drawer_order(self):
+        self.assertIn("bookcase-drawer-box", self.by_id["bookcase-slides"].step["requires"])
+        self.assertIn("bookcase-slides", self.by_id["bookcase-drawer-pull"].step["requires"])
+        decisions = copy.deepcopy(ap.OPEN_DECISIONS)
+        del decisions["slide"]
+        resolved = {rs.step["id"]: rs for rs in
+                    ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions)}
+        self.assertEqual(resolved["bookcase-slides"].held_by, ["drawer-box"])
+
+    def test_resolving_a_decision_validates(self):
+        decisions = copy.deepcopy(ap.OPEN_DECISIONS)
+        del decisions["back"]  # the README's way to resolve a decision
+        resolved = ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions)
+        self.assertEqual(ag.validate(resolved, self.parts, self.fasteners, decisions=decisions), [])
+        back = next(rs for rs in resolved if rs.step["id"] == "bookcase-back")
+        self.assertEqual(back.held_by, ["slide"])
+
+    def test_unknown_decision_in_joint_or_part_hold(self):
+        import dataclasses
+        import unittest.mock as mock
+        joints = dict(ap.JOINTS)
+        joints["L07-L01"] = dataclasses.replace(joints["L07-L01"], hold="slyde")
+        with mock.patch.object(ap, "JOINTS", joints), mock.patch.dict(ap.PART_HOLDS, {"L05": "plinthh"}):
+            errors = ag.validate(ag.resolve(st.STEPS, self.parts, self.fasteners), self.parts, self.fasteners)
+        self.assertTrue(any("slyde" in e for e in errors), errors)
+        self.assertTrue(any("plinthh" in e for e in errors), errors)
 
     def test_rejects(self):
         def changed(index, **fields):

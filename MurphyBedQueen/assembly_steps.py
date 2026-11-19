@@ -199,7 +199,7 @@ STEPS = [
             "Fix the face L16 from inside the box with four #8 x 1 in washer-head screws.",
         ],
         "warnings": [],
-        "hold": "slide", "requires": ["bookcase-right-side"], "source": None,
+        "hold": "slide", "requires": ["bookcase-right-side", "bookcase-drawer-box"], "source": None,
     },
     {
         "id": "bookcase-drawer-pull", "assembly": "bookcase",
@@ -210,7 +210,7 @@ STEPS = [
         "camera": {"azimuth": 15, "elevation": 15, "target": "L16"},
         "text": ["Drill the pull holes through L16 and fix the pull."],
         "warnings": [],
-        "hold": "pulls", "requires": ["bookcase-right-side"], "source": None,
+        "hold": "pulls", "requires": ["bookcase-right-side", "bookcase-slides"], "source": None,
     },
     {
         "id": "bookcase-shelves", "assembly": "bookcase",
