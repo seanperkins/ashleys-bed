@@ -587,7 +587,7 @@ AcDbText
 40
 0.8
 1
-INCHES / 1:1. Only PART_OUTLINES are nominal part boundaries.
+INCHES / 1:1. Only PART_OUTLINES are part boundaries.
 50
 0
 7
@@ -1031,7 +1031,7 @@ AcDbText
 40
 0.8
 1
-Shelf/back fit included; finalize joinery, slides and measured stock before cutting.
+Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.
 50
 0
 7
@@ -1055,7 +1055,7 @@ AcDbText
 40
 0.8
 1
-No cutter compensation, holes, pockets or G-code. Reference layers are NOT cut paths.
+No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.
 50
 0
 7

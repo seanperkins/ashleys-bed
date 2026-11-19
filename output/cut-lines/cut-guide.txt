@@ -1,89 +1,125 @@
 ASHLEY'S BED + LEFT BOOKCASE - CUT LAYOUT GUIDE
-NOMINAL PLANNING OUTLINES - NOT CNC-READY
+3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE (S01-S06)
+NOMINAL PLANNING OUTLINES - NOT CNC-READY (S07-S08)
 
 PURCHASE STOCK
-Six 48 x 96 x 3/4 in sheets: S01-S06.
-One 24 x 48 x 1/2 in project panel: S07.
-One 48 x 96 x 1/4 in sheet: S08.
+Six 48 x 96 x 3/4 in sheets: S01-S06 (purchased; measured 0.703-0.714 in).
+One 24 x 48 x 1/2 in project panel: S07 (not yet purchased).
+One 48 x 96 x 1/4 in sheet: S08 (not yet purchased).
 27 wood pieces total; no spare stock included. Keep shared sheets shared.
 
 COORDINATES AND SCALE
 All coordinates and dimensions are inches.
 Origin is stock lower-left; X across width, Y along length. Do not rotate parts.
 Confirm face grain runs along stock length, especially the 24 x 48 project panel.
-3/4 in minimum edge margin; 1/2 in minimum gap between nominal outlines.
-DXF and SVG: full-scale nominal geometry. SVG canvas also includes notes outside stock.
-PDF: 8 reduced-scale US Letter pages. Print Actual Size; use written dimensions.
+3/4 in minimum edge margin; 1/2 in minimum gap between outlines.
+DXF and SVG: full-scale geometry. SVG canvas also includes notes outside stock.
+PDF booklet: 8 reduced-scale US Letter pages. Print Actual Size; use written dimensions.
+machining-sheets-3-4.pdf: one CNC operations page per 3/4 in sheet (S01-S06).
+table-saw-plan-3-4.pdf: rip/crosscut sequence and fence settings for every sheet (S01-S08)
+(python3 MurphyBedQueen/generate_table_saw_plan.py).
 
 LAYER RULES
-PART_OUTLINES: closed nominal rectangular part boundaries only.
+PART_OUTLINES: closed rectangular part boundaries at finished size.
 STOCK_REFERENCE, MARGIN_REFERENCE, GRAIN_REFERENCE and LABELS: never cut.
 DXF declares inches ($INSUNITS=1); verify a known dimension after import.
 
-MILLING / MACHINING HOLD
+LEFT-BOOKCASE JOINERY: DOWELS
+Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02: no dados, rabbets or pockets.
+Every part is cut to finished size (L03/L04/L07 = 28 1/2 in). Dowel positions are not defined in these files.
+Confirm the drawer slide before drilling the L07 dowel holes (fixed shelf sits 14 in above the floor).
+TABS: parts sit 1/2 in apart (< two bit diameters), so neighbouring profile passes cut away any tab on a
+facing edge. Use tabs only on each part's tab-safe edges (listed in the layout JSON and machining sheets).
+
+STILL NOT SUPPLIED
 M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.
-Shelf/back fit included; finalize joinery, slides and measured stock before cutting.
-No machining values are implied by the 1/2 in gap. It is layout clearance, not a tool size.
-No cutter compensation, joinery pockets, drilling, tabs or G-code are supplied.
-Measure stock; recheck shelf/back fit; finalize dados/rabbets and drawer hardware before CAM.
-Confirm machine, approved post/profile, exact cutter, workholding and work zero with shop.
-Do not run these drawings as machine programs or treat nominal rectangles as final blanks.
+No toolpaths, cutter compensation, tabs, feeds/speeds or G-code. Rockler bed holes (dowels, 27/64 in
+inserts, screws), bookcase dowel holes and 5 mm shelf-pin holes are drilled by hand. Drawer box (1/2 in) and back/bottom (1/4 in)
+sheets S07/S08 stay nominal until that stock is bought and measured.
+Confirm exact cutter, collet, workholding, work zero and post/profile at the machine.
 
 SHEET MAP (width x length; finished thickness; lower-left X/Y)
 
 S01 | 3/4 in stock | 48 x 96 in | 4 parts
 Assemblies: Left shelf; Main cabinet
   M03 2T Top | 3/4 x 16 x 85-1/4 | 16 x 85 1/4 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom, top
   M04 2B Bottom | 3/4 x 16 x 85-1/4 | 16 x 85 1/4 in | finish 3/4 in | X 17.25, Y 0.75
+    tab-safe edges: bottom, top
   L16 Left cabinet: Drawer face | 10 1/2 x 28 1/4 in | finish 3/4 in | X 33.75, Y 0.75
+    tab-safe edges: bottom, top
   L05 Left cabinet: Recessed plinth | 2 1/2 x 28 1/2 in | finish 3/4 in | X 44.75, Y 0.75
+    tab-safe edges: right, bottom, top
 
 S02 | 3/4 in stock | 48 x 96 in | 3 parts
 Assemblies: Main cabinet
   M05 3 Upper headboard — REQUIRED | 16 x 85 1/4 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom, top
   M06 4 Lower headboard — REQUIRED | 16 x 85 1/4 in | finish 3/4 in | X 17.25, Y 0.75
+    tab-safe edges: bottom, top
   M07 6 Permanent stop | adjust contact location to actual kit | 3 x 56 in | finish 5/8 in | X 33.75, Y 0.75
+    tab-safe edges: right, bottom, top
 
 S03 | 3/4 in stock | 48 x 96 in | 4 parts
 Assemblies: Left shelf; Main cabinet
   M01 1R Right side | 3/4 x 16 x 64 | 16 x 64 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom
   M02 1L Left side | 3/4 x 16 x 64 | 16 x 64 in | finish 3/4 in | X 17.25, Y 0.75
+    tab-safe edges: right, bottom
   L03 Left cabinet: Top | 16 x 28 1/2 in | finish 3/4 in | X 0.75, Y 65.25
+    tab-safe edges: left, top
   L04 Left cabinet: Bottom | 16 x 28 1/2 in | finish 3/4 in | X 17.25, Y 65.25
+    tab-safe edges: right, top
 
 S04 | 3/4 in stock | 48 x 96 in | 4 parts
 Assemblies: Left shelf
   L01 Left cabinet: Left side | 16 x 64 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom
   L02 Left cabinet: Right side | 16 x 64 in | finish 3/4 in | X 17.25, Y 0.75
+    tab-safe edges: right, bottom
   L07 Left cabinet: Shelf above drawer | 15 3/4 x 28 1/2 in | finish 3/4 in | X 0.75, Y 65.25
+    tab-safe edges: left, right, top
   L08 Left cabinet: Shelf 1 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 17.25, Y 65.25
+    tab-safe edges: left, right, top
 
 S05 | 3/4 in stock | 48 x 96 in | 3 parts
 Assemblies: Left shelf; Main cabinet
   M08 5.1 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom
   M09 5.2 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 22.375, Y 0.75
+    tab-safe edges: right, bottom, top
   L09 Left cabinet: Shelf 2 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 0.75, Y 63.0625
+    tab-safe edges: left, right, top
 
 S06 | 3/4 in stock | 48 x 96 in | 3 parts
 Assemblies: Left shelf; Main cabinet
   M10 5.3 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom
   M11 5.4 Door panel | 3/4 x 21-1/8 x 61-13/16 | 21 1/8 x 61 13/16 in | finish 3/4 in | X 22.375, Y 0.75
+    tab-safe edges: right, bottom, top
   L10 Left cabinet: Shelf 3 | 15 3/4 x 28 3/8 in | finish 3/4 in | X 0.75, Y 63.0625
+    tab-safe edges: left, right, top
 
 S07 | 1/2 in stock | 24 x 48 in | 4 parts
 Assemblies: Left shelf
   L13 Left cabinet: Drawer back | 8 x 26 1/2 in | finish 1/2 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom
   L14 Left cabinet: Drawer inner front | 8 x 26 1/2 in | finish 1/2 in | X 9.25, Y 0.75
+    tab-safe edges: right, bottom
   L11 Left cabinet: Drawer Left side | 8 x 14 in | finish 1/2 in | X 0.75, Y 27.75
+    tab-safe edges: left, top
   L12 Left cabinet: Drawer Right side | 8 x 14 in | finish 1/2 in | X 9.25, Y 27.75
+    tab-safe edges: right, top
 
 S08 | 1/4 in stock | 48 x 96 in | 2 parts
 Assemblies: Left shelf
   L06 Left cabinet: Plywood back | 28 7/16 x 59 15/16 in | finish 1/4 in | X 0.75, Y 0.75
+    tab-safe edges: left, bottom, top
   L15 Left cabinet: Drawer bottom | 14 x 27 1/2 in | finish 1/4 in | X 29.75, Y 0.75
+    tab-safe edges: right, bottom, top
 
 REGENERATE
 python3 MurphyBedQueen/generate_cut_layouts.py
 Reads output/cabinet-cut-list.csv; excludes only names beginning 'Right cabinet:'.
-Asserts approved dimensions, material counts, margin/gap and one placement per part.
+Asserts finished dimensions, material counts, margin/gap, tab-safe edges and one placement per part.
 Writes only layout JSON, project allocation CSV and output/cut-lines deliverables.

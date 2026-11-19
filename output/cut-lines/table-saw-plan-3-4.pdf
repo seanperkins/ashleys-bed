@@ -1,0 +1,1540 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 9 /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 6532 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 15 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
+BT /F2 13 Tf 1 0 0 1 36 736 Tm (TABLE SAW PLAN - ALL SHEETS \(3/4, 1/2 AND 1/4 IN\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 36 712 Tm (METHOD) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 698 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 698 Tm (Same sheets and part IDs as the cut list \(S01-S08\); nothing is re-bought. Strip positions differ) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 685.5 Tm (from the CNC layout coordinates, so mark from these pages, not the CSV.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 673 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 673 Tm (Per sheet: rough rips \(+1/4 in\), then finish rips to exact width, then crosscuts to exact length.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 660.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 660.5 Tm (Page order is the cutting order: S02, S05, S06, S01, S03, S04, S07, S08. Parts are sawn to) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 648 Tm (finished length.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 635.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 635.5 Tm (Tick the boxes as you go. Tape-label each part right after its cut \(LABELS, below\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 36 615 Tm (SETUP) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 601 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 601 Tm (3/4 in stock measured 0.703-0.714 in; caliper each sheet before cutting.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 588.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 588.5 Tm (1/2 in \(S07\) and 1/4 in \(S08\) stock is not bought or measured yet: caliper it when bought.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 576 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 576 Tm (Blade: 60-80 tooth ATB plywood blade, riving knife on, zero-clearance insert.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 563.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 563.5 Tm (Good face UP on the table saw \(teeth exit the bottom\). Good face DOWN with a circular saw.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 551 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 551 Tm (Full sheets: outfeed support and a helper. Longest rip fence setting is 28 11/16 in \(S08\); 3/4 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 538.5 Tm (sheets top out at 21 3/8 in \(door panels\).) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 526 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 526 Tm (Crosscuts: M03-M06 \(85 1/4 in\) and L06 \(28 7/16 x 59 15/16\) come off 96 in strips, so use a) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 513.5 Tm (circular saw with a clamped straightedge. Other strips \(up to 21 1/8 in wide\) need a sled of 22) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 501 Tm (in or more, or the same saw and straightedge.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 488.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 488.5 Tm (Test-cut an offcut and measure it before the first real cut; re-check the fence after each move.) Tj ET
+BT /F2 11 Tf 1 0 0 1 36 468 Tm (AFTER SAWING) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 454 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 454 Tm (Bookcase top, bottom and fixed shelf are doweled to the sides: no dados or routing. Dowel) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 441.5 Tm (positions are not part of this plan. How the 1/4 in back attaches is still open.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 429 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 429 Tm (Shelf-pin holes \(5 mm\), dowel holes and the Rockler bed holes \(27/64 in inserts, screws\) are) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 416.5 Tm (drilled by hand.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 404 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 404 Tm (M07 stop: thin from about 0.71 to 5/8 in with a planer or sander, or use 5/8 in stock.) Tj ET
+BT /F2 11 Tf 1 0 0 1 36 383.5 Tm (SHEET ORDER AND CONTENTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 369.5 Tm (S02  M05, M06 headboards; M07 stop blank) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 357 Tm (S05  M08, M09 door panels; L09 adjustable shelf 2) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 344.5 Tm (S06  M10, M11 door panels; L10 adjustable shelf 3) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 332 Tm (S01  M03 top, M04 bottom; L16 drawer face; L05 plinth) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 319.5 Tm (S03  M01, M02 bed sides; L03 top, L04 bottom) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 307 Tm (S04  L01, L02 bookcase sides; L07 fixed shelf; L08 adjustable shelf 1) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 294.5 Tm (S07  1/2 in: L11, L12 drawer sides; L13 drawer back; L14 drawer inner front) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 282 Tm (S08  1/4 in: L06 bookcase back; L15 drawer bottom) Tj ET
+BT /F2 11 Tf 1 0 0 1 36 261.5 Tm (LABELS) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 247.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 247.5 Tm (Label each part the moment it leaves the saw, before the next cut. These sizes repeat, so) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 235 Tm (unlabeled parts get mixed up: M03-M06 \(16 x 85 1/4\); M01, M02, L01, L02 \(16 x 64: bed sides vs) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 222.5 Tm (bookcase sides\); M08-M11 \(doors\); L08-L10 \(shelves\); L03/L04; L11/L12 and L13/L14 \(drawer\).) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 210 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 210 Tm (Use low-tack painter's tape on the HIDDEN face and pencil on the tape \(marker bleeds through) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 197.5 Tm (paint; peel the tape before finishing\). Hidden face = the non-good face; shelves: the underside;) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 185 Tm (doors: the inside. The show face stays blank, so no separate good-face mark.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 172.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 172.5 Tm (Tape text, three lines: ID with the Rockler kit number, the part name, and an arrow to the TOP) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 160 Tm (end as assembled. Also pencil the ID on one short end edge so stacks can be read.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 147.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 147.5 Tm (Add a fourth line only where it prevents a mistake: FRONT edge tick on L01, L02, L07 \(hole layout) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 135 Tm (starts from the front\); M07 THIN TO 5/8.) Tj ET
+BT /F1 10 Tf 1 0 0 1 44 122.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 53 122.5 Tm (Each sheet page prints the exact tape text for its parts under PARTS OUT.) Tj ET
+q
+[] 0 d
+396 341.5 180 50 re S
+Q
+BT /F2 12 Tf 1 0 0 1 404 375.5 Tm (M05 \(kit 3\)) Tj ET
+BT /F1 10 Tf 1 0 0 1 404 361.5 Tm (UPPER HEADBOARD) Tj ET
+BT /F1 10 Tf 1 0 0 1 404 347.5 Tm (arrow to TOP) Tj ET
+552 349.5 m 552 381.5 l S
+552 381.5 m 547 373.5 l S
+552 381.5 m 557 373.5 l S
+BT /F1 8.5 Tf 1 0 0 1 396 330.5 Tm (Sample tape label. L01 adds a fourth) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 396 320.5 Tm (line: FRONT edge tick) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (1 / 9) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 5689 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S02 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 68.75 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 260.65 70.4 375.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 64.18 451.2 Tm (M05) Tj ET
+BT /F1 8 Tf 1 0 0 1 48.32 440.2 Tm (16 x 85 1/4) Tj ET
+q
+[3 2] 0 d
+108.05 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 140.8 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+108.05 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+108.05 260.65 70.4 375.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 136.23 451.2 Tm (M06) Tj ET
+BT /F1 8 Tf 1 0 0 1 120.37 440.2 Tm (16 x 85 1/4) Tj ET
+q
+[3 2] 0 d
+180.1 259 14.3 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 184.25 687.4 Tm (C) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+180.1 259 13.2 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+180.1 260.65 13.2 246.4 re B
+Q
+BT /F1 8 Tf 0 1 -1 0 189.7 360.97 Tm (M07  3 x 56) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 16 1/4 in \(16.250\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 19 5/8 in \(19.625\) - strips B+C as) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 636 Tm (one block \(C is narrow\)) Tj ET
+q
+[] 0 d
+290 622.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 623.5 Tm (R3  fence 16 1/4 in \(16.250\) - split the block:) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 611 Tm (B between blade and fence, narrow C falls to) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 598.5 Tm (the left) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 580 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 566 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 553.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 541 Tm (width:) Tj ET
+q
+[] 0 d
+290 527.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 528.5 Tm (A  fence 16 in \(16.000\) \(M05\)) Tj ET
+q
+[] 0 d
+290 515 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 516 Tm (B  fence 16 in \(16.000\) \(M06\)) Tj ET
+q
+[] 0 d
+290 502.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 503.5 Tm (C  fence 3 in \(3.000\) \(M07\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 485 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 471 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 458.5 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 446 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 432.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 433.5 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 420 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 421 Tm (A  M05 at 85 1/4) Tj ET
+q
+[] 0 d
+290 407.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 408.5 Tm (B  M06 at 85 1/4) Tj ET
+q
+[] 0 d
+290 395 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 396 Tm (C  M07 at 56) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 377.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 363.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 351 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 332.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 318.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 318.5 Tm (M05/M06: 85 1/4 in crosscut off a 96 in strip:) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 306 Tm (circular saw + clamped straightedge, good face) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 293.5 Tm (DOWN \(a sled cannot support the strip\).) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 281 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 281 Tm (M07 \(3 in wide\): narrow finish rip: push stick,) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 268.5 Tm (featherboard, riving knife. Cut the blank only;) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 256 Tm (thin it to 5/8 in later \(planer/sander or 5/8) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 243.5 Tm (in stock\).) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (M05  Upper headboard: 16 x 85 1/4) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: M05 \(kit 3\) / UPPER HEADBOARD / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (M06  Lower headboard: 16 x 85 1/4) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: M06 \(kit 4\) / LOWER HEADBOARD / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (M07  Permanent stop: 3 x 56) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: M07 \(kit 6\) / PERMANENT STOP / arrow to TOP / THIN TO 5/8) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 36.125 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (2 / 9) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 5007 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S05 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 94.05 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 80.025 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 92.95 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 260.65 92.95 271.975 re B
+Q
+BT /F2 9 Tf 1 0 0 1 75.455 399.6375 Tm (M08) Tj ET
+BT /F1 8 Tf 1 0 0 1 47.115 388.6375 Tm (21 1/8 x 61 13/16) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 533.175 69.3 124.85 re B
+Q
+BT /F2 9 Tf 1 0 0 1 63.63 598.6 Tm (L09) Tj ET
+BT /F1 8 Tf 1 0 0 1 39.45 587.6 Tm (15 3/4 x 28 3/8) Tj ET
+q
+[3 2] 0 d
+130.6 259 94.05 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 174.625 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+130.6 259 92.95 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+130.6 260.65 92.95 271.975 re B
+Q
+BT /F2 9 Tf 1 0 0 1 170.055 399.6375 Tm (M09) Tj ET
+BT /F1 8 Tf 1 0 0 1 141.715 388.6375 Tm (21 1/8 x 61 13/16) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 21 3/8 in \(21.375\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 21 3/8 in \(21.375\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 21 1/8 in \(21.125\) \(M08, L09\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 21 1/8 in \(21.125\) \(M09\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  M08 at 61 13/16) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (A  L09 at 28 3/8) Tj ET
+q
+[] 0 d
+290 457.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 458.5 Tm (B  M09 at 61 13/16) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 440 Tm (STEP 4  RE-RIP NARROWER PARTS) Tj ET
+q
+[] 0 d
+290 425 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 426 Tm (L09: rip from 21 1/8 to 15 3/4 in) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 407.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 393.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 381 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 362.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 348.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 348.5 Tm (Door panels are visible painted faces: keep the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 336 Tm (best face on the outside. Tape goes on the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 323.5 Tm (inside face.) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (M08  Door panel 5.1: 21 1/8 x 61 13/16) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: M08 \(kit 5.1\) / DOOR PANEL 5.1 / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L09  Adjustable shelf 2: 15 3/4 x 28 3/8) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L09 / ADJUSTABLE SHELF 2 / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (M09  Door panel 5.2: 21 1/8 x 61 13/16) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: M09 \(kit 5.2\) / DOOR PANEL 5.2 / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 43 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (3 / 9) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 5007 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S06 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 94.05 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 80.025 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 92.95 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 260.65 92.95 271.975 re B
+Q
+BT /F2 9 Tf 1 0 0 1 75.455 399.6375 Tm (M10) Tj ET
+BT /F1 8 Tf 1 0 0 1 47.115 388.6375 Tm (21 1/8 x 61 13/16) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 533.175 69.3 124.85 re B
+Q
+BT /F2 9 Tf 1 0 0 1 63.63 598.6 Tm (L10) Tj ET
+BT /F1 8 Tf 1 0 0 1 39.45 587.6 Tm (15 3/4 x 28 3/8) Tj ET
+q
+[3 2] 0 d
+130.6 259 94.05 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 174.625 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+130.6 259 92.95 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+130.6 260.65 92.95 271.975 re B
+Q
+BT /F2 9 Tf 1 0 0 1 170.055 399.6375 Tm (M11) Tj ET
+BT /F1 8 Tf 1 0 0 1 141.715 388.6375 Tm (21 1/8 x 61 13/16) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 21 3/8 in \(21.375\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 21 3/8 in \(21.375\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 21 1/8 in \(21.125\) \(M10, L10\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 21 1/8 in \(21.125\) \(M11\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  M10 at 61 13/16) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (A  L10 at 28 3/8) Tj ET
+q
+[] 0 d
+290 457.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 458.5 Tm (B  M11 at 61 13/16) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 440 Tm (STEP 4  RE-RIP NARROWER PARTS) Tj ET
+q
+[] 0 d
+290 425 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 426 Tm (L10: rip from 21 1/8 to 15 3/4 in) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 407.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 393.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 381 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 362.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 348.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 348.5 Tm (Door panels are visible painted faces: keep the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 336 Tm (best face on the outside. Tape goes on the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 323.5 Tm (inside face.) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (M10  Door panel 5.3: 21 1/8 x 61 13/16) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: M10 \(kit 5.3\) / DOOR PANEL 5.3 / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L10  Adjustable shelf 3: 15 3/4 x 28 3/8) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L10 / ADJUSTABLE SHELF 3 / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (M11  Door panel 5.4: 21 1/8 x 61 13/16) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: M11 \(kit 5.4\) / DOOR PANEL 5.4 / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 43 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (4 / 9) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 6246 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S01 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 68.75 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 260.65 70.4 375.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 64.18 451.2 Tm (M03) Tj ET
+BT /F1 8 Tf 1 0 0 1 48.32 440.2 Tm (16 x 85 1/4) Tj ET
+q
+[3 2] 0 d
+108.05 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 140.8 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+108.05 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+108.05 260.65 70.4 375.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 136.23 451.2 Tm (M04) Tj ET
+BT /F1 8 Tf 1 0 0 1 120.37 440.2 Tm (16 x 85 1/4) Tj ET
+q
+[3 2] 0 d
+180.1 259 47.3 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 200.75 687.4 Tm (C) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+180.1 259 46.2 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+180.1 260.65 46.2 124.3 re B
+Q
+BT /F1 8 Tf 0 1 -1 0 206.2 281.2 Tm (L16  10 1/2 x 28 1/4) Tj ET
+q
+[3 2] 0 d
+227.95 259 12.1 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 231 687.4 Tm (D) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+227.95 259 11 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+227.95 260.65 11 125.4 re B
+Q
+BT /F1 8 Tf 0 1 -1 0 236.45 283.83 Tm (L05  2 1/2 x 28 1/2) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 16 1/4 in \(16.250\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 16 1/4 in \(16.250\) - strip B) Tj ET
+q
+[] 0 d
+290 635 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 636 Tm (R3  fence 13 5/8 in \(13.625\) - strips C+D as) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 623.5 Tm (one block \(D is narrow\)) Tj ET
+q
+[] 0 d
+290 610 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 611 Tm (R4  fence 10 3/4 in \(10.750\) - split the block:) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 598.5 Tm (C between blade and fence, narrow D falls to) Tj ET
+BT /F1 10 Tf 1 0 0 1 302 586 Tm (the left) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 567.5 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 553.5 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 541 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 528.5 Tm (width:) Tj ET
+q
+[] 0 d
+290 515 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 516 Tm (A  fence 16 in \(16.000\) \(M03\)) Tj ET
+q
+[] 0 d
+290 502.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 503.5 Tm (B  fence 16 in \(16.000\) \(M04\)) Tj ET
+q
+[] 0 d
+290 490 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 491 Tm (C  fence 10 1/2 in \(10.500\) \(L16\)) Tj ET
+q
+[] 0 d
+290 477.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 478.5 Tm (D  fence 2 1/2 in \(2.500\) \(L05\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 460 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 446 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 433.5 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 421 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 407.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 408.5 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 395 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 396 Tm (A  M03 at 85 1/4) Tj ET
+q
+[] 0 d
+290 382.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 383.5 Tm (B  M04 at 85 1/4) Tj ET
+q
+[] 0 d
+290 370 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 371 Tm (C  L16 at 28 1/4) Tj ET
+q
+[] 0 d
+290 357.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 358.5 Tm (D  L05 at 28 1/2) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 340 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 326 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 313.5 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 295 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 281 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 281 Tm (L05 plinth \(2 1/2 in wide\): narrow finish rip:) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 268.5 Tm (push stick, featherboard, riving knife.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 256 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 256 Tm (M03/M04: 85 1/4 in crosscut off a 96 in strip:) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 243.5 Tm (circular saw + clamped straightedge, good face) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 231 Tm (DOWN \(a sled cannot support the strip\).) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (M03  Bed top: 16 x 85 1/4) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: M03 \(kit 2T\) / BED TOP / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (M04  Bed bottom: 16 x 85 1/4) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: M04 \(kit 2B\) / BED BOTTOM / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (L16  Drawer face: 10 1/2 x 28 1/4) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: L16 / DRAWER FACE / arrow to TOP) Tj ET
+q
+[] 0 d
+36 108 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 109 Tm (L05  Recessed plinth: 2 1/2 x 28 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 98 Tm (tape: L05 / RECESSED PLINTH / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 46.5 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (5 / 9) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 5192 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S03 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 68.75 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 260.65 70.4 281.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 64.18 404.45 Tm (M01) Tj ET
+BT /F1 8 Tf 1 0 0 1 56.64 393.45 Tm (16 x 64) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 542.8 70.4 125.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 64.18 608.5 Tm (L03) Tj ET
+BT /F1 8 Tf 1 0 0 1 48.32 597.5 Tm (16 x 28 1/2) Tj ET
+q
+[3 2] 0 d
+108.05 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 140.8 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+108.05 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+108.05 260.65 70.4 281.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 136.23 404.45 Tm (M02) Tj ET
+BT /F1 8 Tf 1 0 0 1 128.69 393.45 Tm (16 x 64) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+108.05 542.8 70.4 125.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 136.23 608.5 Tm (L04) Tj ET
+BT /F1 8 Tf 1 0 0 1 120.37 597.5 Tm (16 x 28 1/2) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 16 1/4 in \(16.250\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 16 1/4 in \(16.250\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 16 in \(16.000\) \(M01, L03\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 16 in \(16.000\) \(M02, L04\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  M01 at 64) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (A  L03 at 28 1/2) Tj ET
+q
+[] 0 d
+290 457.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 458.5 Tm (B  M02 at 64) Tj ET
+q
+[] 0 d
+290 445 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 446 Tm (B  L04 at 28 1/2) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 427.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 413.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 401 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 382.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 368.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 368.5 Tm (M01/M02 \(bed sides\) are the same size as) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 356 Tm (L01/L02 \(bookcase sides, S04\): tape each one as) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 343.5 Tm (it comes off the saw.) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (M01  Bed right side: 16 x 64) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: M01 \(kit 1R\) / BED RIGHT SIDE / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L03  Left bookcase top: 16 x 28 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L03 / LEFT BOOKCASE TOP / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (M02  Bed left side: 16 x 64) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: M02 \(kit 1L\) / BED LEFT SIDE / arrow to TOP) Tj ET
+q
+[] 0 d
+36 108 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 109 Tm (L04  Left bookcase bottom: 16 x 28 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 98 Tm (tape: L04 / LEFT BOOKCASE BOTTOM / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 32.75 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (6 / 9) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 5554 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S04 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 68.75 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 260.65 70.4 281.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 64.18 404.45 Tm (L01) Tj ET
+BT /F1 8 Tf 1 0 0 1 56.64 393.45 Tm (16 x 64) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 542.8 69.3 125.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 63.63 608.5 Tm (L07) Tj ET
+BT /F1 8 Tf 1 0 0 1 39.45 597.5 Tm (15 3/4 x 28 1/2) Tj ET
+q
+[3 2] 0 d
+108.05 259 71.5 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 140.8 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+108.05 259 70.4 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+108.05 260.65 70.4 281.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 136.23 404.45 Tm (L02) Tj ET
+BT /F1 8 Tf 1 0 0 1 128.69 393.45 Tm (16 x 64) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+108.05 542.8 69.3 124.85 re B
+Q
+BT /F2 9 Tf 1 0 0 1 135.68 608.225 Tm (L08) Tj ET
+BT /F1 8 Tf 1 0 0 1 111.5 597.225 Tm (15 3/4 x 28 3/8) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 16 1/4 in \(16.250\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 16 1/4 in \(16.250\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 16 in \(16.000\) \(L01, L07\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 16 in \(16.000\) \(L02, L08\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  L01 at 64) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (A  L07 at 28 1/2) Tj ET
+q
+[] 0 d
+290 457.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 458.5 Tm (B  L02 at 64) Tj ET
+q
+[] 0 d
+290 445 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 446 Tm (B  L08 at 28 3/8) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 427.5 Tm (STEP 4  RE-RIP NARROWER PARTS) Tj ET
+q
+[] 0 d
+290 412.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 413.5 Tm (L07: rip from 16 to 15 3/4 in) Tj ET
+q
+[] 0 d
+290 400 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 401 Tm (L08: rip from 16 to 15 3/4 in) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 382.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 368.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 356 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 337.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 323.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 323.5 Tm (L01/L02 \(bookcase sides\) are the same size as) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 311 Tm (M01/M02 \(bed sides, S03\): tape each one as it) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 298.5 Tm (comes off the saw.) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (L01  Left bookcase left side: 16 x 64) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: L01 / LEFT BOOKCASE LEFT SIDE / arrow to TOP / FRONT edge tick) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L07  Shelf above drawer: 15 3/4 x 28 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L07 / SHELF ABOVE DRAWER / arrow to TOP / FRONT edge tick) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (L02  Left bookcase right side: 16 x 64) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: L02 / LEFT BOOKCASE RIGHT SIDE / arrow to TOP / FRONT edge tick) Tj ET
+q
+[] 0 d
+36 108 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 109 Tm (L08  Adjustable shelf 1: 15 3/4 x 28 3/8) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 98 Tm (tape: L08 / ADJUSTABLE SHELF 1 / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 32.75 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (7 / 9) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 5567 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S07 | 1/2 in stock | 24 x 48 in | 4 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 105.6 211.2 re S
+Q
+q
+[3 2] 0 d
+36 259 36.3 211.2 re S
+Q
+BT /F2 11 Tf 1 0 0 1 51.15 476.2 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 35.2 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 260.65 35.2 116.6 re B
+Q
+BT /F1 8 Tf 0 1 -1 0 56.6 287.75 Tm (L13  8 x 26 1/2) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 377.8 35.2 61.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 46.58 411.6 Tm (L11) Tj ET
+BT /F1 8 Tf 1 0 0 1 41.12 400.6 Tm (8 x 14) Tj ET
+q
+[3 2] 0 d
+72.85 259 36.3 211.2 re S
+Q
+BT /F2 11 Tf 1 0 0 1 88 476.2 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+72.85 259 35.2 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+72.85 260.65 35.2 116.6 re B
+Q
+BT /F1 8 Tf 0 1 -1 0 93.45 287.75 Tm (L14  8 x 26 1/2) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+72.85 377.8 35.2 61.6 re B
+Q
+BT /F2 9 Tf 1 0 0 1 83.43 411.6 Tm (L12) Tj ET
+BT /F1 8 Tf 1 0 0 1 77.97 400.6 Tm (8 x 14) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Factory edge on the fence first, then each new) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 8 1/4 in \(8.250\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 8 1/4 in \(8.250\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 8 in \(8.000\) \(L13, L11\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 8 in \(8.000\) \(L14, L12\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  L13 at 26 1/2) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (A  L11 at 14) Tj ET
+q
+[] 0 d
+290 457.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 458.5 Tm (B  L14 at 26 1/2) Tj ET
+q
+[] 0 d
+290 445 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 446 Tm (B  L12 at 14) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 427.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 413.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 401 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 382.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 368.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 368.5 Tm (1/2 in stock is not bought yet: sizes are) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 356 Tm (nominal. Caliper the panel and re-check every) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 343.5 Tm (size before cutting.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 331 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 331 Tm (Drawer-box sizes depend on the drawer-slide) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 318.5 Tm (clearance, which is not confirmed. Confirm the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 306 Tm (slides first.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 293.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 293.5 Tm (L11/L12 \(8 x 14\) and L13/L14 \(8 x 26 1/2\) pair) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 281 Tm (up by size: tape each one as it comes off the) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 268.5 Tm (saw.) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (L13  Drawer back: 8 x 26 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: L13 / DRAWER BACK / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L11  Drawer left side: 8 x 14) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L11 / DRAWER LEFT SIDE / arrow to TOP) Tj ET
+q
+[] 0 d
+36 132 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 133 Tm (L14  Drawer inner front: 8 x 26 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 122 Tm (tape: L14 / DRAWER INNER FRONT / arrow to TOP) Tj ET
+q
+[] 0 d
+36 108 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 109 Tm (L12  Drawer right side: 8 x 14) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 98 Tm (tape: L12 / DRAWER RIGHT SIDE / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 16.75 of 24 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (8 / 9) Tj ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 5131 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 13 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - TABLE SAW CUT SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S08 | 1/4 in stock | 48 x 96 in | 2 parts) Tj ET
+BT /F1 10 Tf 1 0 0 1 36 720 Tm (Good face UP on the table saw. Dashed = rough strips; grey = squaring trim; drawn from the factory end.) Tj ET
+q
+[] 0 d
+36 259 211.2 422.4 re S
+Q
+q
+[3 2] 0 d
+36 259 126.225 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 96.1125 687.4 Tm (A) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+36 259 125.125 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+36 260.65 125.125 263.725 re B
+Q
+BT /F2 9 Tf 1 0 0 1 91.5425 395.5125 Tm (L06) Tj ET
+BT /F1 8 Tf 1 0 0 1 61.1225 384.5125 Tm (28 7/16 x 59 15/16) Tj ET
+q
+[3 2] 0 d
+162.775 259 62.7 422.4 re S
+Q
+BT /F2 11 Tf 1 0 0 1 191.125 687.4 Tm (B) Tj ET
+q
+[] 0 d
+0.8 0.8 0.8 rg
+162.775 259 61.6 1.1 re B
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+162.775 260.65 61.6 121 re B
+Q
+BT /F2 9 Tf 1 0 0 1 186.555 324.15 Tm (L15) Tj ET
+BT /F1 8 Tf 1 0 0 1 170.695 313.15 Tm (14 x 27 1/2) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 246 Tm (Not for measuring. Strips run along the grain) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 236 Tm (\(up the page\). Kerf drawn as 1/8 in.) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+36 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 52 220 Tm (Bed parts \(M\)) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+136 218 12 8 re B
+Q
+BT /F1 8 Tf 1 0 0 1 152 220 Tm (Bookcase parts \(L\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 700 Tm (STEP 1  ROUGH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 686 Tm (Helper + outfeed. Factory edge on the fence first,) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 673.5 Tm (then each new sawn edge. Fence settings, in order:) Tj ET
+q
+[] 0 d
+290 660 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 661 Tm (R1  fence 28 11/16 in \(28.688\) - strip A) Tj ET
+q
+[] 0 d
+290 647.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 648.5 Tm (R2  fence 14 1/4 in \(14.250\) - strip B) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 630 Tm (STEP 2  FINISH RIPS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 616 Tm (Full-length strips. Sawn edge on the fence; the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 603.5 Tm (blade trims the extra 1/4 in. Fence = finished) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 591 Tm (width:) Tj ET
+q
+[] 0 d
+290 577.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 578.5 Tm (A  fence 28 7/16 in \(28.438\) \(L06\)) Tj ET
+q
+[] 0 d
+290 565 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 566 Tm (B  fence 14 in \(14.000\) \(L15\)) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 547.5 Tm (STEP 3  CROSSCUTS) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 533.5 Tm (Cut in this order. Measure each length from the) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 521 Tm (end the last cut left. Over about 36 in: mark it) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 508.5 Tm (from the trimmed end.) Tj ET
+q
+[] 0 d
+290 495 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 496 Tm (Trim 1/4 in off the factory end of every strip) Tj ET
+q
+[] 0 d
+290 482.5 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 483.5 Tm (A  L06 at 59 15/16) Tj ET
+q
+[] 0 d
+290 470 7 7 re S
+Q
+BT /F1 10 Tf 1 0 0 1 302 471 Tm (B  L15 at 27 1/2) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 452.5 Tm (LABEL EACH PART) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 438.5 Tm (Right after its cut: measure width, length and) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 426 Tm (diagonals, then tape it \(text under PARTS OUT\).) Tj ET
+BT /F2 11 Tf 1 0 0 1 290 407.5 Tm (SHEET NOTE) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 393.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 393.5 Tm (1/4 in stock is not bought yet: sizes are) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 381 Tm (nominal. Caliper the sheet before cutting.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 368.5 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 368.5 Tm (Thin stock can slip under the fence or drop) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 356 Tm (into the throat: zero-clearance insert, sheet) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 343.5 Tm (fully supported.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 331 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 331 Tm (L06: rough rip R1 needs 28 11/16 in of rip) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 318.5 Tm (capacity; without it, and for the 59 15/16 in) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 306 Tm (crosscut, use a circular saw + clamped) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 293.5 Tm (straightedge, good face DOWN.) Tj ET
+BT /F1 10 Tf 1 0 0 1 290 281 Tm (-) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 281 Tm (L06 back: tape on the wall side \(the inside) Tj ET
+BT /F1 10 Tf 1 0 0 1 299 268.5 Tm (shows through the shelves\).) Tj ET
+36 211 m 576 211 l S
+BT /F2 10.5 Tf 1 0 0 1 36 197 Tm (PARTS OUT: tick when taped \(finished width x cut length, inches\)) Tj ET
+q
+[] 0 d
+36 180 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 181 Tm (L06  Bookcase back: 28 7/16 x 59 15/16) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 170 Tm (tape: L06 / BOOKCASE BACK / arrow to TOP) Tj ET
+q
+[] 0 d
+36 156 7 7 re S
+Q
+BT /F2 10 Tf 1 0 0 1 50 157 Tm (L15  Drawer bottom: 14 x 27 1/2) Tj ET
+BT /F1 9 Tf 1 0 0 1 50 146 Tm (tape: L15 / DRAWER BOTTOM / arrow to TOP) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 66 Tm (Blade kerf assumed 1/8 in. Strips use 43.1875 of 48 in of sheet width. Re-measure the real sheet and scale to it.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 55 Tm (Geometry and sequence only. Blade height, feed, push sticks, featherboards and support are the operator's responsibility.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 42 Tm (9 / 9) Tj ET
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 21 0 R >>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000176 00000 n 
+0000000273 00000 n 
+0000000375 00000 n 
+0000006958 00000 n 
+0000007094 00000 n 
+0000012834 00000 n 
+0000012970 00000 n 
+0000018028 00000 n 
+0000018165 00000 n 
+0000023224 00000 n 
+0000023362 00000 n 
+0000029660 00000 n 
+0000029798 00000 n 
+0000035042 00000 n 
+0000035180 00000 n 
+0000040786 00000 n 
+0000040924 00000 n 
+0000046543 00000 n 
+0000046681 00000 n 
+0000051864 00000 n 
+trailer
+<< /Size 23 /Root 1 0 R >>
+startxref
+52002
+%%EOF

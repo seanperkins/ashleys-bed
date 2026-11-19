@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "basis": "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part Length_in and stock length (+Y). Nominal rectangular outlines only; no cutter compensation, holes, pockets or G-code. No spare sheet is included. Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. Shelf/back fit included; finalize joinery, slides and measured stock before cutting.",
+  "basis": "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part Length_in and stock length (+Y). Rectangular part outlines only (S01-S06 on measured 3/4 in stock, S07/S08 nominal); no cutter compensation, holes, pockets or G-code. No spare sheet is included. Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.",
   "units": "inches",
   "coordinateSystem": "Stock lower-left origin; +X across width; +Y along length/grain",
   "edgeMarginInches": 0.75,
@@ -9,9 +9,19 @@
   "partCount": 27,
   "sheetCount": 8,
   "machineReady": false,
-  "machiningStatus": "Nominal rectangles only; joinery and machine setup unresolved",
+  "machiningStatus": "3/4 in sheets S01-S06: CAM-ready part outlines on measured stock; no toolpaths or G-code. Left bookcase is doweled (no pockets). S07/S08 remain nominal planning outlines.",
+  "measuredStock34Inches": {
+    "min": 0.703,
+    "max": 0.714,
+    "source": "owner calipers, 2026-09-30; remeasure each sheet"
+  },
+  "joinery": {
+    "type": "dowels",
+    "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides; every part is cut to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions are not defined here. Confirm the drawer slide before drilling the L07 dowel holes."
+  },
+  "profileBit": "Amana 45302, 3/8 in single-flute straight, 1/2 in shank",
   "dxfLayers": {
-    "PART_OUTLINES": "Closed nominal part boundaries, uncompensated",
+    "PART_OUTLINES": "Closed part boundaries at finished size, uncompensated",
     "STOCK_REFERENCE": "Stock boundary; do not cut",
     "MARGIN_REFERENCE": "3/4-inch edge clearance; do not cut",
     "GRAIN_REFERENCE": "Grain-direction arrow; do not cut",
@@ -38,7 +48,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "right"
+          ]
         },
         {
           "partId": "M04",
@@ -51,7 +69,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "right"
+          ]
         },
         {
           "partId": "L16",
@@ -64,7 +90,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 33.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "right"
+          ]
         },
         {
           "partId": "L05",
@@ -77,7 +111,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 44.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left"
+          ]
         }
       ],
       "assemblies": [
@@ -106,7 +148,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "right"
+          ]
         },
         {
           "partId": "M06",
@@ -119,7 +169,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "right"
+          ]
         },
         {
           "partId": "M07",
@@ -132,7 +190,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 33.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left"
+          ]
         }
       ],
       "assemblies": [
@@ -160,7 +226,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "top"
+          ]
         },
         {
           "partId": "M02",
@@ -173,7 +247,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "top"
+          ]
         },
         {
           "partId": "L03",
@@ -186,7 +268,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 65.25
+          "yInches": 65.25,
+          "tabSafeEdges": [
+            "left",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "bottom"
+          ]
         },
         {
           "partId": "L04",
@@ -199,7 +289,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 65.25
+          "yInches": 65.25,
+          "tabSafeEdges": [
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "bottom"
+          ]
         }
       ],
       "assemblies": [
@@ -228,7 +326,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "top"
+          ]
         },
         {
           "partId": "L02",
@@ -241,7 +347,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "top"
+          ]
         },
         {
           "partId": "L07",
@@ -254,7 +368,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 65.25
+          "yInches": 65.25,
+          "tabSafeEdges": [
+            "left",
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "bottom"
+          ]
         },
         {
           "partId": "L08",
@@ -267,7 +389,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 17.25,
-          "yInches": 65.25
+          "yInches": 65.25,
+          "tabSafeEdges": [
+            "left",
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "bottom"
+          ]
         }
       ],
       "assemblies": [
@@ -295,7 +425,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "top"
+          ]
         },
         {
           "partId": "M09",
@@ -308,7 +446,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 22.375,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left"
+          ]
         },
         {
           "partId": "L09",
@@ -321,7 +467,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 63.0625
+          "yInches": 63.0625,
+          "tabSafeEdges": [
+            "left",
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "bottom"
+          ]
         }
       ],
       "assemblies": [
@@ -350,7 +504,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "top"
+          ]
         },
         {
           "partId": "M11",
@@ -363,7 +525,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 22.375,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left"
+          ]
         },
         {
           "partId": "L10",
@@ -376,7 +546,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 63.0625
+          "yInches": 63.0625,
+          "tabSafeEdges": [
+            "left",
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "bottom"
+          ]
         }
       ],
       "assemblies": [
@@ -405,7 +583,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "top"
+          ]
         },
         {
           "partId": "L14",
@@ -418,7 +604,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 9.25,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "top"
+          ]
         },
         {
           "partId": "L11",
@@ -431,7 +625,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 27.75
+          "yInches": 27.75,
+          "tabSafeEdges": [
+            "left",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "right",
+            "bottom"
+          ]
         },
         {
           "partId": "L12",
@@ -444,7 +646,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 9.25,
-          "yInches": 27.75
+          "yInches": 27.75,
+          "tabSafeEdges": [
+            "right",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left",
+            "bottom"
+          ]
         }
       ],
       "assemblies": [
@@ -472,7 +682,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 0.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "left",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "right"
+          ]
         },
         {
           "partId": "L15",
@@ -485,7 +703,15 @@
           "grainAxis": "+Y",
           "rotationDegrees": 0,
           "xInches": 29.75,
-          "yInches": 0.75
+          "yInches": 0.75,
+          "tabSafeEdges": [
+            "right",
+            "bottom",
+            "top"
+          ],
+          "tabUnsafeEdges": [
+            "left"
+          ]
         }
       ],
       "assemblies": [

@@ -13,14 +13,14 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 3491 >>
+<< /Length 3694 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S01 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -86,11 +86,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (1 / 8) Tj ET
 endstream
@@ -99,14 +101,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Length 3106 >>
+<< /Length 3309 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S02 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -161,11 +163,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (2 / 8) Tj ET
 endstream
@@ -174,14 +178,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Length 3488 >>
+<< /Length 3691 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S03 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -247,11 +251,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (3 / 8) Tj ET
 endstream
@@ -260,14 +266,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
 11 0 obj
-<< /Length 3479 >>
+<< /Length 3682 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S04 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -332,11 +338,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (4 / 8) Tj ET
 endstream
@@ -345,14 +353,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
 endobj
 13 0 obj
-<< /Length 3209 >>
+<< /Length 3412 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S05 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -408,11 +416,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (5 / 8) Tj ET
 endstream
@@ -421,14 +431,14 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
 endobj
 15 0 obj
-<< /Length 3209 >>
+<< /Length 3412 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
 0.7 w
 BT /F2 17 Tf 1 0 0 1 36 755 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE) Tj ET
 BT /F2 13 Tf 1 0 0 1 36 730 Tm (S06 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
-BT /F2 11 Tf 1 0 0 1 36 710 Tm (NOMINAL PLANNING OUTLINES - NOT CNC-READY) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 710 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
 BT /F1 9 Tf 1 0 0 1 36 692 Tm (3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length) Tj ET
 q
 [] 0 d
@@ -484,11 +494,13 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 106 Tm (drilled by hand.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 94 Tm (Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 84 Tm (confirms cutter, workholding and post.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 72 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 61 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (6 / 8) Tj ET
 endstream
@@ -497,7 +509,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
 endobj
 17 0 obj
-<< /Length 3402 >>
+<< /Length 3422 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -569,11 +581,11 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:7.2) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 105 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 93 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 82 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (7 / 8) Tj ET
 endstream
@@ -582,7 +594,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 17 0 R >>
 endobj
 19 0 obj
-<< /Length 2782 >>
+<< /Length 2802 >>
 stream
 0.08 0.16 0.24 RG
 0.08 0.16 0.24 rg
@@ -634,11 +646,11 @@ BT /F2 9 Tf 1 0 0 1 315 225 Tm (Drawing scale: 1:14.4) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 211 Tm (US Letter; print Actual Size / 100%.) Tj ET
 BT /F1 8 Tf 1 0 0 1 315 197 Tm (Use written dimensions, not a paper template.) Tj ET
 36 142 m 576 142 l S
-BT /F2 9 Tf 1 0 0 1 36 128 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 110 Tm (Shelf/back fit included; finalize joinery, slides and measured stock before cutting.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 94 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.) Tj ET
-BT /F1 9 Tf 1 0 0 1 36 78 Tm (DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
-BT /F1 8 Tf 1 0 0 1 36 62 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 130 Tm (M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.) Tj ET
+BT /F1 9 Tf 1 0 0 1 36 117 Tm (Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 105 Tm (No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 93 Tm (DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 82 Tm (SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.) Tj ET
 BT /F1 8 Tf 1 0 0 1 36 40 Tm (27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare) Tj ET
 BT /F1 8 Tf 1 0 0 1 533 24 Tm (8 / 8) Tj ET
 endstream
@@ -654,23 +666,23 @@ xref
 0000000169 00000 n 
 0000000266 00000 n 
 0000000368 00000 n 
-0000003910 00000 n 
-0000004046 00000 n 
-0000007203 00000 n 
-0000007339 00000 n 
-0000010878 00000 n 
-0000011015 00000 n 
-0000014546 00000 n 
-0000014684 00000 n 
-0000017945 00000 n 
-0000018083 00000 n 
-0000021344 00000 n 
-0000021482 00000 n 
-0000024936 00000 n 
-0000025074 00000 n 
-0000027908 00000 n 
+0000004113 00000 n 
+0000004249 00000 n 
+0000007609 00000 n 
+0000007745 00000 n 
+0000011487 00000 n 
+0000011624 00000 n 
+0000015358 00000 n 
+0000015496 00000 n 
+0000018960 00000 n 
+0000019098 00000 n 
+0000022562 00000 n 
+0000022700 00000 n 
+0000026174 00000 n 
+0000026312 00000 n 
+0000029166 00000 n 
 trailer
 << /Size 21 /Root 1 0 R >>
 startxref
-28046
+29304
 %%EOF

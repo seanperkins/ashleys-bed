@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="76in" height="110in" viewBox="-2 -8 76 110">
 <title>S08 | 1/4 in stock | 48 x 96 in | 2 parts - NOMINAL PLANNING OUTLINES - NOT CNC-READY</title>
-<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left origin, +Y along grain. Only PART_OUTLINES contains nominal part boundaries.</desc>
+<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left origin, +Y along grain. Only PART_OUTLINES contains part boundaries.</desc>
 <rect x="-2" y="-8" width="100%" height="100%" fill="white"/>
 <g font-family="Arial, sans-serif" fill="#152b42">
 <text x="0" y="-5.6" font-size="1.5" font-weight="bold">S08 | 1/4 in stock | 48 x 96 in | 2 parts</text>
@@ -29,6 +29,6 @@
 <text x="52" y="21.6" font-size="0.85">14 x 27 1/2 in; finish 1/4 in</text>
 <text x="52" y="23" font-size="0.78">X 29.75 / Y 0.75 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize joinery, slides and measured stock before cutting.</text>
+<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting.</text>
 <text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
 </g></svg>

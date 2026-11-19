@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="76in" height="110in" viewBox="-2 -8 76 110">
-<title>S05 | 3/4 in stock | 48 x 96 in | 3 parts - NOMINAL PLANNING OUTLINES - NOT CNC-READY</title>
-<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left origin, +Y along grain. Only PART_OUTLINES contains nominal part boundaries.</desc>
+<title>S05 | 3/4 in stock | 48 x 96 in | 3 parts - 3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE</title>
+<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left origin, +Y along grain. Only PART_OUTLINES contains part boundaries.</desc>
 <rect x="-2" y="-8" width="100%" height="100%" fill="white"/>
 <g font-family="Arial, sans-serif" fill="#152b42">
 <text x="0" y="-5.6" font-size="1.5" font-weight="bold">S05 | 3/4 in stock | 48 x 96 in | 3 parts</text>
-<text x="0" y="-3.5" font-size="0.95" fill="#943518">NOMINAL PLANNING OUTLINES - NOT CNC-READY</text>
+<text x="0" y="-3.5" font-size="0.95" fill="#943518">3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE</text>
 <text x="0" y="-1.6" font-size="0.8">Full scale: 1 unit = 1 inch. Sheet border and notes are reference only.</text>
 <g id="STOCK_REFERENCE"><rect x="0" y="0" width="48" height="96" fill="none" stroke="#152b42" stroke-width="0.12"/></g>
 <g id="MARGIN_REFERENCE"><rect x="0.75" y="0.75" width="46.5" height="94.5" fill="none" stroke="#888" stroke-width="0.06" stroke-dasharray="0.5 0.35"/></g>
@@ -34,6 +34,6 @@
 <text x="52" y="27.6" font-size="0.85">15 3/4 x 28 3/8 in; finish 3/4 in</text>
 <text x="52" y="29" font-size="0.78">X 0.75 / Y 63.0625 in</text>
 <text x="0" y="97.7" font-size="0.8">M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness.</text>
-<text x="0" y="99.3" font-size="0.75">Shelf/back fit included; finalize joinery, slides and measured stock before cutting.</text>
-<text x="0" y="100.9" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>
+<text x="0" y="99.3" font-size="0.75">Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are drilled by hand.</text>
+<text x="0" y="100.9" font-size="0.75">Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and confirms cutter, workholding and post.</text>
 </g></svg>

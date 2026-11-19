@@ -26,10 +26,12 @@ DOWNLOADS = [
     ('design-drawings.pdf', 'Design drawings', '4-page PDF · elevations and native Fusion views'),
     ('parts-list.txt', 'Readable parts checklist', 'Text · quantities, package allowances and required confirmations'),
     ('bill-of-materials.csv', 'Bill of materials', 'CSV · materials, hardware, fasteners and finishing supplies'),
-    ('cabinet-cut-list.csv', 'Wood cut list', 'CSV · 27 nominal parts and their dimensions'),
+    ('cabinet-cut-list.csv', 'Wood cut list', 'CSV · 27 parts at finished dimensions (cut sizes are in plywood-by-project.csv)'),
     ('plywood-by-project.csv', 'Plywood by project', 'CSV · main / left cabinet pieces, sheet IDs and coordinates'),
     ('rockler-kit-inventory.csv', 'Kit inventory', 'CSV · supplied parts and manual discrepancies to confirm'),
-    ('cut-lines/cut-layout-booklet.pdf', 'Sheet layout booklet', '8-page PDF · planning placements, NOT a machining release'),
+    ('cut-lines/machining-sheets-3-4.pdf', '¾ in machining sheets', '6-page PDF · CNC profile operations, tab-safe edges and checks per ¾ in sheet; no toolpaths'),
+    ('cut-lines/table-saw-plan-3-4.pdf', 'Table-saw plan', '9-page PDF · rip/crosscut sequence, fence settings and tape labels for all eight sheets'),
+    ('cut-lines/cut-layout-booklet.pdf', 'Sheet layout booklet', '8-page PDF · sheet placements; no toolpaths'),
     ('cut-lines/cut-guide.txt', 'Cut file conventions', 'Text · grain, layers, origins and limitations'),
     ('plywood-purchasing-layout.json', 'Placement data', 'JSON · dimensions and coordinates; machineReady is false'),
     ('queen-horizontal-closed.f3d', 'Closed Fusion model', 'Editable native assembly · hardware remains representative'),
@@ -40,7 +42,7 @@ DOWNLOADS = [
     ('queen-horizontal-closed.step', 'Closed STEP model', 'CAD interchange · visible components only'),
     ('queen-horizontal-open.step', 'Open STEP model', 'CAD interchange · visible components only'),
     ('design-elevations.svg', 'Dimensioned elevations', 'SVG · front and side design-review drawing'),
-    ('ashleys-bed-design-review.zip', 'Complete design-review package', 'ZIP · current models, drawings and nominal cut files; NO G-code'),
+    ('ashleys-bed-design-review.zip', 'Complete design-review package', 'ZIP · current models, drawings and cut files; NO G-code'),
 ]
 
 
@@ -83,9 +85,9 @@ def downloads_page():
         sid = sheet['sheetId']
         thickness = {0.75:'¾',0.5:'½',0.25:'¼'}[sheet['stockThicknessInches']]
         sheets.append(f'<tr><th scope="row">{sid}</th><td>{thickness}″ · {sheet["widthInches"]} × {sheet["lengthInches"]}″</td><td>{len(sheet["parts"])} parts</td><td><a href="downloads/cut-lines/{sid}.svg">View {sid}</a> · <a href="downloads/cut-lines/{sid}.dxf" download>DXF {sid}</a></td></tr>')
-    return f'''<div class="warning"><strong>These files are not machine-ready.</strong><p>DXFs contain uncompensated nominal rectangles. They do not contain approved joints, machining operations or runnable G-code. Use the <a href="cnc.html">CNC release checklist</a> before cutting.</p></div>
+    return f'''<div class="warning"><strong>These files contain no toolpaths.</strong><p>The ¾ in DXFs (S01–S06) carry CAM-ready part outlines on measured stock. The left bookcase is doweled, so there are no joinery pockets. The ½ in and ¼ in sheets stay nominal. There is no runnable G-code. Use the <a href="cnc.html">CNC release checklist</a> before cutting.</p></div>
 <section><h2 id="project-downloads">Models, drawings & purchasing documents</h2><div class="download-list">{''.join(cards)}</div></section>
-<section><h2 id="sheet-files">Individual sheet outlines</h2><p>All DXFs declare inches. Only the closed <code>PART_OUTLINES</code> layer describes nominal parts; stock, margin, grain and label layers are references, not cut paths.</p><div class="table-wrap"><table><caption>Current eight-sheet/panel layout</caption><thead><tr><th scope="col">Sheet</th><th scope="col">Stock</th><th scope="col">Contents</th><th scope="col">Files</th></tr></thead><tbody>{''.join(sheets)}</tbody></table></div></section>
+<section><h2 id="sheet-files">Individual sheet outlines</h2><p>All DXFs declare inches. Only the closed <code>PART_OUTLINES</code> layer holds part boundaries, at finished size; stock, margin, grain and label layers are references, not cut paths.</p><div class="table-wrap"><table><caption>Current eight-sheet/panel layout</caption><thead><tr><th scope="col">Sheet</th><th scope="col">Stock</th><th scope="col">Contents</th><th scope="col">Files</th></tr></thead><tbody>{''.join(sheets)}</tbody></table></div></section>
 <section><h2 id="verification">What has actually been checked</h2><ul><li>Both saved Fusion archives reopened with one left cabinet, correct bed endpoints, hidden wall-bracket references and no timeline warnings.</li><li>All 27 remaining wood pieces match their previous model dimensions; the right cabinet’s 16 parts were removed.</li><li>All eight DXFs match the placement data, with ¾″ edge margins, ½″ gaps, correct stock groups and no missing or duplicate pieces.</li></ul><p>These checks verify the design files, not final joinery, structural adequacy, cutter clearance or machine setup. Earlier two-cabinet media and budgets are archived locally and excluded here.</p></section>'''
 
 
@@ -106,10 +108,10 @@ def render(slug, title, description, body):
 <link rel="stylesheet" href="assets/style.css"><script src="assets/guide.js" defer></script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><div class="site-shell">
 <aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Ashley’s bed<small>PROJECT FIELD GUIDE</small></span></a>
-<nav aria-label="Build guide">{navigation}</nav><div class="sidebar-note"><span class="status-dot"></span>Design-review revision<small>Bed + left bookcase<br>Updated September 22, 2026</small></div></aside>
+<nav aria-label="Build guide">{navigation}</nav><div class="sidebar-note"><span class="status-dot"></span>Design-review revision<small>Bed + left bookcase<br>Updated November 18, 2026</small></div></aside>
 <div class="page"><header class="utility"><span>HORIZONTAL QUEEN / ROCKLER I-SEMBLE</span><div><button type="button" id="print-page">Print this page</button><button type="button" id="export-notes">Export my notes</button></div></header>
 <main id="main"><div class="page-heading"><p class="eyebrow">{e(next(p[1] for p in PAGES if p[0]==slug))}</p><h1>{e(title)}</h1><p class="lead">{e(description)}</p></div>
-<div class="release-bar"><span class="badge pending">Planning only</span><p>Plywood and cutters not purchased. Final fabrication and CNC release remain pending.</p></div>
+<div class="release-bar"><span class="badge pending">Toolpaths pending</span><p>¾ in plywood bought and measured; ½ in and ¼ in not bought. CAM toolpaths and CNC release remain pending.</p></div>
 <div class="personal-progress" id="personal-progress" hidden><span id="progress-label"></span><progress id="check-progress" value="0" max="1"></progress><small id="save-status">Your checks and notes save only in this browser. Checking a box does not approve machining.</small></div>
 <noscript><p class="note">All instructions and downloads work without JavaScript. Saved checklists, note export, filtering and the print button require JavaScript; use your browser’s Print command instead.</p></noscript>
 {contents}

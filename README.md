@@ -6,7 +6,7 @@ Current design: Rockler I-Semble horizontal queen bed with one room-facing left 
 
 ## Release status
 
-The native models, drawings, parts list and nominal sheet layouts are design-review deliverables. **No machine-ready CAM or G-code is released.** Plywood and cutters have not been purchased. Final stock thickness, bookcase joinery, hardware, workholding, tools and the shop-approved post/profile must be resolved before machining.
+The native models, drawings, parts list and sheet layouts are design-review deliverables. **No toolpaths or G-code are released.** The six ¾ in sheets are bought and measured (0.703–0.714 in), and the left bookcase is doweled (no dados or rabbets): the ¾ in DXFs (S01–S06) and `output/cut-lines/machining-sheets-3-4.pdf` carry CAM-ready part outlines on measured stock, and `output/cut-lines/table-saw-plan-3-4.pdf` gives the table-saw sequence for all eight sheets. The ½ in and ¼ in plywood is not bought yet, so S07/S08 stay nominal. Drawer slides, shelf-pin holes, feeds/speeds, workholding and the shop-approved post/profile are still the certified operator's to confirm before machining.
 
 Follow the complete [Rockler horizontal-bed instructions](https://go.rockler.com/tech/horizontal-murphy-bed-inst-25.pdf) and [HackRVA Avid PRO6096 requirements](https://wiki.hackrva.org/index.php/Avid_PRO6096). Hardware and motion in CAD remain representative. Hidden wall brackets remain required; both headboards and all specified anchors are retained.
 
@@ -16,6 +16,7 @@ These are built into the Fusion model, cut list, DXFs and drawings. They assume 
 
 - **Adjustable shelves 1–3:** 15¾ × 28⅜ in, giving 1/16 in clearance per side between the bookcase's 28½ in sides so they can be placed on pins. The fixed shelf above the drawer stays 28½ in.
 - **Bookcase back:** ¼ × 28 7/16 × 59 15/16 in, giving 1/32 in clearance per edge where it sits inside the carcass. Resize it if the back is set into rabbets or grooves instead.
+- **Left-bookcase joinery (¾ in parts):** the top, bottom and fixed shelf are doweled to the sides, so every part is cut to its finished size (top, bottom and fixed shelf 28½ in). Dowel and 5 mm shelf-pin holes are drilled by hand; dowel size and positions are not set yet. Confirm the drawer slide before drilling the fixed shelf's dowel holes (it sits 14 in up).
 - **Drawer box:** 27½ in wide in a 28½ in opening, ½ in per side for side-mount slides. Confirm against the chosen slide.
 - **Gas springs (model only):** 14 in cylinder and 13½ in rod, chosen to span the modeled mounts. They are not Rockler's specification.
 
@@ -58,10 +59,11 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
      A full run takes about 15 seconds. The script opens no dialogs, so it does not block Fusion's main thread.
    - **Startup add-in:** the `AshleysBedStartup` add-in in Fusion's `API/AddIns` folder runs the script once when Fusion starts if its manifest has `"runOnStartup": true`. It resets the flag to `false` before running and records `started`, `finished` or `failed` in `output/startup-trigger.json`.
 2. Reopen both saved Fusion archives and verify the intended cabinet count/position, bed endpoints, required hidden references and timeline health. Review native previews; do not treat a successful export as a fabrication release.
-3. Generate the nominal layouts and design-review drawings:
+3. Generate the sheet layouts (S01–S06 on measured stock, S07/S08 nominal), table-saw plan and design-review drawings:
 
    ```sh
    python3 MurphyBedQueen/generate_cut_layouts.py
+   python3 MurphyBedQueen/generate_table_saw_plan.py
    python3 MurphyBedQueen/generate_drawings.py
    ```
 
@@ -71,7 +73,7 @@ Checklist and worksheet values remain in the reader’s browser. “Export my no
    python3 MurphyBedQueen/export_web_models.py
    ```
 
-   The cut-layout generator uses the standard library and rejects unexpected parts or dimensions. When a part size changes on purpose, update its approved size in `PART_SPECS` (and its sheet placement in `SHEET_PLAN` if it no longer fits) in `generate_cut_layouts.py`. The drawing generator requires Pillow and the macOS Helvetica font; it consumes native Fusion body bounds, not guessed image dimensions. Site deployment does not regenerate CAD or require Pillow.
+   The cut-layout generator uses the standard library and rejects unexpected parts or dimensions. The measured ¾ in stock range (`MEASURED_34`) sits at the top of `generate_cut_layouts.py`; parts are cut to the finished sizes in `cabinet-cut-list.csv`. When a part size changes on purpose, update its approved size in `PART_SPECS` (and its sheet placement in `SHEET_PLAN` if it no longer fits) in `generate_cut_layouts.py`. The drawing generator requires Pillow and the macOS Helvetica font; it consumes native Fusion body bounds, not guessed image dimensions. Site deployment does not regenerate CAD or require Pillow.
 4. Update purchasing instructions and the BOM when the design changes. Then regenerate the one-page printable store list, `output/store-shopping-list.pdf`, with `python3 MurphyBedQueen/generate_store_list.py` (requires Pillow and the macOS Helvetica font). It takes quantities from the BOM and fails if a BOM item is added or removed without updating its `ITEMS` table, or if the list no longer fits on one page. Recheck all sheet quantities, hardware requirements and finish allowances. Refresh the design-review ZIP from the matching current outputs; do not include old revisions or prior budgets. To rebuild it with the same file list:
 
    ```sh

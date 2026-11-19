@@ -1,14 +1,22 @@
 <p class="lead">
   Confirm the five release inputs below before generating toolpaths. The current
-  files show how 27 nominal wood parts fit on eight source sheets; they are not
-  programs for the router.
+  files show how 27 wood parts fit on eight source sheets. The ¾ in sheets
+  (S01–S06) carry CAM-ready geometry on measured stock; none of it is a program
+  for the router.
+</p>
+<p class="pending">
+  <strong>Cutting on a table saw instead?</strong> Use the
+  <a href="downloads/cut-lines/table-saw-plan-3-4.pdf">table-saw plan</a>:
+  the same sheet map and part sizes for all eight sheets, with rough rips,
+  finish rips, crosscuts and a tape label for every part.
 </p>
 <div class="warning">
-  <strong>No runnable machine code exists in this deliverable.</strong> The
-  owner has not purchased plywood or cutters. Actual stock thickness,
-  custom-cabinet joinery, exact tools, workholding and the shop-approved
-  post/profile remain unresolved. Do not send these DXFs straight to the machine
-  or treat the rectangles as approved final cutting boundaries.
+  <strong>No runnable machine code exists in this deliverable.</strong> The ¾
+  in plywood is bought and measured (0.703–0.714 in) and the left bookcase is
+  doweled, so the CNC only profiles parts; no toolpaths exist. The ½ in and ¼ in stock is not
+  bought, and the drawer slides, feeds/speeds, workholding and shop-approved
+  post/profile are still the certified operator’s to confirm. Do not send these
+  DXFs straight to the machine; build and simulate CAM first.
 </div>
 
 <h2 id="file-status">What each file type means</h2>
@@ -36,10 +44,11 @@
       </tr>
       <tr>
         <th scope="row">DXF / SVG outlines</th>
-        <td>Nominal closed rectangles available</td>
+        <td>Part outlines at finished size</td>
         <td>
-          Inch-based part placement and grain-aware purchasing layout; no holes,
-          pockets, joinery, tabs or cutter compensation.
+          Inch-based placement on measured ¾ in stock; no pockets, holes, tabs,
+          cutter compensation or toolpaths.
+          The ½ in and ¼ in sheets stay nominal.
         </td>
       </tr>
       <tr>
@@ -63,9 +72,10 @@
 </div>
 <p>
   <a href="downloads.html"
-    >Download the nominal DXFs, sheet previews, cut-layout booklet and source
+    >Download the DXFs, sheet previews, cut-layout booklet and source
     model</a
-  >. The booklet is reduced-scale; use written dimensions. Import DXF as inches
+  >, plus the <a href="downloads/cut-lines/machining-sheets-3-4.pdf">¾ in
+  machining sheets</a> (one operations page per sheet). The booklet is reduced-scale; use written dimensions. Import DXF as inches
   and confirm a known dimension, rather than trusting an import dialog or
   printing scale.
 </p>
@@ -157,9 +167,9 @@
 <h3 id="layers">Import the cutting candidates, not the reference artwork</h3>
 <ul>
   <li>
-    <strong>PART_OUTLINES:</strong> closed, uncompensated nominal part
-    boundaries. These are the only candidate part contours—not a released
-    toolpath layer.
+    <strong>PART_OUTLINES:</strong> closed, uncompensated part boundaries at
+    finished size. These are the only candidate part contours—not a released
+    toolpath layer. The bookcase is doweled, so there are no pocket layers.
   </li>
   <li>
     <strong>STOCK_REFERENCE and MARGIN_REFERENCE:</strong> sheet boundary and ¾
@@ -176,8 +186,11 @@
     too.
   </li>
   <li>
-    <strong>½ in gaps:</strong> nominal outline separation, not a cutter
-    diameter or approved cutting clearance. The operator must re-check tool
+    <strong>½ in gaps:</strong> outline separation, not a cutter diameter or
+    approved cutting clearance. With a ⅜ in bit, two neighbouring outside passes
+    remove the whole gap, so a tab on an edge that faces a neighbour is cut away:
+    put tabs only on each part’s tab-safe edges (machining sheets), or use onion
+    skin. The operator must re-check tool
     envelopes, lead-ins, clamps and retention after final joinery and tool
     selection.
   </li>
@@ -227,7 +240,8 @@
       approved plywood, identify each lot, measure thickness at multiple
       locations, and check usable sheet dimensions, flatness and grain. This
       controls joinery fit, drilling depth and hold-down. Record all three
-      thickness classes below.</span
+      thickness classes below. Status: ¾ in measured at 0.703–0.714 in; ½ in
+      and ¼ in not yet bought.</span
     ></label
   >
   <label class="check-item"
@@ -236,10 +250,13 @@
         >2. Final joinery and hardware — owner/fabricator, with Rockler for bed
         questions.</strong
       >
-      Approve left-cabinet dados/rabbets, back/bottom support, shelf-pin
+      Approve the left-cabinet dowel layout, back/bottom support, shelf-pin
       dimensions and the shelf/back fit on measured stock; select actual slides and pulls. Preserve
       the bed’s original reinforced construction and resolve kit inventory
-      conflicts. Without these decisions the geometry is incomplete.</span
+      conflicts. Without these decisions the geometry is incomplete. Status:
+      left-cabinet fixed joints are doweled (no dados or rabbets); dowel
+      positions, drawer slides, shelf pins and back/bottom support are still
+      open.</span
     ></label
   >
   <label class="check-item"
@@ -247,8 +264,10 @@
       ><strong>3. Exact cutters — certified operator.</strong> Record
       manufacturer/model, diameter, shank, flute geometry, cutting length and
       appropriate collet for every tool. Check available reach and suitability
-      for the stock. No cutters are owned yet, and no feeds/speeds are approved
-      by this site.</span
+      for the stock. On hand: Amana 45302 (⅜ in single-flute straight, 1 in
+      cut, ½ in shank) and Irwin 1901028 (¼ in carbide down-spiral per retailer
+      listings; verify its shank). No feeds/speeds are approved by this
+      site.</span
     ></label
   >
   <label class="check-item"
@@ -389,7 +408,7 @@
   </li>
   <li>
     <strong>Prepare inside features while the stock remains secured.</strong>
-    Plan approved pockets, dados/rabbets and face drilling before outer-contour
+    Plan any approved face drilling before outer-contour
     release where practical. Check blind-hole depth against measured stock and
     cutter geometry; do not infer holes from reference labels.
   </li>
@@ -465,9 +484,9 @@
   and actual stud positions, not nominal sheet coordinates.
 </p>
 <p>
-  <strong>Next decision:</strong> arrange the certified operator’s review of
-  stock choice, proposed left-cabinet joinery and cutter requirements before
-  buying cutters or preparing CAM. Continue with the
+  <strong>Next decision:</strong> choose the drawer slide (confirm it before
+  drilling the fixed shelf’s dowel holes), then cut the parts on the table saw
+  or build CAM from the machining sheets. Continue with the
   <a href="assembly.html">assembly stages</a> only when the relevant fabrication
   holds are closed.
 </p>

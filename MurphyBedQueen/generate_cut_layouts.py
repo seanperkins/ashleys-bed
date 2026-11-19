@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Generate the approved one-bookcase purchasing layout and nominal cut drawings.
+"""Generate the approved one-bookcase purchasing layout and cut drawings.
 
-Run with Python 3; only the standard library is required. These drawings are
-planning geometry, not CNC toolpaths. Dimensions come from cabinet-cut-list.csv;
-the fixed placement contract deliberately fails if that geometry changes.
+Run with Python 3; only the standard library is required. The 3/4 in sheets
+(S01-S06) carry CAM-ready part outlines on measured stock. The left bookcase is
+doweled, so there are no joinery pockets and every part is cut to finished size.
+The 1/2 in and 1/4 in sheets remain nominal planning outlines. Nothing here is a CNC toolpath or G-code. Finished dimensions
+come from cabinet-cut-list.csv; the fixed placement contract deliberately fails
+if that geometry changes.
 """
 
 import argparse
@@ -11,6 +14,7 @@ import csv
 import io
 import json
 import math
+import textwrap
 from collections import Counter
 from fractions import Fraction
 from html import escape
@@ -21,15 +25,24 @@ ROOT = Path(__file__).resolve().parents[1]
 MARGIN = 0.75
 GAP = 0.5
 WARNING = "NOMINAL PLANNING OUTLINES - NOT CNC-READY"
+WARNING_34 = "3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE"
+
+# Measured 3/4 in plywood (owner calipers, 2026-09-30); remeasure each sheet before cutting.
+MEASURED_34 = (0.703, 0.714)
+BIT_DIAMETER = 0.375  # profile bit; sets which tab edges survive neighbouring passes
 STOP_NOTE = "M07 on S02: mill the 3/4 in stock blank to 5/8 in finished thickness."
 PENDING_NOTE = (
-    "Shelf/back fit included; finalize joinery, slides and measured stock before cutting."
+    "Shelf/back fit included; finalize dowel positions, slides and 1/2 and 1/4 in stock before cutting."
+)
+JOINERY_NOTE = (
+    "Left bookcase is doweled: no pockets; every part is cut to finished size. "
+    "Dowel and shelf-pin holes are drilled by hand."
 )
 BASIS = (
     "Shared-sheet placement of all 27 current bed-plus-LEFT-cabinet wood parts; "
     "NOT CNC toolpaths or fabrication-ready joinery. Grain follows every part "
-    "Length_in and stock length (+Y). Nominal rectangular outlines only; no "
-    "cutter compensation, holes, pockets or G-code. No spare sheet is included. "
+    "Length_in and stock length (+Y). Rectangular part outlines only (S01-S06 on measured "
+    "3/4 in stock, S07/S08 nominal); no cutter compensation, holes, pockets or G-code. No spare sheet is included. "
     "Adjustable shelves allow 1/16 in per side and the back 1/32 in per edge on nominal stock. "
     + PENDING_NOTE
 )
@@ -143,6 +156,63 @@ def load_parts(path):
     return parts
 
 
+def is_34(sheet):
+    return sheet["stockThicknessInches"] == 0.75
+
+
+def sheet_warning(sheet):
+    return WARNING_34 if is_34(sheet) else WARNING
+
+
+def sheet_note(sheet):
+    return JOINERY_NOTE if is_34(sheet) else PENDING_NOTE
+
+
+def sheet_nocam(sheet):
+    if is_34(sheet):
+        return ("Part outlines are geometry only: no toolpaths, tabs, cutter compensation, "
+                "holes or G-code. Operator builds CAM and confirms cutter, workholding and post.")
+    return "No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup."
+
+
+
+
+def tab_edges(part, sheet_parts):
+    """Edges where a tab survives the neighbours' profile passes.
+
+    Two adjacent outside profiles each cut one bit diameter into the gap between
+    parts. If the gap is under two bit diameters the passes together remove the whole
+    strip, so a tab on that edge is cut away by the neighbour and the part floats.
+    """
+    x0, y0 = part["xInches"], part["yInches"]
+    x1, y1 = x0 + part["widthInches"], y0 + part["lengthInches"]
+    nearest = {"left": None, "right": None, "bottom": None, "top": None}
+    for other in sheet_parts:
+        if other is part:
+            continue
+        ox0, oy0 = other["xInches"], other["yInches"]
+        ox1, oy1 = ox0 + other["widthInches"], oy0 + other["lengthInches"]
+        overlaps_y = y0 < oy1 and oy0 < y1
+        overlaps_x = x0 < ox1 and ox0 < x1
+        candidates = []
+        if overlaps_y and ox1 <= x0:
+            candidates.append(("left", x0 - ox1))
+        if overlaps_y and ox0 >= x1:
+            candidates.append(("right", ox0 - x1))
+        if overlaps_x and oy1 <= y0:
+            candidates.append(("bottom", y0 - oy1))
+        if overlaps_x and oy0 >= y1:
+            candidates.append(("top", oy0 - y1))
+        for edge, distance in candidates:
+            if nearest[edge] is None or distance < nearest[edge]:
+                nearest[edge] = distance
+    safe = [e for e, d in nearest.items() if d is None or d >= 2 * BIT_DIAMETER]
+    unsafe = [e for e, d in nearest.items() if d is not None and d < 2 * BIT_DIAMETER]
+    return safe, unsafe
+
+
+
+
 def build_layout(parts):
     sheets = []
     seen = []
@@ -174,6 +244,10 @@ def build_layout(parts):
             seen.append(pid)
         sheet["assemblies"] = sorted({p["assembly"] for p in sheet["parts"]})
         sheet["shared"] = len(sheet["assemblies"]) > 1
+        for part in sheet["parts"]:
+            part["tabSafeEdges"], part["tabUnsafeEdges"] = tab_edges(part, sheet["parts"])
+            require(len(part["tabSafeEdges"]) >= 2,
+                    f"{part['partId']} has fewer than two tab-safe edges on {sheet['sheetId']}")
         sheets.append(sheet)
     require(Counter(seen) == Counter(parts.keys()), "Each of 27 parts must appear exactly once")
     require(Counter((s["stockThicknessInches"], s["widthInches"], s["lengthInches"])
@@ -186,9 +260,20 @@ def build_layout(parts):
         "edgeMarginInches": MARGIN, "partGapInches": GAP,
         "stopBlank": STOP_NOTE, "partCount": len(seen), "sheetCount": len(sheets),
         "machineReady": False,
-        "machiningStatus": "Nominal rectangles only; joinery and machine setup unresolved",
+        "machiningStatus": ("3/4 in sheets S01-S06: CAM-ready part outlines on measured stock; no toolpaths "
+                            "or G-code. Left bookcase is doweled (no pockets). S07/S08 remain nominal "
+                            "planning outlines."),
+        "measuredStock34Inches": {"min": MEASURED_34[0], "max": MEASURED_34[1],
+                                  "source": "owner calipers, 2026-09-30; remeasure each sheet"},
+        "joinery": {
+            "type": "dowels",
+            "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides; every part is cut "
+                    "to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions "
+                    "are not defined here. Confirm the drawer slide before drilling the L07 dowel holes.",
+        },
+        "profileBit": "Amana 45302, 3/8 in single-flute straight, 1/2 in shank",
         "dxfLayers": {
-            "PART_OUTLINES": "Closed nominal part boundaries, uncompensated",
+            "PART_OUTLINES": "Closed part boundaries at finished size, uncompensated",
             "STOCK_REFERENCE": "Stock boundary; do not cut",
             "MARGIN_REFERENCE": "3/4-inch edge clearance; do not cut",
             "GRAIN_REFERENCE": "Grain-direction arrow; do not cut",
@@ -212,7 +297,11 @@ def project_csv(layout):
     entries.sort(key=lambda entry: (entry[1]["assembly"] != "Main cabinet",
                                     entry[0]["sheetId"], entry[1]["partId"]))
     for sheet, part in entries:
-        note = "Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length."
+        if sheet["stockThicknessInches"] == 0.75:
+            note = ("3/4 in layout on measured stock (0.703-0.714 in); CAM geometry only, no toolpaths. "
+                    "Grain along Length_in and stock length.")
+        else:
+            note = "Nominal planning layout, NOT CNC-ready. Grain along Length_in and stock length."
         if part["partId"] == "M07":
             note += " " + STOP_NOTE
         if sheet["sheetId"] == "S07":
@@ -247,13 +336,13 @@ def svg_document(sheet):
         '<?xml version="1.0" encoding="UTF-8"?>',
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{canvas_w}in" height="{canvas_h}in" '
         f'viewBox="-2 -8 {canvas_w} {canvas_h}">',
-        f'<title>{escape(stock_title(sheet))} - {WARNING}</title>',
+        f'<title>{escape(stock_title(sheet))} - {sheet_warning(sheet)}</title>',
         '<desc>Full-scale inches: one SVG unit equals one inch. Stock lower-left '
-        'origin, +Y along grain. Only PART_OUTLINES contains nominal part boundaries.</desc>',
+        'origin, +Y along grain. Only PART_OUTLINES contains part boundaries.</desc>',
         '<rect x="-2" y="-8" width="100%" height="100%" fill="white"/>',
         '<g font-family="Arial, sans-serif" fill="#152b42">',
         f'<text x="0" y="-5.6" font-size="1.5" font-weight="bold">{escape(stock_title(sheet))}</text>',
-        f'<text x="0" y="-3.5" font-size="0.95" fill="#943518">{WARNING}</text>',
+        f'<text x="0" y="-3.5" font-size="0.95" fill="#943518">{sheet_warning(sheet)}</text>',
         '<text x="0" y="-1.6" font-size="0.8">Full scale: 1 unit = 1 inch. Sheet border and notes are reference only.</text>',
         f'<g id="STOCK_REFERENCE"><rect x="0" y="0" width="{w}" height="{length}" '
         'fill="none" stroke="#152b42" stroke-width="0.12"/></g>',
@@ -295,8 +384,8 @@ def svg_document(sheet):
         ])
     lines.extend([
         f'<text x="0" y="{length + 1.7}" font-size="0.8">{escape(STOP_NOTE)}</text>',
-        f'<text x="0" y="{length + 3.3}" font-size="0.75">{escape(PENDING_NOTE)}</text>',
-        f'<text x="0" y="{length + 4.9}" font-size="0.75">No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and machine/post setup.</text>',
+        f'<text x="0" y="{length + 3.3}" font-size="0.75">{escape(sheet_note(sheet))}</text>',
+        f'<text x="0" y="{length + 4.9}" font-size="0.75">{escape(sheet_nocam(sheet))}</text>',
         '</g></svg>',
     ])
     return "\n".join(lines) + "\n"
@@ -350,8 +439,8 @@ def dxf_document(sheet):
             text(x + 0.5, y + pl / 2, part["partId"], 1)
             text(x + 0.5, y + pl / 2 - 1.2, part_dimensions(part), 0.7)
     text(0, length + 5, stock_title(sheet), 1.2)
-    text(0, length + 3, WARNING, 1)
-    text(0, length + 1.4, "INCHES / 1:1. Only PART_OUTLINES are nominal part boundaries.")
+    text(0, length + 3, sheet_warning(sheet), 1)
+    text(0, length + 1.4, "INCHES / 1:1. Only PART_OUTLINES are part boundaries.")
     line(w + 2, length - 14, w + 2, length - 4)
     line(w + 1.4, length - 5, w + 2, length - 4)
     line(w + 2.6, length - 5, w + 2, length - 4)
@@ -363,8 +452,8 @@ def dxf_document(sheet):
         text(w + 4, y - 1.5, f"{part_dimensions(part)}; finish {inches(part['finishedThicknessInches'])} in")
         text(w + 4, y - 3, f"X {number(part['xInches'])} / Y {number(part['yInches'])} in", 0.7)
     text(0, -2, STOP_NOTE)
-    text(0, -3.5, PENDING_NOTE)
-    text(0, -5, "No cutter compensation, holes, pockets or G-code. Reference layers are NOT cut paths.")
+    text(0, -3.5, sheet_note(sheet))
+    text(0, -5, sheet_nocam(sheet))
     emit(0, "ENDSEC", 0, "EOF")
     return "\n".join(pairs) + "\n"
 
@@ -397,12 +486,21 @@ class PdfPage:
         return ("\n".join(self.commands) + "\n").encode("cp1252")
 
 
+def wrapped(page, x, y, value, size, bold=False, width=105, step=None):
+    """Write wrapped lines and return the next free y."""
+    step = step or size + 2
+    for line in textwrap.wrap(value, width):
+        page.text(x, y, line, size, bold)
+        y -= step
+    return y
+
+
 def booklet_page(sheet, page_number):
     page = PdfPage()
     page.commands.extend(["0.08 0.16 0.24 RG", "0.08 0.16 0.24 rg", "0.7 w"])
     page.text(36, 755, "ASHLEY'S MURPHY BED + LEFT BOOKCASE", 17, True)
     page.text(36, 730, stock_title(sheet), 13, True)
-    page.text(36, 710, WARNING, 11, True)
+    page.text(36, 710, sheet_warning(sheet), 9 if is_34(sheet) else 11, True)
     page.text(36, 692, "3/4 in edge margin | 1/2 in minimum part gap | Grain parallel to every part length", 9)
     scale = 480 / sheet["lengthInches"]
     ox, oy = 36, 190
@@ -442,17 +540,99 @@ def booklet_page(sheet, page_number):
     page.text(315, 211, "US Letter; print Actual Size / 100%.", 8)
     page.text(315, 197, "Use written dimensions, not a paper template.", 8)
     page.line(36, 142, 576, 142)
-    page.text(36, 128, STOP_NOTE, 9, True)
-    page.text(36, 110, PENDING_NOTE, 9)
-    page.text(36, 94, "No cutter compensation, holes, pockets or G-code. Confirm cutter, workholding and post.", 9)
-    page.text(36, 78, "DXF: inches, closed PART_OUTLINES. Stock/margin/grain/labels are reference only.", 9)
-    page.text(36, 62, "SVG: full scale in inches, including a separate note area. PDF: reduced-scale planning booklet.", 8)
+    page.text(36, 130, STOP_NOTE, 9, True)
+    y = wrapped(page, 36, 117, sheet_note(sheet), 9)
+    y = wrapped(page, 36, y - 1, sheet_nocam(sheet), 8, width=118, step=10)
+    page.text(36, y - 2, "DXF: inches; closed PART_OUTLINES. Stock/margin/grain/labels are reference only.", 8)
+    page.text(36, y - 13, "SVG: full scale in inches, including a separate note area. PDF: reduced-scale booklet.", 8)
     page.text(36, 40, "27 parts | 6 full 3/4 sheets + 1 half-inch 24x48 panel + 1 full quarter-inch sheet | No spare", 8)
     page.text(533, 24, f"{page_number} / 8", 8)
     return page.bytes()
 
 
-def pdf_document(layout):
+def machining_page(sheet, page_number, total):
+    page = PdfPage()
+    page.commands.extend(["0.08 0.16 0.24 RG", "0.08 0.16 0.24 rg", "0.7 w"])
+    page.text(36, 756, "ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET", 14, True)
+    page.text(36, 736, stock_title(sheet), 12, True)
+    page.text(36, 720, WARNING_34, 9, True)
+    scale = 4.6
+    ox, oy = 36, 205
+    sw, sl = sheet["widthInches"], sheet["lengthInches"]
+    page.rectangle(ox, oy, sw * scale, sl * scale)
+    page.rectangle(ox + MARGIN * scale, oy + MARGIN * scale,
+                   (sw - 2 * MARGIN) * scale, (sl - 2 * MARGIN) * scale, dashed=True)
+    for part in sheet["parts"]:
+        x, y = ox + part["xInches"] * scale, oy + part["yInches"] * scale
+        w, height = part["widthInches"] * scale, part["lengthInches"] * scale
+        fill = "0.88 0.93 0.96" if part["assembly"] == "Main cabinet" else "0.90 0.94 0.87"
+        page.rectangle(x, y, w, height, fill)
+        if w < 28:
+            page.text(x + w / 2 + 3, y + height / 2 - 10, part["partId"], 9, True, 90)
+        else:
+            page.text(x + w / 2 - 10, y + height / 2, part["partId"], 9, True)
+    page.text(ox, oy - 14, "Origin (0,0) lower-left; +Y = grain / stock length. Do not rotate parts.", 8)
+    col = 290
+    y = 700
+    page.text(col, y, "MEASURED STOCK", 10, True)
+    y = wrapped(page, col, y - 13, f"3/4 in plywood measured {MEASURED_34[0]}-{MEASURED_34[1]} in "
+                "(owner calipers, 2026-09-30). Measure THIS sheet at 4 points before cutting; "
+                "set Z zero on the top of the stock.", 8, width=62, step=10)
+    y -= 6
+    page.text(col, y, "TOOL (all operations)", 10, True)
+    y = wrapped(page, col, y - 13, "Amana 45302: 3/8 in single-flute straight plunge, 1 in cut "
+                "height, 1/2 in shank (needs a 1/2 in collet). Feeds/speeds: from the bit maker "
+                "chipload and the HackRVA calculator; none supplied here.", 8, width=62, step=10)
+    y -= 6
+    page.text(col, y, "OP 1  PROFILE ALL PARTS", 10, True)
+    y = wrapped(page, col, y - 13,
+                "Outside cut on every PART_OUTLINES rectangle (all outside corners, no dogbones). "
+                "Depth = thickest reading on this sheet + 0.02 in into the spoilboard. Lead-ins "
+                "and order are the operator's call; hold small parts.",
+                8, width=62, step=10)
+    y -= 4
+    page.text(col, y, "TAB-SAFE EDGES ONLY", 9, True)
+    y = wrapped(page, col, y - 12,
+                "Parts sit 0.5 in apart, less than two bit diameters, so the two neighbouring "
+                "profile passes remove the whole strip. A tab on an edge that faces a neighbour is "
+                "cut away and the part floats. Place tabs only on these edges (+Y = top); onion "
+                "skin or screws into the spoilboard avoid the problem entirely.", 7.5, width=66, step=9.5)
+    for part in sheet["parts"]:
+        page.text(col, y, f"{part['partId']}: " + ", ".join(part["tabSafeEdges"]).upper(), 7.5)
+        y -= 9.5
+    y -= 6
+    notes = {
+        "S01": "L05 plinth is only 2.5 in wide: keep its tabs on the listed safe edges only. M03/M04 are Rockler parts; no drilling here.",
+        "S02": "M07 stop: cut the blank only; thin it from about 0.71 to 5/8 in off the CNC. "
+               "Headboard dowel/screw holes are drilled by hand per Rockler.",
+        "S03": "L03/L04 are cut to finished size (28 1/2 in); their dowel holes are drilled by hand. "
+               "M01/M02: Rockler insert holes (27/64 in) are drilled by hand.",
+        "S04": "L07 is cut to finished size (28 1/2 in). Dowel and 5 mm shelf-pin holes are drilled by "
+               "hand, not here. Confirm the drawer slide before drilling the L07 dowel holes (shelf 14 in up).",
+        "S05": "Door panels are visible painted faces; choose the good face for the outside.",
+        "S06": "Door panels are visible painted faces; choose the good face for the outside.",
+    }
+    page.text(col, y, "SHEET NOTES", 10, True)
+    y = wrapped(page, col, y - 13, notes[sheet["sheetId"]], 8, width=62, step=10)
+    page.line(36, 160, 576, 160)
+    page.text(36, 146, "BEFORE THE FIRST CUT", 10, True)
+    checks = [
+        "[ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in",
+        "[ ] 1/2 in collet; bit shank and cutting length verified on the actual tool",
+        "[ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y",
+        "[ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths",
+    ]
+    for index, line in enumerate(checks):
+        page.text(36, 131 - index * 12, line, 8.5)
+    page.text(36, 74, "Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. "
+              "Rockler bed holes are drilled by hand per the manual.", 8)
+    page.text(36, 62, "Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. "
+              "Source of truth: output/plywood-purchasing-layout.json.", 7.5)
+    page.text(533, 24, f"{page_number} / {total}", 8)
+    return page.bytes()
+
+
+def pdf_from_pages(contents):
     # Standard Helvetica fonts avoid third-party PDF/rendering dependencies.
     objects = [
         b"<< /Type /Catalog /Pages 2 0 R >>",
@@ -461,8 +641,7 @@ def pdf_document(layout):
         b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>",
     ]
     page_ids = []
-    for page_number, sheet in enumerate(layout["sheets"], 1):
-        content = booklet_page(sheet, page_number)
+    for content in contents:
         content_id = len(objects) + 1
         objects.append(b"<< /Length " + str(len(content)).encode("ascii") + b" >>\nstream\n"
                        + content + b"endstream")
@@ -487,27 +666,51 @@ def pdf_document(layout):
     return bytes(output)
 
 
+def pdf_document(layout):
+    return pdf_from_pages([booklet_page(sheet, number)
+                           for number, sheet in enumerate(layout["sheets"], 1)])
+
+
+def machining_pdf(layout):
+    sheets = [sheet for sheet in layout["sheets"] if is_34(sheet)]
+    return pdf_from_pages([machining_page(sheet, number, len(sheets))
+                           for number, sheet in enumerate(sheets, 1)])
+
+
 def cut_guide(layout):
     lines = [
-        "ASHLEY'S BED + LEFT BOOKCASE - CUT LAYOUT GUIDE", WARNING, "",
-        "PURCHASE STOCK", "Six 48 x 96 x 3/4 in sheets: S01-S06.",
-        "One 24 x 48 x 1/2 in project panel: S07.", "One 48 x 96 x 1/4 in sheet: S08.",
+        "ASHLEY'S BED + LEFT BOOKCASE - CUT LAYOUT GUIDE",
+        WARNING_34 + " (S01-S06)",
+        WARNING + " (S07-S08)", "",
+        "PURCHASE STOCK", "Six 48 x 96 x 3/4 in sheets: S01-S06 (purchased; measured 0.703-0.714 in).",
+        "One 24 x 48 x 1/2 in project panel: S07 (not yet purchased).",
+        "One 48 x 96 x 1/4 in sheet: S08 (not yet purchased).",
         "27 wood pieces total; no spare stock included. Keep shared sheets shared.", "",
         "COORDINATES AND SCALE", "All coordinates and dimensions are inches.",
         "Origin is stock lower-left; X across width, Y along length. Do not rotate parts.",
         "Confirm face grain runs along stock length, especially the 24 x 48 project panel.",
-        "3/4 in minimum edge margin; 1/2 in minimum gap between nominal outlines.",
-        "DXF and SVG: full-scale nominal geometry. SVG canvas also includes notes outside stock.",
-        "PDF: 8 reduced-scale US Letter pages. Print Actual Size; use written dimensions.", "",
-        "LAYER RULES", "PART_OUTLINES: closed nominal rectangular part boundaries only.",
+        "3/4 in minimum edge margin; 1/2 in minimum gap between outlines.",
+        "DXF and SVG: full-scale geometry. SVG canvas also includes notes outside stock.",
+        "PDF booklet: 8 reduced-scale US Letter pages. Print Actual Size; use written dimensions.",
+        "machining-sheets-3-4.pdf: one CNC operations page per 3/4 in sheet (S01-S06).",
+        "table-saw-plan-3-4.pdf: rip/crosscut sequence and fence settings for every sheet (S01-S08)",
+        "(python3 MurphyBedQueen/generate_table_saw_plan.py).", "",
+        "LAYER RULES",
+        "PART_OUTLINES: closed rectangular part boundaries at finished size.",
         "STOCK_REFERENCE, MARGIN_REFERENCE, GRAIN_REFERENCE and LABELS: never cut.",
         "DXF declares inches ($INSUNITS=1); verify a known dimension after import.", "",
-        "MILLING / MACHINING HOLD", STOP_NOTE, PENDING_NOTE,
-        "No machining values are implied by the 1/2 in gap. It is layout clearance, not a tool size.",
-        "No cutter compensation, joinery pockets, drilling, tabs or G-code are supplied.",
-        "Measure stock; recheck shelf/back fit; finalize dados/rabbets and drawer hardware before CAM.",
-        "Confirm machine, approved post/profile, exact cutter, workholding and work zero with shop.",
-        "Do not run these drawings as machine programs or treat nominal rectangles as final blanks.", "",
+        "LEFT-BOOKCASE JOINERY: DOWELS",
+        "Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02: no dados, rabbets or pockets.",
+        "Every part is cut to finished size (L03/L04/L07 = 28 1/2 in). Dowel positions are not defined in these files.",
+        "Confirm the drawer slide before drilling the L07 dowel holes (fixed shelf sits 14 in above the floor).",
+        "TABS: parts sit 1/2 in apart (< two bit diameters), so neighbouring profile passes cut away any tab on a",
+        "facing edge. Use tabs only on each part's tab-safe edges (listed in the layout JSON and machining sheets).", "",
+        "STILL NOT SUPPLIED",
+        STOP_NOTE,
+        "No toolpaths, cutter compensation, tabs, feeds/speeds or G-code. Rockler bed holes (dowels, 27/64 in",
+        "inserts, screws), bookcase dowel holes and 5 mm shelf-pin holes are drilled by hand. Drawer box (1/2 in) and back/bottom (1/4 in)",
+        "sheets S07/S08 stay nominal until that stock is bought and measured.",
+        "Confirm exact cutter, collet, workholding, work zero and post/profile at the machine.", "",
         "SHEET MAP (width x length; finished thickness; lower-left X/Y)",
     ]
     for sheet in layout["sheets"]:
@@ -516,9 +719,10 @@ def cut_guide(layout):
             lines.append(f"  {part['partId']} {part['part']} | {part_dimensions(part)} | "
                          f"finish {inches(part['finishedThicknessInches'])} in | "
                          f"X {number(part['xInches'])}, Y {number(part['yInches'])}")
+            lines.append("    tab-safe edges: " + ", ".join(part["tabSafeEdges"]))
     lines += ["", "REGENERATE", "python3 MurphyBedQueen/generate_cut_layouts.py",
               "Reads output/cabinet-cut-list.csv; excludes only names beginning 'Right cabinet:'.",
-              "Asserts approved dimensions, material counts, margin/gap and one placement per part.",
+              "Asserts finished dimensions, material counts, margin/gap, tab-safe edges and one placement per part.",
               "Writes only layout JSON, project allocation CSV and output/cut-lines deliverables."]
     return "\n".join(lines) + "\n"
 
@@ -536,6 +740,7 @@ def main():
         "plywood-by-project.csv": project_csv(layout).encode("utf-8"),
         "cut-lines/cut-layout-booklet.pdf": pdf_document(layout),
         "cut-lines/cut-guide.txt": cut_guide(layout).encode("utf-8"),
+        "cut-lines/machining-sheets-3-4.pdf": machining_pdf(layout),
     }
     for sheet in layout["sheets"]:
         stem = f"cut-lines/{sheet['sheetId']}"
@@ -547,9 +752,9 @@ def main():
         target.write_bytes(content)
     print(f"Generated {layout['sheetCount']} sheets / {layout['partCount']} parts: "
           "6 full 3/4 sheets, 1 half-inch 24x48 panel, 1 full quarter-inch sheet.")
-    print("Dimension, thickness, completeness, grain orientation, margin and gap assertions passed.")
+    print("Dimension, thickness, completeness, grain, margin, gap and tab-edge assertions passed.")
     print(f"Wrote {len(artifacts)} files under {args.output_dir.resolve()}")
-    print(WARNING)
+    print("S01-S06: CAM-ready outlines on measured 3/4 in stock. S07/S08: " + WARNING + ". No toolpaths or G-code.")
 
 
 if __name__ == "__main__":

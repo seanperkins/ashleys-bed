@@ -1,0 +1,518 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 6 /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 4129 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S01 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+39.45 208.45 73.6 392.15 re B
+Q
+BT /F2 9 Tf 1 0 0 1 66.25 404.525 Tm (M03) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+115.35 208.45 73.6 392.15 re B
+Q
+BT /F2 9 Tf 1 0 0 1 142.15 404.525 Tm (M04) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+191.25 208.45 48.3 129.95 re B
+Q
+BT /F2 9 Tf 1 0 0 1 205.4 273.425 Tm (L16) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+241.85 208.45 11.5 131.1 re B
+Q
+BT /F2 9 Tf 0 1 -1 0 250.6 264 Tm (L05) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (M03: LEFT, BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M04: BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L16: BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 447 Tm (L05: RIGHT, BOTTOM, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 431.5 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L05 plinth is only 2.5 in wide: keep its tabs on the listed) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (safe edges only. M03/M04 are Rockler parts; no drilling here.) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (1 / 6) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 4015 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S02 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+39.45 208.45 73.6 392.15 re B
+Q
+BT /F2 9 Tf 1 0 0 1 66.25 404.525 Tm (M05) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+115.35 208.45 73.6 392.15 re B
+Q
+BT /F2 9 Tf 1 0 0 1 142.15 404.525 Tm (M06) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+191.25 208.45 13.8 257.6 re B
+Q
+BT /F2 9 Tf 0 1 -1 0 201.15 327.25 Tm (M07) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (M05: LEFT, BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M06: BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (M07: RIGHT, BOTTOM, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 441 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 428 Tm (M07 stop: cut the blank only; thin it from about 0.71 to 5/8) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418 Tm (in off the CNC. Headboard dowel/screw holes are drilled by) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408 Tm (hand per Rockler.) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (2 / 6) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 4180 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S03 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+39.45 208.45 73.6 294.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 66.25 355.65 Tm (M01) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+115.35 208.45 73.6 294.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 142.15 355.65 Tm (M02) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+39.45 505.15 73.6 131.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 66.25 570.7 Tm (L03) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+115.35 505.15 73.6 131.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 142.15 570.7 Tm (L04) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (M01: LEFT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M02: RIGHT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L03: LEFT, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 447 Tm (L04: RIGHT, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 431.5 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L03/L04 are cut to finished size \(28 1/2 in\); their dowel) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (holes are drilled by hand. M01/M02: Rockler insert holes) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 398.5 Tm (\(27/64 in\) are drilled by hand.) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (3 / 6) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4238 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S04 | 3/4 in stock | 48 x 96 in | 4 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.90 0.94 0.87 rg
+39.45 208.45 73.6 294.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 66.25 355.65 Tm (L01) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+115.35 208.45 73.6 294.4 re B
+Q
+BT /F2 9 Tf 1 0 0 1 142.15 355.65 Tm (L02) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+39.45 505.15 72.45 131.1 re B
+Q
+BT /F2 9 Tf 1 0 0 1 65.675 570.7 Tm (L07) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+115.35 505.15 72.45 130.525 re B
+Q
+BT /F2 9 Tf 1 0 0 1 141.575 570.4125 Tm (L08) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (L01: LEFT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (L02: RIGHT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L07: LEFT, RIGHT, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 447 Tm (L08: LEFT, RIGHT, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 431.5 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418.5 Tm (L07 is cut to finished size \(28 1/2 in\). Dowel and 5 mm shelf-) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 408.5 Tm (pin holes are drilled by hand, not here. Confirm the drawer) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 398.5 Tm (slide before drilling the L07 dowel holes \(shelf 14 in up\).) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (4 / 6) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 3935 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S05 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+39.45 208.45 97.175 284.3375 re B
+Q
+BT /F2 9 Tf 1 0 0 1 78.0375 350.61875 Tm (M08) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+138.925 208.45 97.175 284.3375 re B
+Q
+BT /F2 9 Tf 1 0 0 1 177.5125 350.61875 Tm (M09) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+39.45 495.0875 72.45 130.525 re B
+Q
+BT /F2 9 Tf 1 0 0 1 65.675 560.35 Tm (L09) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (M08: LEFT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M09: RIGHT, BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L09: LEFT, RIGHT, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 441 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 428 Tm (Door panels are visible painted faces; choose the good face) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418 Tm (for the outside.) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (5 / 6) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 3935 >>
+stream
+0.08 0.16 0.24 RG
+0.08 0.16 0.24 rg
+0.7 w
+BT /F2 14 Tf 1 0 0 1 36 756 Tm (ASHLEY'S MURPHY BED + LEFT BOOKCASE - MACHINING SHEET) Tj ET
+BT /F2 12 Tf 1 0 0 1 36 736 Tm (S06 | 3/4 in stock | 48 x 96 in | 3 parts) Tj ET
+BT /F2 9 Tf 1 0 0 1 36 720 Tm (3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE) Tj ET
+q
+[] 0 d
+36 205 220.8 441.6 re S
+Q
+q
+[3 2] 0 d
+39.45 208.45 213.9 434.7 re S
+Q
+q
+[] 0 d
+0.88 0.93 0.96 rg
+39.45 208.45 97.175 284.3375 re B
+Q
+BT /F2 9 Tf 1 0 0 1 78.0375 350.61875 Tm (M10) Tj ET
+q
+[] 0 d
+0.88 0.93 0.96 rg
+138.925 208.45 97.175 284.3375 re B
+Q
+BT /F2 9 Tf 1 0 0 1 177.5125 350.61875 Tm (M11) Tj ET
+q
+[] 0 d
+0.90 0.94 0.87 rg
+39.45 495.0875 72.45 130.525 re B
+Q
+BT /F2 9 Tf 1 0 0 1 65.675 560.35 Tm (L10) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 191 Tm (Origin \(0,0\) lower-left; +Y = grain / stock length. Do not rotate parts.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 700 Tm (MEASURED STOCK) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 687 Tm (3/4 in plywood measured 0.703-0.714 in \(owner calipers,) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 677 Tm (2026-09-30\). Measure THIS sheet at 4 points before cutting;) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 667 Tm (set Z zero on the top of the stock.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 651 Tm (TOOL \(all operations\)) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 638 Tm (Amana 45302: 3/8 in single-flute straight plunge, 1 in cut) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 628 Tm (height, 1/2 in shank \(needs a 1/2 in collet\). Feeds/speeds:) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 618 Tm (from the bit maker chipload and the HackRVA calculator; none) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 608 Tm (supplied here.) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 592 Tm (OP 1  PROFILE ALL PARTS) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 579 Tm (Outside cut on every PART_OUTLINES rectangle \(all outside) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 569 Tm (corners, no dogbones\). Depth = thickest reading on this sheet) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 559 Tm (+ 0.02 in into the spoilboard. Lead-ins and order are the) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 549 Tm (operator's call; hold small parts.) Tj ET
+BT /F2 9 Tf 1 0 0 1 290 535 Tm (TAB-SAFE EDGES ONLY) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 523 Tm (Parts sit 0.5 in apart, less than two bit diameters, so the two) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 513.5 Tm (neighbouring profile passes remove the whole strip. A tab on an) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 504 Tm (edge that faces a neighbour is cut away and the part floats. Place) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 494.5 Tm (tabs only on these edges \(+Y = top\); onion skin or screws into the) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 485 Tm (spoilboard avoid the problem entirely.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 475.5 Tm (M10: LEFT, BOTTOM) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 466 Tm (M11: RIGHT, BOTTOM, TOP) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 290 456.5 Tm (L10: LEFT, RIGHT, TOP) Tj ET
+BT /F2 10 Tf 1 0 0 1 290 441 Tm (SHEET NOTES) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 428 Tm (Door panels are visible painted faces; choose the good face) Tj ET
+BT /F1 8 Tf 1 0 0 1 290 418 Tm (for the outside.) Tj ET
+36 160 m 576 160 l S
+BT /F2 10 Tf 1 0 0 1 36 146 Tm (BEFORE THE FIRST CUT) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 131 Tm ([ ] Sheet thickness measured at 4 points: ______  ______  ______  ______ in) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 119 Tm ([ ] 1/2 in collet; bit shank and cutting length verified on the actual tool) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 107 Tm ([ ] DXF imported in inches; stock reads 48 x 96 in; grain runs along +Y) Tj ET
+BT /F1 8.5 Tf 1 0 0 1 36 95 Tm ([ ] Air pass run per the HackRVA CNC workflow; hold-downs clear of toolpaths) Tj ET
+BT /F1 8 Tf 1 0 0 1 36 74 Tm (Geometry only: no toolpaths, cutter compensation, tabs, holes or G-code are supplied. Rockler bed holes are drilled by hand per the manual.) Tj ET
+BT /F1 7.5 Tf 1 0 0 1 36 62 Tm (Regenerate: python3 MurphyBedQueen/generate_cut_layouts.py. Source of truth: output/plywood-purchasing-layout.json.) Tj ET
+BT /F1 8 Tf 1 0 0 1 533 24 Tm (6 / 6) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000155 00000 n 
+0000000252 00000 n 
+0000000354 00000 n 
+0000004534 00000 n 
+0000004670 00000 n 
+0000008736 00000 n 
+0000008872 00000 n 
+0000013103 00000 n 
+0000013240 00000 n 
+0000017530 00000 n 
+0000017668 00000 n 
+0000021655 00000 n 
+0000021793 00000 n 
+0000025780 00000 n 
+trailer
+<< /Size 17 /Root 1 0 R >>
+startxref
+25918
+%%EOF

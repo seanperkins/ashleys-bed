@@ -84,7 +84,7 @@ def main():
     text(side_x+depth*scale/2, 1158, 'SIDE', 28, True)
     text(70, 1230, 'Left bookcase: four open bays above one drawer; three adjustable shelves.', 29)
     text(70, 1280, 'Carcass dimensions exclude projecting pulls. Steel hardware and folding motion remain representative.', 27)
-    text(70, 1330, 'NOT A MACHINING RELEASE: finalize stock thickness, joinery, shelf fit, slide model, cutters and workholding.', 27)
+    text(70, 1330, 'NOT A MACHINING RELEASE: finalize dowel positions, 1/2 and 1/4 in stock, shelf fit, slide model, cutters and workholding.', 27)
     text(70, 1380, 'Native Fusion wood-body bounds; follow Rockler anchoring instructions. Hidden wall brackets remain required.', 25)
     svg.append('</svg>')
     MEDIA.mkdir(exist_ok=True)

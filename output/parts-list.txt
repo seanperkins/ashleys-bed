@@ -9,8 +9,10 @@ PURCHASING BASIS
 cabinet-cut-list.csv. Stock lengths run parallel to every part Length_in; layout allowances
 are 3/4-inch sheet-edge margins and 1/2-inch gaps. The shared-sheet purchasing arrangement
 is not a claim of minimum-sheet optimization or machine-ready CNC fabrication.
-Actual plywood thickness, final CNC joinery/drilling, the shelf/back fit check on measured stock and the exact
-slide model/mounting requirements remain unresolved physical/fabrication inputs.
+3/4-inch stock is bought and measured (0.703-0.714 inch). Left-cabinet top/bottom/fixed shelf are doweled
+to the sides and cut to finished size (28-1/2 inches); see plywood-by-project.csv. The 1/2- and 1/4-inch thickness,
+final drilling, the shelf/back fit check on measured stock and the exact slide model/mounting requirements
+remain unresolved physical/fabrication inputs.
 
 PLYWOOD SHORT VERSION - BUY EACH SOURCE SHEET ONCE
 3/4 inch: SIX full 48 x 96 sheets, S01-S06; 20 finished 3/4-inch parts plus one stop blank.
@@ -23,7 +25,7 @@ not bought as an additional complete box.
 PLYWOOD BY PROJECT - CUT QUANTITIES, NOT FRACTIONAL SHEET ORDERS
 Project | Stock | Pieces | Net cut area | Source sheets
 Main cabinet | 3/4 inch | 11 including stop blank | 89.5497 sq ft | S01/S02/S03/S05/S06
-LEFT shelf + drawer | 3/4 inch | 10 | 35.5380 sq ft | S01/S03/S04/S05/S06
+LEFT shelf + drawer | 3/4 inch | 10 | 35.7038 sq ft | S01/S03/S04/S05/S06
 LEFT shelf + drawer | 1/2 inch | 4 | 4.5000 sq ft | S07
 LEFT shelf + drawer | 1/4 inch | 2 | 14.5102 sq ft | S08
 Main has no 1/2-inch or 1/4-inch cut parts. Net areas exclude cutting gaps and waste.
@@ -125,7 +127,7 @@ FASTENERS AND ADHESIVES
     Specification: Wood/cabinet screws, not drywall screws
     Used for: Bed carcass and LEFT cabinet fixed-panel assembly
     Basis: 32 bed screws exact; balance is a cabinet/spare package allowance
-    Note: Bed count: 8 at the two headboard/top-bottom joints plus 24 at side-panel joints, per pp9-10. Remaining 68 are a retained package allowance, not a required cabinet count. Cabinet quantity depends on final dado/joinery detailing.
+    Note: Bed count: 8 at the two headboard/top-bottom joints plus 24 at side-panel joints, per pp9-10. Remaining 68 are a retained package allowance, not a required cabinet count. Cabinet quantity depends on the final dowel and fastener layout.
 [ ] 3/8 x 1-1/2-inch dowels -- 50 dowels
     Specification: Fluted hardwood joining dowels
     Used for: Required bed-cabinet reinforced joints

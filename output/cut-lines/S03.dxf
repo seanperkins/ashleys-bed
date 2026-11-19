@@ -563,7 +563,7 @@ AcDbText
 40
 1
 1
-NOMINAL PLANNING OUTLINES - NOT CNC-READY
+3/4 IN STOCK: CAM-READY GEOMETRY ON MEASURED STOCK - NO TOOLPATHS / NO G-CODE
 50
 0
 7
@@ -587,7 +587,7 @@ AcDbText
 40
 0.8
 1
-INCHES / 1:1. Only PART_OUTLINES are nominal part boundaries.
+INCHES / 1:1. Only PART_OUTLINES are part boundaries.
 50
 0
 7
@@ -1031,7 +1031,7 @@ AcDbText
 40
 0.8
 1
-Shelf/back fit included; finalize joinery, slides and measured stock before cutting.
+Left bookcase is doweled: no pockets; every part is cut to finished size. Dowel and shelf-pin holes are drilled by hand.
 50
 0
 7
@@ -1055,7 +1055,7 @@ AcDbText
 40
 0.8
 1
-No cutter compensation, holes, pockets or G-code. Reference layers are NOT cut paths.
+Part outlines are geometry only: no toolpaths, tabs, cutter compensation, holes or G-code. Operator builds CAM and confirms cutter, workholding and post.
 50
 0
 7
