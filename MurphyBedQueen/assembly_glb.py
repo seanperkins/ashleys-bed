@@ -126,19 +126,27 @@ def cylinder_mesh(start, axis, length, radius, mesh=None):
 
 def hardware_meshes(joint, parts):
     """{node name: mesh} for a joint's dowels and screws, at their installed positions."""
-    x, direction = ap.joint_contact(joint, parts)
+    g = ap.joint_geometry(joint, parts)
     side = parts[joint.side]
     holes = ap.joint_holes(joint, parts)
-    into = (direction, 0, 0)
+    into = [0, 0, 0]
+    into[g.contact_axis] = g.direction
+    into = tuple(into)
     meshes = {}
+
+    def at(hole, offset):
+        p = list(hole.world)
+        p[g.contact_axis] = g.contact - g.direction * offset
+        return tuple(p)
+
     side_dowels = [h for h in holes if h.part == joint.side and h.kind == "dowel"]
     gap = (ap.DOWEL_FACE_DEPTH + ap.DOWEL_EDGE_DEPTH - DOWEL_LENGTH) / 2
     for n, hole in enumerate(side_dowels, 1):
-        start = (x - direction * (ap.DOWEL_FACE_DEPTH - gap), hole.world[1], hole.world[2])
+        start = at(hole, ap.DOWEL_FACE_DEPTH - gap)
         meshes[f"{joint.id}-dowel-{n}"] = cylinder_mesh(start, into, DOWEL_LENGTH, ap.DOWEL_DIAMETER / 2)
     clearances = [h for h in holes if h.part == joint.side and h.kind == "clearance"]
     for n, hole in enumerate(clearances, 1):
-        head = (x - direction * side.stock, hole.world[1], hole.world[2])
+        head = at(hole, side.stock)
         mesh = cylinder_mesh(head, into, SCREW_LENGTH, SCREW_SHANK / 2)
         cylinder_mesh(head, into, 0.12, SCREW_HEAD / 2, mesh)
         meshes[f"{joint.id}-screw-{n}"] = mesh

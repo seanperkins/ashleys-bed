@@ -85,16 +85,24 @@ def resolve(steps, parts, fasteners, decisions=None, joints=None):
                 continue
             if joint.hold:
                 hold(joint.hold)
-            joined += [h for h in ap.joint_holes(joint, parts) if h.part == joint.panel]
-            for code, kind, count, phase in (("dowel", "dowel", len(joint.dowels), "dowel"),
-                                             ("screw-8x2", "screw", len(joint.screws), "screw")):
-                entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": phase})
+            holes = ap.joint_holes(joint, parts)
+            joined += [h for h in holes if h.part == joint.panel]
+            # Dowels travel into the side's face holes; screws travel on into the panel's pilots.
+            dowel_axis = next(h.axis for h in holes if h.part == joint.side and h.kind == "dowel")
+            screw_axis = next(h.axis for h in holes if h.part == joint.panel and h.kind == "pilot")
+            for code, kind, count, phase, axis in (
+                    ("dowel", "dowel", len(joint.dowels), "dowel", dowel_axis),
+                    ("screw-8x2", "screw", len(joint.screws), "screw", screw_axis)):
+                entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": phase,
+                                                   "axes": []})
                 entry["count"] += count
                 entry["nodes"] += [f"{jid}-{kind}-{n}" for n in range(1, count + 1)]
+                _add_unique(entry["axes"], axis)
         for code, count in step.get("fasteners", {}).items():
             if code not in fasteners:
                 errors.append(f"{sid}: unknown fastener code {code}")
-            entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": "screw"})
+            entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": "screw",
+                                               "axes": []})
             entry["count"] += count
         if any(code in kit_holds for code in hardware):
             hold("kit")

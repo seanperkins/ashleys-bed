@@ -32,15 +32,13 @@ def _round(values):
 
 
 def hardware_axis(item, parts):
-    """Scene direction a step's dowels or screws travel in: dowels into the side, screws into the panel."""
-    joints = {node.rsplit("-", 2)[0] for node in item["nodes"]}
-    if not joints:
+    """Scene direction a step's hardware travels in, from the holes it goes into (Fusion axes)."""
+    axes = set(item.get("axes", []))
+    if not axes:
         return None
-    directions = {ap.joint_contact(ap.JOINTS[jid], parts)[1] for jid in joints}
-    if len(directions) != 1:
-        raise ValueError(f"{item['code']} nodes travel in different directions: {sorted(joints)}")
-    d = directions.pop() * (-1 if item["phase"] == "dowel" else 1)
-    return [-d, 0, 0]
+    if len(axes) != 1:
+        raise ValueError(f"{item['code']} items travel in different directions: {sorted(axes)}")
+    return list(glb._normal_to_scene(axes.pop()))
 
 
 def step_records(resolved, parts):

@@ -113,7 +113,7 @@ PILOT_DEPTH = 1.25
 
 @dataclass(frozen=True)
 class Hole:
-    joint: str
+    joint: str  # joint or pattern id
     part: str
     surface: str  # 'face' | 'edge'
     kind: str  # 'dowel' | 'clearance' | 'pilot' | 'transfer' | 'stud'
@@ -128,21 +128,56 @@ class Hole:
     world: object  # (x, y, z) on the part's surface | None
     axis: tuple  # unit vector pointing into the part
     verified: object = None  # page reference for a transcribed pattern
+    located: str = "rule"  # 'rule' | 'rockler' | 'stud' | 'transfer'
+    aligned: bool = False  # position taken from alignment on Rockler's drawing, not a printed dimension
+    example: object = None  # (x, y, z) used only to draw a stud/transfer hole at an example position
 
 
 @dataclass(frozen=True)
 class Joint:
     id: str
-    side: str
-    panel: str
-    band: tuple  # (low, high) up the side, inches
-    dowels: list  # distances from the datum (front edge, y = 16)
+    side: str  # the part that takes the face holes and the screw clearance holes
+    panel: str  # the part whose edge takes the edge dowel holes and the screw pilots
+    dowels: list  # distances from the joint's datum along its run
     screws: list
+    band: object = None  # (low, high) up the side, inches, for joints that must stay inside a band
     hold: object = None  # open-decision id that holds this joint
 
 
+@dataclass(frozen=True)
+class JointGeometry:
+    contact_axis: int  # axis normal to the contact plane
+    contact: float  # the contact plane's coordinate on that axis
+    direction: int  # +1/-1: from the side into the panel along contact_axis
+    run_axis: int  # axis the holes are spaced along
+    datum: float  # coordinate the run is measured from
+    run_sign: int  # +1/-1: direction of increasing distance from the datum
+    centre: tuple  # centre of the contact patch; holes sit on it in the third axis
+    datum_name: str
+
+
+AXIS_NAMES = "xyz"
+# Name of the reference a side's `v` is measured from, by the axis it lies along.
+V_REFERENCE = {0: "end at M01", 1: "wall edge", 2: "bottom end"}
+
+
 def _bookcase_joint(panel, side, band, hold=None):
-    return Joint(f"{panel}-{side}", side, panel, band, [4, 12], [2, 8, 14], hold)
+    return Joint(f"{panel}-{side}", side, panel, [4, 12], [2, 8, 14], band=band, hold=hold)
+
+
+def _side_joint(panel, side):
+    return Joint(f"{panel}-{side}", side, panel, [4, 12], [2, 8, 14])
+
+
+_LENGTHS = {pid: length for pid, _key, _label, _w, length, _t in PART_SPECS}
+
+
+def headboard_joint(panel, side):
+    """A headboard edge into the top or bottom: dowels at 1/4, 1/2, 3/4; screws 3 in from each end and
+    at 1/3 and 2/3 of the run."""
+    run = _LENGTHS[panel]
+    return Joint(f"{panel}-{side}", side, panel, [run / 4, run / 2, 3 * run / 4],
+                 [3, run / 3, 2 * run / 3, run - 3])
 
 
 JOINTS = {j.id: j for j in (
@@ -152,37 +187,69 @@ JOINTS = {j.id: j for j in (
     _bookcase_joint("L07", "L02", (14.0, 14.75), hold="slide"),
     _bookcase_joint("L03", "L01", (63.25, 64.0)),
     _bookcase_joint("L03", "L02", (63.25, 64.0)),
+    _side_joint("M03", "M01"), _side_joint("M04", "M01"), _side_joint("M05", "M01"), _side_joint("M06", "M01"),
+    _side_joint("M03", "M02"), _side_joint("M04", "M02"), _side_joint("M05", "M02"), _side_joint("M06", "M02"),
+    headboard_joint("M05", "M03"),
+    headboard_joint("M06", "M04"),
 )}
 
 
-def joint_contact(joint, parts):
-    """Contact plane x and the direction (+1/-1) from the side into the panel."""
+def joint_geometry(joint, parts):
+    """Where the side meets the panel: the contact plane, the run the holes are spaced along and its datum.
+
+    The parts must meet face to face: touching on one axis with a positive overlap on both others.
+    """
     side, panel = parts[joint.side], parts[joint.panel]
-    if abs(side.max[0] - panel.min[0]) < EPS:
-        return side.max[0], 1
-    if abs(side.min[0] - panel.max[0]) < EPS:
-        return side.min[0], -1
-    raise ValueError(f"{joint.id}: {joint.side} does not touch {joint.panel}")
+    for axis in range(3):
+        if abs(side.max[axis] - panel.min[axis]) < EPS:
+            contact, direction = side.max[axis], 1
+        elif abs(side.min[axis] - panel.max[axis]) < EPS:
+            contact, direction = side.min[axis], -1
+        else:
+            continue
+        others = [k for k in range(3) if k != axis]
+        lo = {k: max(side.min[k], panel.min[k]) for k in others}
+        hi = {k: min(side.max[k], panel.max[k]) for k in others}
+        if any(hi[k] - lo[k] <= EPS for k in others):
+            continue
+        run = max(others, key=lambda k: hi[k] - lo[k])
+        centre = [0.0, 0.0, 0.0]
+        centre[axis] = contact
+        for k in others:
+            centre[k] = (lo[k] + hi[k]) / 2
+        if run == 1:
+            datum, sign, name = hi[run], -1, "front edge"
+        elif run == 2:
+            datum, sign, name = lo[run], 1, "lower end"
+        else:
+            datum, sign, name = lo[run], 1, "end at M01"
+        return JointGeometry(axis, contact, direction, run, datum, sign, tuple(centre), name)
+    raise ValueError(f"{joint.id}: {joint.side} and {joint.panel} do not meet face to face")
 
 
 def joint_holes(joint, parts):
     side, panel = parts[joint.side], parts[joint.panel]
-    x, direction = joint_contact(joint, parts)
-    z = panel.centre[2]
-    front = side.max[1]
-    into_side, into_panel = (-direction, 0, 0), (direction, 0, 0)
+    g = joint_geometry(joint, parts)
+    third = 3 - g.contact_axis - g.run_axis
+    into_side, into_panel = [0, 0, 0], [0, 0, 0]
+    into_side[g.contact_axis], into_panel[g.contact_axis] = -g.direction, g.direction
+    into_side, into_panel = tuple(into_side), tuple(into_panel)
     holes = []
 
     def add(part, surface, kind, through, diameter, depth, countersink, distance, axis):
         on_side = part is side
+        world = [0.0, 0.0, 0.0]
+        world[g.contact_axis] = g.contact
+        world[g.run_axis] = g.datum + g.run_sign * distance
+        world[third] = g.centre[third]
         holes.append(Hole(
             joint=joint.id, part=part.id, surface=surface, kind=kind, through=through,
             diameter=diameter, depth=depth, countersink=countersink,
-            ref_edge="front edge",
-            ref_end="bottom end" if on_side else f"end at {joint.side}",
+            ref_edge=g.datum_name,
+            ref_end=V_REFERENCE[third] if on_side else f"end at {joint.side}",
             u=distance,
-            v=(z - part.min[2]),
-            world=(x, front - distance, z), axis=axis))
+            v=(world[third] - part.min[third]),
+            world=tuple(world), axis=axis))
 
     for d in joint.dowels:
         add(side, "face", "dowel", False, DOWEL_DIAMETER, DOWEL_FACE_DEPTH, False, d, into_side)
@@ -230,7 +297,7 @@ def check_holes(holes, parts, held_joints):
     for hole in located:
         errors += _hole_errors(hole, parts[hole.part])
         joint = JOINTS.get(hole.joint)
-        if joint and hole.part == joint.side:
+        if joint and joint.band and hole.part == joint.side:
             low, high = joint.band
             z, r = hole.world[2], hole.diameter / 2
             if z - r < low - EPS or z + r > high + EPS:

@@ -4,6 +4,7 @@ import unittest
 from tests import _paths  # noqa: F401
 import assembly_parts as ap
 
+BOOKCASE = ("L04-L01", "L04-L02", "L07-L01", "L07-L02", "L03-L01", "L03-L02")
 
 class JointHoleTest(unittest.TestCase):
     @classmethod
@@ -14,10 +15,12 @@ class JointHoleTest(unittest.TestCase):
         return ap.joint_holes(ap.JOINTS[joint_id], self.parts)
 
     def test_joint_ids(self):
-        self.assertEqual(set(ap.JOINTS), {"L04-L01", "L04-L02", "L07-L01", "L07-L02", "L03-L01", "L03-L02"})
+        self.assertTrue(set(BOOKCASE) <= set(ap.JOINTS))
+        self.assertEqual({j for j in ap.JOINTS if j.startswith("L")}, set(BOOKCASE))
 
     def test_joint_hole_set(self):
-        for jid, joint in ap.JOINTS.items():
+        for jid in BOOKCASE:
+            joint = ap.JOINTS[jid]
             holes = self.holes(jid)
             side = [h for h in holes if h.part == joint.side]
             panel = [h for h in holes if h.part == joint.panel]
@@ -68,7 +71,7 @@ class JointHoleTest(unittest.TestCase):
         self.assertEqual([h for h in right if h.part == "L04"][0].ref_end, "end at L02")
 
     def test_bands(self):
-        holes = [h for jid in ap.JOINTS for h in self.holes(jid)]
+        holes = [h for jid in BOOKCASE for h in self.holes(jid)]
         self.assertEqual(ap.check_holes(holes, self.parts, set()), [])
         moved = dataclasses.replace(holes[0], world=(holes[0].world[0], holes[0].world[1], 4.0))
         errors = ap.check_holes([moved] + holes[1:], self.parts, set())
