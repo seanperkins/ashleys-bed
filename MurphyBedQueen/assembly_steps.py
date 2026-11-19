@@ -431,7 +431,7 @@ BOOKCASE_STEPS = [
         "adds": [], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
         "move": [0, -1, 0],
-        "camera": {"azimuth": 30, "elevation": 20, "target": "L03"},
+        "camera": {"azimuth": 30, "elevation": 20, "target": "L03", "stages": ["bed-cabinet", "bookcase"]},
         "text": ["Stand the bookcase with L01 against the bed's left side M02 and fix it to the wall."],
         "warnings": ["A tall bookcase must be restrained before use."],
         "hold": "restraint", "requires": ["bookcase-right-side", "bed-wall-brackets"], "source": None,

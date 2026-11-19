@@ -46556,7 +46556,11 @@
   "camera": {
    "azimuth": 30,
    "elevation": 20,
-   "target": "L03"
+   "target": "L03",
+   "stages": [
+    "bed-cabinet",
+    "bookcase"
+   ]
   },
   "text": [
    "Stand the bookcase with L01 against the bed's left side M02 and fix it to the wall."

@@ -154,6 +154,11 @@ class BedStepTest(unittest.TestCase):
         for sid, record in self.records.items():
             self.assertEqual(record["stage"], self.by_id[sid].step["stage"], sid)
 
+    def test_place_frames_both_cabinets(self):
+        # the bookcase is placed beside the bed, so that step frames both; the others frame their own stage
+        self.assertEqual(sorted(self.records["bookcase-place"]["camera"]["stages"]), ["bed-cabinet", "bookcase"])
+        self.assertNotIn("stages", self.records["bookcase-top"]["camera"])
+
     def test_countersink_face(self):
         for sid, part in (("bed-top-headboard", "m03"), ("bed-bottom-headboard", "m04")):
             text = self.words(sid)
