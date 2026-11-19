@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 import assembly_parts as ap
 import assembly_steps as st
 
-STEP_KEYS = {"id", "assembly", "title", "adds", "joints", "fasteners", "consumables", "drill", "pose",
+STEP_KEYS = {"id", "stage", "title", "adds", "joints", "fasteners", "consumables", "drill", "pose",
              "move", "camera", "text", "warnings", "hold", "requires", "source"}
 
 
@@ -115,7 +115,7 @@ def fastener_totals(resolved, parts):
     for rs in resolved:
         for item in rs.hardware:
             per = totals.setdefault(item["code"], {})
-            per[rs.step["assembly"]] = per.get(rs.step["assembly"], 0) + item["count"]
+            per[rs.step["stage"]] = per.get(rs.step["stage"], 0) + item["count"]
     return totals
 
 
@@ -128,8 +128,8 @@ def validate(resolved, parts, fasteners, decisions=None):
         if sid in ids:
             errors.append(f"{sid}: duplicate step id")
         ids.add(sid)
-        if step.get("assembly") not in {"bed", "bookcase"}:
-            errors.append(f"{sid}: unknown assembly {step.get('assembly')}")
+        if "stage" in step and step["stage"] not in ap.STAGES:
+            errors.append(f"{sid}: unknown stage {step['stage']}")
         if step.get("hold") and step["hold"] not in ap.DECISION_IDS:
             errors.append(f"{sid}: hold names unknown decision {step['hold']}")
         for c in step.get("consumables", []):
@@ -140,7 +140,7 @@ def validate(resolved, parts, fasteners, decisions=None):
                 errors.append(f"{sid}: {pid} added more than once (first in {added[pid]})")
             added.setdefault(pid, sid)
     for pid, part in parts.items():
-        if part.assembly in st.ACTIVE_ASSEMBLIES and pid not in added:
+        if part.stage in st.ACTIVE_STAGES and pid not in added:
             errors.append(f"{pid} is never added")
     for decision in sorted(set(decisions) - ap.DECISION_IDS):
         errors.append(f"OPEN_DECISIONS has {decision}, which is missing from DECISION_IDS in assembly_parts.py")
@@ -153,7 +153,7 @@ def validate(resolved, parts, fasteners, decisions=None):
     held_joints = {j.id for j in ap.JOINTS.values() if j.hold in decisions}
     holes = [h for rs in resolved for h in rs.drilled + rs.joined]
     errors += ap.check_holes(holes, parts, held_joints)
-    totals = {code: {a: n for a, n in per.items() if a in st.ACTIVE_ASSEMBLIES}
+    totals = {code: {a: n for a, n in per.items() if a in st.ACTIVE_STAGES}
               for code, per in fastener_totals(resolved, parts).items()}
-    errors += ap.check_fasteners(totals, fasteners, st.ACTIVE_ASSEMBLIES)
+    errors += ap.check_fasteners(totals, fasteners, st.ACTIVE_STAGES)
     return errors

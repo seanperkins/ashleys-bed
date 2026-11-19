@@ -15,6 +15,14 @@ ROOT = Path(__file__).resolve().parents[1]
 GEOMETRY = ROOT / "output" / "drawing-geometry.json"
 
 NATURAL_PARTS = {"L11", "L12", "L13", "L14", "L15"}
+CABINET_PARTS = {"M01", "M02", "M03", "M04", "M05", "M06"}
+STAGES = ("bed-cabinet", "bed-mechanism", "bookcase")
+
+
+def part_stage(pid):
+    if pid.startswith("L"):
+        return "bookcase"
+    return "bed-cabinet" if pid in CABINET_PARTS else "bed-mechanism"
 FINISH_COLOURS = {"navy": "#182B49", "natural": "rgb(217,191,151)"}
 
 
@@ -27,6 +35,7 @@ class Part:
     max: tuple
     stock: float
     finish: str  # 'navy' | 'natural'
+    stage: str  # 'bookcase' | 'bed-cabinet' | 'bed-mechanism'
 
     @property
     def centre(self):
@@ -74,6 +83,7 @@ def load_parts(geometry=GEOMETRY):
             max=tuple(float(v) for v in body["max"]),
             stock=thickness,
             finish="natural" if pid in NATURAL_PARTS else "navy",
+            stage=part_stage(pid),
         )
     if set(parts) != {spec[0] for spec in PART_SPECS}:
         raise ValueError("drawing-geometry.json does not hold all 27 parts")
@@ -250,11 +260,17 @@ FASTENER_GROUP = "Fasteners and adhesives"
 KIT_FASTENERS = ("T", "U", "V", "W", "Z", "AA", "BB", "DD", "EE", "FF", "II", "JJ", "KK", "OO")
 CONSUMABLES = {"glue": "Wood glue", "threadlocker": "Removable threadlocker"}
 
-# BOM Item -> (code, name, source, used per assembly)
+# Kit codes fitted while building the bed cabinet; every other kit code belongs to the mechanism.
+KIT_STAGE = {"T": "bed-cabinet", "U": "bed-cabinet", "KK": "bed-cabinet", "II": "bed-cabinet",
+             "JJ": "bed-cabinet"}
+
+# BOM Item -> (code, name, source, used per stage)
 BOM_FASTENERS = {
-    "3/8 x 1-1/2-inch dowels": ("dowel", "3/8 x 1-1/2 in dowel", "bought", {"bed": 22, "bookcase": 12}),
-    "#8 x 2-inch wood/cabinet screws": ("screw-8x2", "#8 x 2 in screw", "bought", {"bed": 32, "bookcase": 18}),
-    "#8 x 1-1/4-inch wood screws": ("screw-8x1.25", "#8 x 1-1/4 in screw", "bought", {"bed": 4}),
+    "3/8 x 1-1/2-inch dowels": ("dowel", "3/8 x 1-1/2 in dowel", "bought",
+                                {"bed-cabinet": 22, "bookcase": 12}),
+    "#8 x 2-inch wood/cabinet screws": ("screw-8x2", "#8 x 2 in screw", "bought",
+                                        {"bed-cabinet": 32, "bookcase": 18}),
+    "#8 x 1-1/4-inch wood screws": ("screw-8x1.25", "#8 x 1-1/4 in screw", "bought", {"bed-mechanism": 4}),
     "#8 x 1-inch washer-head wood screws": ("screw-8x1-washer", "#8 x 1 in washer-head screw", "bought",
                                             {"bookcase": 4}),
     "#6 x 1-1/4-inch wood screws": ("screw-6x1.25", "#6 x 1-1/4 in screw", "bought", {}),
@@ -269,7 +285,7 @@ class Fastener:
     code: str
     name: str
     source: str  # 'kit' | 'bought' | 'bundled'
-    used: dict  # assembly -> count
+    used: dict  # stage -> count
     bought: int
     supplied: object  # int | None (None = unknown until the hardware is chosen)
 
@@ -329,7 +345,8 @@ def load_fasteners(inventory=INVENTORY, bom=BOM):
                 used, supplied = DISCREPANCIES[code]["used"], DISCREPANCIES[code]["supplied"]
             else:
                 used, supplied = quantity, quantity
-            fasteners[code] = Fastener(code, row["Item"], "kit", {"bed": used}, 0, supplied)
+            stage = KIT_STAGE.get(code, "bed-mechanism")
+            fasteners[code] = Fastener(code, row["Item"], "kit", {stage: used}, 0, supplied)
     missing = set(KIT_FASTENERS) - set(fasteners)
     if missing:
         raise ValueError(f"Kit inventory is missing fastener codes: {sorted(missing)}")
@@ -352,19 +369,19 @@ def load_fasteners(inventory=INVENTORY, bom=BOM):
     return fasteners
 
 
-def check_fasteners(totals, fasteners, assemblies):
-    """totals: code -> {assembly: count} summed over every step."""
+def check_fasteners(totals, fasteners, stages):
+    """totals: code -> {stage: count} summed over every step."""
     errors = []
     for code in sorted(set(totals) - set(fasteners)):
         errors.append(f"Unknown fastener code {code}")
     for code, entry in fasteners.items():
-        if not any(a in entry.used for a in assemblies):
-            continue  # HOLD-only or inactive-assembly entries are checked when they become active
-        for assembly in sorted(assemblies):
-            want = entry.used.get(assembly, 0)
-            got = totals.get(code, {}).get(assembly, 0)
+        if not any(a in entry.used for a in stages):
+            continue  # HOLD-only or inactive-stage entries are checked when they become active
+        for stage in sorted(stages):
+            want = entry.used.get(stage, 0)
+            got = totals.get(code, {}).get(stage, 0)
             if got != want:
-                errors.append(f"{code}: steps use {got} in the {assembly}, expected {want}")
+                errors.append(f"{code}: steps use {got} in the {stage}, expected {want}")
         if code in DISCREPANCIES:
             continue  # a kit shortfall is a HOLD banner (discrepancy_holds), not a build error
         if entry.supplied is None:

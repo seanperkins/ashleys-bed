@@ -6,7 +6,7 @@ To resolve an open decision, edit the joint/step data here and in assembly_parts
 entry from OPEN_DECISIONS: the HOLD disappears.
 """
 
-ACTIVE_ASSEMBLIES = {"bookcase"}
+ACTIVE_STAGES = {"bookcase"}
 
 BOOKCASE_OUTER_X = 116.75  # the outer face of L02
 BENCH_OFFSETS = {"bench-1": 30.0, "bench-2": 50.0}
@@ -60,7 +60,7 @@ TEST_DEPTH = "Set the depth stop and test every hole size on scrap first."
 
 STEPS = [
     {
-        "id": "bookcase-drill", "assembly": "bookcase",
+        "id": "bookcase-drill", "stage": "bookcase",
         "title": "Drill the bottom and top joint holes in both sides",
         "adds": ["L01", "L02"], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [{"joint": "L04-L01", "part": "L01"}, {"joint": "L03-L01", "part": "L01"},
@@ -78,7 +78,7 @@ STEPS = [
         "hold": None, "requires": [], "source": None,
     },
     {
-        "id": "bookcase-drill-shelf", "assembly": "bookcase",
+        "id": "bookcase-drill-shelf", "stage": "bookcase",
         "title": "Drill the fixed-shelf joint holes in both sides",
         "adds": [], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [{"joint": "L07-L01", "part": "L01"}, {"joint": "L07-L02", "part": "L02"}],
@@ -93,7 +93,7 @@ STEPS = [
         "hold": None, "requires": ["bookcase-drill"], "source": None,
     },
     {
-        "id": "bookcase-bottom", "assembly": "bookcase",
+        "id": "bookcase-bottom", "stage": "bookcase",
         "title": "Fix the bottom L04 to the side against the bed, L01",
         "adds": ["L04"], "joints": ["L04-L01"], "fasteners": {}, "consumables": ["glue"],
         "drill": [], "pose": {"L01": "installed"},
@@ -109,7 +109,7 @@ STEPS = [
         "hold": None, "requires": ["bookcase-drill"], "source": None,
     },
     {
-        "id": "bookcase-plinth", "assembly": "bookcase",
+        "id": "bookcase-plinth", "stage": "bookcase",
         "title": "Fit the recessed plinth L05 under the bottom",
         "adds": ["L05"], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
@@ -120,7 +120,7 @@ STEPS = [
         "hold": "plinth", "requires": ["bookcase-bottom"], "source": None,
     },
     {
-        "id": "bookcase-shelf", "assembly": "bookcase",
+        "id": "bookcase-shelf", "stage": "bookcase",
         "title": "Fix the shelf above the drawer, L07, to L01",
         "adds": ["L07"], "joints": ["L07-L01"], "fasteners": {}, "consumables": ["glue"],
         "drill": [], "pose": {},
@@ -135,7 +135,7 @@ STEPS = [
         "hold": None, "requires": ["bookcase-drill-shelf", "bookcase-bottom"], "source": None,
     },
     {
-        "id": "bookcase-top", "assembly": "bookcase",
+        "id": "bookcase-top", "stage": "bookcase",
         "title": "Fix the top L03 to L01",
         "adds": ["L03"], "joints": ["L03-L01"], "fasteners": {}, "consumables": ["glue"],
         "drill": [], "pose": {},
@@ -150,7 +150,7 @@ STEPS = [
         "hold": None, "requires": ["bookcase-bottom"], "source": None,
     },
     {
-        "id": "bookcase-right-side", "assembly": "bookcase",
+        "id": "bookcase-right-side", "stage": "bookcase",
         "title": "Fit the outer end L02 over the bottom, shelf and top",
         "adds": [], "joints": ["L04-L02", "L07-L02", "L03-L02"], "fasteners": {}, "consumables": ["glue"],
         "drill": [], "pose": {"L02": "installed"},
@@ -165,7 +165,7 @@ STEPS = [
         "hold": None, "requires": ["bookcase-shelf", "bookcase-top"], "source": None,
     },
     {
-        "id": "bookcase-back", "assembly": "bookcase",
+        "id": "bookcase-back", "stage": "bookcase",
         "title": "Fit the back L06",
         "adds": ["L06"], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
@@ -176,7 +176,7 @@ STEPS = [
         "hold": "back", "requires": ["bookcase-right-side"], "source": None,
     },
     {
-        "id": "bookcase-drawer-box", "assembly": "bookcase",
+        "id": "bookcase-drawer-box", "stage": "bookcase",
         "title": "Build the drawer box L11 to L15",
         "adds": ["L11", "L12", "L13", "L14", "L15"], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
@@ -188,7 +188,7 @@ STEPS = [
         "hold": "drawer-box", "requires": ["bookcase-right-side"], "source": None,
     },
     {
-        "id": "bookcase-slides", "assembly": "bookcase",
+        "id": "bookcase-slides", "stage": "bookcase",
         "title": "Fit the slides, the drawer box and the drawer face L16",
         "adds": ["L16"], "joints": [], "fasteners": {"screw-8x1-washer": 4}, "consumables": [],
         "drill": [], "pose": {},
@@ -202,7 +202,7 @@ STEPS = [
         "hold": "slide", "requires": ["bookcase-right-side", "bookcase-drawer-box"], "source": None,
     },
     {
-        "id": "bookcase-drawer-pull", "assembly": "bookcase",
+        "id": "bookcase-drawer-pull", "stage": "bookcase",
         "title": "Fit the drawer pull",
         "adds": [], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
@@ -213,7 +213,7 @@ STEPS = [
         "hold": "pulls", "requires": ["bookcase-right-side", "bookcase-slides"], "source": None,
     },
     {
-        "id": "bookcase-shelves", "assembly": "bookcase",
+        "id": "bookcase-shelves", "stage": "bookcase",
         "title": "Drill the shelf-pin holes and set the shelves L08 to L10",
         "adds": ["L08", "L09", "L10"], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},
@@ -224,7 +224,7 @@ STEPS = [
         "hold": "shelf-pins", "requires": ["bookcase-right-side"], "source": None,
     },
     {
-        "id": "bookcase-place", "assembly": "bookcase",
+        "id": "bookcase-place", "stage": "bookcase",
         "title": "Place the bookcase beside the bed and restrain it to the wall",
         "adds": [], "joints": [], "fasteners": {}, "consumables": [],
         "drill": [], "pose": {},

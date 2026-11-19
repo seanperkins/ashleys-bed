@@ -46,6 +46,7 @@ class PartCatalogueTest(unittest.TestCase):
     def test_assembly(self):
         for pid, part in self.parts.items():
             self.assertEqual(part.assembly, "bed" if pid.startswith("M") else "bookcase")
+            self.assertEqual(part.stage, ap.part_stage(pid))
 
     def test_stop_stock(self):
         self.assertEqual(self.parts["M07"].stock, 0.625)

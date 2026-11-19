@@ -202,7 +202,7 @@ class _Writer:
 def build_glb(parts, resolved):
     writer = _Writer()
     for pid, part in parts.items():
-        material = part.finish if part.assembly in st.ACTIVE_ASSEMBLIES else "context"
+        material = part.finish if part.stage in st.ACTIVE_STAGES else "context"
         writer.add(pid, box_mesh(part.min, part.max), material)
     for rs in resolved:
         for jid in rs.step["joints"]:

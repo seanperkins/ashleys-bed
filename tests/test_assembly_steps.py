@@ -27,7 +27,7 @@ class StepTest(unittest.TestCase):
 
     def test_bookcase_step_order(self):
         self.assertEqual([s["id"] for s in st.STEPS], ORDER)
-        self.assertEqual(st.ACTIVE_ASSEMBLIES, {"bookcase"})
+        self.assertEqual(st.ACTIVE_STAGES, {"bookcase"})
 
     def test_completeness_active_only(self):
         added = [p for s in st.STEPS for p in s["adds"]]

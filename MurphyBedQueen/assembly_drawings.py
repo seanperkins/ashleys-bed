@@ -123,7 +123,7 @@ def step_svg(index, resolved, parts):
     body += banner
     y += h + 8
     drilled = {h.part for h in rs.drilled}
-    visible = [pid for pid in rs.poses if parts[pid].assembly == step["assembly"]
+    visible = [pid for pid in rs.poses if parts[pid].stage == step["stage"]
                and (rs.poses[pid] == "installed" or pid in _moving(rs) or pid in drilled)]
     boxes = {pid: drawn_box(parts[pid], rs, pid) for pid in visible}
     moving = _moving(rs)

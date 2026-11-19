@@ -23,8 +23,8 @@ class FastenerTest(unittest.TestCase):
             self.assertEqual(self.fasteners[code].source, "kit", code)
         self.assertEqual(self.fasteners["KK"].supplied, 12)
         self.assertEqual(self.fasteners["OO"].supplied, 0)
-        self.assertEqual(self.fasteners["OO"].used, {"bed": 4})
-        self.assertEqual(self.fasteners["W"].used, {"bed": 88})
+        self.assertEqual(self.fasteners["OO"].used, {"bed-mechanism": 4})
+        self.assertEqual(self.fasteners["W"].used, {"bed-mechanism": 88})
         self.assertNotIn("A1", self.fasteners)
 
     def test_bought_codes(self):
@@ -34,8 +34,8 @@ class FastenerTest(unittest.TestCase):
             self.assertEqual(self.fasteners[code].source, "bought")
 
     def test_used_bookcase(self):
-        self.assertEqual(self.fasteners["dowel"].used, {"bed": 22, "bookcase": 12})
-        self.assertEqual(self.fasteners["screw-8x2"].used, {"bed": 32, "bookcase": 18})
+        self.assertEqual(self.fasteners["dowel"].used, {"bed-cabinet": 22, "bookcase": 12})
+        self.assertEqual(self.fasteners["screw-8x2"].used, {"bed-cabinet": 32, "bookcase": 18})
         self.assertEqual(self.fasteners["screw-6x1.25"].used, {})
 
     def test_check_passes_bookcase(self):
