@@ -91,7 +91,7 @@
   "hardware": [
    {
     "code": "T",
-    "name": "T",
+    "name": "Threaded insert",
     "count": 16,
     "nodes": [
      "inserts-M01-T-1",
@@ -198,7 +198,7 @@
    },
    {
     "code": "U",
-    "name": "U",
+    "name": "M8 x 16 mm screw",
     "count": 16,
     "nodes": [
      "inserts-M01-U-1",
@@ -7870,7 +7870,7 @@
   "hardware": [
    {
     "code": "KK",
-    "name": "KK",
+    "name": "1/4 x 3-inch washer-head lag bolt",
     "count": 6,
     "nodes": [
      "lag-M05-KK-1",
@@ -9735,7 +9735,7 @@
   "hardware": [
    {
     "code": "II",
-    "name": "II",
+    "name": "1/4-20 x 30 mm Allen-head screw",
     "count": 3,
     "nodes": [
      "brackets-M03-II-1",
@@ -9751,7 +9751,7 @@
    },
    {
     "code": "JJ",
-    "name": "JJ",
+    "name": "#12 x 3/4-inch washer-head screw",
     "count": 6,
     "nodes": [
      "brackets-M03-JJ-1",
@@ -9770,7 +9770,7 @@
    },
    {
     "code": "KK",
-    "name": "KK",
+    "name": "1/4 x 3-inch washer-head lag bolt",
     "count": 6,
     "nodes": [
      "brackets-M03-KK-1",

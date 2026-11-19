@@ -49,7 +49,7 @@ def _hardware_record(item, parts, names):
 
 
 def step_records(resolved, parts):
-    names = {code: name for code, name in dr.FASTENER_NAMES.items()}
+    names = dr.fastener_names()
     records = []
     for i, rs in enumerate(resolved):
         step = rs.step
