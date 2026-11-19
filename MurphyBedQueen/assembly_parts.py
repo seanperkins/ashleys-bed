@@ -373,3 +373,32 @@ def check_fasteners(totals, fasteners, assemblies):
             errors.append(f"{code}: used {sum(entry.used.values())} exceeds bought {entry.bought} "
                           f"+ supplied {entry.supplied}")
     return errors
+
+
+# ---------------------------------------------------------------------------
+# Open decisions (each shows as a HOLD until the owner records it in this data)
+
+OPEN_DECISIONS = {
+    "back": "Back L06 attachment not decided (inset with cleats and screws, rabbet or groove).",
+    "slide": ("Drawer-slide model not chosen. It sets the slide screw pattern, the drawer-box clearance "
+              "and the space under the fixed shelf L07."),
+    "shelf-pins": "Shelf-pin hole layout not decided (rows, spacing, setback; outside the joint bands).",
+    "restraint": "Wall restraint for the bookcase not chosen (hardware and position).",
+    "plinth": "Plinth L05 attachment to the bottom L04 and the sides not decided.",
+    "drawer-box": "Drawer box joints (L11-L14) and the drawer-bottom L15 support not decided.",
+    "pulls": ("Pulls not chosen: model, fixing screws, height and edge offset, hole centres and "
+              "clearance."),
+    "pilot-depth": ("Rockler's 5/8 in blind holes leave about 0.08 in in 0.703 in stock; the guide "
+                    "proposes 1/2 in. Owner to confirm."),
+    "screw-tips": ("Screw-tip clearance: proposed #8 x 1-1/8 in screws for the stop M07; JJ screws "
+                   "checked against the bracket thickness. Owner to confirm."),
+    "kit": "Kit fastener discrepancies to confirm with Rockler (BB length, W count, OO nuts).",
+}
+
+# Parts whose own fixing is undecided: any step that adds them is held.
+PART_HOLDS = {
+    "L05": "plinth", "L06": "back",
+    "L08": "shelf-pins", "L09": "shelf-pins", "L10": "shelf-pins",
+    "L11": "drawer-box", "L12": "drawer-box", "L13": "drawer-box", "L14": "drawer-box",
+    "L15": "drawer-box", "L16": "slide",
+}
