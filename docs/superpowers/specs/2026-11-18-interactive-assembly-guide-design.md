@@ -93,7 +93,8 @@ Units and their single jobs:
 
 - `site/build.py` imports `generate_assembly_guide.generate(staging_dir)` and calls it directly (no
   subprocess). Any exception stops the build with a non-zero exit.
-- Every output lives in one directory, `output/assembly-guide/`. The generator writes a fresh sibling
+- The generator CLI writes its outputs to one directory, `output/assembly-guide/`; `site/build.py` calls
+  `generate()` with a directory inside its own site staging dir and never writes to `output/`. The generator writes a fresh sibling
   staging directory, validates the complete set (every step's SVG exists and parses, the GLB parses and
   has every expected node, the JSON matches the step list), then swaps it in: rename the current
   directory to a backup (skipped on a clean checkout where none exists yet), rename staging into place,
