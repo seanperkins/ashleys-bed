@@ -16,7 +16,8 @@ These are built into the Fusion model, cut list, DXFs and drawings. They assume 
 
 - **Adjustable shelves 1–3:** 15¾ × 28⅜ in, giving 1/16 in clearance per side between the bookcase's 28½ in sides so they can be placed on pins. The fixed shelf above the drawer stays 28½ in.
 - **Bookcase back:** ¼ × 28 7/16 × 59 15/16 in, giving 1/32 in clearance per edge where it sits inside the carcass. Resize it if the back is set into rabbets or grooves instead.
-- **Left-bookcase joinery (¾ in parts):** the top, bottom and fixed shelf are joined to the sides like the bed's side joints: each of the six joints gets 2 glued 3/8 × 1½ in dowels plus 3 #8 × 2 in screws through the side into the panel edge, so every part is cut to its finished size (top, bottom and fixed shelf 28½ in). Drill the dowel holes ½ in deep into the side's inside face (not Rockler's ⅝ in: the stock is only 0.703–0.714 in) and 1 1/16 in deep into the panel edge. Suggested spots from the front edge: dowels at 4 and 12 in, screws at 2, 8 and 14 in. These holes sit only in three separate ¾ in bands on each side, one per panel, measured up from the bottom of the side: bottom panel 2½–3¼ in, fixed shelf 14–14¾ in, top 63¼–64 in (heights from the Fusion model). Keep shelf-pin rows and slide screws out of those bands. Dowel, screw and 5 mm shelf-pin holes are drilled by hand. Confirm the drawer slide before drilling the fixed shelf's dowel holes (it sits 14 in up).
+- **Left-bookcase joinery (¾ in parts):** the top, bottom and fixed shelf are joined to the sides like the bed's side joints: each of the six joints gets 2 glued 3/8 × 1½ in dowels plus 3 #8 × 2 in screws through the side into the panel edge, so every part is cut to its finished size (top, bottom and fixed shelf 28½ in). Drill the dowel holes ½ in deep into the side's inside face (not Rockler's ⅝ in: the stock is only 0.703–0.714 in) and 1 1/16 in deep into the panel edge. Suggested spots from the front edge: dowels at 4 and 12 in, screws at 2, 8 and 14 in. These holes sit only in three separate ¾ in bands on each side, one per panel, measured up from the bottom of the side: bottom panel 2½–3¼ in, fixed shelf 14–14¾ in, top 63¼–64 in (heights from the Fusion model). Keep shelf-pin rows and slide screws out of those bands. L01 (`SC Left side` in the model) sits against the bed's left side M02; L02 is the visible outer end, so fill the screw holes on L02's outer face before painting. Dowel, screw and 5 mm shelf-pin holes are drilled by hand. Confirm the drawer slide before drilling the fixed shelf's dowel holes (it sits 14 in up).
+- **Bed-cabinet dowel holes:** ½ in deep into a side's face (not Rockler's ⅝ in, for the same 0.703–0.714 in stock) and 1 1/16 in deep into the panel edge.
 - **Drawer box:** 27½ in wide in a 28½ in opening, ½ in per side for side-mount slides. Confirm against the chosen slide.
 - **Gas springs (model only):** 14 in cylinder and 13½ in rod, chosen to span the modeled mounts. They are not Rockler's specification.
 
@@ -28,6 +29,15 @@ The website builder uses Python 3.10+ standard library only. No Node packages, A
 python3 site/build.py
 python3 -m http.server 8047 --directory site/_site
 ```
+
+The build also generates the interactive **Step-by-step** page (`build-steps.html`): it calls the assembly-guide generator into its own staging folder, publishes a three.js viewer (vendored, 0.170.0) and a service worker so the guide works offline after one visit. To write the guide's GLB, step JSON and SVG drawings to `output/assembly-guide/` on their own:
+
+```sh
+python3 MurphyBedQueen/generate_assembly_guide.py
+python3 -m unittest discover tests -v
+```
+
+Step content lives in `MurphyBedQueen/assembly_steps.py`; parts, joints, hole rules, fasteners and the open decisions live in `MurphyBedQueen/assembly_parts.py`. A step whose decision is still open shows as **HOLD**; resolve it by editing that data and removing the entry from `OPEN_DECISIONS`.
 
 Open http://localhost:8047. The build checks local links, anchors, duplicate IDs, required downloads and the current model revision. Page links are relative, so the guide works under the GitHub Pages project path.
 
