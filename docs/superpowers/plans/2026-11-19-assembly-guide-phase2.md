@@ -43,7 +43,7 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
   - A2 at 4 in: 5/16 in through;
   - A1 at 4 5/8 in: 13/64 in steel-dowel hole.
   - Blind depth is the proposed 1/2 in under decision `pilot-depth` (Rockler: 5/8 in).
-  - Each bracket takes 2 JJ (A3, A4), 1 II (A2, from below) and 2 KK into the wall.
+  - Each bracket takes 2 JJ (A3, A4), 1 II (A2, from below) and 2 KK into the wall through A5/A6, which are marked through the bracket (no Rockler dimension).
 - Stud-located holes have no cabinet x. Use `EXAMPLE_STUDS = (11.375, 43.375, 75.375)` for 3D placement only, never for checks or dimensions.
 - Stage used quantities, cabinet: dowel 22, `screw-8x2` 32, T 16, U 16, KK 12, II 3, JJ 6. Bookcase: dowel 12, `screw-8x2` 18. Every other kit code and `screw-8x1.25` are `bed-mechanism`.
 - Active stages after this phase: `{'bookcase', 'bed-cabinet'}`. `bed-mechanism` parts (M07–M11) are left out of the GLB and the drawings until Phase 3.
@@ -52,10 +52,10 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
 ## Review Focus
 
 1. A phone that saved `bookcase-top` in Phase 1 opens `bookcase-top`, not whatever is now step N, because steps are remembered by id (Task 7 browser check).
-2. "Show finished" and the bookcase steps never show the M07–M11 door panels across the cabinet front (Task 5 `test_pending_parts_omitted`).
+2. "Show finished" and the bookcase steps never show the M07–M11 door panels across the cabinet front (Task 3 `test_pending_parts_omitted`).
 3. A stud-located hole never shows an x dimension along the cabinet; its drawing says "on each stud line" (Task 6 `test_stud_closeup`).
-4. Moving M01 from the bench to the cabinet carries its plate I-R and its 8 T and 8 U with it (Task 4 `test_host_poses`, Task 7 browser check).
-5. Placing the bookcase before the bed is anchored is never shown as ready (Task 4 `test_place_requires_anchoring`).
+4. Moving M01 from the bench to the cabinet carries its plate I-R and its 8 T and 8 U with it (Task 5 `test_host_poses`, Task 7 browser check).
+5. Placing the bookcase before the bed is anchored is never shown as ready (Task 5 `test_place_requires_anchoring`).
 
 ---
 
@@ -77,7 +77,7 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
   - `test_part_stages`;
   - `test_used_by_stage`: dowel `{'bed-cabinet': 22, 'bookcase': 12}`, T `{'bed-cabinet': 16}`, BB `{'bed-mechanism': 34}`, `screw-8x1.25` `{'bed-mechanism': 4}`;
   - `test_step_stage_key`: an `assembly` key is rejected as an unknown key;
-  - `test_committed_output_matches` (in `tests/test_output_drift.py`): `generate()` into a temp dir equals every file in `output/assembly-guide/` byte for byte, and the file lists match. It passes already: it guards Tasks 1–3, which must not change the output.
+  - `test_committed_output_matches` (in `tests/test_output_drift.py`): `generate()` into a temp dir equals every file in `output/assembly-guide/` byte for byte, and the file lists match. It passes already. Tasks 1, 2 and 4 must not change the output; every task that does change it regenerates and commits `output/assembly-guide/`, so this test stays green throughout.
 - [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_stages -v`. Expect FAIL.
 - [ ] **Step 3: Implement.** `KIT_STAGE = {'T','U','KK','II','JJ'} -> 'bed-cabinet'`; every other kit code goes to `bed-mechanism`. Map the `BOM_FASTENERS` used dicts by stage. Every filter that read `assembly in ACTIVE_ASSEMBLIES` now reads `stage in ACTIVE_STAGES`.
 - [ ] **Step 4: Run** `python3 -m unittest discover tests -v`. Expect all PASS, including the drift test (no output change).
@@ -87,7 +87,7 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
 
 **Files:**
 - Modify `MurphyBedQueen/assembly_parts.py`, `assembly_glb.py` (`hardware_meshes`), `generate_assembly_guide.py` (`hardware_axis`).
-- Test: `tests/test_assembly_joints.py`.
+- Test: `tests/test_assembly_joints.py`, plus `tests/test_assembly_holes.py`: its joint-set and 10-holes-per-joint assertions are limited to the six bookcase joints.
 
 **Interfaces:**
 - Produces:
@@ -98,7 +98,7 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
     - run along z: datum at the min z, "lower end";
     - run along x: datum at the min x, "end at M01".
   - The run axis is the longer of the two overlap extents. Holes are centred on the overlap in the third axis.
-  - `Hole` gains `located: str = 'rule'` (`'rule'|'rockler'|'stud'`), `aligned: bool = False` and `example: tuple|None = None`.
+  - `Hole` gains `located: str = 'rule'` (`'rule'|'rockler'|'stud'|'transfer'`), `aligned: bool = False` and `example: tuple|None = None`.
   - `headboard_joint(panel, side)` computes the fraction positions from the run length.
   - `JOINTS` adds `M03-M01, M04-M01, M05-M01, M06-M01, M03-M02, M04-M02, M05-M02, M06-M02, M05-M03, M06-M04`.
   - `hardware_axis` reads the axis from the hardware item's holes, no longer by parsing node names.
@@ -111,33 +111,39 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
   - `test_bed_mirror`: the M0x-M01 and M0x-M02 holes mirror about `x = 43.375`.
   - `test_bed_checks_pass`: `check_holes` over all 10 bed joints returns `[]`.
   - `test_bed_counts`: the 10 joints sum to 22 dowels and 32 screws.
-  - `test_no_contact`: a joint between parts that do not touch raises `ValueError` naming both.
+  - `test_no_contact`: a joint between parts that do not touch, or that touch only along an edge or at a corner, raises `ValueError` naming both.
 - [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_joints -v`. Expect FAIL.
-- [ ] **Step 3: Implement.** Find the contact axis where `side.max == panel.min` or `side.min == panel.max` and the other two extents overlap. `ref_edge` and `ref_end` come from the datum name, and `u` is the distance from the datum along the run. `hardware_meshes` uses `joint_geometry` instead of the fixed x axis. `check_holes` checks bands only when `joint.band` is set.
+- [ ] **Step 3: Implement.** Find the contact axis where `side.max == panel.min` or `side.min == panel.max` and both other extents overlap by a positive length. `ref_edge` and `ref_end` come from the datum name, and `u` is the distance from the datum along the run. `hardware_meshes` uses `joint_geometry` instead of the fixed x axis. `check_holes` checks bands only when `joint.band` is set.
 - [ ] **Step 4: Run** `python3 -m unittest discover tests -v`. Expect all PASS, with the drift test still identical.
 - [ ] **Step 5: Commit** `feat: general joint geometry and the bed cabinet joints`.
 
-### Task 3: Hole patterns and steel shapes
+### Task 3: Hole patterns, steel shapes and pending parts
 
 **Files:**
-- Modify `MurphyBedQueen/assembly_parts.py`.
-- Test: `tests/test_assembly_patterns.py`.
+- Modify `MurphyBedQueen/assembly_parts.py`, `assembly_glb.py` (`build_glb`), `generate_assembly_guide.py` (`check_outputs`), and `output/assembly-guide/` (regenerated).
+- Test: `tests/test_assembly_patterns.py`, `tests/test_assembly_parts.py` (part count), `tests/test_assembly_glb.py`.
 
 **Interfaces:**
 - Produces:
   - `Pattern(id, part, holes: list[Hole], hardware: list[Fixing], hold=None, source: str)`.
-  - `Fixing(code, kind, at)`: `kind` is a glyph name (`'insert'|'screw'|'lag'|'bolt'`). `at` is `'all'` (one node per hole), a tuple of hole names (one node per named hole, per stud), or `'wall'` (2 nodes per stud on the bracket's wall leg, A5/A6, no cabinet hole).
-  - `Hole` gains `name: str | None` (`'A1'`…`'A4'` on bracket holes).
+  - `Fixing(code, kind, at)`. `kind` is a glyph name: `'insert'|'screw'|'lag'|'bolt'`. `at` is either `'all'` (one node per hole) or a tuple of hole names (one node per named hole, per stud).
+  - `Hole` gains `name: str | None` (`'A1'`…`'A6'` on bracket holes).
   - `PATTERNS`:
     - `inserts-M01`, `inserts-M02`: T and U per hole;
     - `lag-M05`, `lag-M06`: KK per stud;
-    - `brackets-M03`: holes A1–A4 per stud. Hardware: `Fixing('II','bolt',('A2',))`, `Fixing('JJ','screw',('A3','A4'))`, `Fixing('KK','lag','wall')`. A1 takes the bracket's own steel dowel.
+    - `brackets-M03`: holes A1–A6 per stud, with `Fixing('II','bolt',('A2',))`, `Fixing('JJ','screw',('A3','A4'))` and `Fixing('KK','lag',('A5','A6'))`. A1 takes the bracket's own steel dowel.
+  - A5 and A6 are wall holes:
+    - `part='wall'`, `located='transfer'`, 3/16 in pilots, marked through the fitted bracket (Rockler gives no dimension);
+    - their `example` is on the bracket leg at the stud, `y = 0`, at `z = 65.0` (A5) and `z = 66.5` (A6);
+    - `check_holes` skips `part='wall'` holes.
   - `pattern_holes(pattern_id, parts) -> list[Hole]`.
   - `STEEL`: a dict of `Part`-compatible entries with `finish='steel'`, `stage='bed-cabinet'`, `host: str`, `boxes: list[(lo, hi)]` and `representative: bool`:
     - `I-R` on M01 and `I-L` on M02: a column `u` 8.75–10.125 and `v` 10.875–31.0, plus a foot `u` 2.5–10.125 and `v` 10.875–12.25, 3/16 in thick on the inside face;
     - `HH-1`…`HH-3` at the example studs: a foot 1 1/4 wide × 5 1/4 from the wall on M03's top, and a leg 3 in up the wall, both 3/16 thick.
   - `load_parts()` includes `STEEL`. Wood parts get `boxes = [(min, max)]` and `host = None`.
-  - `KK` in `brackets-M03` has no cabinet hole. Its nodes are placed at the wall, and the step counts them.
+  - `PENDING_STAGES = {'bed-mechanism'}`.
+  - `build_glb` omits pending-stage parts. It writes multi-box meshes, and material `steel` = `[0.55, 0.57, 0.6, 1]` for steel in an active stage, `context` otherwise.
+  - `check_outputs` expects only the parts the GLB emits.
 
 - [ ] **Step 1: Write the failing tests.**
   - `test_insert_pattern`: 8 holes per side, at the Global Constraints values. The M01 and M02 sets have identical `(u, v)`. Each hole is 27/64 × 9/16 and leaves 0.1405 in. Exactly the 5 alignment holes have `aligned=True`. All carry `verified='Rockler p. 8'`.
@@ -146,29 +152,59 @@ Hardware inherits its host part's pose, so a plate fitted on the bench travels w
   - `test_bracket_pattern`:
     - A1–A4 at `v` 4.625, 4.0, 2.75 and 1.5 from the wall;
     - A1, A3 and A4 blind at 1/2 in (leaves 0.203), A2 through;
-    - all `located='stud'`;
+    - A5 and A6 are wall transfer holes at distinct examples;
     - the pattern hold is `pilot-depth`.
   - `test_stud_holes_skip_spacing_and_position`: `check_holes` on stud holes runs only the wall rule. A stud hole 5/8 in deep in M03 reports "less than 1/8 in".
-  - `test_steel_shapes`: `I-R` and `I-L` lie on their side's inside face within the side's outline. `HH-n` sits on M03's top at `z = 64`, against the wall. Every steel part has `representative=True` and `finish='steel'`.
-- [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_patterns -v`. Expect FAIL.
-- [ ] **Step 3: Implement.** Stud holes keep `world=None` and `u=None`; `v` is the fixed offset (from the wall, or from the headboard's top or bottom); `example` is the 3D position at the example stud. In `check_holes`, holes with `world=None` get only the depth/wall rule (face holes against `drilling_thickness`).
-- [ ] **Step 4: Run** `python3 -m unittest discover tests -v`. Expect all PASS.
-- [ ] **Step 5: Commit** `feat: Rockler insert pattern, stud-located anchoring holes and steel shapes`.
+  - `test_steel_shapes`: `I-R` and `I-L` lie on their side's inside face within the side's outline. `HH-n` sits on M03's top at `z = 64`, against the wall. Every steel part has `representative=True`.
+  - `test_part_count` (in `test_assembly_parts`): 27 wood + 5 steel.
+  - `test_pending_parts_omitted` (in `test_assembly_glb`): no M07–M11 node; the steel nodes are present.
+- [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_patterns tests.test_assembly_glb -v`. Expect FAIL.
+- [ ] **Step 3: Implement.** Stud holes keep `world=None` and `u=None`; `v` is the fixed offset (from the wall, or from the headboard's top or bottom); `example` is the 3D position at the example stud. In `check_holes`, holes with `world=None` get only the depth/wall rule (face holes against `drilling_thickness`), and wall holes get none.
+- [ ] **Step 4: Regenerate** with `python3 MurphyBedQueen/generate_assembly_guide.py`. The GLB changes: M07–M11 drop out and 5 context steel nodes appear. Then run `python3 -m unittest discover tests -v` and expect all PASS, drift test included.
+- [ ] **Step 5: Commit** `feat: Rockler insert pattern, stud-located anchoring holes, steel shapes; pending parts left out`.
 
-### Task 4: Bed cabinet steps, host poses and holds
+### Task 4: GLB hardware for patterns
 
 **Files:**
-- Modify `MurphyBedQueen/assembly_steps.py`, `assembly_guide.py`.
-- Test: `tests/test_bed_steps.py`, plus updates to `tests/test_assembly_steps.py` and to the hold count in `test_generate_assembly_guide.py` (10 → 11).
+- Modify `MurphyBedQueen/assembly_glb.py`.
+- Test: `tests/test_assembly_glb.py`.
 
 **Interfaces:**
-- Consumes: `JOINTS`, `PATTERNS`, `STEEL` (Tasks 2–3).
+- Produces:
+  - `pattern_meshes(pattern, parts) -> dict[node name, mesh]`. Nodes are named `<pattern>-<code>-<n>`, in hole order and then stud order.
+  - Shapes:
+    - T: a 0.42 × 0.5625 in cylinder in its hole;
+    - U: an M8 screw;
+    - II: a 1/4 in bolt up through A2;
+    - JJ: a #12 × 3/4 in screw;
+    - KK: a 1/4 × 3 in lag, along the hole axis.
+  - Stud and wall holes use `example`.
+  - `build_glb` adds `pattern_meshes` for every pattern a resolved step lists in `fix`. No step does yet, so the output is unchanged.
+
+- [ ] **Step 1: Write the failing tests.**
+  - `test_insert_at_hole`: the centre of `inserts-M01-T-1` equals its hole world, mapped to the scene.
+  - `test_pattern_node_counts`: `inserts-M01` 8 T + 8 U; `lag-M05` 3 KK; `brackets-M03` 3 II + 6 JJ + 6 KK.
+  - `test_wall_lags_distinct`: the six bracket KK nodes have six distinct centres, two per stud, on the wall plane `y = 0`.
+- [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_glb -v`. Expect FAIL. **Step 3: Implement** with `box_mesh` and `cylinder_mesh`.
+- [ ] **Step 4: Run** `python3 -m unittest discover tests -v`. Expect all PASS, drift test included. **Step 5: Commit** `feat: GLB hardware for hole patterns`.
+
+### Task 5: Bed cabinet steps, host poses and holds
+
+**Files:**
+- Modify `MurphyBedQueen/assembly_steps.py`, `assembly_guide.py`, `generate_assembly_guide.py` (pose JSON), and `output/assembly-guide/` (regenerated).
+- Test: `tests/test_bed_steps.py`, plus updates to `tests/test_assembly_steps.py`, the hold count and file counts in `tests/test_generate_assembly_guide.py`, and the node count in `tests/test_assembly_glb.py`.
+
+**Interfaces:**
+- Consumes: `JOINTS`, `PATTERNS`, `STEEL`, `pattern_meshes` (Tasks 2–4).
 - Produces:
   - `ACTIVE_STAGES = {'bookcase', 'bed-cabinet'}`.
   - New step keys:
     - a `drill` entry may be `{'pattern': id}` (its holes go into `drilled`);
     - `fix: list[pattern id]` creates hardware nodes `<pattern>-<code>-<n>`, counted toward the totals.
-  - `ResolvedStep.poses` covers every visible node (parts, steel and hardware). A steel part or hardware node takes its host's pose name, and `pose_matrix` is computed from the host part.
+  - The existing drilling rule is unchanged: a step that lists a joint in `joints` drills that joint's panel-edge holes, so `bed-right-side` and `bed-left-side` have `joined` holes and get a holes drawing.
+  - `ResolvedStep.poses` covers every visible node (parts, steel and hardware). A steel part or hardware node takes its host's pose name: a joint's nodes take the joint's side, and a pattern's nodes take the pattern's part.
+  - `ResolvedStep.hosts: dict[node, host part id]`.
+  - The generator's JSON `poses` computes each node's matrix with `pose_matrix(parts[hosts[node]], pose)`.
   - `_rotation` uses the side's own stage centre (bookcase 101.75, bed cabinet 43.375).
   - The bench poses are reused for M01 and M02.
   - Each hardware item's `axis` comes from its holes.
@@ -191,10 +227,7 @@ Steps, in order, before `bookcase-drill`:
   - `test_bed_step_order`: the 9 ids above, then the 13 bookcase ids.
   - `test_bed_completeness`: M01–M06, I-R, I-L and HH-1…3 are each added once. M07–M11 are never added, with no error.
   - `test_stage_totals`: `bed-cabinet` dowel 22, `screw-8x2` 32, T 16, U 16, KK 12, II 3, JJ 6, and `validate` returns `[]`.
-  - `test_host_poses`:
-    - in `bed-inserts`, I-R and `inserts-M01-T-1` have pose `bench-1`;
-    - in `bed-right-side` they are `installed`;
-    - the scene matrices of I-R and M01 are equal in both steps.
+  - `test_host_poses`: in both `bed-inserts` and `bed-right-side`, every node hosted by M01 (I-R, all 16 `inserts-M01-*` nodes) has the same pose name and the same scene matrix as M01: `bench-1`, then `installed`. M02 and its nodes stay at `bench-2` through `bed-right-side` and are `installed` from `bed-left-side`.
   - `test_bed_holds`: only `bed-wall-brackets` is held, by `pilot-depth` and `screw-tips`. The total HOLD count is 11.
   - `test_place_requires_anchoring`: `bookcase-place` requires `bed-wall-brackets`; with `restraint` resolved in a test copy, it is still held by `pilot-depth`.
   - `test_bed_sources`: every `bed-*` step has a non-empty source.
@@ -202,84 +235,65 @@ Steps, in order, before `bookcase-drill`:
     - `bed-inserts` warns not to use wood screws for the plates;
     - `bed-stand-up` says two adults and plumb the front edges with shims;
     - `bed-lag-bolts` and `bed-wall-brackets` say wooden studs only, no drywall anchors, no masonry or metal studs, no impact driver, do not overtighten, and at least three studs;
-    - `bed-wall-brackets` says flush on the top and flush to the wall with all six fasteners.
+    - `bed-wall-brackets` says flush on the top and flush to the wall with all six fasteners, and to mark A5 and A6 through the bracket.
   - `test_aligned_note`: `bed-inserts` text tells the builder to lay the plate on the marks and check every hole lines up before drilling.
+  - `test_hardware_poses_in_json`: in `bed-inserts`, the JSON poses include `inserts-M01-T-1`, equal to the pose of `M01`.
 - [ ] **Step 2: Run** `python3 -m unittest tests.test_bed_steps -v`. Expect FAIL.
 - [ ] **Step 3: Implement.** Write the step text in tape IDs and physical words ("the right side M01, at the bed's open end", "the wall side"). Text tells the builder how to lay parts down (top inside face up for the headboard joint; the cabinet on its front edges to fit the sides), while the 3D keeps the installed orientation. `bed-drill-sides` also says to check every part against the cut list.
-- [ ] **Step 4: Run** `python3 -m unittest discover tests -v -p 'test_[!o]*.py'` (every module except `test_output_drift`, which fails from here until Task 7 regenerates the output). Expect all PASS.
+- [ ] **Step 4: Regenerate** (CLI as in Task 3). Then `python3 -m unittest discover tests -v`: all PASS.
 - [ ] **Step 5: Commit** `feat: bed cabinet steps with host poses and anchoring holds`.
-
-### Task 5: GLB: patterns, steel and pending parts
-
-**Files:**
-- Modify `MurphyBedQueen/assembly_glb.py`.
-- Test: `tests/test_assembly_glb.py`.
-
-**Interfaces:**
-- Produces:
-  - `build_glb(parts, resolved)` writes:
-    - wood and steel nodes for active-stage parts only (multi-box meshes for steel, material `steel` = `[0.55, 0.57, 0.6, 1]`);
-    - joint hardware;
-    - pattern hardware at each hole, or at its `example` for stud holes. Inserts are a 0.42 × 0.5625 in cylinder, U and II are M8/1/4 in screws, KK is a 1/4 × 3 in lag, JJ a #12 × 3/4 in screw.
-
-- [ ] **Step 1: Write the failing tests.**
-  - `test_node_names`: 22 wood (M01–M06, L01–L16) + 5 steel + 34 dowels + 50 screws + T 16 + U 16 + KK 12 + II 3 + JJ 6.
-  - `test_pending_parts_omitted`: no M07–M11 node, and no node uses `context`.
-  - `test_steel_material`.
-  - `test_insert_at_hole`: the centre of `inserts-M01-T-1` equals its hole world, mapped to the scene.
-  - `test_stud_hardware_at_example`.
-- [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_glb -v`. Expect FAIL.
-- [ ] **Step 3: Implement** with the existing `box_mesh` and `cylinder_mesh`.
-- [ ] **Step 4: Run** `python3 -m unittest discover tests -v -p 'test_[!o]*.py'` and expect PASS. **Step 5: Commit** `feat: GLB for bed patterns, steel shapes and pending parts`.
 
 ### Task 6: Drawings for bed steps
 
 **Files:**
-- Modify `MurphyBedQueen/assembly_drawings.py`.
+- Modify `MurphyBedQueen/assembly_drawings.py` and `output/assembly-guide/` (regenerated).
 - Test: `tests/test_assembly_drawings.py`.
 
 **Interfaces:**
 - Produces:
-  - `step_svg` draws the active-stage parts of the step's stage (each steel box) and labels steel "representative shape".
+  - `step_svg` draws the active-stage parts of the step's stage, plus the steel boxes, labelled "representative shape".
   - `_hardware_panel` gets a generic glyph with the fastener's catalogue name and "×N" for kit codes. Names come from the loaded fasteners, not `FASTENER_NAMES`.
   - `holes_svg` has three paths:
     - **Joint strips:** the length is the joint run, scaled to fit 600 px; the datum label comes from the joint; there is no band text when `joint.band` is None.
     - **Pattern face view:** the side's inside face, with every hole dimensioned from the front edge and up from the bottom end. Holes with `aligned` are marked "position by alignment — check against the plate".
-    - **Stud table:** "On each stud line:", then each hole's offset from the wall (or from the headboard's top or bottom), diameter and depth. It shows no x dimension, and adds "Find the stud centres with a stud finder; at least three studs."
+    - **Stud table:**
+      - "On each stud line:", then each cabinet hole's offset from the wall (or from the headboard's top or bottom), diameter and depth;
+      - for bracket steps, "A5, A6: mark through the bracket onto the wall, 3/16 in pilots into the stud";
+      - no x dimension;
+      - "Find the stud centres with a stud finder; at least three studs."
 
 - [ ] **Step 1: Write the failing tests.**
   - `test_bed_drill_closeup`: `bed-drill-sides` shows `M05` "lower end" strips with `2"`, `8"`, `14"`, and no "shelf-pin" text.
   - `test_headboard_strip_fits`: the M05-M03 close-up has a width of 600 or less, with `3"` and `21 5/16"`.
   - `test_insert_face_view`: `9 7/16"`, `11 7/16"`, `30 1/4"`, `Ø27/64 × 9/16 deep`, and "position by alignment".
-  - `test_stud_closeup`: `bed-wall-brackets` shows "On each stud line", `4 5/8"`, `Ø13/64 × 1/2 deep`, `Ø5/16 through`, and no `11 3/8"` or `43 3/8"` (example stud x).
+  - `test_stud_closeup`: `bed-wall-brackets` shows "On each stud line", `4 5/8"`, `Ø13/64 × 1/2 deep`, `Ø5/16 through`, "mark through the bracket", and no `11 3/8"` or `43 3/8"` (example stud x).
   - `test_hardware_names`: `bed-inserts` lists "Threaded insert ×16" and "M8 x 16 mm screw ×16".
   - `test_no_pending_parts`: no bed or bookcase step SVG contains `M08`.
 - [ ] **Step 2: Run** `python3 -m unittest tests.test_assembly_drawings -v`. Expect FAIL.
-- [ ] **Step 3: Implement.** **Step 4: Run** `python3 -m unittest discover tests -v -p 'test_[!o]*.py'` and expect PASS. **Step 5: Commit** `feat: bed drawings: general joint strips, insert face view, stud table`.
+- [ ] **Step 3: Implement.**
+- [ ] **Step 4: Regenerate**, then `python3 -m unittest discover tests -v`: all PASS.
+- [ ] **Step 5: Commit** `feat: bed drawings: general joint strips, insert face view, stud table`.
 
-### Task 7: Generator, viewer and site
+### Task 7: Viewer and site
 
 **Files:**
-- Modify `MurphyBedQueen/generate_assembly_guide.py`, `site/assets/assembly-viewer.js`, `site/build.py`, `site/content/build-steps.html` and `output/assembly-guide/` (regenerated).
+- Modify `site/assets/assembly-viewer.js`, `site/build.py`, `site/content/build-steps.html`.
 - Test: `tests/test_generate_assembly_guide.py`, `tests/test_site_build.py`.
 
 **Interfaces:**
 - Produces:
-  - JSON `poses` covering every node that is not installed, hardware included.
+  - The viewer places hardware with `poseOf(name, index)`, no longer identity, and tweens hardware whose pose changes, together with its host.
   - The JSON hardware `name` comes from the fastener catalogue.
-  - The viewer places hardware with `poseOf(name, index)` (it no longer uses identity), and tweens hardware whose pose changes, together with its host.
   - `PAGES` description: "Interactive 3D steps for the bed cabinet and the bookcase; the bed mechanism steps follow."
 
 - [ ] **Step 1: Write the failing tests.**
   - `test_generates_all_files`: 22 step SVGs; holes SVGs for the 6 bookcase drilling steps plus `bed-drill-sides`, `bed-inserts`, `bed-top-headboard`, `bed-bottom-headboard`, `bed-right-side`, `bed-left-side`, `bed-lag-bolts` and `bed-wall-brackets`.
-  - `test_hold_count`: 11.
-  - `test_hardware_poses_in_json`: `bed-inserts` poses include `inserts-M01-T-1` and match `M01`.
   - `test_page_description`.
   - `test_step_fragments`: `#bed-drill-sides` and `#bookcase-drill` both pass.
-- [ ] **Step 2: Run** and expect FAIL. **Step 3: Implement** the generator, viewer and copy. **Step 4:** run `python3 MurphyBedQueen/generate_assembly_guide.py` to regenerate the committed output. `python3 -m unittest discover tests -v` all PASS (drift test included); `python3 site/build.py` prints "Validated 7 pages".
+- [ ] **Step 2: Run** and expect FAIL. **Step 3: Implement.** **Step 4:** `python3 -m unittest discover tests -v` all PASS, and `python3 site/build.py` prints "Validated 7 pages".
 - [ ] **Step 5: Browser check** (ml:agent-browser, `python3 -m http.server` in `site/_site`) at 390×844 and 1280×800:
   - all 22 steps, with no console errors;
-  - M01 and M02 on the bench in steps 1–2, with the plates on them;
+  - M01 and M02 on the bench in steps 1–2, with the plates and inserts on them;
   - at `bed-right-side`, M01, I-R and its inserts move together into place;
   - `#bed-wall-brackets` shows the HOLD banner;
   - `localStorage` preset to `bookcase-top` opens `bookcase-top`;
