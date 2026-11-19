@@ -99,7 +99,7 @@ class PatternTest(unittest.TestCase):
             plate, wood = self.parts[sid], self.parts[side]
             self.assertEqual((plate.host, plate.finish, plate.stage), (side, "steel", "bed-cabinet"))
             self.assertTrue(plate.representative)
-            self.assertEqual(len(plate.boxes), 2)
+            self.assertEqual(len(plate.boxes), 3)
             for lo, hi in plate.boxes:
                 self.assertAlmostEqual(min(abs(lo[0] - face), abs(hi[0] - face)), 0)
                 self.assertAlmostEqual(hi[0] - lo[0], 0.1875)
@@ -116,6 +116,15 @@ class PatternTest(unittest.TestCase):
         for pid, part in self.parts.items():
             if part.finish != "steel":
                 self.assertEqual((part.host, part.boxes), (None, ((part.min, part.max),)), pid)
+
+    def test_plate_covers_every_insert(self):
+        for sid, pid in (("I-R", "inserts-M01"), ("I-L", "inserts-M02")):
+            plate = self.parts[sid]
+            for h in ap.pattern_holes(pid, self.parts):
+                r = h.diameter / 2
+                inside = [all(lo[k] <= h.world[k] - r and h.world[k] + r <= hi[k] for k in (1, 2))
+                          for lo, hi in plate.boxes]
+                self.assertTrue(any(inside), (sid, h.u, h.v))
 
     def test_steel_overlaps_no_wood(self):
         wood = [p for p in self.parts.values() if p.finish != "steel"]

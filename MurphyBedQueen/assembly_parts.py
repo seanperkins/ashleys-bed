@@ -483,10 +483,13 @@ def _steel(sid, host, boxes):
 
 
 def _plate(sid, host, face, outward):
-    """Mounting plate I on a side's inside face: a column and a foot, (u, v) from the front and bottom."""
+    """Mounting plate I on a side's inside face: a column, a foot and a brace, (u, v) from the front and
+    bottom."""
     x0, x1 = sorted((face, face + outward * STEEL_THICKNESS))
     boxes = []
-    for (u0, u1), (v0, v1) in (((8.75, 10.125), (10.875, 31.0)), ((2.5, 10.125), (10.875, 12.25))):
+    # Column, foot and brace together cover all eight insert holes (representative shape).
+    for (u0, u1), (v0, v1) in (((8.75, 10.125), (10.875, 31.0)), ((2.5, 10.125), (10.875, 14.5)),
+                               ((6.25, 8.75), (14.5, 18.5))):
         boxes.append(((x0, 16.0 - u1, v0), (x1, 16.0 - u0, v1)))
     return _steel(sid, host, boxes)
 

@@ -149,6 +149,17 @@ class BedStepTest(unittest.TestCase):
         lags = {h["code"]: h for h in self.records["bed-lag-bolts"]["hardware"]}
         self.assertEqual(lags["KK"]["axis"], list(glb._normal_to_scene((0, -1, 0))))
 
+    def test_records_carry_stage(self):
+        # the viewer frames only the current step's stage, so bookcase steps don't zoom out to the bed
+        for sid, record in self.records.items():
+            self.assertEqual(record["stage"], self.by_id[sid].step["stage"], sid)
+
+    def test_countersink_face(self):
+        for sid, part in (("bed-top-headboard", "m03"), ("bed-bottom-headboard", "m04")):
+            text = self.words(sid)
+            self.assertIn(f"turn {part} over", text, sid)
+            self.assertIn("countersink the screw holes on its outside face", text, sid)
+
     def test_generates(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "guide"

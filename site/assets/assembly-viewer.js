@@ -257,8 +257,11 @@ function createViewer(gltf) {
   function focusBox(index) {
     const step = steps[index];
     const box = new THREE.Box3();
+    // Only this step's stage: the finished bed is left out of the frame for the bookcase steps.
+    const stageOf = (id) => steps[firstStep.has(id) ? firstStep.get(id) : hardwareStep.get(id)?.step]?.stage;
     const ids = showFinished ? [...firstStep.keys()] : Object.keys(step.poses).filter((id) =>
-      step.adds.includes(id) || step.drills.includes(id) || sameMatrix(step.poses[id], IDENTITY));
+      stageOf(id) === step.stage
+      && (step.adds.includes(id) || step.drills.includes(id) || sameMatrix(step.poses[id], IDENTITY)));
     for (const id of ids) {
       const object = nodes.get(id);
       if (!object) continue;

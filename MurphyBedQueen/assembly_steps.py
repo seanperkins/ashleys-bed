@@ -129,8 +129,8 @@ BED_STEPS = [
             "Lay the top M03 inside face up (the face that points down into the cabinet), wall edge toward you.",
             "Mark the headboard row 3/8 in from the wall edge, from the end at M01, as dimensioned in the "
             "drawing: three dowel holes and four screw holes.",
-            "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then "
-            "countersink the screw holes on the top's upper face.",
+            "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then turn "
+            "M03 over and countersink the screw holes on its outside face (the top's upper face once installed).",
             f"Drill the upper headboard M05's top edge {EDGE_JIG}.",
             GLUE_DOWELS,
         ],
@@ -150,8 +150,9 @@ BED_STEPS = [
             "Lay the bottom M04 inside face up (the face that points up into the cabinet), wall edge toward you.",
             "Mark the headboard row 3/8 in from the wall edge, from the end at M01, as dimensioned in the "
             "drawing: three dowel holes and four screw holes.",
-            "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then "
-            "countersink the screw holes on the bottom's underside.",
+            "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then turn "
+            "M04 over and countersink the screw holes on its outside face (the bottom's underside once "
+            "installed).",
             f"Drill the lower headboard M06's bottom edge {EDGE_JIG}.",
             GLUE_DOWELS,
         ],

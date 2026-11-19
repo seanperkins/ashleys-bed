@@ -1,6 +1,7 @@
 [
  {
   "id": "bed-drill-sides",
+  "stage": "bed-cabinet",
   "title": "Check the parts, then drill the joint holes in both bed sides",
   "adds": [
    "M01",
@@ -79,6 +80,7 @@
  },
  {
   "id": "bed-inserts",
+  "stage": "bed-cabinet",
   "title": "Fit the threaded inserts T and the mounting plates I to both sides",
   "adds": [
    "I-R",
@@ -987,6 +989,7 @@
  },
  {
   "id": "bed-top-headboard",
+  "stage": "bed-cabinet",
   "title": "Join the upper headboard M05 to the top M03",
   "adds": [
    "M03",
@@ -1856,7 +1859,7 @@
   "text": [
    "Lay the top M03 inside face up (the face that points down into the cabinet), wall edge toward you.",
    "Mark the headboard row 3/8 in from the wall edge, from the end at M01, as dimensioned in the drawing: three dowel holes and four screw holes.",
-   "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then countersink the screw holes on the top's upper face.",
+   "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then turn M03 over and countersink the screw holes on its outside face (the top's upper face once installed).",
    "Drill the upper headboard M05's top edge centred in the thickness (use the dowel jig): 3/8 in dowel holes 1 1/16 in deep and 1/8 in pilots 1 1/4 in deep.",
    "Glue in the dowels and the panel edge, fit the panel, then drive the screws snug, not tight."
   ],
@@ -1875,6 +1878,7 @@
  },
  {
   "id": "bed-bottom-headboard",
+  "stage": "bed-cabinet",
   "title": "Join the lower headboard M06 to the bottom M04",
   "adds": [
    "M04",
@@ -2906,7 +2910,7 @@
   "text": [
    "Lay the bottom M04 inside face up (the face that points up into the cabinet), wall edge toward you.",
    "Mark the headboard row 3/8 in from the wall edge, from the end at M01, as dimensioned in the drawing: three dowel holes and four screw holes.",
-   "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then countersink the screw holes on the bottom's underside.",
+   "Drill the 3/8 in dowel holes 1/2 in deep and the 3/16 in screw holes right through, then turn M04 over and countersink the screw holes on its outside face (the bottom's underside once installed).",
    "Drill the lower headboard M06's bottom edge centred in the thickness (use the dowel jig): 3/8 in dowel holes 1 1/16 in deep and 1/8 in pilots 1 1/4 in deep.",
    "Glue in the dowels and the panel edge, fit the panel, then drive the screws snug, not tight."
   ],
@@ -2925,6 +2929,7 @@
  },
  {
   "id": "bed-right-side",
+  "stage": "bed-cabinet",
   "title": "Fit the right side M01 to the top, bottom and both headboards",
   "adds": [],
   "drills": [
@@ -4350,6 +4355,7 @@
  },
  {
   "id": "bed-left-side",
+  "stage": "bed-cabinet",
   "title": "Fit the left side M02 to the other ends",
   "adds": [],
   "drills": [
@@ -6132,6 +6138,7 @@
  },
  {
   "id": "bed-stand-up",
+  "stage": "bed-cabinet",
   "title": "Stand the cabinet against the wall and find the studs",
   "adds": [],
   "drills": [],
@@ -7861,6 +7868,7 @@
  },
  {
   "id": "bed-lag-bolts",
+  "stage": "bed-cabinet",
   "title": "Fix the headboards to the studs with six lag bolts KK",
   "adds": [],
   "drills": [
@@ -9722,6 +9730,7 @@
  },
  {
   "id": "bed-wall-brackets",
+  "stage": "bed-cabinet",
   "title": "Fit the three wall brackets HH on top of the cabinet",
   "adds": [
    "HH-1",
@@ -11954,6 +11963,7 @@
  },
  {
   "id": "bookcase-drill",
+  "stage": "bookcase",
   "title": "Drill the bottom and top joint holes in both sides",
   "adds": [
    "L01",
@@ -14156,6 +14166,7 @@
  },
  {
   "id": "bookcase-drill-shelf",
+  "stage": "bookcase",
   "title": "Drill the fixed-shelf joint holes in both sides",
   "adds": [],
   "drills": [
@@ -16358,6 +16369,7 @@
  },
  {
   "id": "bookcase-bottom",
+  "stage": "bookcase",
   "title": "Fix the bottom L04 to the side against the bed, L01",
   "adds": [
    "L04"
@@ -18700,6 +18712,7 @@
  },
  {
   "id": "bookcase-plinth",
+  "stage": "bookcase",
   "title": "Fit the recessed plinth L05 under the bottom",
   "adds": [
    "L05"
@@ -21024,6 +21037,7 @@
  },
  {
   "id": "bookcase-shelf",
+  "stage": "bookcase",
   "title": "Fix the shelf above the drawer, L07, to L01",
   "adds": [
    "L07"
@@ -23495,6 +23509,7 @@
  },
  {
   "id": "bookcase-top",
+  "stage": "bookcase",
   "title": "Fix the top L03 to L01",
   "adds": [
    "L03"
@@ -26069,6 +26084,7 @@
  },
  {
   "id": "bookcase-right-side",
+  "stage": "bookcase",
   "title": "Fit the outer end L02 over the bottom, shelf and top",
   "adds": [],
   "drills": [
@@ -28930,6 +28946,7 @@
  },
  {
   "id": "bookcase-back",
+  "stage": "bookcase",
   "title": "Fit the back L06",
   "adds": [
    "L06"
@@ -31760,6 +31777,7 @@
  },
  {
   "id": "bookcase-drawer-box",
+  "stage": "bookcase",
   "title": "Build the drawer box L11 to L15",
   "adds": [
    "L11",
@@ -34684,6 +34702,7 @@
  },
  {
   "id": "bookcase-slides",
+  "stage": "bookcase",
   "title": "Fit the slides, the drawer box and the drawer face L16",
   "adds": [
    "L16"
@@ -37633,6 +37652,7 @@
  },
  {
   "id": "bookcase-drawer-pull",
+  "stage": "bookcase",
   "title": "Fit the drawer pull",
   "adds": [],
   "drills": [],
@@ -40572,6 +40592,7 @@
  },
  {
   "id": "bookcase-shelves",
+  "stage": "bookcase",
   "title": "Drill the shelf-pin holes and set the shelves L08 to L10",
   "adds": [
    "L08",
@@ -43568,6 +43589,7 @@
  },
  {
   "id": "bookcase-place",
+  "stage": "bookcase",
   "title": "Place the bookcase beside the bed and restrain it to the wall",
   "adds": [],
   "drills": [],

@@ -55,6 +55,7 @@ def step_records(resolved, parts):
         step = rs.step
         records.append({
             "id": step["id"],
+            "stage": step["stage"],
             "title": step["title"],
             "adds": step["adds"],
             "drills": sorted({h.part for h in rs.drilled + rs.joined}),
