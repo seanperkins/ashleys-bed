@@ -140,16 +140,16 @@ function sameMatrix(a, b) {
 // ---------------------------------------------------------------- navigation
 // User navigation brings the 3D view back into sight (on a phone the Next bar sits below the
 // text) and moves focus to the new step's title.
-function showStep() {
+function showStep({ focusTitle = true } = {}) {
   const stage = $("#guide-stage");
   const top = stage.getBoundingClientRect().top;
   if (top < 0 || top > window.innerHeight / 2) {
     stage.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
   }
-  $(".guide-title").focus({ preventScroll: true });
+  if (focusTitle) $(".guide-title").focus({ preventScroll: true });
 }
 
-function goTo(index, { animate = true, user = true } = {}) {
+function goTo(index, { animate = true, user = true, keepFocus = false } = {}) {
   index = Math.min(Math.max(index, 0), steps.length - 1);
   viewer?.finish(); // a tween in progress completes before the next step starts
   current = index;
@@ -158,14 +158,15 @@ function goTo(index, { animate = true, user = true } = {}) {
   remember(id);
   renderPanel(index);
   viewer?.play(index, animate && !reducedMotion.matches);
-  if (user) showStep();
+  if (user) showStep({ focusTitle: !keepFocus });
 }
 
 function wireControls() {
   $("#guide-back").addEventListener("click", () => goTo(current - 1, { animate: false }));
   $("#guide-next").addEventListener("click", () => goTo(current + 1));
   $("#guide-replay").addEventListener("click", () => goTo(current));
-  $("#guide-jump")?.addEventListener("change", (event) => goTo(Number(event.target.value)));
+  // keep focus on the list, so arrowing through it keeps stepping
+  $("#guide-jump")?.addEventListener("change", (event) => goTo(Number(event.target.value), { keepFocus: true }));
   $("#guide-reset").addEventListener("click", () => viewer?.resetCamera());
   $("#guide-finished").addEventListener("change", (event) => {
     showFinished = event.target.checked;
