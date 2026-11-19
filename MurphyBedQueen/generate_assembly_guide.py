@@ -32,13 +32,20 @@ def _round(values):
 
 
 def hardware_axis(item, parts):
-    """Scene direction a step's hardware travels in, from the holes it goes into (Fusion axes)."""
+    """Scene direction a step's hardware travels in, from the holes it goes into; None when the
+    nodes travel different ways (each node's own axis is then in `axes`)."""
     axes = set(item.get("axes", []))
-    if not axes:
-        return None
     if len(axes) != 1:
-        raise ValueError(f"{item['code']} items travel in different directions: {sorted(axes)}")
+        return None
     return list(glb._normal_to_scene(axes.pop()))
+
+
+def _hardware_record(item, parts, names):
+    record = {"code": item["code"], "name": names.get(item["code"], item["code"]), "count": item["count"],
+              "nodes": item["nodes"], "phase": item["phase"], "axis": hardware_axis(item, parts)}
+    if record["axis"] is None and item.get("axes"):
+        record["axes"] = [list(glb._normal_to_scene(a)) for a in item["axes"]]
+    return record
 
 
 def step_records(resolved, parts):
@@ -51,11 +58,9 @@ def step_records(resolved, parts):
             "title": step["title"],
             "adds": step["adds"],
             "drills": sorted({h.part for h in rs.drilled + rs.joined}),
-            "hardware": [{"code": h["code"], "name": names.get(h["code"], h["code"]), "count": h["count"],
-                          "nodes": h["nodes"], "phase": h["phase"], "axis": hardware_axis(h, parts)}
-                         for h in rs.hardware],
-            "poses": {pid: _round(glb.scene_matrix(st.pose_matrix(parts[pid], pose)))
-                      for pid, pose in rs.poses.items()},
+            "hardware": [_hardware_record(h, parts, names) for h in rs.hardware],
+            "poses": {node: _round(glb.scene_matrix(st.pose_matrix(parts[rs.hosts[node]], pose)))
+                      for node, pose in rs.poses.items()},
             "move": [-step["move"][0], step["move"][2], step["move"][1]],
             "camera": step["camera"],
             "text": step["text"],

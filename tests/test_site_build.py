@@ -42,7 +42,7 @@ class SiteBuildTest(unittest.TestCase):
         guide = self.dest / "assembly-guide"
         self.assertTrue((guide / "assembly.glb").exists())
         steps = json.loads((guide / "assembly-steps.json").read_text())
-        self.assertEqual(len(steps), 13)
+        self.assertEqual(len(steps), 22)
         self.assertTrue((self.dest / "sw.js").exists())
         self.assertTrue((self.dest / "assets/assembly-viewer.js").exists())
         slugs = [p[0] for p in build.PAGES]
@@ -123,11 +123,11 @@ class SiteBuildTest(unittest.TestCase):
         noscript = re.search(r"<noscript>(.*?)</noscript>", self.page, re.S).group(1)
         self.assertNotIn("work without JavaScript", noscript)
         self.assertIn("need JavaScript", noscript)
-        for i in range(1, 14):
+        for i in range(1, 23):
             self.assertIn(f'href="assembly-guide/step-{i:02d}.svg"', noscript)
         for path in (self.dest / "assembly-guide").glob("*-holes.svg"):
             self.assertIn(f'href="assembly-guide/{path.name}"', noscript)
-        self.assertEqual(len(list((self.dest / "assembly-guide").glob("*-holes.svg"))), 6)
+        self.assertEqual(len(list((self.dest / "assembly-guide").glob("*-holes.svg"))), 14)
         other = (self.dest / "assembly.html").read_text()
         self.assertIn("All instructions and downloads work without JavaScript", other)
 

@@ -14,6 +14,10 @@ AFTER_RIGHT_SIDE = ["bookcase-back", "bookcase-drawer-box", "bookcase-slides", "
                     "bookcase-shelves", "bookcase-place"]
 
 
+def at(steps, sid):
+    return next(i for i, step in enumerate(steps) if step["id"] == sid)
+
+
 class StepTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -26,11 +30,11 @@ class StepTest(unittest.TestCase):
         return ag.validate(ag.resolve(steps, self.parts, self.fasteners), self.parts, self.fasteners)
 
     def test_bookcase_step_order(self):
-        self.assertEqual([s["id"] for s in st.STEPS], ORDER)
-        self.assertEqual(st.ACTIVE_STAGES, {"bookcase"})
+        self.assertEqual([s["id"] for s in st.STEPS if s["stage"] == "bookcase"], ORDER)
+        self.assertEqual(st.ACTIVE_STAGES, {"bookcase", "bed-cabinet"})
 
     def test_completeness_active_only(self):
-        added = [p for s in st.STEPS for p in s["adds"]]
+        added = [p for s in st.STEPS if s["stage"] == "bookcase" for p in s["adds"]]
         self.assertEqual(sorted(added), [f"L{i:02d}" for i in range(1, 17)])
         self.assertEqual(ag.validate(self.resolved, self.parts, self.fasteners), [])
 
@@ -77,7 +81,7 @@ class StepTest(unittest.TestCase):
             self.assertEqual([round(v) for v in axis], [0, 0, -1], pid)  # drilled straight down
 
     def test_holds(self):
-        ready = [rs.step["id"] for rs in self.resolved if not rs.held_by]
+        ready = [rs.step["id"] for rs in self.resolved if not rs.held_by and rs.step["stage"] == "bookcase"]
         self.assertEqual(ready, ["bookcase-drill", "bookcase-bottom", "bookcase-top"])
         for sid in ("bookcase-drill-shelf", "bookcase-shelf", "bookcase-right-side", "bookcase-slides"):
             self.assertIn("slide", self.by_id[sid].held_by, sid)
@@ -85,7 +89,7 @@ class StepTest(unittest.TestCase):
                               ("bookcase-drawer-box", "drawer-box"), ("bookcase-drawer-pull", "pulls"),
                               ("bookcase-shelves", "shelf-pins"), ("bookcase-place", "restraint")):
             self.assertIn(decision, self.by_id[sid].held_by, sid)
-        self.assertEqual(sum(1 for rs in self.resolved if rs.held_by), 10)
+        self.assertEqual(sum(1 for rs in self.resolved if rs.held_by and rs.step["stage"] == "bookcase"), 10)
 
     def test_open_decisions(self):
         self.assertEqual(set(ap.OPEN_DECISIONS), {"back", "slide", "shelf-pins", "restraint", "plinth",
@@ -93,8 +97,8 @@ class StepTest(unittest.TestCase):
 
     def test_requires_chain(self):
         decisions = copy.deepcopy(ap.OPEN_DECISIONS)
-        for d in ("back", "drawer-box", "pulls", "shelf-pins", "restraint"):
-            del decisions[d]
+        for d in ("back", "drawer-box", "pulls", "shelf-pins", "restraint", "pilot-depth", "screw-tips"):
+            del decisions[d]  # the bed anchoring decisions too: bookcase-place requires the wall brackets
         resolved = {rs.step["id"]: rs for rs in
                     ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions)}
         for sid in AFTER_RIGHT_SIDE:
@@ -148,22 +152,28 @@ class StepTest(unittest.TestCase):
         self.assertTrue(any("plinthh" in e for e in errors), errors)
 
     def test_rejects(self):
-        def changed(index, **fields):
+        def changed(sid, **fields):
             steps = copy.deepcopy(st.STEPS)
-            steps[index].update(fields)
+            steps[at(steps, sid)].update(fields)
             return steps
-        self.assertTrue(any("Q99" in e for e in self.errors_for(changed(0, adds=["L01", "L02", "Q99"]))))
-        self.assertTrue(any("L09-L01" in e for e in self.errors_for(changed(2, joints=["L09-L01"]))))
-        twice = self.errors_for(changed(2, adds=["L04", "L01"]))
+        drill, bottom = "bookcase-drill", "bookcase-bottom"
+        self.assertTrue(any("Q99" in e for e in self.errors_for(changed(drill, adds=["L01", "L02", "Q99"]))))
+        self.assertTrue(any("L09-L01" in e for e in self.errors_for(changed(bottom, joints=["L09-L01"]))))
+        twice = self.errors_for(changed(bottom, adds=["L04", "L01"]))
         self.assertTrue(any("L01" in e and "more than once" in e for e in twice), twice)
-        self.assertTrue(any("bookcase-nope" in e for e in self.errors_for(changed(7, requires=["bookcase-nope"]))))
-        self.assertTrue(any("bench-9" in e for e in self.errors_for(changed(0, pose={"L01": "bench-9"}))))
-        self.assertTrue(any("not-a-decision" in e for e in self.errors_for(changed(3, hold="not-a-decision"))))
+        self.assertTrue(any("bookcase-nope" in e
+                            for e in self.errors_for(changed("bookcase-back", requires=["bookcase-nope"]))))
+        self.assertTrue(any("bench-9" in e for e in self.errors_for(changed(drill, pose={"L01": "bench-9"}))))
+        self.assertTrue(any("not-a-decision" in e
+                            for e in self.errors_for(changed("bookcase-plinth", hold="not-a-decision"))))
+        self.assertTrue(any("nope-M01" in e for e in self.errors_for(changed("bed-inserts", fix=["nope-M01"]))))
+        early = self.errors_for(changed("bed-drill-sides", adds=["M01"], pose={"M01": "bench-1"}))
+        self.assertTrue(any("M02" in e and "before" in e for e in early), early)
 
     def test_fastener_totals(self):
         totals = ag.fastener_totals(self.resolved, self.parts)
-        self.assertEqual(totals["dowel"], {"bookcase": 12})
-        self.assertEqual(totals["screw-8x2"], {"bookcase": 18})
+        self.assertEqual(totals["dowel"], {"bed-cabinet": 22, "bookcase": 12})
+        self.assertEqual(totals["screw-8x2"], {"bed-cabinet": 32, "bookcase": 18})
         right = {h["code"]: h for h in self.by_id["bookcase-right-side"].hardware}
         self.assertEqual((right["dowel"]["count"], right["dowel"]["phase"]), (6, "dowel"))
         self.assertEqual(right["screw-8x2"]["nodes"][:2], ["L04-L02-screw-1", "L04-L02-screw-2"])
@@ -173,12 +183,12 @@ class StepTest(unittest.TestCase):
         for sid in ("bookcase-bottom", "bookcase-shelf", "bookcase-top", "bookcase-right-side"):
             self.assertEqual(self.by_id[sid].step["consumables"], ["glue"], sid)
         steps = copy.deepcopy(st.STEPS)
-        steps[2]["consumables"] = ["epoxy"]
+        steps[at(steps, "bookcase-bottom")]["consumables"] = ["epoxy"]
         self.assertTrue(any("epoxy" in e for e in self.errors_for(steps)))
 
     def test_drill_entry_must_be_side(self):
         steps = copy.deepcopy(st.STEPS)
-        steps[0]["drill"] = [{"joint": "L04-L01", "part": "L04"}]
+        steps[at(steps, "bookcase-drill")]["drill"] = [{"joint": "L04-L01", "part": "L04"}]
         self.assertTrue(any("L04-L01" in e and "side" in e for e in self.errors_for(steps)))
 
 

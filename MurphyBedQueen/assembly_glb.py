@@ -165,43 +165,30 @@ KIT_SHAPES = {
 }
 
 
-def _fixing_holes(fixing, holes):
-    """Holes a fixing goes into: every hole, or the named ones in hole order and then stud order."""
-    if fixing.at == "all":
-        return holes
-    return [h for name in fixing.at for h in holes if h.name == name]
-
-
-def _fixing_path(fixing, hole, parts):
-    """(start, direction): where a fastener's head sits and the way it travels."""
+def _fixing_start(fixing, hole, parts):
+    """Where a fastener's head sits: on the hole, under the part for a bolt, on the steel for a screw."""
     at = hole.world or hole.example
     axis = hole.axis
     if fixing.kind == "insert":
-        return at, axis
+        return at
     if fixing.kind == "bolt":  # up from below, through the part and the bracket
-        depth = parts[hole.part].size[_axis_index(axis)]
-        return tuple(at[k] + axis[k] * depth for k in range(3)), tuple(-a for a in axis)
+        depth = parts[hole.part].size[max(range(3), key=lambda i: abs(axis[i]))]
+        return tuple(at[k] + axis[k] * depth for k in range(3))
     standoff = 0.0 if fixing.kind == "lag" and hole.part != "wall" else ap.STEEL_THICKNESS
-    return tuple(at[k] - axis[k] * standoff for k in range(3)), axis
-
-
-def _axis_index(axis):
-    return max(range(3), key=lambda i: abs(axis[i]))
+    return tuple(at[k] - axis[k] * standoff for k in range(3))
 
 
 def pattern_meshes(pattern, parts):
     """{node name: mesh} for a hole pattern's fixings, named <pattern>-<code>-<n>."""
-    holes = ap.pattern_holes(pattern.id, parts)
     meshes = {}
-    for fixing in pattern.hardware:
+    for fixing, name, hole in ap.pattern_fixings(pattern.id, parts):
         length, radius, head, head_length = KIT_SHAPES[fixing.code]
-        for n, hole in enumerate(_fixing_holes(fixing, holes), 1):
-            start, direction = _fixing_path(fixing, hole, parts)
-            mesh = cylinder_mesh(start, direction, length, radius)
-            if head:
-                back = tuple(start[k] - direction[k] * head_length for k in range(3))
-                cylinder_mesh(back, direction, head_length, head, mesh)
-            meshes[f"{pattern.id}-{fixing.code}-{n}"] = mesh
+        start, direction = _fixing_start(fixing, hole, parts), ap.fixing_direction(fixing, hole)
+        mesh = cylinder_mesh(start, direction, length, radius)
+        if head:
+            back = tuple(start[k] - direction[k] * head_length for k in range(3))
+            cylinder_mesh(back, direction, head_length, head, mesh)
+        meshes[name] = mesh
     return meshes
 
 

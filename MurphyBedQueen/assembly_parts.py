@@ -447,6 +447,30 @@ def pattern_holes(pattern_id, parts):
     return holes
 
 
+def fixing_holes(fixing, holes):
+    """Holes a fixing goes into: every hole, or the named ones in hole order and then stud order."""
+    if fixing.at == "all":
+        return holes
+    return [h for name in fixing.at for h in holes if h.name == name]
+
+
+def fixing_direction(fixing, hole):
+    """The way a fastener travels: into its hole, except a bolt, which comes up through it from below."""
+    if fixing.kind == "bolt":
+        return tuple(-a for a in hole.axis)
+    return hole.axis
+
+
+def pattern_fixings(pattern_id, parts):
+    """[(fixing, node name, hole)] for a pattern's hardware; nodes are <pattern>-<code>-<n>."""
+    holes = pattern_holes(pattern_id, parts)
+    out = []
+    for fixing in PATTERNS[pattern_id].hardware:
+        for n, hole in enumerate(fixing_holes(fixing, holes), 1):
+            out.append((fixing, f"{pattern_id}-{fixing.code}-{n}", hole))
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Steel: one simplified shape per Rockler part, carried with its host part
 

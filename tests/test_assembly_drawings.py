@@ -67,7 +67,10 @@ class DrawingTest(unittest.TestCase):
         self.assertIsNone(self.holes["bookcase-shelves"])
         drilling = sorted(sid for sid, text in self.holes.items() if text is not None)
         self.assertEqual(drilling, sorted(["bookcase-drill", "bookcase-drill-shelf", "bookcase-bottom",
-                                           "bookcase-shelf", "bookcase-top", "bookcase-right-side"]))
+                                           "bookcase-shelf", "bookcase-top", "bookcase-right-side",
+                                           "bed-drill-sides", "bed-inserts", "bed-top-headboard",
+                                           "bed-bottom-headboard", "bed-right-side", "bed-left-side",
+                                           "bed-lag-bolts", "bed-wall-brackets"]))
 
     def test_hold_banner(self):
         svg = self.svgs["bookcase-back"]

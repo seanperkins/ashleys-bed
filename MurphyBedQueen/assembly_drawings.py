@@ -73,13 +73,13 @@ def project(p):
     return ((y - x) * COS30, (x + y) * SIN30 - z)
 
 
-def _pose_box(part, pose):
-    return (part.min, part.max) if pose == "installed" else st.pose_box(part, pose)
+def _pose_box(part, pose, host=None):
+    return (part.min, part.max) if pose == "installed" else st.pose_box(part, pose, host)
 
 
-def drawn_box(part, rs, pid):
+def drawn_box(part, rs, pid, host=None):
     """Box drawn for `pid` in this step: its pose, pulled back along `move` if it is new or moving."""
-    lo, hi = _pose_box(part, rs.poses[pid])
+    lo, hi = _pose_box(part, rs.poses[pid], host)
     if pid in _moving(rs):
         back = [-EXPLODE * m for m in rs.step["move"]]
         lo = tuple(lo[k] + back[k] for k in range(3))
@@ -123,9 +123,9 @@ def step_svg(index, resolved, parts):
     body += banner
     y += h + 8
     drilled = {h.part for h in rs.drilled}
-    visible = [pid for pid in rs.poses if parts[pid].stage == step["stage"]
+    visible = [pid for pid in rs.poses if pid in parts and parts[pid].stage == step["stage"]
                and (rs.poses[pid] == "installed" or pid in _moving(rs) or pid in drilled)]
-    boxes = {pid: drawn_box(parts[pid], rs, pid) for pid in visible}
+    boxes = {pid: drawn_box(parts[pid], rs, pid, parts.get(parts[pid].host)) for pid in visible}
     moving = _moving(rs)
     order = sorted(visible, key=lambda pid: -sum((boxes[pid][0][k] + boxes[pid][1][k]) / 2 * EYE[k]
                                                   for k in range(3)))
@@ -217,7 +217,11 @@ def holes_svg(rs, parts):
     body = [_text(16, 28, f"Holes — {rs.step['title']}", 15, "bold")]
     y, scale, left = 50, 30, 50
     for (pid, jid), group in groups.items():
-        joint = ap.JOINTS[jid]
+        joint = ap.JOINTS.get(jid)
+        if joint is None or any(h.u is None for h in group):
+            body.append(_text(16, y, f"{pid} — {jid}: {len(group)} holes (see the step text)", 14, "bold"))
+            y += 40
+            continue
         on_side = pid == joint.side
         other = joint.panel if on_side else joint.side
         surface = "inside face" if on_side else f"end at {joint.side}"
@@ -228,7 +232,7 @@ def holes_svg(rs, parts):
         strip_h = 1.5 * scale if on_side else ap.drilling_thickness(parts[pid]) * scale
         body.append(f'<rect x="{left}" y="{y}" width="{length * scale:.1f}" height="{strip_h:.1f}" '
                     f'fill="#f1f5f9" stroke="{INK}"/>')
-        if on_side:
+        if on_side and joint.band:
             band_h = (joint.band[1] - joint.band[0]) * scale
             body.append(f'<rect x="{left}" y="{y + (strip_h - band_h) / 2:.1f}" width="{length * scale:.1f}" '
                         f'height="{band_h:.1f}" fill="#dbeafe" stroke="#93c5fd" stroke-dasharray="4 3"/>')
@@ -246,7 +250,7 @@ def holes_svg(rs, parts):
             body += [f'<line x1="{cx:.1f}" y1="{y:.1f}" x2="{cx:.1f}" y2="{tick_y:.1f}" stroke="{GREY}"/>',
                      _text(cx, tick_y - 3, f'{inches(hole.u)}"', 12, anchor="middle")]
         y += strip_h + 34
-        if on_side:
+        if on_side and joint.band:
             body.append(_text(left, y, f'All holes {inches(group[0].v)}" up from the bottom end '
                                        f'(centre of the {inches(joint.band[0])}–{inches(joint.band[1])}" '
                                        f'joint band).', 12))

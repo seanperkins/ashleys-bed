@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 import assembly_parts as ap
 import assembly_steps as st
 
-STEP_KEYS = {"id", "stage", "title", "adds", "joints", "fasteners", "consumables", "drill", "pose",
+STEP_KEYS = {"id", "stage", "title", "adds", "joints", "fasteners", "consumables", "drill", "fix", "pose",
              "move", "camera", "text", "warnings", "hold", "requires", "source"}
 
 
@@ -16,8 +16,9 @@ class ResolvedStep:
     drilled: list
     joined: list
     hardware: list
-    poses: dict  # part id -> pose name, for every part added so far
+    poses: dict  # node -> pose name, for every part, steel shape and hardware node so far
     errors: list = field(default_factory=list)
+    hosts: dict = field(default_factory=dict)  # node -> the part whose pose it takes
 
 
 def _add_unique(items, value):
@@ -32,16 +33,23 @@ def _joint(jid, errors, step_id):
     return joint
 
 
+def _hardware(hardware, code, phase):
+    return hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": phase, "axes": []})
+
+
 def resolve(steps, parts, fasteners, decisions=None, joints=None):
     """Turn step dicts into ResolvedStep records, propagating HOLDs.
 
-    A step is held by its own `hold`, by any held joint it drills or makes, by any held part it
-    adds, by kit discrepancies on hardware it uses, and by anything an earlier step it
+    A step is held by its own `hold`, by any held joint or pattern it drills, makes or fixes, by any
+    held part it adds, by kit discrepancies on hardware it uses, and by anything an earlier step it
     `requires` is held by. Decisions missing from `decisions` count as resolved.
+
+    Steel shapes and hardware take their host part's pose: a joint's dowels and screws ride on the
+    joint's side, a pattern's fixings on the pattern's part, a steel shape on its `host`.
     """
     decisions = ap.OPEN_DECISIONS if decisions is None else decisions
     kit_holds = ap.discrepancy_holds()
-    resolved, seen, poses = [], {}, {}
+    resolved, seen, own, hosts = [], {}, {}, {}
     for step in steps:
         sid = step.get("id", "?")
         errors = [f"{sid}: unknown key {k}" for k in sorted(set(step) - STEP_KEYS)]
@@ -58,23 +66,41 @@ def resolve(steps, parts, fasteners, decisions=None, joints=None):
             if pid not in parts:
                 errors.append(f"{sid}: unknown part {pid}")
                 continue
-            poses.setdefault(pid, "installed")
+            host = parts[pid].host or pid
+            if host != pid and host not in own:
+                errors.append(f"{sid}: {pid} rides on {host}, which has not been added yet")
+                continue
+            hosts.setdefault(pid, host)
+            if host == pid:
+                own.setdefault(pid, "installed")
             if pid in ap.PART_HOLDS:
                 hold(ap.PART_HOLDS[pid])
         for pid, pose in step.get("pose", {}).items():
             if pose not in st.POSES:
                 errors.append(f"{sid}: unknown pose {pose} for {pid}")
-            elif pid not in poses:
-                errors.append(f"{sid}: pose for {pid}, which has not been added yet")
+            elif pid not in own:
+                errors.append(f"{sid}: pose for {pid}, which has not been added yet or rides on another part")
             else:
-                poses[pid] = pose
+                own[pid] = pose
         drilled, joined, hardware = [], [], {}
         for entry in step.get("drill", []):
+            if "pattern" in entry:
+                pattern = ap.PATTERNS.get(entry["pattern"])
+                if pattern is None:
+                    errors.append(f"{sid}: unknown pattern {entry['pattern']}")
+                    continue
+                if pattern.hold:
+                    hold(pattern.hold)
+                drilled += ap.pattern_holes(pattern.id, parts)
+                continue
             joint = _joint(entry["joint"], errors, sid)
             if joint is None:
                 continue
             if entry["part"] != joint.side:
                 errors.append(f"{sid}: drill entry {joint.id} must name the side {joint.side}")
+                continue
+            if joint.side not in own:
+                errors.append(f"{sid}: drills {joint.side} before it is added")
                 continue
             if joint.hold:
                 hold(joint.hold)
@@ -82,6 +108,10 @@ def resolve(steps, parts, fasteners, decisions=None, joints=None):
         for jid in step.get("joints", []):
             joint = _joint(jid, errors, sid)
             if joint is None:
+                continue
+            missing = [pid for pid in (joint.side, joint.panel) if pid not in own]
+            if missing:
+                errors.append(f"{sid}: joins {jid} before {', '.join(missing)} is added")
                 continue
             if joint.hold:
                 hold(joint.hold)
@@ -93,16 +123,35 @@ def resolve(steps, parts, fasteners, decisions=None, joints=None):
             for code, kind, count, phase, axis in (
                     ("dowel", "dowel", len(joint.dowels), "dowel", dowel_axis),
                     ("screw-8x2", "screw", len(joint.screws), "screw", screw_axis)):
-                entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": phase,
-                                                   "axes": []})
+                entry = _hardware(hardware, code, phase)
                 entry["count"] += count
-                entry["nodes"] += [f"{jid}-{kind}-{n}" for n in range(1, count + 1)]
-                _add_unique(entry["axes"], axis)
+                nodes = [f"{jid}-{kind}-{n}" for n in range(1, count + 1)]
+                entry["nodes"] += nodes
+                entry["axes"] += [axis] * count
+                for node in nodes:
+                    hosts[node] = joint.side
+        for pid in step.get("fix", []):
+            pattern = ap.PATTERNS.get(pid)
+            if pattern is None:
+                errors.append(f"{sid}: unknown pattern {pid}")
+                continue
+            if pattern.part not in own and pattern.part in parts:
+                errors.append(f"{sid}: fixes {pid} before {pattern.part} is added")
+                continue
+            if pattern.hold:
+                hold(pattern.hold)
+            for fixing, node, hole in ap.pattern_fixings(pid, parts):
+                if fixing.code not in fasteners:
+                    errors.append(f"{sid}: unknown fastener code {fixing.code}")
+                entry = _hardware(hardware, fixing.code, "dowel" if fixing.kind == "insert" else "screw")
+                entry["count"] += 1
+                entry["nodes"].append(node)
+                entry["axes"].append(ap.fixing_direction(fixing, hole))
+                hosts[node] = pattern.part
         for code, count in step.get("fasteners", {}).items():
             if code not in fasteners:
                 errors.append(f"{sid}: unknown fastener code {code}")
-            entry = hardware.setdefault(code, {"code": code, "count": 0, "nodes": [], "phase": "screw",
-                                               "axes": []})
+            entry = _hardware(hardware, code, "screw")
             entry["count"] += count
         if any(code in kit_holds for code in hardware):
             hold("kit")
@@ -112,7 +161,8 @@ def resolve(steps, parts, fasteners, decisions=None, joints=None):
                 continue
             for decision in seen[required].held_by:
                 _add_unique(held, decision)
-        rs = ResolvedStep(step, held, drilled, joined, list(hardware.values()), dict(poses), errors)
+        poses = {node: own[host] for node, host in hosts.items()}
+        rs = ResolvedStep(step, held, drilled, joined, list(hardware.values()), poses, errors, dict(hosts))
         resolved.append(rs)
         seen[sid] = rs
     return resolved
@@ -155,10 +205,14 @@ def validate(resolved, parts, fasteners, decisions=None):
     for joint in ap.JOINTS.values():
         if joint.hold and joint.hold not in ap.DECISION_IDS:
             errors.append(f"joint {joint.id}: hold names unknown decision {joint.hold}")
+    for pattern in ap.PATTERNS.values():
+        if pattern.hold and pattern.hold not in ap.DECISION_IDS:
+            errors.append(f"pattern {pattern.id}: hold names unknown decision {pattern.hold}")
     for pid, decision in ap.PART_HOLDS.items():
         if decision not in ap.DECISION_IDS:
             errors.append(f"part {pid}: hold names unknown decision {decision}")
     held_joints = {j.id for j in ap.JOINTS.values() if j.hold in decisions}
+    held_joints |= {p.id for p in ap.PATTERNS.values() if p.hold in decisions}
     holes = [h for rs in resolved for h in rs.drilled + rs.joined]
     errors += ap.check_holes(holes, parts, held_joints)
     totals = {code: {a: n for a, n in per.items() if a in st.ACTIVE_STAGES}

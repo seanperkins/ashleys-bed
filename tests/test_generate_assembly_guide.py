@@ -10,13 +10,15 @@ import assembly_glb as glb
 import assembly_steps as st
 import generate_assembly_guide as gen
 
-DRILLING = ["bookcase-drill", "bookcase-drill-shelf", "bookcase-bottom", "bookcase-shelf", "bookcase-top",
+DRILLING = ["bed-drill-sides", "bed-inserts", "bed-top-headboard", "bed-bottom-headboard", "bed-right-side",
+            "bed-left-side", "bed-lag-bolts", "bed-wall-brackets",
+            "bookcase-drill", "bookcase-drill-shelf", "bookcase-bottom", "bookcase-shelf", "bookcase-top",
             "bookcase-right-side"]
 
 
 def bad_steps():
     steps = copy.deepcopy(st.STEPS)
-    steps[0]["adds"] = ["L01", "L02", "Q99"]
+    next(s for s in steps if s["id"] == "bookcase-drill")["adds"] = ["L01", "L02", "Q99"]
     return steps
 
 
@@ -34,10 +36,10 @@ class GenerateTest(unittest.TestCase):
 
     def test_generates_all_files(self):
         summary = gen.generate(self.out)
-        self.assertEqual(summary["steps"], 13)
+        self.assertEqual(summary["steps"], 22)
         names = {p.name for p in self.out.iterdir()}
         self.assertEqual({n for n in names if n.endswith(".svg") and "holes" not in n},
-                         {f"step-{i:02d}.svg" for i in range(1, 14)})
+                         {f"step-{i:02d}.svg" for i in range(1, 23)})
         steps = json.loads((self.out / "assembly-steps.json").read_text())
         self.assertEqual([s["id"] for s in steps], [s["id"] for s in st.STEPS])
         with_holes = [s["id"] for s in steps if s["holes_svg"]]
@@ -46,7 +48,7 @@ class GenerateTest(unittest.TestCase):
             ET.parse(self.out / s["svg"])
             if s["holes_svg"]:
                 ET.parse(self.out / s["holes_svg"])
-        self.assertEqual(len([n for n in names if n.endswith("-holes.svg")]), 6)
+        self.assertEqual(len([n for n in names if n.endswith("-holes.svg")]), 14)
         glb.read_glb((self.out / "assembly.glb").read_bytes())
         self.assertEqual(sorted(summary["files"]), sorted(names))
 
@@ -121,7 +123,7 @@ class GenerateTest(unittest.TestCase):
 
     def test_hold_count(self):
         summary = gen.generate(self.out)
-        self.assertEqual(summary["holds"], 10)
+        self.assertEqual(summary["holds"], 11)
 
     def test_cli_exit_codes(self):
         self.assertEqual(gen.main(["--out", str(self.out)]), 0)

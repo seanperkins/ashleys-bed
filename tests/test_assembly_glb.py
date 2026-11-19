@@ -45,17 +45,19 @@ class GlbTest(unittest.TestCase):
         self.assertTrue({p for p, part in self.parts.items() if part.stage not in st.PENDING_STAGES} <= names)
         dowels = [n for n in names if "-dowel-" in n]
         screws = [n for n in names if "-screw-" in n]
-        self.assertEqual((len(dowels), len(screws)), (12, 18))
+        self.assertEqual((len(dowels), len(screws)), (12 + 22, 18 + 32))
         self.assertIn("L04-L01-dowel-1", names)
-        self.assertEqual(len(names), 22 + 5 + 30)  # wood less the five pending parts, steel, hardware
-        self.assertEqual(sorted(self.gltf["scenes"][0]["nodes"]), list(range(57)))
+        kit = 16 + 16 + 12 + 3 + 6  # T, U, KK, II, JJ
+        total = 22 + 5 + 30 + 54 + kit  # wood less the five pending parts, steel, bookcase and bed joints, kit
+        self.assertEqual(len(names), total)
+        self.assertEqual(sorted(self.gltf["scenes"][0]["nodes"]), list(range(total)))
 
     def test_pending_parts_omitted(self):
         for pid in ("M07", "M08", "M09", "M10", "M11"):
             self.assertNotIn(pid, self.nodes)
         for sid in ("I-R", "I-L", "HH-1", "HH-2", "HH-3"):
             self.assertIn(sid, self.nodes)
-            self.assertEqual(self.material(sid), "context")  # bed-cabinet is not active yet
+            self.assertEqual(self.material(sid), "steel")
         lo, hi = self.mesh_bounds("HH-1")
         self.assertAlmostEqual(lo[1], 64 * IN, places=6)
 
@@ -67,7 +69,8 @@ class GlbTest(unittest.TestCase):
     def test_materials(self):
         self.assertEqual(self.material("L11"), "natural")
         self.assertEqual(self.material("L04"), "navy")
-        self.assertEqual(self.material("M01"), "context")
+        self.assertEqual(self.material("M01"), "navy")
+        self.assertEqual(self.material("I-R"), "steel")
         self.assertEqual(self.material("L04-L01-dowel-1"), "hardware")
 
     def test_accessor_bounds_present(self):
