@@ -267,7 +267,8 @@ def build_layout(parts):
                                   "source": "owner calipers, 2026-09-30; remeasure each sheet"},
         "joinery": {
             "type": "dowels",
-            "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides; every part is cut "
+            "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 x 1-1/2 in "
+                    "dowels (same as the bed); every part is cut "
                     "to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions "
                     "are not defined here. Confirm the drawer slide before drilling the L07 dowel holes.",
         },
@@ -700,7 +701,8 @@ def cut_guide(layout):
         "STOCK_REFERENCE, MARGIN_REFERENCE, GRAIN_REFERENCE and LABELS: never cut.",
         "DXF declares inches ($INSUNITS=1); verify a known dimension after import.", "",
         "LEFT-BOOKCASE JOINERY: DOWELS",
-        "Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02: no dados, rabbets or pockets.",
+        "Top L03, bottom L04 and shelf above drawer L07 are doweled to sides L01/L02 with 3/8 x 1-1/2 in dowels",
+        "(same as the bed): no dados, rabbets or pockets.",
         "Every part is cut to finished size (L03/L04/L07 = 28 1/2 in). Dowel positions are not defined in these files.",
         "Confirm the drawer slide before drilling the L07 dowel holes (fixed shelf sits 14 in above the floor).",
         "TABS: parts sit 1/2 in apart (< two bit diameters), so neighbouring profile passes cut away any tab on a",

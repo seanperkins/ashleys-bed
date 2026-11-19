@@ -293,7 +293,8 @@ def overview_page(total, widest):
             "Test-cut an offcut and measure it before the first real cut; re-check the fence after each move.",
         ]),
         ("AFTER SAWING", [
-            "Bookcase top, bottom and fixed shelf are doweled to the sides: no dados or routing. Dowel positions "
+            "Bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 in dowels (same as the bed): "
+            "no dados or routing. Dowel positions "
             "are not part of this plan. How the 1/4 in back attaches is still open.",
             "Shelf-pin holes (5 mm), dowel holes and the Rockler bed holes (27/64 in inserts, screws) are drilled by hand.",
             "M07 stop: thin from about 0.71 to 5/8 in with a planer or sander, or use 5/8 in stock.",

@@ -60,7 +60,7 @@ SECTIONS = [
 ]
 TOOLS = [
     ('8 mm Allen key', 'Drives the threaded inserts. The kit does not include this size.'),
-    ('3/8 in doweling jig', "For the bed's 3/8 in dowels."),
+    ('3/8 in doweling jig', 'For the bed and bookcase 3/8 in dowels.'),
     ('Drill bits', '5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8 and 27/64 in, plus a #8 countersink.'),
     ('Clamps, square, level, stud finder', 'For glue-up and installation. Do not use an impact driver.'),
 ]

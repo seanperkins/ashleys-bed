@@ -130,9 +130,9 @@ FASTENERS AND ADHESIVES
     Note: Bed count: 8 at the two headboard/top-bottom joints plus 24 at side-panel joints, per pp9-10. Remaining 68 are a retained package allowance, not a required cabinet count. Cabinet quantity depends on the final dowel and fastener layout.
 [ ] 3/8 x 1-1/2-inch dowels -- 50 dowels
     Specification: Fluted hardwood joining dowels
-    Used for: Required bed-cabinet reinforced joints
-    Basis: 22 required; purchase allowance rounded to 50
-    Note: Six at headboard/top-bottom joints plus sixteen at side joints. These do not replace shelf pins.
+    Used for: Required bed-cabinet reinforced joints and LEFT bookcase fixed joints
+    Basis: 22 required for the bed; purchase allowance rounded to 50
+    Note: Bed: six at headboard/top-bottom joints plus sixteen at side joints. The rest is a provisional allowance for the left bookcase's fixed joints; recalculate the total once the bookcase dowel layout is set. These do not replace shelf pins.
 [ ] #8 x 1-1/4-inch wood screws -- 25 screws
     Specification: Wood screws suitable for the permanent stop
     Used for: Bed permanent stop
@@ -217,7 +217,7 @@ OPTIONAL ALIGNMENT
 
 CHECK TOOLS BEFORE BUYING
 [ ] Drilling and doweling equipment -- CHECK / ALREADY ALLOCATED
-    Specification: Drill; 3/8 doweling jig; bits 5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8, 27/64 inch; #8 countersink; depth stops; future 5 mm shelf-pin boring bit
+    Specification: Drill; 3/8 doweling jig (bed and bookcase dowels); bits 5/64, 1/8, 5/32, 3/16, 13/64, 5/16, 3/8, 27/64 inch; #8 countersink; depth stops; future 5 mm shelf-pin boring bit
     Used for: Manual-specific pilot holes, dowels and shelf-pin work
     Basis: Check owned/HackRVA tools
     Note: Some sizes are specified later in the instructions rather than on p7. Confirm actual stock and bit depth before boring.

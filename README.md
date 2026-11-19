@@ -16,7 +16,7 @@ These are built into the Fusion model, cut list, DXFs and drawings. They assume 
 
 - **Adjustable shelves 1–3:** 15¾ × 28⅜ in, giving 1/16 in clearance per side between the bookcase's 28½ in sides so they can be placed on pins. The fixed shelf above the drawer stays 28½ in.
 - **Bookcase back:** ¼ × 28 7/16 × 59 15/16 in, giving 1/32 in clearance per edge where it sits inside the carcass. Resize it if the back is set into rabbets or grooves instead.
-- **Left-bookcase joinery (¾ in parts):** the top, bottom and fixed shelf are doweled to the sides, so every part is cut to its finished size (top, bottom and fixed shelf 28½ in). Dowel and 5 mm shelf-pin holes are drilled by hand; dowel size and positions are not set yet. Confirm the drawer slide before drilling the fixed shelf's dowel holes (it sits 14 in up).
+- **Left-bookcase joinery (¾ in parts):** the top, bottom and fixed shelf are doweled to the sides with the same 3/8 × 1½ in fluted dowels as the bed, so every part is cut to its finished size (top, bottom and fixed shelf 28½ in). Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions are not drawn yet. Confirm the drawer slide before drilling the fixed shelf's dowel holes (it sits 14 in up).
 - **Drawer box:** 27½ in wide in a 28½ in opening, ½ in per side for side-mount slides. Confirm against the chosen slide.
 - **Gas springs (model only):** 14 in cylinder and 13½ in rod, chosen to span the modeled mounts. They are not Rockler's specification.
 

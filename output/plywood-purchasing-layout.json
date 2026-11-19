@@ -17,7 +17,7 @@
   },
   "joinery": {
     "type": "dowels",
-    "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides; every part is cut to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions are not defined here. Confirm the drawer slide before drilling the L07 dowel holes."
+    "note": "Left-bookcase top, bottom and fixed shelf are doweled to the sides with 3/8 x 1-1/2 in dowels (same as the bed); every part is cut to finished size. Dowel and 5 mm shelf-pin holes are drilled by hand; dowel positions are not defined here. Confirm the drawer slide before drilling the L07 dowel holes."
   },
   "profileBit": "Amana 45302, 3/8 in single-flute straight, 1/2 in shank",
   "dxfLayers": {
