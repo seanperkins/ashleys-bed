@@ -153,7 +153,8 @@ The generator fails the build when:
 - a hole leaves its joint band, a face hole is deeper than 1/2 in, or two holes in a joint are closer than
   1 in centre to centre.
 
-Tests (`tests/test_assembly_guide.py`, pytest, written first): the checks above; wood boxes match
+Tests (`tests/test_assembly_guide.py`, standard-library `unittest`, run with
+`python3 -m unittest discover tests`, written first): the checks above; wood boxes match
 `drawing-geometry.json`; every SVG parses and contains its step's part IDs; the GLB has one node per
 catalogued part and hardware instance.
 
