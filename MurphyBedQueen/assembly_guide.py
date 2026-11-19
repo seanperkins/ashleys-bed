@@ -142,6 +142,8 @@ def validate(resolved, parts, fasteners, decisions=None):
     for pid, part in parts.items():
         if part.assembly in st.ACTIVE_ASSEMBLIES and pid not in added:
             errors.append(f"{pid} is never added")
+    for decision in sorted(set(decisions) - ap.DECISION_IDS):
+        errors.append(f"OPEN_DECISIONS has {decision}, which is missing from DECISION_IDS in assembly_parts.py")
     for joint in ap.JOINTS.values():
         if joint.hold and joint.hold not in ap.DECISION_IDS:
             errors.append(f"joint {joint.id}: hold names unknown decision {joint.hold}")

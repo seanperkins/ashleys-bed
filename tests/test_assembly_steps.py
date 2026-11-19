@@ -131,6 +131,12 @@ class StepTest(unittest.TestCase):
         self.assertNotIn("back", namespace["OPEN_DECISIONS"])
         self.assertIn("back", namespace["DECISION_IDS"])
 
+    def test_new_decision_must_be_listed(self):
+        decisions = dict(ap.OPEN_DECISIONS, hinges="Choose hinge hardware")
+        errors = ag.validate(ag.resolve(st.STEPS, self.parts, self.fasteners, decisions=decisions),
+                             self.parts, self.fasteners, decisions=decisions)
+        self.assertTrue(any("hinges" in e and "DECISION_IDS" in e for e in errors), errors)
+
     def test_unknown_decision_in_joint_or_part_hold(self):
         import dataclasses
         import unittest.mock as mock
