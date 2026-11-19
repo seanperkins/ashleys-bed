@@ -35,17 +35,21 @@ self.addEventListener("fetch", (event) => {
   const path = url.pathname.slice(SCOPE.length);
   if (!PRECACHE.includes(path)) return;
   if (path === PAGE) {
-    // The page: network first so a new deploy shows at once; the cached copy when offline.
+    // The page: network first so a new deploy shows at once; the cached copy when offline or
+    // when a weak signal takes longer than 3 s (the network copy still refreshes the cache).
+    const network = fetch(request).then((response) => {
+      if (response.ok) {
+        const copy = response.clone();
+        caches.open(CACHE).then((cache) => cache.put(path, copy));
+      }
+      return response;
+    });
+    const cached = () => caches.open(CACHE).then((cache) => cache.match(path));
+    const slow = new Promise((resolve) => setTimeout(resolve, 3000)).then(cached);
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE).then((cache) => cache.put(path, copy));
-          }
-          return response;
-        })
-        .catch(() => caches.open(CACHE).then((cache) => cache.match(path))),
+      Promise.race([network.catch(cached), slow.then((hit) => hit || network)]).then(
+        (response) => response || network,
+      ),
     );
     return;
   }

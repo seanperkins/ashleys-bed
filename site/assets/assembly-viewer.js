@@ -100,7 +100,18 @@ function sameMatrix(a, b) {
 }
 
 // ---------------------------------------------------------------- navigation
-function goTo(index, { animate = true } = {}) {
+// User navigation brings the 3D view back into sight (on a phone the Next bar sits below the
+// text) and moves focus to the new step's title.
+function showStep() {
+  const stage = $("#guide-stage");
+  const top = stage.getBoundingClientRect().top;
+  if (top < 0 || top > window.innerHeight / 2) {
+    stage.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+  }
+  $(".guide-title").focus({ preventScroll: true });
+}
+
+function goTo(index, { animate = true, user = true } = {}) {
   index = Math.min(Math.max(index, 0), steps.length - 1);
   viewer?.finish(); // a tween in progress completes before the next step starts
   current = index;
@@ -109,6 +120,7 @@ function goTo(index, { animate = true } = {}) {
   remember(id);
   renderPanel(index);
   viewer?.play(index, animate && !reducedMotion.matches);
+  if (user) showStep();
 }
 
 function wireControls() {
@@ -416,7 +428,8 @@ async function start() {
     return;
   }
   current = startIndex();
-  goTo(current, { animate: false });
+  goTo(current, { animate: false, user: false });
+  $("#guide-stage").scrollIntoView({ block: "start" }); // the page opens on the 3D view, as on a phone it fills the top
   try {
     const gltf = await new GLTFLoader().loadAsync(base + "assembly.glb");
     viewer = createViewer(gltf);
