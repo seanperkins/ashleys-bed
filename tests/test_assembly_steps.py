@@ -1,5 +1,6 @@
 import copy
 import unittest
+from pathlib import Path
 
 from tests import _paths  # noqa: F401
 import assembly_guide as ag
@@ -119,6 +120,16 @@ class StepTest(unittest.TestCase):
         self.assertEqual(ag.validate(resolved, self.parts, self.fasteners, decisions=decisions), [])
         back = next(rs for rs in resolved if rs.step["id"] == "bookcase-back")
         self.assertEqual(back.held_by, ["slide"])
+
+    def test_decision_ids_survive_source_removal(self):
+        # Resolve "back" the README way, by deleting its line from the source, and re-run the module.
+        source = Path(ap.__file__).read_text(encoding="utf-8")
+        start = source.index('    "back": ')
+        edited = source[:start] + source[source.index("\n", start) + 1:]
+        namespace = {"__name__": "assembly_parts_edited", "__file__": ap.__file__}
+        exec(compile(edited, ap.__file__, "exec"), namespace)
+        self.assertNotIn("back", namespace["OPEN_DECISIONS"])
+        self.assertIn("back", namespace["DECISION_IDS"])
 
     def test_unknown_decision_in_joint_or_part_hold(self):
         import dataclasses

@@ -13,7 +13,7 @@ HARNESS = r"""
 const fs = require("fs");
 const [swPath, mode] = process.argv.slice(2);
 const listeners = {};
-const store = new Map([["build-steps.html", "CACHED PAGE"]]);
+const store = new Map(mode === "error-nocache" ? [] : [["build-steps.html", "CACHED PAGE"]]);
 const cache = {
   match: async (key) => (store.has(key) ? { ok: true, status: 200, body: store.get(key) } : undefined),
   put: async (key, value) => { store.set(key, value.body); },
@@ -29,7 +29,7 @@ global.caches = { open: async () => cache, keys: async () => [], delete: async (
 global.Request = class { constructor(url) { this.url = url; } };
 global.fetch = async () => {
   if (mode === "offline") throw new TypeError("network down");
-  if (mode === "error") return { ok: false, status: 503, body: "SERVER ERROR", clone() { return this; } };
+  if (mode.startsWith("error")) return { ok: false, status: 503, body: "SERVER ERROR", clone() { return this; } };
   return { ok: true, status: 200, body: "FRESH PAGE", clone() { return this; } };
 };
 eval(fs.readFileSync(swPath, "utf8"));
@@ -65,6 +65,9 @@ class ServiceWorkerTest(unittest.TestCase):
 
     def test_offline_serves_cache(self):
         self.assertEqual(self.page("offline")["body"], "CACHED PAGE")
+
+    def test_server_error_without_cache_shows_server_page(self):
+        self.assertEqual(self.page("error-nocache"), {"status": 503, "body": "SERVER ERROR"})
 
     def test_server_error_serves_cache(self):
         self.assertEqual(self.page("error")["body"], "CACHED PAGE")

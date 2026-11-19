@@ -37,13 +37,14 @@ self.addEventListener("fetch", (event) => {
   if (path === PAGE) {
     // The page: network first so a new deploy shows at once; the cached copy when offline or
     // when a weak signal takes longer than 3 s (the network copy still refreshes the cache).
+    const cached = () => caches.open(CACHE).then((cache) => cache.match(path));
     const network = fetch(request).then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`); // an error page never beats the cache
+      // an error page never beats a good cached copy, but is still shown when there is none
+      if (!response.ok) return cached().then((hit) => hit || response);
       const copy = response.clone();
       caches.open(CACHE).then((cache) => cache.put(path, copy));
       return response;
     });
-    const cached = () => caches.open(CACHE).then((cache) => cache.match(path));
     const slow = new Promise((resolve) => setTimeout(resolve, 3000)).then(cached);
     event.respondWith(
       Promise.race([network.catch(cached), slow.then((hit) => hit || network)]).then(

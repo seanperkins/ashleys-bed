@@ -395,9 +395,11 @@ OPEN_DECISIONS = {
     "kit": "Kit fastener discrepancies to confirm with Rockler (BB length, W count, OO nuts).",
 }
 
-# Every decision id the data may name. Resolving a decision removes it from OPEN_DECISIONS (holds
-# naming it then clear); a hold naming an id outside this set is a typo and fails validation.
-DECISION_IDS = frozenset(OPEN_DECISIONS)
+# Every decision id the data may name, open or resolved. Resolving a decision deletes its entry from
+# OPEN_DECISIONS (holds naming it then clear); a hold naming an id outside this set is a typo and
+# fails validation. Kept as its own list so deleting an OPEN_DECISIONS entry never removes it here.
+DECISION_IDS = frozenset({"back", "slide", "shelf-pins", "restraint", "plinth", "drawer-box", "pulls",
+                          "pilot-depth", "screw-tips", "kit"})
 
 # Parts whose own fixing is undecided: any step that adds them is held.
 PART_HOLDS = {
