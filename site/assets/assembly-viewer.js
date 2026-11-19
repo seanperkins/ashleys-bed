@@ -14,6 +14,7 @@ const CONSUMABLES = { glue: "Wood glue", threadlocker: "Removable threadlocker" 
 const IDENTITY = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 let steps = [];
+let PARTS = new Set(); // every part some step adds (hardware node names are not parts)
 let current = 0;
 let showFinished = false;
 let viewer = null; // 3D state; null until the model loads (the panel works without it)
@@ -73,7 +74,9 @@ function renderPanel(index) {
   }
   const chips = $("#guide-parts");
   chips.replaceChildren();
-  const moved = Object.keys(step.poses).filter((id) => index > 0 && !sameMatrix(steps[index - 1].poses[id], step.poses[id]));
+  // Parts only: hardware rides on its host part and is listed under "You need".
+  const moved = Object.keys(step.poses).filter((id) => PARTS.has(id) && index > 0
+    && !sameMatrix(steps[index - 1].poses[id], step.poses[id]));
   const named = [...new Set([...step.adds, ...moved])];
   named.forEach((id) => {
     const item = element("li");
@@ -241,7 +244,7 @@ function createViewer(gltf) {
         object.matrix.identity();
       } else if (hardwareStep.has(name)) {
         object.visible = hardwareStep.get(name).step <= index;
-        object.matrix.identity();
+        object.matrix.copy(poseOf(name, index));  // hardware takes its host part's pose
       } else {
         object.visible = firstStep.has(name) && firstStep.get(name) <= index;
         object.matrix.copy(poseOf(name, index));
@@ -294,8 +297,9 @@ function createViewer(gltf) {
   function play(index, animate) {
     const moved = [];
     for (const [name, object] of nodes) {
-      if (!firstStep.has(name)) continue;
-      const before = index > 0 && firstStep.get(name) < index ? poseOf(name, index - 1) : null;
+      const first = firstStep.has(name) ? firstStep.get(name) : hardwareStep.get(name)?.step;
+      if (first === undefined) continue;
+      const before = index > 0 && first < index ? poseOf(name, index - 1) : null;
       const after = poseOf(name, index);
       if (before && !before.equals(after)) moved.push({ object, before, after });
     }
@@ -303,7 +307,8 @@ function createViewer(gltf) {
     const fresh = step.adds.map((id) => nodes.get(id)).filter(Boolean);
     const travel = new THREE.Vector3().fromArray(step.move).normalize();
     const hardware = step.hardware.flatMap((item) =>
-      item.nodes.map((name) => ({ object: nodes.get(name), item })).filter((entry) => entry.object));
+      item.nodes.map((name, i) => ({ object: nodes.get(name), item, axis: item.axes?.[i] || item.axis }))
+        .filter((entry) => entry.object));
     applyState(index);
     moveCamera(index, animate);
     if (!animate || showFinished) {
@@ -336,15 +341,17 @@ function createViewer(gltf) {
     // 2. dowels slide into their holes
     // 3. the new panel slides in along `move`
     // 4. screws advance and spin
-    for (const { object, item } of hardware) {
-      const axis = new THREE.Vector3().fromArray(item.axis || travel.toArray());
+    for (const { object, item, axis: nodeAxis } of hardware) {
+      const axis = new THREE.Vector3().fromArray(nodeAxis || travel.toArray());
       const [a, b, reach] = item.phase === "dowel" ? [0.1, 0.4, 0.05] : [0.7, 0.95, 0.06];
       const k = window01(t, a, b);
       object.visible = t >= a;
       const shift = axis.clone().multiplyScalar(-(1 - k) * reach);
       const centre = object.userData.centre;
       const spin = item.phase === "screw" ? (1 - k) * Math.PI * 6 : 0;
-      object.matrix.makeTranslation(shift.x + centre.x, shift.y + centre.y, shift.z + centre.z)
+      // slide and spin in the host's installed frame, then carry it with the host's pose
+      object.matrix.copy(poseOf(object.name, current))
+        .multiply(new THREE.Matrix4().makeTranslation(shift.x + centre.x, shift.y + centre.y, shift.z + centre.z))
         .multiply(new THREE.Matrix4().makeRotationAxis(axis, spin))
         .multiply(new THREE.Matrix4().makeTranslation(-centre.x, -centre.y, -centre.z));
     }
@@ -431,6 +438,7 @@ async function start() {
     const response = await fetch(base + "assembly-steps.json");
     if (!response.ok) throw new Error(`steps: HTTP ${response.status}`);
     steps = await response.json();
+    PARTS = new Set(steps.flatMap((step) => step.adds));
   } catch (error) {
     status.textContent = "The steps could not be loaded. Check your connection and reload.";
     console.warn(error);

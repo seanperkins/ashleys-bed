@@ -172,10 +172,10 @@ BED_STEPS = [
             "Set the top and bottom assemblies on their front edges on the floor, 64 in apart outside to "
             "outside, headboards up, as they sit in the cabinet.",
             f"Drill the M01 ends of M03, M04, M05 and M06 {EDGE_JIG}.",
-            "Glue the eight dowels and the four panel ends, then lower the right side M01 on, plate side down.",
+            "Glue the eight dowels and the four panel ends, then push the right side M01 onto them from the end, plate side in.",
             "Drive all twelve screws snug, then check the cabinet is square by measuring both diagonals.",
         ],
-        "warnings": ["You need a helper to lower M01 onto all four panels at once."],
+        "warnings": ["You need a helper to hold M01 square while you push it onto all four panels at once."],
         "hold": None, "requires": ["bed-inserts", "bed-top-headboard", "bed-bottom-headboard"],
         "source": "Rockler p. 10",
     },
@@ -191,10 +191,10 @@ BED_STEPS = [
         "camera": {"azimuth": 45, "elevation": 30, "target": "M02"},
         "text": [
             f"Drill the M02 ends of M03, M04, M05 and M06 {EDGE_JIG}.",
-            "Glue the eight dowels and the four panel ends, then lower the left side M02 on, plate side down.",
+            "Glue the eight dowels and the four panel ends, then push the left side M02 onto them from the end, plate side in.",
             "Drive all twelve screws snug, then check both diagonals again.",
         ],
-        "warnings": ["You need a helper to lower M02 onto all four panels at once."],
+        "warnings": ["You need a helper to hold M02 square while you push it onto all four panels at once."],
         "hold": None, "requires": ["bed-right-side"], "source": "Rockler p. 10",
     },
     {

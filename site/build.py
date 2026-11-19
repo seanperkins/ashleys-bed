@@ -32,7 +32,7 @@ PAGES = [
     ('purchase', 'Purchase', 'The purchasing guide', 'What to buy, what is included, and what to confirm first.'),
     ('cnc', 'CNC preparation', 'From plywood to cut parts', 'The machining plan, setup worksheet and release requirements.'),
     ('assembly', 'Build & finish', 'Assembly, finishing & installation', 'A staged project guide, alongside Rockler’s required instructions.'),
-    ('build-steps', 'Step-by-step', 'Step-by-step assembly', 'Interactive 3D steps for the bookcase; the bed steps follow.'),
+    ('build-steps', 'Step-by-step', 'Step-by-step assembly', 'Interactive 3D steps for the bed cabinet and the bookcase; the bed mechanism steps follow.'),
     ('downloads', 'Drawings & files', 'The current project files', 'One revision. Clearly labeled drawings, parts and cut outlines.'),
 ]
 DOWNLOADS = [

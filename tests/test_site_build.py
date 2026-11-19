@@ -47,9 +47,12 @@ class SiteBuildTest(unittest.TestCase):
         self.assertTrue((self.dest / "assets/assembly-viewer.js").exists())
         slugs = [p[0] for p in build.PAGES]
         self.assertEqual(slugs[slugs.index("assembly") + 1], "build-steps")
+
+
+    def test_page_description(self):
         description = next(p[3] for p in build.PAGES if p[0] == "build-steps")
-        self.assertIn("bookcase", description)
-        self.assertNotIn("bed and bookcase", description)  # bed steps come in phase 2
+        self.assertEqual(description, "Interactive 3D steps for the bed cabinet and the bookcase; "
+                                      "the bed mechanism steps follow.")
 
     def test_build_does_not_touch_output(self):
         self.assertEqual(snapshot(build.OUT / "assembly-guide"), self.output_before)
@@ -81,6 +84,15 @@ class SiteBuildTest(unittest.TestCase):
             (root / "a.html").write_text('<a href="build-steps.html#nope">bad</a>')
             with self.assertRaisesRegex(ValueError, "#nope"):
                 build.validate_site(root, {"build-steps.html": {"bookcase-drill"}})
+        # the real build accepts deep links to both a bed and a bookcase step
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "_site"
+            shutil.copytree(self.dest, dest)
+            (dest / "deep.html").write_text('<a href="build-steps.html#bed-drill-sides">bed</a>'
+                                            '<a href="build-steps.html#bookcase-drill">bookcase</a>')
+            ids = {s["id"] for s in json.loads((dest / "assembly-guide/assembly-steps.json").read_text())}
+            build.validate_site(dest, {"build-steps.html": ids})
+            self.assertTrue({"bed-drill-sides", "bookcase-drill"} <= ids)
 
     def test_importmap_and_scripts(self):
         imports = json.loads(re.search(r'<script type="importmap">(.*?)</script>', self.page, re.S).group(1))
@@ -150,6 +162,12 @@ class SiteBuildTest(unittest.TestCase):
 
     def test_guide_page_links_resolve(self):
         self.assertIn('href="build-steps.html"', (self.dest / "assembly.html").read_text())
+
+
+    def test_viewer_poses_hardware(self):
+        viewer = (self.dest / "assets/assembly-viewer.js").read_text()
+        self.assertIn("item.axes", viewer)  # per-node axes when one item's nodes face different ways
+        self.assertNotRegex(viewer, r"hardwareStep\.has\(name\)\) \{\s*object\.visible = [^;]+;\s*object\.matrix\.identity\(\)")
 
 
 if __name__ == "__main__":
